@@ -1,0 +1,277 @@
+
+#BANNER{
+    background-color: #a6b3ff;
+    z-index: 40;
+    position: fixed;
+    left: 0vw;
+    top: 0vh;
+    height: 120px;
+    cursor: none;
+    overflow: hidden;
+    display: flex;
+    width: 100vw;
+  }
+
+  .navbar{
+    z-index: 99;
+    top: 120px;
+    clip-path: polygon(
+      0% 0%,
+      100% 0%,
+      100% 100%,
+      0% 100%
+      );
+      font-size: 23px;
+  }
+
+  .nav-item{
+    padding-left: 5vw;
+    padding-right: 5vw;
+  }
+
+
+
+  .banner img {
+    max-height: 100%;
+    max-width: 100%;
+    margin: 0 10px;
+  }
+  
+  .links-container {
+      position: fixed;
+      bottom: 5vh;
+      height: 15vh;
+      right: 1%;
+      display: flex;
+      flex-direction: column; /* Alignement vertical des liens */
+      padding: 5px;
+      z-index: 450;
+      scale: 1;
+    }
+    
+    .link {
+      border-radius: 25px;
+      display: flex;
+      align-items: center;
+      background-color: white; 
+      width: 29px;
+      padding: 2px 1px 2px 1px;
+      margin-bottom: 5px; 
+      margin-right: 5px;
+    }
+    
+    .text {
+      color: black;
+      font-weight: bold;  
+    }
+    
+    .link-img {
+      position: relative;
+      width: 25px;
+      left: 1px;
+      height: 25px;
+    }
+  
+    .shake {
+      background-color: transparent;
+      height: 50px;
+      width: 50px;
+      color: black;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out;
+    }
+
+  .shake:hover {
+    transform: rotate(360deg);
+  }
+  
+  /************************************************* ness ****************************************/
+  .containess{
+    z-index: 52;
+    position: fixed;
+    height: 120px;
+    width: 100vw;
+    top: 0vh;
+    overflow: hidden;
+    cursor: none;
+  }
+    
+  
+  .nessclass{
+    position: absolute;
+    z-index: 50;
+    top: -70px;
+   
+    animation: hidingness;
+    animation-iteration-count: infinite;
+    animation-duration: 30s;
+    animation-fill-mode: forwards;
+    animation-delay: 15s;
+    
+  }
+
+  .nessdrawed{
+    position: absolute;
+    scale:.25;
+  }
+  
+  .nessrightear{
+    position: absolute;
+    scale: .25;
+    animation: ear 30s infinite;
+    left: 0px;
+  }
+
+  @keyframes ear{
+    00% {top:5px;}
+    03% {top:7px;}
+    06% {top:5px;}
+    09% {top:0px;}
+    12% {top:5px;}
+    15% {top:0px;}
+    18% {top:7px;}
+    20% {top:5px;}
+    23% {top:7px;}
+    26% {top:5px;}
+    29% {top:0px;}
+    32% {top:5px;}
+    35% {top:0px;}
+    38% {top:7px;}
+    40% {top:5px;}
+    43% {top:7px;}
+    46% {top:5px;}
+    49% {top:0px;}
+    52% {top:5px;}
+    55% {top:0px;}
+    58% {top:7px;}
+    60% {top:5px;}
+    63% {top:7px;}
+    66% {top:5px;}
+    69% {top:0px;}
+    72% {top:5px;}
+    75% {top:0px;}
+    78% {top:7px;}
+    80% {top:5px;}
+    83% {top:7px;}
+    86% {top:5px;}
+    89% {top:0px;}
+    92% {top:5px;}
+    95% {top:0px;}
+    98% {top:7px;}
+  }
+
+  @keyframes hidingness {
+    00%		{ top:-70px; 	left: var(--random-left-left);transform: scale(1);}
+    10%		{ top:-120px;  left: var(--random-left-left);transform: scale(1);}
+    20%		{ top:-150px; 	left: var(--random-left);transform: scale(1.2);}
+    30%		{ top:-70px; 	left: var(--random-left-right);transform: scale(0.9);}
+    35%		{ top:-70px; 	left: var(--random-left);}
+    40%		{ top:-140px; 	left: var(--random-left-left);transform: scale(1);}
+    45%		{ top:-70px; 	left: var(--random-left);}
+    75%		{ top:-160px; 	left: var(--random-left); transform: scale(1.3);}
+    90%		{ top:-130px; 	left: var(--random-left-right);transform: scale(1);}
+    100%	{ top:-70px; 	left: 50%;}   
+  }
+  
+  #eyebrows{
+  z-index:60;
+  scale: 0.8;
+  top:185px;
+  left: 138px;
+  width:200px;
+  margin-left:10px;
+  margin-top:20px;
+  height:100px;
+  background-color:rgb(0, 0, 0);
+  position:absolute;
+  /*clip-path: polygon(0px 0px, 80px 0px,80px 10px,40px 15px,0px 10px); /*angry*/
+  /*clip-path: polygon(0px 0px, 80px 0px,80px 20px,40px 10px,0px 20px); /*sad-not selected*/
+  /*clip-path: polygon(0px 50px, 80px 50px,80px 50px,40px 50px,0px 50px); /*suprised*/
+  clip-path: polygon(00px 05px, 20px 01px, 60px 01px, 80px 05px, 80px 15px, 40px 15px, 00px 15px); /*blased*/
+  /*clip-path: polygon(0px 0px, 80px 0px,80px 15px,45px 16px,40px 15px,35px 15px,0px 5px); /*dubitative-not selected*/
+  /*clip-path: polygon(0px 0px, 80px 0px,80px 20px,45px 20px, 45px 25px, 80px 25px,80px 15px,40px 15px,0px 15px, 0px 20px, 35px 20px, 35px 25px, 0px 25px); /*suspicious*/
+  
+  animation: expression 50s infinite;
+  }
+  
+    @keyframes expression {
+      10%		{ background-color: black;    clip-path: polygon(00px 05px, 20px 05px, 60px 05px, 80px 05px, 80px 05px, 40px 05px, 00px 05px);} /*Curious*/
+      20%		{ background-color: black;    clip-path: polygon(00px 05px, 20px 01px, 60px 01px, 80px 05px, 80px 15px, 40px 15px, 00px 15px);} /*neutral*/
+      30%		{ background-color: black;    clip-path: polygon(00px 01px, 20px 01px, 60px 01px, 80px 01px, 80px 01px, 40px 01px, 00px 01px);} /*surprised*/
+      40%		{ background-color: black;    clip-path: polygon(00px 05px, 20px 01px, 60px 01px, 80px 05px, 80px 15px, 40px 15px, 00px 15px);} /*neutral*/
+      /* 45%		{ background-color: black;    clip-path: polygon(00px 05px, 20px 01px, 60px 01px, 80px 05px, 80px 17px, 40px 10px, 00px 17px);} /*worried*/
+      75%		{ background-color: black;    clip-path: polygon(00px 05px, 20px 01px, 60px 01px, 80px 05px, 80px 15px, 40px 15px, 00px 15px);} /*neutral*/
+      10%		{ background-color: black;    clip-path: polygon(00px 05px, 20px 05px, 60px 05px, 80px 05px, 80px 05px, 40px 05px, 00px 05px);} /*Curious*/
+      100%	{ background-color: black;    clip-path: polygon(00px 05px, 20px 01px, 60px 01px, 80px 05px, 80px 15px, 40px 15px, 00px 15px);} /*neutral*/    
+  }
+    .eyes {
+      position: absolute;
+      display: flex;
+      margin: 25px 10px;
+      z-index: 55;
+      top:200px;
+      left: 150px;
+  }
+  .eyes .eye {
+      position: relative;
+      width: 20px;
+      height: 20px;
+      display: block;
+      background: radial-gradient(#4f5c16,#bfdf0a,#4f5c16);
+      margin: 0 10px;
+      border-radius: 50%;
+  }
+  .eyes .eye::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 28%;
+      transform: translate(-50%, -50%);
+      width: 10px;
+      height: 10px;
+      background: black;
+      border-radius: 50%;
+      animation: grozyeux;
+      animation-duration:  30s;
+      animation-iteration-count: infinite;
+      animation-delay: 0s;
+  }
+  
+  @keyframes grozyeux {
+  5% 	  { width: 10px;	height: 10px; }
+  8% 		{ top: 50%; left: 50%; width: 15px;	height: 15px; }
+  11% 	{ width: 10px;	height: 10px; }
+  }
+  .eyelid{
+  border-radius: 30% 30% 50% 50%;
+  width : 30px;
+  height: 0px;
+  background-color:black;
+  z-index:61;
+  position: absolute;
+  animation : blink 6s infinite;
+  }
+  @keyframes blink {
+  98%		{ height: 0px;}
+  99%   { height: 20px;}
+  100%	{ height: 0px;}   
+  }	
+  #R-eyelid{
+  margin-left:45px;
+  }
+  #L-eyelid{
+  margin-left:5px;
+  }
+
+  @media only screen and (max-width: 990px) {
+    .navbar-toggler{
+      height: 60px;
+    }
+    .shake{
+      display: none;
+    }
+    
+
+  }
+

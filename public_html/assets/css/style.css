@@ -1,0 +1,763 @@
+/*
+.col-1{background-color: rgba(255, 0, 0, 0.2);}
+.col-2{background-color: rgba(0, 0, 255, 0.2);}
+.col-3{background-color: rgba(0, 255, 64, 0.2);}
+.col-4{background-color: rgba(255, 123, 0, 0.2);}
+.col-5{background-color: rgba(255, 0, 255, 0.2);}
+.col-6{background-color: rgba(111, 0, 255, 0.2);}
+.col-7{background-color: rgba(0, 238, 255, 0.2);}
+.col-8{background-color: rgba(166, 255, 0, 0.2);}
+.col-9{background-color: rgba(255, 255, 255, 0.2);}
+.col-10{background-color: rgb(0, 0, 0);}
+.col-11{background-color: rgba(172, 172, 172, 0.2);}
+.col-12{background-color: rgba(77, 77, 77, 0.2);}
+*/
+
+:root {
+  --powder-blue: #A6B3FFff;
+  --federal-blue: #0a014fff;
+  --caribbean-current: #38686aff;
+  --ash-gray: #a3b4a2ff;
+  --BG:25px;
+  --MD:20px;
+  --SM:12px;
+}
+/* SCREEN 770 ############################################### */
+
+@media screen and (max-width: 770px) {
+  :root {
+    --BG:25px;
+    --MD:15px;
+    --SM:10px;
+  }
+}
+
+@media screen and (max-width: 990px) and (min-width: 770px) {
+  :root {
+    --BG:25px;
+    --MD:20px;
+    --SM:15px;
+  }
+}
+
+@media screen and (max-width: 1200px) and (min-width: 971px) {
+  :root {
+    --BG:25px;
+    --MD:20px;
+    --SM:15px;
+  }
+}
+/* to call with var(); */
+
+/* PAGE ######################################################### */
+
+body{
+  overflow-x: hidden;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+}
+section{
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+}
+
+.section-desc{
+  font-size: var(--BG);
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.container-fluid{
+  position: relative;
+  top:21vh;
+}
+
+#canvas {
+  position: fixed;
+  top: 0px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background-color:var(--powder-blue);
+}
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
+}
+.fade-in {
+  opacity: 1;
+  transition: opacity 0.3s ease-in;
+}
+
+/* HOME ######################################################### */
+.home{
+  position: relative;
+  margin-top: 50px;
+}
+.home-title{
+font-size: var(--BG);
+font-weight: bold;
+}
+.home-desc{
+  font-size: var(--MD);
+}
+
+.img-fluid{
+  position: relative;
+  max-height:60vh;
+}
+
+/* PROJECTS ##################################################### */
+
+.cp{
+  margin-top: 25px;
+}
+
+.project-text{
+  margin-top: 50px;
+  font-size: var(--MD);
+  display: block;
+}
+
+.project-text2{
+  font-size: var(--MD);
+  display: none;
+}
+.card-title{
+  text-transform: uppercase;
+  text-align: center;
+  font-size: var(--BG);
+  font-weight: bold;
+}
+
+.card_project1 {
+  position: relative;
+  height: 50vh;
+  width: 16vw;
+  border-radius: 15px;
+  overflow: hidden;
+  background: linear-gradient(180deg, rgba(0,0,0,0.75) 50%, rgba(0,0,0,0) 100%), url('https://arnaudlemascon.fr/assets/pictures/p_hooman.webp');
+  background-size: cover; /* Ajustez en fonction de vos besoins */
+}
+
+.card_project2 {
+  position: relative;
+  height: 50vh;
+  width: 16vw;
+  border-radius: 15px;
+  overflow: hidden;
+  background: linear-gradient(180deg, rgba(0,0,0,0.75) 50%, rgba(0,0,0,0) 100%), url('https://arnaudlemascon.fr/assets/pictures/cvex.webp');
+  background-size: cover; /* Ajustez en fonction de vos besoins */
+}
+
+.cp .card-body {
+  position: relative; /* Assurez-vous que le contenu est positionné correctement */
+  z-index: 1; /* Placez le contenu de la carte au-dessus de l'image de fond */
+  /* Vos styles pour le contenu de la carte ici */
+  opacity: 1; /* Gardez le texte à une opacité de 1 */
+}
+
+.cp .card-body{
+  color: white;
+}
+
+/* VALUES ####################################################### */
+.card-value-image{
+  position: relative;
+  top: 15px;
+  max-height: 200px;
+}
+
+.card_values{
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.459);
+  height: 30vh;
+  text-align: center;
+  width: calc(100% / 1.5);
+  max-width: 300px;
+  min-width: 200px;
+}
+
+.card_values img{
+  width: 90%;
+  height: 75%;
+  object-fit: cover;
+}
+
+.card-text{
+  color: black;
+  position: relative;
+  background: linear-gradient(159deg, rgb(236, 230, 109) 0%, rgb(194, 181, 43) 71%, rgb(184, 181, 51) 100%);
+  width: 150px;
+  height: 140px;
+  top: -100%;
+  padding: 5px 5px 5px 5px;
+  font-size: 12px;
+}
+
+.postit1{
+  rotate: -30deg;
+  left: 40%;
+}
+.postit2{
+  rotate: 20deg;
+  left: -10%; 
+}
+.postit3{
+  left: 50%;
+  top: -75%;
+  rotate: -20deg; 
+}
+.postit4{
+  rotate: -30deg;
+  left: 25%;
+}
+.postit5{
+  rotate: 30deg;
+  left: 30%; 
+}
+.postit6{
+  rotate: 15deg;
+  left: 20%; 
+}
+
+.card-title-value{
+  color: black;
+  font-size: var(--MD);
+  position: relative;
+  background-color: transparent;
+  top: 5px;
+  text-align: center;
+}
+
+/* TRIVIA ####################################################### */
+
+
+.img-fluid-carousel{
+  height: 60vh ;
+  max-width: 1000px;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
+.hidden-carousel-button{
+  display: none;
+}
+
+.carousel-caption{
+  z-index: 0;
+  font-size: var(--SM);
+  position: absolute;
+  width: 75%;
+  max-width: 800px;
+  min-width: 200px;
+  padding: 10px 10px 10px 10px;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+  color: white;
+  font-weight: bolder;
+  transition: background-color 0.5s ease;
+} 
+
+.carousel-caption:hover{
+  background: rgba(0, 0, 0, 0.8);
+} 
+
+
+/* Styling pour les boutons de contrôle du carrousel */
+.carousel-control-prev,
+.carousel-control-next {
+  z-index: 1;
+  width: 100%; /* Largeur des boutons */
+  height: 100%; /* Hauteur des boutons */
+  opacity: 1; /* Opacité par défaut */
+  padding: 30vh 25% 30vh 25%;
+}
+
+.carousel-control-prev{
+  right: 0%;
+  background: rgba(255, 255, 255, 0.5);
+  clip-path: polygon(90% 25%, 50% 50%, 90% 75%);
+} 
+.carousel-control-next {
+  left: 0%;
+  background: rgba(255, 255, 255, 0.5);
+  clip-path: polygon(10% 25%, 50% 50%, 10% 75%);
+}
+
+
+
+/* SKILLS ####################################################### */
+
+.card_skills{
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 50vh;
+  width: 16vw;
+  min-width: 250px;
+  border-radius: 25px;
+}
+
+.S1:hover{
+  background: linear-gradient(140deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.8) 90%);
+  color: white;
+}
+.S2:hover{
+  background: linear-gradient(40deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.8) 90%);
+  color: white;
+}
+.S3:hover{
+  background: linear-gradient(270deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.8) 90%);
+  color: white;
+}
+
+.separator{
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.25);
+  height: 1px;
+  width: 100%;
+  margin: 20px 0px 10px 0px;
+}
+
+.gauge {
+  position: relative;
+  right: 0%;
+  width: 100%;
+  height: 20px;
+  background-color: rgba(0, 212, 250, 0.2);
+  border-radius: 25px;
+}
+
+.gauge-level {
+  height: 100%;
+  background-color: rgba(0, 212, 250, 0.2);
+  position: absolute;
+  transition: width 0.5s;
+  border-radius: 25px;
+}
+
+.card_skills.S1:hover .gauge {
+  background-color: rgba(0, 212, 250, 0.5);
+}
+.card_skills.S1:hover .gauge-level {
+  background-color: rgb(0, 212, 250);
+}
+.card_skills.S2:hover .gauge {
+  background-color: rgba(0, 212, 250, 0.5);
+}
+.card_skills.S2:hover .gauge-level {
+  background-color: rgb(0, 212, 250);
+}
+.card_skills.S3:hover .img-card-softskill {
+  opacity: 1;
+}
+
+.card-text-skill{
+  text-align: right;
+  position: relative;
+  font-size: var(--SM);
+  margin-bottom: 5px;
+}
+
+.S3 .card-text-skill{
+  top:0px;
+}
+
+
+.softskillunit {
+  position: relative;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title-softskill {
+  position: relative;
+  font-size: 11px;
+  text-align: center;
+}
+
+.img-card-softskill {
+  position: relative;
+  max-height: 50px;
+  max-width: 60px;
+  opacity: 0.5;
+}
+/* CONTACT ###################################################### */
+.name,.message,.mail{
+  color: white;
+}
+
+textarea{
+  width: 50vw;
+  background-color: lightgray;
+
+}
+
+input{
+  background-color: lightgray;
+}
+
+.btn-message{
+  position: relative;
+  width: 100px; 
+  height: 75px;
+  top: 25%;
+  left:0%;
+  background: white;
+  border: none;
+}
+
+.btn-message:after {
+  content: '';
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  background: var(--ash-gray);
+  clip-path: polygon(0% 0%, 100% 0%,50% 50%);
+}
+
+
+/* FOOTER ###################################################### */
+footer{
+  text-align: center;
+  justify-content: center;
+  position: relative;
+  height: 50px;
+  width: 100vw;
+  color: white;
+  font-size: 15px;
+  padding: 15px;
+}
+
+/* POP-UP ###################################################### */
+
+  .popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    visibility: hidden;
+  }
+  
+  .popup-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 400px;
+    text-align: center;
+  }
+  
+  .popup-content h2 {
+    margin-top: 0;
+  }
+  
+  .popup-content p {
+    margin-bottom: 20px;
+  }
+  
+  #close-btn {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+/* SCREEN 770 ############################################### */
+
+@media screen and (max-width: 770px) {
+  .hidden-carousel-button{
+    display: flex;
+    top: 50px;
+  }
+
+  .btn-carousel{
+    background: black;
+    border: none;
+  }
+
+  .btn-carousel:hover{
+    background: black;
+    opacity: 0.6;
+    border: none;
+  }
+
+  .btn-carousel:focus {
+    background-color: black !important; /* Nouvelle couleur de fond après sélection */
+    outline: none; /* Supprimer l'outline bleu lorsqu'il a le focus */
+    box-shadow: none !important; /* Supprimer la box-shadow persistante après le clic */
+}
+  
+  .cp{
+    min-width: 75vw;
+    max-height: 15vh;
+  }
+
+  .project-text{
+    display: none;
+  }
+
+  .project-text2{
+    display: block;
+  }
+ 
+  .card_project {
+    width: 70vw;
+    height: 200px;
+  }
+
+  .project-text{
+    font-size: 15px;
+  }
+
+  #SKILLS{
+    height: 150vh;
+  }
+
+  .card_skills {
+    width: 70vw;
+    height: fit-content;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .img-card-softskill{
+    display: none;
+  }
+
+  .softskillunit{
+    padding: 0%;
+  }
+  
+  .card-text-skill{
+    font-size: 10px;
+    text-align: left;
+    bottom: 0%;
+    margin-top: 10px;
+    background-color: transparent;
+  }
+
+  .gauge {
+    position: relative;
+    right: 5%;
+    width: 100%;
+    height: 10px;
+    background-color: rgba(0, 212, 250, 0.2);
+    border-radius: 25px;
+  }
+  
+  .gauge-level {
+    height: 100%;
+    background-color: rgba(0, 212, 250, 0.2);
+    position: absolute;
+    transition: width 0.5s;
+    border-radius: 25px;
+  }
+  
+
+  .card_values {
+    width: 35vw;
+    min-width: 35vw;
+    height: 15vh;
+    overflow: hidden;
+    border-radius: 25px;
+    margin-top: 10%;
+  }
+
+  .card-text{
+    z-index: 0;
+    position: absolute;
+    background: linear-gradient(360deg, rgba(0, 0, 0, 0.8) 10%, rgba(0, 0, 0,.4) 90%);
+    width: 100%;
+    height: 100%;
+    padding-top: 55px;
+    top: 00%;
+    left: 0%;
+    font-size: var(--SM);
+    rotate: 0deg;
+    color: white;
+    border-radius: 25px;
+    }  
+   
+
+  .card-title-value{
+    transform-origin: 50% 50%;
+    font-size: var(--MD);
+    z-index: 1;
+    font-weight: bold;
+    color: white;
+    border-radius: 25px;
+    top: 10%;
+    height: fit-content;
+  }
+
+  .card_values img{
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+    border-radius: 25px;
+  }
+
+  #imageCarousel {
+    height: 30vh;
+  }
+
+  #imageCarousel .img-fluid-carousel {
+    height: 35vh;
+    width: 100%;
+  }
+
+  .card-text-skill{
+    font-size: var(--SM);
+    text-align: left;
+
+  }
+
+  .language{
+    display: none;
+  }
+    
+  footer{
+    font-size: 10px;
+  }
+}
+
+/* SCREEN 990 ############################################### */
+
+@media screen and (max-width: 990px) and (min-width: 770px) {
+  
+  .project-text{
+    display: none;
+  }
+
+  .project-text2{
+    display: block;
+  }
+
+  .cp{
+    min-width: 200px;
+    max-width: 200px;
+  }
+  .card_project {
+    width: 60vw;
+    height: 200px;
+}
+
+.project-text{
+  font-size: 15px;
+}
+
+.card_skills {
+  width: 60vw;
+  height: fit-content;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+  
+  .img-card-softskill{
+    display: none;
+  }
+
+  .softskillunit{
+    padding: 0%;
+  }
+  
+  .card-text-skill{
+    font-size: 10px;
+    bottom: 0%;
+    background-color: transparent;
+    text-align: left;
+  }
+
+  .language{
+    display: none;
+  }
+          
+  .card-text{
+    scale: 0.8;
+  }
+
+  .shake{
+    display: none;
+  }
+
+  footer{
+    font-size: 10px;
+  }
+}
+/* SCREEN 1200 ############################################### */
+@media screen and (max-width: 1200px) and (min-width: 971px) {
+
+  .project-text{
+    display: none;
+  }
+
+  .project-text2{
+    display: block;
+  }
+
+  .cp{
+    min-width: 200px;
+    max-width: 200px;
+  }
+
+  .card_skills {
+    width: 30vw;
+    height: fit-content;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+  }
+
+  .card_project {
+    width: 30vw;
+    height: 250px;
+  }
+  .project-text{
+    font-size: 15px;
+  }
+
+  .img-card-softskill{
+    display: none;
+  }
+
+  .softskillunit{
+    padding: 0%;
+  }
+
+
+  .language{
+    display: none;
+  }
+    
+  .card-text{
+    scale: 0.8;
+  }
+
+  .card-text-skill{
+    font-size: 10px;
+    bottom: 0%;
+    margin: 0%;
+    background-color: transparent;
+  } 
+
+  footer{
+    font-size: 10px;
+  }
+}

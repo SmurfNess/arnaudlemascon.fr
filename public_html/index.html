@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
+  <title>Arnaud Lemasçon</title>
+  <meta name="description" content="Site personnel à objectif de portfolio">
+<!-- Utilisation de la balise link pour spécifier le logo de l'onglet -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cpath d='M 50 200 A 40 40 0 1 1 350 200 Z' fill='black' /%3E%3Cpath d='M 50 200 A 40 40 0 1 0 350 200 Z' fill='white'/%3E%3Cpath d='M 50 200 A 40 40 0 1 0 150 200 Z' fill='black' /%3E%3Cpath d='M 250 200 A 40 40 0 1 0 350 200 Z' fill='black' /%3E%3Cpath d='M 150 200 A 40 40 0 1 1 250 200 Z' fill='white' /%3E%3C/svg%3E" type="image/svg+xml">
+
+<!-- Bootstrap -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Vis-->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css" type="text/css" />
+    <!-- Style -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/Banner.css">
+  </head>
+
+
+<body>
+<!-- Background -->
+<canvas id="canvas">a</canvas>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="maBande">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+      <!-- Bouton "SHAKE" à gauche -->
+        <svg class="shake" onclick="chargerImagesAleatoires();" width="40" height="40" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 5 20 A 4 4 0 1 1 35 20 Z" fill="black" />
+          <path d="M 5 20 A 4 4 0 1 0 35 20 Z" fill="white"/>
+          <path d="M 5 20 A 4 4 0 1 0 15 20 Z" fill="black" />
+          <path d="M 25 20 A 4 4 0 1 0 35 20 Z" fill="black" />
+          <path d="M 15 20 A 4 4 0 1 1 25 20 Z" fill="white" />
+        </svg>
+      
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item">
+              <a class="nav-link" href="#VALUES" onclick="closeNavbar()">Valeurs</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="#TRIVIA" onclick="closeNavbar()">Trivia</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="#SKILLS" onclick="closeNavbar()">Compétences</a>
+          </li>                
+          <li class="nav-item">
+              <a class="nav-link" href="#CONTACT" onclick="closeNavbar()">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#PROJECTS" onclick="closeNavbar()">Projets</a>
+        </li>
+      </ul>
+
+      <a href="index-en.html"><img src="assets/pictures/united-kingdom.webp" style="max-height: 38px; margin-right: 20px;"></a>
+      <a href="index-es.html"><img src="assets/pictures/flag.webp" style="max-height: 40px;"></a>
+  </div>
+</nav>
+
+    <!-- Banner -->
+    <div class="container_banner">
+        <div class="containess">
+          <div class="nessclass">
+            <svg width="400" height="500" xmlns="http://www.w3.org/2000/svg" class="nessrightear">
+              <path d="M 325 125 C 350 10, 320 10, 250 70" stroke="black" fill="pink" stroke-width="12"/>
+              <path d="M 320 27 C 250 60, 320 130, 250 70" stroke="black" fill="black" stroke-width="5"/>
+              <path d="M 75 125 C 50 10, 80 10, 150 70" stroke="black" fill="pink" stroke-width="12"/>
+              <path d="M 80 27 C 150 60, 80 130, 150 70" stroke="black" fill="black" stroke-width="5"/>
+          </svg>
+
+            <svg width="400" height="500" xmlns="http://www.w3.org/2000/svg" class="nessdrawed">
+              <path d="M 0 500 C 0 100, 400 100, 400 500 Z" fill="black"/>
+              <path d="M 100 500 C 100 200, 300 200, 300 500 Z" fill="white"/>
+               <circle cx="200" cy="200" r="150" fill="black"/>
+              <path d="M 300 312 A 150 150 0 0 1 88 300 L 205 200 Z" fill="white" stroke="black" stroke-width="3"/>
+              <circle cx="200" cy="290" r="30" fill="pink"/>
+             
+               <circle cx="220" cy="272" r="35" fill="white"/>
+              <circle cx="180" cy="272" r="35" fill="white"/>
+             
+              <circle cx="130" cy="272" r="50" fill="white"/>
+              <circle cx="270" cy="272" r="50" fill="white"/>
+             
+              <circle cx="200" cy="200" r="30" fill="white"/>
+              <rect x="170" y="200" width="60" height="100" fill="white"/>
+              <ellipse cx="200" cy="250" rx="25" ry="10" fill="pink"/>
+              <path d="M 190 250 C 200 280, 200 280, 210 250" fill="pink" />
+           
+              <line x1="120" y1="260" x2="40" y2="240" stroke="white" stroke-width="15"/>
+              <line x1="120" y1="280" x2="40" y2="280" stroke="white" stroke-width="15"/>
+              <line x1="120" y1="300" x2="50" y2="330" stroke="white" stroke-width="15"/>
+                <line x1="280" y1="260" x2="360" y2="240" stroke="white" stroke-width="15"/>
+              <line x1="280" y1="280" x2="360" y2="280" stroke="white" stroke-width="15"/>
+              <line x1="280" y1="300" x2="350" y2="330" stroke="white" stroke-width="15"/>          
+           </svg>
+
+            <div class="eyes">
+              <div class="eye"></div>
+              <div class="eye"></div>
+              <div id="R-eyelid" class="eyelid"></div>
+              <div id="L-eyelid" class="eyelid"></div>
+            </div>
+            <div id="eyebrows"></div>
+          </div>        
+        </div>
+        <div class="banner" id="BANNER"></div>
+        <div class="links-container">
+          <a href="https://github.com/SmurfNess" class="link" target="_blank">
+            <img src="assets/pictures/github.webp" alt="Github" class="link-img"><span></span>
+          </a>
+          <a href="https://codepen.io/Greatness-GreatSmurf" class="link" target="_blank">
+            <img src="assets/pictures/codepen.webp" class="link-img" alt="Codepen"><span></span>
+          </a>
+          <a href="https://www.linkedin.com/in/arnaud-lemas%C3%A7on-ness" class="link" target="_blank">
+            <img src="assets/pictures/linkedin.webp" class="link-img" alt="LinkiedIn"><span></span>
+          </a>
+        </div>
+    </div>
+
+    <section id="HOME" class="light-section">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-2"></div>
+          <div class="col-8"></div>
+          <div class="col-2"></div>
+        </div>
+        <div class="row home">
+          <div class="col-md-2 col-0"></div>
+          <div class="col-md-4 col-12">
+            <img src="assets/pictures/portrait5.webp" id="IMG-PORTRAIT" class="img-fluid">
+          </div>
+          <div class="col-md-4 col-12 home-description">
+            <article>
+              <h2 class="fs-2"></h2>
+              <br>
+              <p class="home-title">Hey, je suis Arnaud, bienvenue ici</p>
+              <p class="home-desc">Ancien étudiant en art, j'aime créer, autant avec mes mains qu'avec un ordinateur. J'ai créé ce site pour me challenger.
+                
+              </p>
+            </article>
+          </div>
+          <div class="col-md-2 col-0"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="PROJECTS" class="light-section">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-2"></div>
+          <div class="col-8 section-desc">Les projets en cours</div>
+          <div class="col-2"></div>
+        </div>
+        <div class="row">
+          <div class="col-md-2 col-1"></div>
+          <div class="col-md-8 col-10">
+                <div class="row">
+                  <!-- Carte 1 -->
+                  <div class="col-xl-4 col-lg-6 mb-6">
+                      <div class="card_project1 cp">
+                        <a href="projects/hoomanbenchmark/hoomanbenchmark.html">
+                        <div class="card-body">
+                          <h5 class="card-title">hooman benchmark</h5>
+                          <p class="project-text">Un des premiers défis que je me suis donné a été de reproduire l'un des test du site Human benchmark</p> 
+                          <p class="project-text2">Remake de l'un des test du site Human benchmark</p> 
+                        </div>
+                      </a>
+                      </div>
+                  </div>
+                  <div class="col-xl-4 col-lg-6 mb-6">
+                    <div class="card_project2 cp">
+                      <a href="projects/cv/index.php">
+                      <div class="card-body">
+                        <h5 class="card-title">CV database</h5>
+                        <p class="project-text">Pour second projet j'ai créé une base SQL sur un Raspberry pour revoir les commandes Linux et découvrir PHP et SQL. J'avais déjà une page pour me générer un cv, j'ai donc adapter la logique de JS/XLSX à Php/MySQL</p> 
+                        <p class="project-text2">CV généré depuis une base de donnée sur un Raspberry</p> 
+                      </div>
+                    </a>
+                    </div>
+                </div>
+                </div>
+          </div>
+          <div class="col-md-2 col-1"></div>
+      </div>
+  </div>
+      </div>
+    </section>
+    
+    
+    <section id="VALUES" class="dark-section1"> 
+      <div class="container-fluid">
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-8 section-desc">les valeurs qui m'animent</div>
+                <div class="col-2"></div>
+        </div>
+          <div class="row">
+              <div class="col-md-2 col-1"></div>
+              <div class="col-md-8 col-10">
+                  <div class="row">
+                      <!-- Carte 1 -->
+                      <div class="col-md-4 col-6 mb-4">
+                        <div class="card_values">
+                              <img src="assets/pictures/IMG_1841.webp" class="card-value-image" alt="Image 1">
+                              <div class="card-body">
+                                  <h5 class="card-title-value">Curiosité</h5>
+                                </div>
+                                <div class="card-text postit1">D'artiste à consultant, d'organisateurs de sorties à développeur débutant</div>
+                            </div>
+                        </div>
+  
+                      <!-- Carte 2 -->
+                      <div class="col-md-4 col-6 mb-4">
+                        <div class="card_values">
+                              <img src="assets/pictures/IMG_1873.webp" class="card-value-image" alt="Image 2">
+                              <div class="card-body">
+                                  <h5 class="card-title-value">Créativité</h5>
+                                </div>
+                                <div class="card-text postit2">Créer un jeux de société et apprendre l'automatisation pour limiter le nombre de tâches sans valeurs ajoutée</div>
+                            </div>
+                        </div>
+  
+                      <!-- Carte 3 -->
+                      <div class="col-md-4 col-6 mb-4">
+                        <div class="card_values">
+                              <img src="assets/pictures/engagement.webp" class="card-value-image" alt="Image 3">
+                              <div class="card-body">
+                                  <h5 class="card-title-value">Engagement</h5>
+                              </div>
+                              <div class="card-text postit3">Donateur et ancien bénévole (cause animale, féministe, LGBTQUIA+) </div>
+                          </div>
+                      </div>
+  
+                      <!-- Carte 5 -->
+                      <div class="col-md-4 col-6 mb-4">
+                        <div class="card_values">
+                            <img src="assets/pictures/IMG_1808.webp" class="card-value-image" alt="Image 1">
+                            <div class="card-body">
+                                <h5 class="card-title-value">Travail d'équipe</h5>
+                              </div>
+                              <div class="card-text postit4">J'aime retrouver une forme de camaraderie au travail</div>
+                          </div>
+                    </div>
+
+                    <!-- Carte 6 -->
+                    <div class="col-md-4 col-6 mb-4">
+                        <div class="card_values">
+                            <img src="https://apod.nasa.gov/apod/image/2311/GibbousMoon_Strand_1500.jpg" class="card-value-image" alt="Image 2">
+                            <div class="card-body">
+                                <h5 class="card-title-value">Performance</h5>
+                              </div>
+                              <div class="card-text postit5">J'ai déjà parlé d'automatisation, j'aime également les notions d'itération et d'amélioration continue</div>
+                          </div>
+                    </div>
+
+                    <!-- Carte 6 -->
+                    <div class="col-md-4 col-6 mb-4">
+                        <div class="card_values">
+                            <img src="assets/pictures/IMG_1834.webp" class="card-value-image" alt="Image 3">
+                            <div class="card-body">
+                                <h5 class="card-title-value">Évolution</h5>
+                              </div>
+                              <div class="card-text postit6">Toujours envie d'apprendre, de découvrir et de m'améliorer</div>
+                          </div>
+                    </div>
+
+                  </div>
+              </div>
+              <div class="col-md-2 col-1">
+                
+            </div>
+
+          </div>
+      </div>
+  </section>
+
+
+  <section id="TRIVIA">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-8 section-desc">quelques infos à mon sujet</div>
+                <div class="col-2"></div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-3">
+              <a class="carousel-control-prev d-md-block d-none" href="#imageCarousel" role="button" data-slide="prev"></a>
+          </div>
+            <div class="col-md-6 carrousel">
+                <!-- Carrousel -->
+                <div id="imageCarousel" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                    <!-- Image 1 -->
+                    <div class="carousel-item active">
+                        <img src="assets/pictures/carousel-game.webp" class="d-block w-100 mx-auto img-fluid-carousel text-center" alt="Image 1">
+                        <div class="carousel-caption d-md-block mx-auto">
+                            <h4>Joueur</h4>
+                            <p>J'aime jouer, jeux de société, escape game ou jeux vidéo et aussi faire jouer (création de jeux de société et animation)</p>
+                        </div>
+                    </div>
+
+                    <!-- Image 2 -->
+                    <div class="carousel-item">
+                        <img src="assets/pictures/carousel-linkness.webp" class="d-block w-100 mx-auto img-fluid-carousel text-center" alt="Image 2">
+                        <div class="carousel-caption d-md-block mx-auto">
+                          <h4>Sociable</h4>
+                            <p>Quand je cherchais à me faire des amis, j'ai fondé un groupe meetup qui a finit par accueillir un millier de membres et près de 500 évènements </p>
+                        </div>
+                    </div>
+                    <!-- Image 3 -->
+                    <div class="carousel-item">
+                        <img src="assets/pictures/carousel-tinkerer.webp" class="d-block w-100 mx-auto img-fluid-carousel text-center" alt="Image 3">
+                        <div class="carousel-caption d-md-block mx-auto">
+                          <h4>Bricoleur</h4>
+                            <p>Depuis mon enfance j'aime fabriquer des choses avec mes dix doigts.</p>
+                        </div>
+                    </div>
+
+                    <!-- Image 4 -->
+                    <div class="carousel-item">
+                        <img src="assets/pictures/carousel-ness.webp" class="d-block w-100 mx-auto img-fluid-carousel text-center" alt="Image 4">
+                        <div class="carousel-caption d-md-block mx-auto">
+                          <h4>Ness</h4>
+                            <p>Mon chat, locataire et mascotte officielle involontaire de la plupart de mes projets depuis 6 ans</p>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+              <a class="carousel-control-next d-md-block d-none" href="#imageCarousel" role="button" data-slide="next"></a>
+          </div>
+          <div class="col-5 hidden-carousel-button"></div>
+          <div class="col-2 hidden-carousel-button">
+            <div class="d-md-none text-center mt-2">
+              <a class="btn btn-primary btn-carousel" href="#imageCarousel" role="button" data-slide="next">Suivant</a>
+          </div>
+          </div>
+          <div class="col-5 hidden-carousel-button"></div>        
+        </div>
+    </div>
+</section>              
+    
+<section id="SKILLS" class="dark-section2">            
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-8 section-desc">Mes compétences</div>
+            <div class="col-2"></div>
+        </div>
+
+      <div class="row">
+          <div class="col-md-2 col-1"></div>
+          <div class="col-md-8 col-10">
+              <div class="row">
+                  <!-- Carte 1 -->
+                  <div class="col-xl-4 col-lg-6 mb-4">
+                    <div class="card_skills S1">
+                          <div class="card-body">
+                                <div class="row">
+                                  <div class="col-md-12 card-title">IT Skills</div>
+                                  <div class="col-md-6 card-text-skill">Linux</div>
+                                  <div class="col-md-6">
+                                    <div class="gauge-wrapper col-md-12">
+                                      <div class="gauge">
+                                      <div class="gauge-level" style="width:20%"></div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-md-6 card-text-skill">Active Directory</div>
+                                  <div class="col-md-6">
+                                    <div class="gauge-wrapper col-md-12">
+                                      <div class="gauge">
+                                      <div class="gauge-level" style="width:70%"></div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-md-6 card-text-skill">PowerShell</div>
+                                  <div class="col-md-6">
+                                    <div class="gauge-wrapper col-md-12">
+                                      <div class="gauge">
+                                      <div class="gauge-level" style="width:75%"></div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-md-6 card-text-skill">Office 365</div>
+                                  <div class="col-md-6">
+                                    <div class="gauge-wrapper col-md-12">
+                                      <div class="gauge">
+                                      <div class="gauge-level" style="width:75%"></div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-md-6 card-text-skill">HTML 5</div>
+                                  <div class="col-md-6">
+                                    <div class="gauge-wrapper col-md-12">
+                                      <div class="gauge">
+                                      <div class="gauge-level" style="width:55%"></div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-md-6 card-text-skill">CSS</div>
+                                  <div class="col-md-6">
+                                    <div class="gauge-wrapper col-md-12">
+                                      <div class="gauge">
+                                      <div class="gauge-level" style="width:55%"></div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-md-6 card-text-skill">JavaScript</div>
+                                  <div class="col-md-6">
+                                    <div class="gauge-wrapper col-md-12">
+                                      <div class="gauge">
+                                      <div class="gauge-level" style="width:40%"></div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-md-6 card-text-skill">PHP</div>
+                                  <div class="col-md-6">
+                                    <div class="gauge-wrapper col-md-12">
+                                      <div class="gauge">
+                                      <div class="gauge-level" style="width:20%"></div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-md-6 card-text-skill">SQL</div>
+                                  <div class="col-md-6 col-sm-0">
+                                    <div class="gauge-wrapper col-md-12">
+                                      <div class="gauge">
+                                      <div class="gauge-level" style="width:20%"></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Carte 2 -->
+                  <div class="col-xl-4 col-lg-6 mb-4">
+                    <div class="card_skills S2">
+                      <div class="card-body">
+                        <div class="row">
+                          <div class="col-md-12 card-title">Project Skills</div>
+                          <div class="col-md-7 card-text-skill">ITIL</div>
+                          <div class="col-md-5">
+                            <div class="gauge-wrapper col-md-12">
+                              <div class="gauge">
+                              <div class="gauge-level" style="width:40%"></div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-7 card-text-skill">SCRUM</div>
+                          <div class="col-md-5">
+                            <div class="gauge-wrapper col-md-12">
+                              <div class="gauge">
+                              <div class="gauge-level" style="width:88%"></div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-7 card-text-skill">Lead changement</div>
+                          <div class="col-md-5">
+                            <div class="gauge-wrapper col-md-12">
+                              <div class="gauge">
+                              <div class="gauge-level" style="width:40%"></div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="separator language"></div>
+                          <div class="col-md-12 card-title">Languages</div>
+                          <div class="col-md-6 card-text-skill">French</div>
+                          <div class="col-md-6">
+                            <div class="gauge-wrapper col-md-12">
+                              <div class="gauge">
+                              <div class="gauge-level" style="width:40%"></div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6 card-text-skill">English</div>
+                          <div class="col-md-6">
+                            <div class="gauge-wrapper col-md-12">
+                              <div class="gauge">
+                              <div class="gauge-level" style="width:75%"></div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6 card-text-skill">Spanish</div>
+                          <div class="col-md-6">
+                            <div class="gauge-wrapper col-md-12">
+                              <div class="gauge">
+                              <div class="gauge-level" style="width:30%"></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+
+                  <!-- Carte 3 -->
+                  <div class="col-xl-4 col-lg-6 mb-4">
+                    <div class="card_skills S3">
+                          <div class="card-body">
+                              <h5 class="card-title">Soft Skills</h5>
+                              <div class="row skillunit" id="skillunit_softskills">
+                                <div class="softskillunit col-lg-6 col-sm-4 col-6">
+                                  <img src="assets/pictures/creativity.webp" class="img-card-softskill" alt="">
+                                  <div class="title-softskill">Creativity</div>
+                                </div>
+                                <div class="softskillunit col-lg-6 col-sm-4 col-6">
+                                  <img src="assets/pictures/question.webp" class="img-card-softskill" alt="">
+                                  <div class="title-softskill">Curiosity</div>
+                                </div>
+                                <div class="softskillunit col-lg-6 col-sm-4 col-6">
+                                  <img src="assets/pictures/autonomy.webp" class="img-card-softskill" alt="">
+                                  <div class="title-softskill">Autonomy</div>
+                                </div>
+                                <div class="softskillunit col-lg-6 col-sm-4 col-6">
+                                  <img src="assets/pictures/learning.webp" class="img-card-softskill" alt="">
+                                  <div class="title-softskill">Self-learning</div>
+                                </div>
+                                <div class="softskillunit col-lg-6 col-sm-4 col-6">
+                                  <img src="assets/pictures/resilience.webp" class="img-card-softskill" alt="">
+                                  <div class="title-softskill">Resilience</div>
+                                </div>
+                                <div class="softskillunit col-lg-6 col-sm-4 col-6">
+                                  <img src="assets/pictures/team.webp" class="img-card-softskill" alt="">
+                                  <div class="title-softskill">Teamwork</div>
+                                </div>
+                                <div class="softskillunit col-lg-6 col-sm-4 col-6">
+                                  <img src="assets/pictures/communication.webp" class="img-card-softskill" alt="">
+                                  <div class="title-softskill">Communication</div>
+                                </div>
+                                <div class="softskillunit col-lg-6 col-sm-4 col-6">
+                                  <img src="assets/pictures/listening.webp" class="img-card-softskill" alt="">
+                                  <div class="title-softskill">Listening</div>
+                                </div>
+                           </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-2 col-1"></div>
+      </div>
+  </div>
+</section>
+    
+    <section id="CONTACT">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-2"></div>
+          <div class="col-8">
+            <form action="https://formspree.io/f/xdovyzdp" method="POST">
+              <div class="row">
+              <label class="col-md-12 name">Your name and pronouns:<br>
+                <input type="name" name="name" style="width: 100%;" required>
+              </label>
+              <label class="col-md-12 mail">Your email:<br>
+                <input type="email" name="email" style="width: 100%;" required>
+              </label>
+              <label class="col-md-10 col-sm-12 message">Your message:<br>
+                <textarea name="message" rows="8" cols="0"></textarea required>
+              </label>
+              <div class="col-md-2 col-sm-12">
+                <button type="submit" class="btn-message"></button>
+              </div>
+            </div>
+            </form>
+          </div>
+          <div class="col-2"></div>
+        </div>
+      </div>
+    </section>
+    <footer class=" bg-dark">
+    Design &amp; Built by Arnaud Lemasçon © 2023 - <a href="#FOOTER" onclick="popup();">credits and references</a>    
+    </footer>
+
+   
+
+    <script>
+ function closeNavbar() {
+      // Vérifier si le bouton de bascule est visible (navbar en mode réduit)
+      if ($('.navbar-toggler').is(':visible')) {
+        $('.navbar-toggler').click();
+      }
+    }
+</script>
+
+    </script>
+    
+  <!-- SCRIPT -->
+
+  <script src="assets/js/loading.js"></script>
+  <script src="assets\js\polyground.js"></script>
+  <script src="assets\js\cursor.js"></script>
+  <script src="assets/js/bandeaualeatoire.js"></script>
+  <script src="assets/js/animationNess.js"></script>
+
+ 
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="assets\js\popup.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+</body>
+
+</html>
