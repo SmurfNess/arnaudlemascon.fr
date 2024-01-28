@@ -14,7 +14,7 @@ class CVGenerator {
         $this->generateHeaderColumn();
         $this->generateMainContentColumn();
         echo '  </div>';
-        echo '</div>';
+        echo '</div>'; 
     }
 
     private function generateHeaderColumn() {
