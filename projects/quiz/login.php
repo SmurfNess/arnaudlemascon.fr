@@ -1,12 +1,8 @@
 <?php
-// Connexion à la base de données avec PDO
-$servername = "localhost";
-$username = "votre_nom_utilisateur";
-$password = "votre_mot_de_passe";
-$dbname = "quiz";
+require_once 'config.php' ;
 
 try {
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password) ;
     // Configuration pour générer des exceptions en cas d'erreur
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
