@@ -69,7 +69,7 @@
                 }
 
                 // Préparer la requête d'insertion
-                $requete = $connexion->prepare("INSERT INTO quiz (username, password, type) VALUES (?, ?, '404')");
+                $requete = $connexion->prepare("INSERT INTO access (username, password, type) VALUES (?, ?, '404')");
 
                 // Exécuter la requête avec les données du formulaire
                 if ($requete->execute([$form_username, $hashed_password])) {
