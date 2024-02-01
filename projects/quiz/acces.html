@@ -10,13 +10,24 @@
             var passwordField = document.getElementById("password");
             var confirmField = document.getElementById("confirm_password");
 
-            if (passwordField.type === "password") {
-                passwordField.type = "text";
-                confirmField.type = "text";
-            } else {
-                passwordField.type = "password";
-                confirmField.type = "password";
-            }
+            var type = (passwordField.type === "password") ? "text" : "password";
+
+            var newPasswordField = document.createElement("input");
+            newPasswordField.type = type;
+            newPasswordField.id = "password";
+            newPasswordField.name = "password";
+            newPasswordField.required = true;
+            newPasswordField.value = passwordField.value;
+
+            var newConfirmField = document.createElement("input");
+            newConfirmField.type = type;
+            newConfirmField.id = "confirm_password";
+            newConfirmField.name = "confirm_password";
+            newConfirmField.required = true;
+            newConfirmField.value = confirmField.value;
+
+            passwordField.replaceWith(newPasswordField);
+            confirmField.replaceWith(newConfirmField);
         }
 
         function validatePassword() {
