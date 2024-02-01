@@ -18,13 +18,39 @@
                 confirmField.type = "password";
             }
         }
+
+        function validatePassword() {
+            var passwordField = document.getElementById("password").value;
+            var confirmField = document.getElementById("confirm_password").value;
+
+            // Vérifier la longueur minimale
+            if (passwordField.length < 8) {
+                alert("Le mot de passe doit avoir au moins 8 caractères.");
+                return false;
+            }
+
+            // Vérifier la présence d'une minuscule, une majuscule et un chiffre
+            var regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/;
+            if (!regex.test(passwordField)) {
+                alert("Le mot de passe doit contenir au moins une minuscule, une majuscule et un chiffre.");
+                return false;
+            }
+
+            // Vérifier la correspondance entre le mot de passe et la confirmation
+            if (passwordField !== confirmField) {
+                alert("Les mots de passe ne correspondent pas.");
+                return false;
+            }
+
+            return true;
+        }
     </script>
 </head>
 <body>
 
 <h2>Création de compte</h2>
 
-<form action="traitement.php" method="post">
+<form action="traitement.php" method="post" onsubmit="return validatePassword()">
     <label for="username">Nom d'utilisateur :</label>
     <input type="text" id="username" name="username" required><br>
 
