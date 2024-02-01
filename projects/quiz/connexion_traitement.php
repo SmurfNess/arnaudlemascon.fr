@@ -26,9 +26,11 @@ try {
         } else {
             // Vérifier si le mot de passe correspond
             if (password_verify($login_password, $user_data['password'])) {
-                // Mot de passe correct, afficher le résultat en couleur selon la colonne type
-                $color = ($user_data['type'] == '898989') ? 'red' : 'blue';
-                echo "<p class='message' style='color: $color;'>Connecté en tant que $login_username</p>";
+                // Mot de passe correct, afficher le résultat en couleur selon le type de compte
+                $type = $user_data['type'];
+                $message_color = ($type == $admin) ? 'red' : (($type == $util) ? 'blue' : 'black');
+
+                echo "<p class='message' style='color: $message_color;'>Connecté en tant que $login_username - Type de compte: $type</p>";
             } else {
                 echo "<p class='message'>Mot de passe incorrect.</p>";
             }

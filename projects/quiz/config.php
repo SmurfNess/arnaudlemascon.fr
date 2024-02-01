@@ -18,4 +18,6 @@ $dbname = "quiz" ;
 $username = "portfolio_quiz" ;
 
 $password = "123456";
+$admin="898989";
+$util="404";
 ?>
