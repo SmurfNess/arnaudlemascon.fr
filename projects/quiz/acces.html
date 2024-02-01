@@ -35,25 +35,19 @@
             var confirmField = document.getElementById("confirm_password").value;
 
             // Vérifier la longueur minimale
-            if (passwordField.length < 8) {
-                alert("Le mot de passe doit avoir au moins 8 caractères.");
-                return false;
-            }
+            var lengthMessage = document.getElementById("lengthMessage");
+            lengthMessage.innerHTML = (passwordField.length >= 8) ? "" : "Le mot de passe doit avoir au moins 8 caractères.";
 
             // Vérifier la présence d'une minuscule, une majuscule et un chiffre
             var regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
-            if (!regex.test(passwordField)) {
-                alert("Le mot de passe doit contenir au moins une minuscule, une majuscule et un chiffre.");
-                return false;
-            }
+            var characterMessage = document.getElementById("characterMessage");
+            characterMessage.innerHTML = (regex.test(passwordField)) ? "" : "Le mot de passe doit contenir au moins une minuscule, une majuscule et un chiffre.";
 
             // Vérifier la correspondance entre le mot de passe et la confirmation
-            if (passwordField !== confirmField) {
-                alert("Les mots de passe ne correspondent pas.");
-                return false;
-            }
+            var matchMessage = document.getElementById("matchMessage");
+            matchMessage.innerHTML = (passwordField === confirmField) ? "" : "Les mots de passe ne correspondent pas.";
 
-            return true;
+            return (lengthMessage.innerHTML === "" && characterMessage.innerHTML === "" && matchMessage.innerHTML === "");
         }
     </script>
 </head>
@@ -66,11 +60,14 @@
     <input type="text" id="username" name="username" required><br>
 
     <label for="password">Mot de passe :</label>
-    <input type="password" id="password" name="password" required>
+    <input type="password" id="password" name="password" required oninput="validatePassword()">
+    <span id="lengthMessage"></span><br>
+    <span id="characterMessage"></span>
     <input type="checkbox" onclick="togglePassword()"> Afficher le mot de passe<br>
 
     <label for="confirm_password">Confirmer le mot de passe :</label>
-    <input type="password" id="confirm_password" name="confirm_password" required><br>
+    <input type="password" id="confirm_password" name="confirm_password" required oninput="validatePassword()">
+    <span id="matchMessage"></span><br>
 
     <input type="submit" value="Créer le compte">
 </form>
