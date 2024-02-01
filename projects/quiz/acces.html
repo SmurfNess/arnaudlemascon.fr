@@ -50,9 +50,13 @@
             return (lengthMessage.innerHTML === "" && characterMessage.innerHTML === "" && matchMessage.innerHTML === "");
         }
     </script>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css" type="text/css" />
 </head>
 <body>
-
+<div class="row">
+    <div class="col-4" style="background: grey;">
 <h2>Création de compte</h2>
 
 <form action="traitement.php" method="post" onsubmit="return validatePassword()">
@@ -71,6 +75,27 @@
 
     <input type="submit" value="Créer le compte">
 </form>
+</div>
+<div class="col-2"></div>
+<div class="col-4" style="background: grey;">
+    <h2>Connexion</h2>
 
+    <form method="post" action="connexion_traitement.php" class="col-4">
+        <label for="login-username">Nom d'utilisateur:</label>
+        <input type="text" id="login-username" name="login_username" required>
+
+        <label for="login-password">Mot de passe:</label>
+        <input type="password" id="login-password" name="login_password" required>
+
+        <button type="submit">Connexion</button>
+    </form>
+
+    <!-- Afficher les messages de traitement du formulaire ici -->
+    <?php include('connexion_traitement.php'); ?></div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
