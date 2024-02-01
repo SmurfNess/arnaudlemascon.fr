@@ -3,28 +3,15 @@
 session_start();
 
 // Vérifiez si l'utilisateur est connecté et a une variable de session 'user_type' définie
-if (isset($_SESSION['username'])) {
-    $username = $_SESSION['username'];
-
-    // Effectuez une requête SQL pour récupérer le type d'utilisateur associé au nom d'utilisateur
-    // Assurez-vous d'utiliser une requête préparée pour éviter les attaques par injection SQL
-    // $db est votre objet de connexion à la base de données
-    $query = $dbname->prepare("SELECT type FROM access WHERE username = ?");
-    $query->bind_param("s", $username);
-    $query->execute();
-    $query->bind_result($user_type);
-    $query->fetch();
-    $query->close();
-
-    // Stockez le type d'utilisateur dans la variable de session
-    $_SESSION['user_type'] = $user_type;
+if (isset($_SESSION['user_type'])) {
+    $user_type = $_SESSION['user_type'];
 
     // Affichez le contenu en fonction du type de compte
-    if ($user_type == "admin") {
+    if ($user_type == $admin) {
         // Afficher le contenu pour un compte admin
         echo "<h1>Bienvenue, Administrateur!</h1>";
         echo "<p>Vous pouvez <a href='modifier_mot_de_passe.php'>modifier le mot de passe</a> et <a href='modifier_username.php'>modifier le nom d'utilisateur</a>.</p>";
-    } elseif ($user_type == "util") {
+    } elseif ($user_type == $util) {
         // Afficher le contenu pour un compte util
         echo "<h1>Bienvenue, Utilisateur!</h1>";
         echo "<p>Vous pouvez <a href='modifier_mot_de_passe.php'>modifier le mot de passe</a>.</p>";
