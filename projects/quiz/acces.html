@@ -30,7 +30,7 @@
             }
 
             // Vérifier la présence d'une minuscule, une majuscule et un chiffre
-            var regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/;
+            var regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
             if (!regex.test(passwordField)) {
                 alert("Le mot de passe doit contenir au moins une minuscule, une majuscule et un chiffre.");
                 return false;
