@@ -53,36 +53,45 @@
             $form_password = $_POST['password'];
             $confirm_password = $_POST['confirm_password'];
 
-            // Vérifier si les mots de passe correspondent
-            if ($form_password !== $confirm_password) {
-                echo "<p class='message'>Les mots de passe ne correspondent pas.</p>";
-                // Vous pouvez rediriger l'utilisateur vers le formulaire de création de compte ici si nécessaire
-            } else {
-                // Hasher le mot de passe avant de l'ajouter à la base de données (sécurité)
-                $hashed_password = password_hash($form_password, PASSWORD_DEFAULT);
+// Vérifier si les mots de passe correspondent
+if ($form_password !== $confirm_password) {
+    echo "<p class='message'>Les mots de passe ne correspondent pas.</p>";
+    // Vous pouvez rediriger l'utilisateur vers le formulaire de création de compte ici si nécessaire
+} else {
+    // Hasher le mot de passe avant de l'ajouter à la base de données (sécurité)
+    $hashed_password = password_hash($form_password, PASSWORD_DEFAULT);
 
-                // Établir la connexion à la base de données
-                try {
-                    $connexion = new PDO("mysql:host={$host};dbname={$dbname}", $username, $password);
-                } catch (PDOException $e) {
-                    die("<p class='message'>Erreur lors de la connexion à la base de données : " . $e->getMessage() . "</p>");
-                }
+    // Établir la connexion à la base de données
+    try {
+        $connexion = new PDO("mysql:host={$host};dbname={$dbname}", $username, $password);
+    } catch (PDOException $e) {
+        die("<p class='message'>Erreur lors de la connexion à la base de données : " . $e->getMessage() . "</p>");
+    }
 
-                // Préparer la requête d'insertion
-                $requete = $connexion->prepare("INSERT INTO access (username, password, type) VALUES (?, ?, '404')");
+    // Vérifier si le nom d'utilisateur existe déjà
+    $check_username_query = $connexion->prepare("SELECT COUNT(*) FROM access WHERE username = ?");
+    $check_username_query->execute([$form_username]);
+    $username_exists = $check_username_query->fetchColumn();
 
-                // Exécuter la requête avec les données du formulaire
-                if ($requete->execute([$form_username, $hashed_password])) {
-                    echo "<p class='message'>Le compte a été créé avec succès.</p>";
-                } else {
-                    echo "<p class='message'>Erreur lors de l'insertion dans la base de données : " . print_r($requete->errorInfo(), true) . "</p>";
-                }
+    if ($username_exists) {
+        echo "<p class='message'>Le nom d'utilisateur existe déjà.</p>";
+    } else {
+        // Préparer la requête d'insertion
+        $insert_query = $connexion->prepare("INSERT INTO access (username, password, type) VALUES (?, ?, '404')");
 
-                // Fermer la connexion à la base de données
-                $connexion = null;
+        // Exécuter la requête avec les données du formulaire
+        if ($insert_query->execute([$form_username, $hashed_password])) {
+            echo "<p class='message'>Le compte a été créé avec succès.</p>";
+        } else {
+            echo "<p class='message'>Erreur lors de l'insertion dans la base de données : " . print_r($insert_query->errorInfo(), true) . "</p>";
+        }
+    }
 
-                // Vous pouvez rediriger l'utilisateur vers une page de connexion ici si nécessaire
-            }
+    // Fermer la connexion à la base de données
+    $connexion = null;
+
+    // Vous pouvez rediriger l'utilisateur vers une page de connexion ici si nécessaire
+}
         }
     } catch (Exception $e) {
         echo "<p class='message'>Exception capturée : " . $e->getMessage() . "</p>";
