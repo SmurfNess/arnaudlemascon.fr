@@ -62,14 +62,11 @@ class CVGenerator {
     }
 
 private function generatePositionCards() {
-    // Fetch data from the 'Position' table and sort by the 'start' date in descending order
     $positionQuery = $this->bdd->prepare("SELECT * FROM Position ORDER BY start DESC");
     $positionQuery->execute();
     $positions = $positionQuery->fetchAll(PDO::FETCH_ASSOC);
 
-    // Loop through each position and generate the HTML cards
     foreach ($positions as $position) {
-        // Replace '0000-00-00' with today's date
         if ($position['end'] == '0000-00-00') {
             $position['end'] = date('Y-m-d');
         }
@@ -191,24 +188,30 @@ try {
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <style>
 
+      root{
+        --blue: rgb(166, 179, 255);
+        --grey:rgb(18, 18, 18);
+        --gold:rgb(190, 188, 22);
+      }
+
         body {
             font-family: Arial, Helvetica, sans-serif;
-            background-color: #121212;
-            color: #ffffff;
+            background-color: var(--grey);
+            color: white;
         }
 
         a {
-          color: rgb(255, 255, 255);
+          color: white;
           font-size:small;
           text-decoration: underline;
         }
 
         a:hover{
-          color: #a6b3ff;        
+          color: var(--blue);        
         }
 
         li{
-          color: #a6b3ff;
+          color: var(--blue);
           margin-bottom: 10px;
         }
 
@@ -223,7 +226,7 @@ try {
 }
 
 .col-md-1{
-  background-color: rgb(255, 125, 125);
+  background-color: var(--gold);
   height: 80vh;
 }        
 
@@ -243,9 +246,9 @@ try {
 }
 
 .image-container img {
-  position: absolute; /* Positionne l'image à l'intérieur du conteneur */
-  top: 55%; /* Place l'image au centre verticalement */
-  left: 55%; /* Place l'image au centre horizontalement */
+  position: absolute;
+  top: 55%;
+  left: 55%;
   width: 120%;
   transform: translate(-50%, -50%) rotate(3deg); /* Déplace l'image de 50% vers la gauche et le haut, puis la fait pivoter de 10 degrés */
 }

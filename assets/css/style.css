@@ -14,10 +14,12 @@
 */
 
 :root {
-  --powder-blue: #A6B3FFff;
-  --federal-blue: #0a014fff;
-  --caribbean-current: #38686aff;
-  --ash-gray: #a3b4a2ff;
+  --powder-blue: rgb(166, 179, 255);
+  --federal-blue: rgb(10, 1, 79);
+  --caribbean-current: rgb(56, 104, 106);
+  --ash-gray: rgb(255, 255, 255);
+  --bg-grey:rgb(18, 18, 18);
+  --gold:rgb(190, 188, 22);
   --BG:25px;
   --MD:20px;
   --SM:12px;
