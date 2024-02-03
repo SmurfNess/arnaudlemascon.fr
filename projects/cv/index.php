@@ -213,7 +213,7 @@ try {
         }
 
 .logo-container img{
-    max-height:100px;
+    max-height:80px;
     border-radius:50%;
 }
 		
