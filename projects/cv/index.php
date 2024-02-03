@@ -37,7 +37,7 @@ class CVGenerator {
     private function generateImageColumn() {
         echo '        <div class="col-md-6 col-sm-12">';
         echo '          <div class="image-container">';
-        echo '            <img src="assets/pictures/cv.webp" alt="Mon portrait par Mélanie Kosowski">';
+        echo '            <img src="https://arnaudlemascon.fr/assets/pictures/cv.webp" alt="Mon portrait par Mélanie Kosowski">';
         echo '          </div>';
         echo '        </div>';
     }
@@ -193,7 +193,7 @@ try {
 
         body {
             font-family: Arial, Helvetica, sans-serif;
-            background-color: #a6b3ff;
+            background-color: #121212;
             color: #ffffff;
         }
 
