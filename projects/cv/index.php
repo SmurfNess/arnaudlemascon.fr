@@ -267,7 +267,7 @@ try {
   position: relative;
   padding: 10px;
   border: none;
-  background: linear-gradient(145deg, rgba(166, 179, 255, 0.5) 5%,rgba(255,255,255,0) 80%);
+  background: linear-gradient(145deg, rgba(166, 179, 255, 1) 5%,rgba(255,255,255,0) 80%);
   border-radius: 100px 0px 0px 100px;
   margin-top:10px;
   width: 100%;
