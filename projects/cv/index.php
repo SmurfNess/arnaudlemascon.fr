@@ -188,12 +188,6 @@ try {
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <style>
 
-      root{
-        --blue: rgb(166, 179, 255);
-        --grey:rgb(18, 18, 18);
-        --gold:rgb(190, 188, 22);
-      }
-
         body {
             font-family: Arial, Helvetica, sans-serif;
             background-color: grey;
@@ -207,11 +201,11 @@ try {
         }
 
         a:hover{
-          color: var(--blue);        
+          color: steelblue;        
         }
 
         li{
-          color: var(--blue);
+          color: steelblue;
           margin-bottom: 10px;
         }
 
