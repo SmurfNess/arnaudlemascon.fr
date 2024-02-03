@@ -256,6 +256,7 @@ try {
 .card {
   position: relative;
   padding: 10px;
+  padding-left:30px;
   border: none;
   background: linear-gradient(145deg, rgb(18, 18, 18) 5%,rgba(255,255,255,0) 80%);
   border-radius: 100px 0px 0px 100px;
