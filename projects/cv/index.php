@@ -286,7 +286,7 @@ try {
 
 .infobulle:hover::before {
   content: attr(title);
-  background-color: rgba(166, 179, 255, 0.5);
+  background-color: rgb(18, 18, 18);
   color: #fff;
   padding: 5px;
   border-radius: 15px;
