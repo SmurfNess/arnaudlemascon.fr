@@ -190,7 +190,7 @@ try {
 
         body {
             font-family: Arial, Helvetica, sans-serif;
-            background-color: grey;
+            background-color: rgb(18, 18, 18);
             color: white;
         }
 
