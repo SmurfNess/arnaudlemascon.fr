@@ -257,7 +257,7 @@ try {
   position: relative;
   padding: 10px;
   border: none;
-  background: linear-gradient(145deg, rgba(166, 179, 255, 1) 5%,rgba(255,255,255,0) 80%);
+  background: linear-gradient(145deg, rgb(18, 18, 18) 5%,rgba(255,255,255,0) 80%);
   border-radius: 10px 0px 0px 10px;
   margin-top:10px;
   width: 100%;
@@ -304,7 +304,7 @@ try {
 }
 
 .header{
-  background-color:rgb(18, 18, 18);
+  background-color:rgba(166, 179, 255, 1);
   width: 100%;
   padding: 10px;
   border-radius: 25px;
