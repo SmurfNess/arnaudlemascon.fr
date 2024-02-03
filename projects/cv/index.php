@@ -196,7 +196,7 @@ try {
 
         body {
             font-family: Arial, Helvetica, sans-serif;
-            background-color: var(--grey);
+            background-color: grey;
             color: white;
         }
 
