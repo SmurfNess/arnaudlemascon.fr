@@ -210,7 +210,7 @@ try {
         }
 
 .logo-container img{
-    max-height:80px;
+    max-height:100px;
     border-radius:50%;
 }
 		
@@ -258,7 +258,7 @@ try {
   padding: 10px;
   border: none;
   background: linear-gradient(145deg, rgb(18, 18, 18) 5%,rgba(255,255,255,0) 80%);
-  border-radius: 10px 0px 0px 10px;
+  border-radius: 100px 0px 0px 100px;
   margin-top:10px;
   width: 100%;
 }
@@ -285,10 +285,10 @@ try {
 
 .infobulle:hover::before {
   content: attr(title);
-  background-color: #333;
+  background-color: rgba(166, 179, 255, 0.5);
   color: #fff;
   padding: 5px;
-  border-radius: 5px;
+  border-radius: 15px;
   position: absolute;
   z-index: 1;
   top: 10%;
