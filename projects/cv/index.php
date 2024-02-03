@@ -225,7 +225,7 @@ try {
 }        
 
 .col-md-11{
-  background-color: rgb(238, 56, 56);
+  background-color: rgb(18, 18, 18);
 }        
 .container{
   padding: 10px;
