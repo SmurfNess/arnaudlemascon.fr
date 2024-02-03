@@ -304,7 +304,7 @@ try {
 }
 
 .header{
-  background-color:rgba(47, 79, 79, 0.75);
+  background-color:rgb(18, 18, 18);
   width: 100%;
   padding: 10px;
   border-radius: 25px;
