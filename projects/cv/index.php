@@ -103,7 +103,7 @@ private function generatePositionCards() {
             $startDate = new DateTime($education['start']);
             $endDate = new DateTime($education['end']);
             echo '<div class="duration">' . $startDate->format('d-m-Y') . ' - ' . $endDate->format('d-m-Y') . '</div>';
-            echo '<div class="degree">' . $education['title'] . '<span class="school"> <span style="color:rgba(47, 79, 79, 0.75)">à</span> ' . $education['school'] . ' - ' . $education['city'] . '</div>';
+            echo '<div class="degree">' . $education['title'] . '<span class="school"> <span style="	color:rgb(190, 188, 22);">à</span> ' . $education['school'] . ' - ' . $education['city'] . '</div>';
             echo '</div>';
             echo '</span>';
         }
@@ -244,7 +244,7 @@ try {
   top: 55%;
   left: 55%;
   width: 120%;
-  transform: translate(-50%, -50%) rotate(3deg); /* Déplace l'image de 50% vers la gauche et le haut, puis la fait pivoter de 10 degrés */
+  transform: translate(-50%, -50%) rotate(3deg); 
 }
 
 .certificationsContainer{
