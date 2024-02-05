@@ -60,7 +60,7 @@ body{
 }
 section{
   position: relative;
-  height: fit-content;
+  height: 100vh;
   width: 100vw;
 }
 
@@ -116,6 +116,13 @@ font-weight: bold;
 
 .cp{
   margin-top: 25px;
+} 
+
+.card_project2:hover{
+  transform: perspective(900px) translateY(-5%) rotateX(15deg) translateZ(0);
+  box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
 }
 
 .project-text{
@@ -165,75 +172,148 @@ font-weight: bold;
 .cp .card-body{
   color: white;
 }
+/* ######### new project_cards###############################*/
+
+.project_carte{
+  width: 200px;
+  height: 300px;
+  position: relative;
+  background: url('https://arnaudlemascon.fr/assets/pictures/p_hooman.webp');
+  background-size: cover;
+  color: white;
+  border: 2px solid #333;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project_carte:hover {
+  transform: perspective(800px) rotateX(10deg);
+  box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.5);
+}
+
+.project_carte::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0%;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.6) 90%);
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.project_carte:hover::before {
+  opacity: 1;
+}
+
+.project_description{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.project_carte:hover .project_description{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.project_logos{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.project_logo{
+  width: 30px;
+  height: 30px;
+  margin-left: 5px;
+}
+
+.project_titre{
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
 
 /* VALUES ####################################################### */
-.card-value-image{
-  position: relative;
-  top: 15px;
-  max-height: 200px;
+
+.cartes-container {
+  display: flex;
 }
 
-.card_values{
-  position: relative;
-  background-color: rgba(255, 255, 255, 0.459);
-  height: 30vh;
+.carte {
+  width: 200px;
+  height: 300px;
+  perspective: 1000px;
+  color: #000000;
+}
+
+.carte-inner {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+}
+
+.carte:hover .carte-inner {
+  transform: rotateY(180deg);
+}
+
+.face {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border-radius: 10px; /* Arrondis */
+  border: 5px solid white; /* Bordure blanche de 5px */
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background:white;
+}
+
+.face-avant {
+  transform: rotateY(0deg);
+}
+
+.face-arriere {
+  transform: rotateY(180deg);
+  background-color: #fff; /* Couleur de fond pour la face arrière */
+  padding: 10px;
   text-align: center;
-  width: calc(100% / 1.5);
-  max-width: 300px;
-  min-width: 200px;
 }
 
-.card_values img{
-  width: 90%;
-  height: 75%;
-  object-fit: cover;
+.face img {
+  position:relative;
+  width: 100%;
+  height: 100%;
+  max-width: 200px;
+  max-height: 250px;
+  top:0px;
+  border-radius: 10px; /* Ajout de bordure arrondie pour l'image*/
+  object-fit:cover;
 }
-
-.card-text{
-  color: black;
+.face .value{
   position: relative;
-  background: linear-gradient(159deg, rgb(236, 230, 109) 0%, rgb(194, 181, 43) 71%, rgb(184, 181, 51) 100%);
-  width: 150px;
-  height: 140px;
-  top: -100%;
-  padding: 5px 5px 5px 5px;
-  font-size: 12px;
-}
-
-.postit1{
-  rotate: -30deg;
-  left: 40%;
-}
-.postit2{
-  rotate: 20deg;
-  left: -10%; 
-}
-.postit3{
-  left: 50%;
-  top: -75%;
-  rotate: -20deg; 
-}
-.postit4{
-  rotate: -30deg;
-  left: 25%;
-}
-.postit5{
-  rotate: 30deg;
-  left: 30%; 
-}
-.postit6{
-  rotate: 15deg;
-  left: 20%; 
-}
-
-.card-title-value{
-  color: black;
-  font-size: var(--MD);
-  position: relative;
-  background-color: transparent;
   top: 5px;
-  text-align: center;
+  font-size: var(--BG);
 }
+
 
 /* TRIVIA ####################################################### */
 
@@ -483,6 +563,65 @@ footer{
 /* SCREEN 770 ############################################### */
 
 @media screen and (max-width: 770px) {
+
+  
+.carte {
+  width: 160px;
+  height: 150px;
+  perspective: 1000px;
+  color: #000000;
+}
+
+
+.carte:hover .carte-inner {
+  transform: rotateY(0deg);
+}
+
+.face {
+  border: none;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.face-avant {
+  transform: rotateY(0deg);
+}
+
+.face-arriere {
+  position: relative;
+  transform: rotateY(0deg);
+  background-color: transparent; /* Couleur de fond pour la face arrière */
+  padding: 0px;
+  text-align:center;
+  line-height: 16px;
+  color: white;
+}
+
+.face-arriere p{
+  top: 25px;
+  position: relative;
+}
+
+.face img {
+  position:absolute;
+  top:0px;
+  border-radius: 10px; /* Ajout de bordure arrondie pour l'image*/
+}
+.face .value{
+  position: relative;
+  top: 0px;
+  font-size: var(--BG);
+  color: white;
+  font-weight: bold;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 20%, rgba(0, 0, 0, 0.9) 90%);
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  padding: 5px 5px 5px 5px;
+  text-align: center;
+}
+
+
+
   .hidden-carousel-button{
     display: flex;
     top: 50px;
@@ -508,6 +647,10 @@ footer{
   .cp{
     min-width: 75vw;
     max-height: 15vh;
+  }
+
+  .cp:hover{
+    background-color: blue;
   }
 
   .project-text{
@@ -570,52 +713,6 @@ footer{
     border-radius: 25px;
   }
   
-
-  .card_values {
-    width: 35vw;
-    min-width: 35vw;
-    height: 15vh;
-    overflow: hidden;
-    border-radius: 25px;
-    margin-top: 10%;
-  }
-
-  .card-text{
-    z-index: 0;
-    position: absolute;
-    background: linear-gradient(360deg, rgba(0, 0, 0, 0.8) 10%, rgba(0, 0, 0,.4) 90%);
-    width: 100%;
-    height: 100%;
-    padding-top: 55px;
-    top: 00%;
-    left: 0%;
-    font-size: var(--SM);
-    rotate: 0deg;
-    color: white;
-    border-radius: 25px;
-    }  
-   
-
-  .card-title-value{
-    transform-origin: 50% 50%;
-    font-size: var(--MD);
-    z-index: 1;
-    font-weight: bold;
-    color: white;
-    border-radius: 25px;
-    top: 10%;
-    height: fit-content;
-  }
-
-  .card_values img{
-    position: absolute;
-    left: 0%;
-    top: 0%;
-    width: 100%;
-    height: 100%;
-    opacity: 0.5;
-    border-radius: 25px;
-  }
 
   #imageCarousel {
     height: 30vh;
@@ -742,7 +839,6 @@ footer{
   .softskillunit{
     padding: 0%;
   }
-
 
   .language{
     display: none;

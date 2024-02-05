@@ -301,7 +301,7 @@ try {
 }
 
 .infobulle:hover::before {
-  opacity: 0.9;
+  opacity: 0. ;
 }
 
 .header{
