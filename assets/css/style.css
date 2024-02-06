@@ -339,27 +339,32 @@ font-weight: bold;
 
 /* SKILLS ####################################################### */
 
-.card_skills{
+.card_skills {
   position: relative;
   background-color: rgba(0, 0, 0, 0.5);
   height: 50vh;
   width: 16vw;
   min-width: 250px;
   border-radius: 25px;
+  transition: transform 0.3s, background-image 0.2s; /* Ajout de la transition uniquement pour le background-image */
 }
 
-.S1:hover{
-  background: linear-gradient(140deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.8) 90%);
+.S1:hover {
+  background-image: linear-gradient(140deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.8) 90%);
   color: white;
+  transform: scale(1.01);
 }
-.S2:hover{
-  background: linear-gradient(40deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.8) 90%);
+.S2:hover {
+  background-image: linear-gradient(40deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.8) 90%);
   color: white;
+  transform: scale(1.01); 
 }
-.S3:hover{
-  background: linear-gradient(270deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.8) 90%);
+.S3:hover {
+  background-image: linear-gradient(270deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.8) 90%);
   color: white;
+  transform: scale(1.01); 
 }
+
 
 .separator{
   position: relative;
