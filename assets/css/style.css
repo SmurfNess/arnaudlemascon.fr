@@ -114,78 +114,42 @@ font-weight: bold;
 
 /* PROJECTS ##################################################### */
 
-.cp{
-  margin-top: 25px;
-} 
-
-.card_project2:hover{
-  transform: perspective(900px) translateY(-5%) rotateX(15deg) translateZ(0);
-  box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
-  -webkit-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+.col-md-4{
+  background-color: transparent;
 }
 
-.project-text{
-  margin-top: 50px;
-  font-size: var(--MD);
-  display: block;
+.container-style {
+  margin-top: 25vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px; /* Espacement entre les cartes */
 }
 
-.project-text2{
-  font-size: var(--MD);
-  display: none;
-}
-.card-title{
-  text-transform: uppercase;
-  text-align: center;
-  font-size: var(--BG);
-  font-weight: bold;
-}
-
-.card_project1 {
+.project_carte {
+  width: 250px;
+  height: 400px;
   position: relative;
-  height: 50vh;
-  width: 16vw;
-  border-radius: 15px;
-  overflow: hidden;
-  background: linear-gradient(180deg, rgba(0,0,0,0.75) 50%, rgba(0,0,0,0) 100%), url('https://arnaudlemascon.fr/assets/pictures/p_hooman.webp');
-  background-size: cover; /* Ajustez en fonction de vos besoins */
-}
-
-.card_project2 {
-  position: relative;
-  height: 50vh;
-  width: 16vw;
-  border-radius: 15px;
-  overflow: hidden;
-  background: linear-gradient(180deg, rgba(0,0,0,0.75) 50%, rgba(0,0,0,0) 100%), url('https://arnaudlemascon.fr/assets/pictures/cvex.webp');
-  background-size: cover; /* Ajustez en fonction de vos besoins */
-}
-
-.cp .card-body {
-  position: relative; /* Assurez-vous que le contenu est positionné correctement */
-  z-index: 1; /* Placez le contenu de la carte au-dessus de l'image de fond */
-  /* Vos styles pour le contenu de la carte ici */
-  opacity: 1; /* Gardez le texte à une opacité de 1 */
-}
-
-.cp .card-body{
-  color: white;
-}
-/* ######### new project_cards###############################*/
-
-.project_carte{
-  width: 200px;
-  height: 300px;
-  position: relative;
-  background: url('https://arnaudlemascon.fr/assets/pictures/p_hooman.webp');
-  background-size: cover;
   color: white;
   border: 2px solid #333;
   border-radius: 10px;
   overflow: hidden;
   transition: transform 0.3s, box-shadow 0.3s;
 }
+
+.p1{
+  background: url('https://arnaudlemascon.fr/assets/pictures/p_hooman.webp');
+  background-size: cover;
+}
+.p2{
+  background: url('https://arnaudlemascon.fr/assets/pictures/cvex.webp');
+  background-size: cover;
+}
+.p3{
+  background: url('https://arnaudlemascon.fr/assets/pictures/quiz.webp');
+  background-size: cover;
+}
+
 
 .project_carte:hover {
   transform: perspective(800px) rotateX(10deg);
@@ -209,7 +173,7 @@ font-weight: bold;
   opacity: 1;
 }
 
-.project_description{
+.project_description {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -222,12 +186,12 @@ font-weight: bold;
   transition: opacity 0.3s, transform 0.3s;
 }
 
-.project_carte:hover .project_description{
+.project_carte:hover .project_description {
   opacity: 1;
   transform: translateY(0);
 }
 
-.project_logos{
+.project_logos {
   position: absolute;
   top: 10px;
   right: 10px;
@@ -235,19 +199,20 @@ font-weight: bold;
   flex-direction: row-reverse;
 }
 
-.project_logo{
+.project_logo {
   width: 30px;
   height: 30px;
   margin-left: 5px;
 }
 
-.project_titre{
+.project_titre {
   position: absolute;
   bottom: 10px;
   left: 10px;
   font-size: 16px;
   font-weight: bold;
 }
+
 
 /* VALUES ####################################################### */
 
