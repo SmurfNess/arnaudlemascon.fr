@@ -10,7 +10,7 @@ body{
     position:absolute;
       cursor: auto;
     filter: grayscale(100%) contrast(10000%);
-      transition: filter 0.5s ease; /* Ajoute une transition pour la propriété 'filter' */
+      transition: filter 0.2s ease; /* Ajoute une transition pour la propriété 'filter' */
   }
   
   #counter{
