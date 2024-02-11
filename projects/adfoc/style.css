@@ -89,3 +89,8 @@ body{
     top:1625px;
   }
   
+  @media screen and (max-width: 400px) {
+  body{
+    overflow: visible;
+  }
+  }
