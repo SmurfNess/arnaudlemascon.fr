@@ -34,6 +34,7 @@ body{
       background-repeat: no-repeat; /* Empêcher la répétition de l'image de fond */
       cursor: auto; /* Définir le curseur pour indiquer qu'il est possible de déplacer l'image */
       overflow:hidden;
+      transform: scale(1);
   }
   
   
@@ -93,4 +94,8 @@ body{
   body{
     overflow: visible;
   }
+
+#images{
+  transform: scale(0.5);
+}
   }

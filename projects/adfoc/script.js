@@ -109,9 +109,17 @@ const countDisplay = document.getElementById('count');
 let count = images.length;
 countDisplay.textContent = count;
 
-// Ajout d'un gestionnaire d'événement à chaque image
+// Ajout d'un gestionnaire d'événement à chaque image (souris)
 images.forEach(image => {
     image.addEventListener('click', handleClick);
+});
+
+// Ajout d'un gestionnaire d'événement à chaque image (tactile)
+images.forEach(image => {
+    image.addEventListener('touchstart', function(e) {
+        e.preventDefault(); // Empêche le défilement pendant le déplacement
+        handleClick.call(this); // Appelle la fonction handleClick en conservant le contexte de l'image
+    });
 });
 
 // Ajout des gestionnaires d'événements pour le déplacement de l'image de fond (souris)
