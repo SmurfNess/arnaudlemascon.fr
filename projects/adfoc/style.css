@@ -3,7 +3,7 @@ body{
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  background-color: red;
+  background:black;
 }
 
 .clickable {
@@ -30,7 +30,7 @@ body{
       left: -1vw;
       width: 101vw; /* Définir la largeur de l'élément pour correspondre à celle de l'image de fond */
       height: 101vh; /* Définir la hauteur de l'élément pour correspondre à celle de l'image de fond */
-      background-image: url('https://arnaudlemascon.fr/projects/adfoc/fond.png');
+      background-image: url('https://arnaudlemascon.fr/projects/adfoc/fond.webp');
       background-repeat: no-repeat; /* Empêcher la répétition de l'image de fond */
       cursor: auto; /* Définir le curseur pour indiquer qu'il est possible de déplacer l'image */
       overflow:hidden;
@@ -65,8 +65,8 @@ body{
   }
   
   #c6{
-    left: 3760px;
-    top:1072px;
+    left: 3752px;
+    top:1065px;
   }
   
   #c7{
