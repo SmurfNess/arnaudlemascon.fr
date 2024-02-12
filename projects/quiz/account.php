@@ -12,7 +12,7 @@ if (isset($_SESSION['user_type'])) {
     // Affichez le contenu en fonction du type de compte
     if ($user_type == $admin) {
         // Afficher le contenu pour un compte admin
-        echo "<h1>Bienvenue, $login_username! $user_type $admin $util</h1>";
+        echo "<h1>Bienvenue, ".$_SESSION['login_username']."! $user_type $admin $util</h1>";
     } elseif ($user_type == $util) {
         // Afficher le contenu pour un compte util
         echo "<h1>Bienvenue, Utilisateur!</h1>";
