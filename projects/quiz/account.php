@@ -3,7 +3,7 @@
 // Dans votre page principale (index.php)
 session_start();
 
-include_once 'connexion_traitement.php';
+require_once 'connexion_traitement.php';
 require_once 'config.php';
 
 // Vérifiez si l'utilisateur est connecté et a une variable de session 'user_type' définie
