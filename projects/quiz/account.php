@@ -4,7 +4,6 @@
 session_start();
 
 require_once 'config.php';
-require_once 'connexion_traitement.php'
 
 // Vérifiez si l'utilisateur est connecté et a une variable de session 'user_type' définie
 if (isset($_SESSION['user_type'])) {
