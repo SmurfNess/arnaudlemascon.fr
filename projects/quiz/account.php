@@ -1,4 +1,8 @@
 <?php
+
+$admin="898989";
+$util="404";
+
 // Dans votre page principale (index.php)
 session_start();
 
@@ -9,7 +13,7 @@ if (isset($_SESSION['user_type'])) {
     // Affichez le contenu en fonction du type de compte
     if ($user_type == $admin) {
         // Afficher le contenu pour un compte admin
-        echo "<h1>Bienvenue, Administrateur!</h1>";
+        echo "<h1>Bienvenue, Administrateur! $user_type $admin $util</h1>";
         echo "<p>Vous pouvez <a href='modifier_mot_de_passe.php'>modifier le mot de passe</a> et <a href='modifier_username.php'>modifier le nom d'utilisateur</a>.</p>";
     } elseif ($user_type == $util) {
         // Afficher le contenu pour un compte util
