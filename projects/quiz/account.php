@@ -4,6 +4,7 @@
 session_start();
 
 require_once 'config.php';
+require_once 'connexion_traitement.php'
 
 // Vérifiez si l'utilisateur est connecté et a une variable de session 'user_type' définie
 if (isset($_SESSION['user_type'])) {
@@ -12,7 +13,7 @@ if (isset($_SESSION['user_type'])) {
     // Affichez le contenu en fonction du type de compte
     if ($user_type == $admin) {
         // Afficher le contenu pour un compte admin
-        echo "<h1>Bienvenue, Administrateur! $user_type $admin $util</h1>";
+        echo "<h1>Bienvenue, $login_username! $user_type $admin $util</h1>";
     } elseif ($user_type == $util) {
         // Afficher le contenu pour un compte util
         echo "<h1>Bienvenue, Utilisateur!</h1>";
