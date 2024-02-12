@@ -1,3 +1,4 @@
+<?php
 // Dans votre fichier connexion_traitement.php
 
 session_start();
@@ -39,3 +40,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Fermer la connexion à la base de données
     $connexion = null;
 }
+
+?>
