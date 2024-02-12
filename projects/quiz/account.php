@@ -1,10 +1,9 @@
 <?php
-
 // Dans votre page principale (index.php)
 session_start();
 
-require_once 'connexion_traitement.php';
 require_once 'config.php';
+require_once 'connexion_traitement.php'; // Assurez-vous de l'inclure ici
 
 // Vérifiez si l'utilisateur est connecté et a une variable de session 'user_type' définie
 if (isset($_SESSION['user_type'])) {
@@ -17,13 +16,13 @@ if (isset($_SESSION['user_type'])) {
     } elseif ($user_type == $util) {
         // Afficher le contenu pour un compte util
         echo "<h1>Bienvenue, Utilisateur!</h1>";
-    } else {
+    } else { 
         // Autre type de compte, afficher un message par défaut
         echo "<h1>Bienvenue!</h1>";
     }
 } else {
     // L'utilisateur n'est pas connecté, redirigez-le vers la page de connexion
-    header("Location: page_de_connexion.php");
+    header("Location: acces.html");
     exit();
 }
 ?>
