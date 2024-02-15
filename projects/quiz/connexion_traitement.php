@@ -10,11 +10,7 @@ try {
         $login_password = $_POST['login_password'];
 
         // Établir la connexion à la base de données
-        try {
-            $connexion = new PDO("mysql:host={$host};dbname={$dbname}", $username, $password);
-        } catch (PDOException $e) {
-            die("<p class='message'>Erreur lors de la connexion à la base de données : " . $e->getMessage() . "</p>");
-        }
+        $connexion = new PDO("mysql:host={$databaseConfig['server']};dbname={$databaseConfig['database']}", $databaseConfig['username'], $databaseConfig['password']);
 
         // Vérifier si le nom d'utilisateur existe
         $check_username_query = $connexion->prepare("SELECT * FROM access WHERE username = ?");
@@ -35,12 +31,13 @@ try {
             } else {
                 echo "<p class='message'>Mot de passe incorrect.</p>";
             }
-
         }
 
         // Fermer la connexion à la base de données
         $connexion = null;
     }
+} catch (PDOException $e) {
+    echo "<p class='message'>Erreur lors de la connexion à la base de données : " . $e->getMessage() . "</p>";
 } catch (Exception $e) {
     echo "<p class='message'>Exception capturée : " . $e->getMessage() . "</p>";
 }
