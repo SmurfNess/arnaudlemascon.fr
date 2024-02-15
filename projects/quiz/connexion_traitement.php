@@ -33,6 +33,8 @@ try {
             }
         }
 
+        // Fermer la connexion à la base de données
+        $connexion = null;
     }
 } catch (PDOException $e) {
     echo "<p class='message'>Erreur lors de la connexion à la base de données : " . $e->getMessage() . "</p>";

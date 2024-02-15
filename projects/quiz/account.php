@@ -3,7 +3,7 @@
 session_start();
 
 require_once 'config.php';
-require_once 'connexion_traitement.php';
+// Inutile d'inclure le fichier connexion_traitement.php car nous allons gérer la connexion ici
 
 // Vérifie si l'utilisateur est connecté et a une variable de session 'user_type' définie
 if (isset($_SESSION['user_type'])) {
@@ -17,9 +17,16 @@ if (isset($_SESSION['user_type'])) {
         if ($user_type == $admin) {
             // Vérifie si le formulaire est soumis
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                // Créez une nouvelle connexion PDO
+                try {
+                    $connexion = new PDO("mysql:host={$databaseConfig['server']};dbname={$databaseConfig['database']}", $databaseConfig['username'], $databaseConfig['password']);
+                    $connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                } catch (PDOException $e) {
+                    echo "Erreur de connexion : " . $e->getMessage();
+                }
+                
                 // Vérifiez si toutes les données nécessaires sont fournies
                 if (isset($_POST['answer']) && isset($_POST['image']) && isset($_POST['prop1']) && isset($_POST['prop2']) && isset($_POST['prop3']) && isset($_POST['prop4']) && isset($_POST['question']) && isset($_POST['qtype'])) {
-                    
                     // Récupérer les données du formulaire
                     $answer = $_POST['answer'];
                     $image = $_POST['image'];
@@ -30,15 +37,14 @@ if (isset($_SESSION['user_type'])) {
                     $question = $_POST['question'];
                     $qtype = $_POST['qtype'];
                     
-                    // Préparer et exécuter la requête SQL pour insérer les données dans la base de données
-                    $query = "INSERT INTO data (answer, image, prop1, prop2, prop3, prop4, question, Qtype) VALUES ('$answer', '$image', '$prop1', '$prop2', '$prop3', '$prop4', '$question', '$qtype')";
-                    $result = mysqli_query($connection, $query);
-
-                    // Si la requête s'est bien exécutée, affichez un message de succès
-                    if ($result) {
+                    try {
+                        // Préparer et exécuter la requête SQL pour insérer les données dans la base de données
+                        $query = "INSERT INTO data (answer, image, prop1, prop2, prop3, prop4, question, Qtype) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+                        $stmt = $connexion->prepare($query);
+                        $stmt->execute([$answer, $image, $prop1, $prop2, $prop3, $prop4, $question, $qtype]);
                         echo "<h1>Nouvelle ligne ajoutée avec succès!</h1>";
-                    } else {
-                        echo "<h1>Une erreur est survenue lors de l'ajout de la ligne.</h1>";
+                    } catch (PDOException $e) {
+                        echo "Erreur lors de l'ajout de la ligne : " . $e->getMessage();
                     }
                 } else {
                     echo "<h1>Tous les champs du formulaire sont requis.</h1>";
