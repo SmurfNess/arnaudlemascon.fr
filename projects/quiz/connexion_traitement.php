@@ -29,11 +29,13 @@ try {
                 // Mot de passe correct, rediriger vers la page account.php
                 session_start();
                 $_SESSION['user_type'] = $user_data['type'];  // Stocker le type de compte dans la session si nécessaire
+                $_SESSION['login_username'] = $login_username; // Stocker le nom d'utilisateur dans la session
                 header("Location: account.php");
                 exit();
             } else {
                 echo "<p class='message'>Mot de passe incorrect.</p>";
             }
+
         }
 
         // Fermer la connexion à la base de données
