@@ -39,7 +39,7 @@ if (isset($_SESSION['user_type'])) {
                     
                     try {
                         // Préparer et exécuter la requête SQL pour insérer les données dans la base de données
-                        $query = "INSERT INTO data (answer, image, prop1, prop2, prop3, prop4, question, Qtype) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+                        $query = "INSERT INTO data (number, answer, image, prop1, prop2, prop3, prop4, question, Qtype) VALUES (1, ?, ?, ?, ?, ?, ?, ?, ?)";
                         $stmt = $connexion->prepare($query);
                         $stmt->execute([$answer, $image, $prop1, $prop2, $prop3, $prop4, $question, $qtype]);
                         echo "<h1>Nouvelle ligne ajoutée avec succès!</h1>";
