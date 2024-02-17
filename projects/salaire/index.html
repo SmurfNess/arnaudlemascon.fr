@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculateur de salaire net</title>
+</head>
+<body>
+    <h1>Calculateur de salaire net</h1>
+    <label for="salaireBrut">Salaire brut annuel :</label>
+    <input type="number" id="salaireBrut" min="0">
+    <button onclick="calculerSalaireNet()">Calculer</button>
+
+    <div id="resultat"></div>
+
+    <script>
+// Données à envoyer à l'API
+const data = {
+  expressions: ["salarié . rémunération . net . à payer avant impôt"],
+  situation: {
+    "salarié . contrat . salaire brut": {
+      valeur: /* Valeur du salaire brut fourni par l'utilisateur */,
+      unité: "€/mois"
+    },
+    "salarié . contrat": "'CDI'"
+  }
+};
+
+// Options de la requête
+const options = {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify(data)
+};
+
+// URL de l'API Mon-entreprise
+const apiUrl = 'https://mon-entreprise.urssaf.fr/api/v1/evaluate';
+
+// Envoi de la requête
+fetch(apiUrl, options)
+  .then(response => response.json())
+  .then(data => {
+    // Traitement de la réponse de l'API
+    // Affichage du salaire net calculé
+    console.log("Salaire net calculé :", data.evaluate[0].nodeValue);
+  })
+  .catch(error => {
+    console.error('Erreur lors de la récupération des données :', error);
+  });
+
+    </script>
+</body>
+</html>
