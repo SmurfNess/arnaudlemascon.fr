@@ -143,6 +143,7 @@ if (isset($_SESSION['user_type'])) {
                     var buttons = card.querySelectorAll('.button-container button');
                     var answerButton = card.querySelector('.answer');
                     var scoreDisplay = card.querySelector('.score');
+                    var countDisplay = document.getElementById('score');
 
                     buttons.forEach(function(button) {
                         button.addEventListener('click', function() {
@@ -158,11 +159,10 @@ if (isset($_SESSION['user_type'])) {
                             }
 
                             scoreDisplay.style.display = 'block';
+                            countDisplay.textContent = score; // Mise à jour du score dans la div count
                         });
                     });
                 });
-
-                document.getElementById('score').textContent = score;
             </script>
         </body>
         </html>
