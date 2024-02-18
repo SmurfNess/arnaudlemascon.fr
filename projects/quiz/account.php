@@ -59,7 +59,60 @@ if (isset($_SESSION['user_type'])) {
             </form>
             <?php
         } elseif ($user_type == $util) {
-            echo "<h1>BIENVENUE !</h1>";
+            try {
+                $connexion = new PDO("mysql:host={$databaseConfig['server']};dbname={$databaseConfig['database']}", $databaseConfig['username'], $databaseConfig['password']);
+                $connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+                $query = "SELECT * FROM data";
+                $stmt = $connexion->query($query);
+                $cards = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            } catch (PDOException $e) {
+                echo "Erreur de connexion : " . $e->getMessage();
+            }
+        ?>
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Cartes</title>
+            <style>
+                .card {
+                    border: 1px solid #ccc;
+                    border-radius: 5px;
+                    padding: 10px;
+                    margin: 10px;
+                    width: 400px;
+                    height: 400px;
+                    display: inline-block;
+                }
+
+                .card img {
+                    width: 100%;
+                    height: 300px;
+                    object-fit: cover;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <?php foreach ($cards as $card): ?>
+                    <div class="card">
+                        <div class="card-number"><?php echo $card['number']; ?></div>
+                        <h2 class="card-title"><?php echo $card['Question']; ?></h2>
+                        <img src="<?php echo $card['Image']; ?>" alt="Image">
+                        <button><?php echo $card['Answer']; ?></button>
+                        <button><?php echo $card['prop1']; ?></button>
+                        <button><?php echo $card['prop2']; ?></button>
+                        <button><?php echo $card['prop3']; ?></button>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </body>
+        </html>
+
+        <?php
         } else { 
             echo "<h1>Bienvenue..</h1>";
         }
