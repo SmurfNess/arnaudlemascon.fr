@@ -115,16 +115,16 @@ font-weight: bold;
 /* PROJECTS ##################################################### */
 
 .container-style {
-  margin-top: 25vh;
+  margin-top: 5vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 20px; /* Espacement entre les cartes */
+  margin-bottom: 0px; 
 }
 
 .project_carte {
   width: 250px;
-  height: 400px;
+  height: 250px;
   position: relative;
   color: white;
   border: 2px solid #333;
@@ -147,6 +147,10 @@ font-weight: bold;
 }
 .p4{
   background: url('https://arnaudlemascon.fr/assets/pictures/quiz.webp');
+  background-size: cover;
+}
+.p5{
+  background: url('https://arnaudlemascon.fr/assets/pictures/salaire.jpg');
   background-size: cover;
 }
 
@@ -174,6 +178,7 @@ font-weight: bold;
 }
 
 .project_description {
+  z-index: 1;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -217,7 +222,6 @@ font-weight: bold;
   font-weight: bold;
 }
 
-
 /* VALUES ####################################################### */
 
 .cartes-container {
@@ -246,8 +250,8 @@ font-weight: bold;
   width: 100%;
   height: 100%;
   position: absolute;
-  border-radius: 10px; /* Arrondis */
-  border: 5px solid white; /* Bordure blanche de 5px */
+  border-radius: 10px; 
+  border: 5px solid white;
   backface-visibility: hidden;
   display: flex;
   flex-direction: column;
@@ -262,7 +266,7 @@ font-weight: bold;
 
 .face-arriere {
   transform: rotateY(180deg);
-  background-color: #fff; /* Couleur de fond pour la face arrière */
+  background-color: #fff; 
   padding: 10px;
   text-align: center;
 }
@@ -274,7 +278,7 @@ font-weight: bold;
   max-width: 200px;
   max-height: 250px;
   top:0px;
-  border-radius: 10px; /* Ajout de bordure arrondie pour l'image*/
+  border-radius: 10px; 
   object-fit:cover;
 }
 .face .value{
@@ -282,7 +286,6 @@ font-weight: bold;
   top: 5px;
   font-size: var(--BG);
 }
-
 
 /* TRIVIA ####################################################### */
 
@@ -317,14 +320,12 @@ font-weight: bold;
   background: rgba(0, 0, 0, 0.8);
 } 
 
-
-/* Styling pour les boutons de contrôle du carrousel */
 .carousel-control-prev,
 .carousel-control-next {
   z-index: 1;
-  width: 100%; /* Largeur des boutons */
-  height: 100%; /* Hauteur des boutons */
-  opacity: 1; /* Opacité par défaut */
+  width: 100%; 
+  height: 100%;
+  opacity: 1; 
   padding: 30vh 25% 30vh 25%;
 }
 
@@ -339,8 +340,6 @@ font-weight: bold;
   clip-path: polygon(10% 25%, 50% 50%, 10% 75%);
 }
 
-
-
 /* SKILLS ####################################################### */
 
 .card_skills {
@@ -350,7 +349,7 @@ font-weight: bold;
   width: 16vw;
   min-width: 250px;
   border-radius: 25px;
-  transition: transform 0.3s, background-image 0.2s; /* Ajout de la transition uniquement pour le background-image */
+  transition: transform 0.3s, background-image 0.2s; 
 }
 
 .S1:hover {
@@ -549,7 +548,7 @@ footer{
   
   .project_carte {
     width: 250px;
-    height: 200px;
+    height: 6vh;
     position: relative;
     color: white;
     border: 2px solid #333;
@@ -557,8 +556,7 @@ footer{
     overflow: hidden;
     transition: transform 0.3s, box-shadow 0.3s;
   }
-  
-  
+    
   .project_carte:hover {
     transform: perspective(800px) rotateX(10deg);
     box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.5);
@@ -694,8 +692,6 @@ footer{
   text-align: center;
 }
 
-
-
   .hidden-carousel-button{
     display: flex;
     top: 50px;
@@ -713,9 +709,9 @@ footer{
   }
 
   .btn-carousel:focus {
-    background-color: black !important; /* Nouvelle couleur de fond après sélection */
-    outline: none; /* Supprimer l'outline bleu lorsqu'il a le focus */
-    box-shadow: none !important; /* Supprimer la box-shadow persistante après le clic */
+    background-color: black !important;
+    outline: none; 
+    box-shadow: none !important;
 }
   
   .cp{
