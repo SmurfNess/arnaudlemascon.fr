@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 
 require_once 'config.php';
@@ -17,16 +16,8 @@ if (isset($_SESSION['user_type'])) {
         if ($user_type == $admin) {
             // Vérifie si le formulaire est soumis
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                // Créez une nouvelle connexion PDO
-                try {
-                    $connexion = new PDO("mysql:host={$databaseConfig['server']};dbname={$databaseConfig['database']}", $databaseConfig['username'], $databaseConfig['password']);
-                    $connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                } catch (PDOException $e) {
-                    echo "Erreur de connexion : " . $e->getMessage();
-                }
-                
-                // Vérifiez si toutes les données nécessaires sont fournies et validez l'URL de l'image
-                if (isset($_POST['answer']) && isset($_POST['image']) && isset($_POST['prop1']) && isset($_POST['prop2']) && isset($_POST['prop3']) && isset($_POST['question']) && isset($_POST['qtype'])) {
+                // Assurez-vous que toutes les données requises sont présentes
+                if (isset($_POST['answer'], $_POST['image'], $_POST['prop1'], $_POST['prop2'], $_POST['prop3'], $_POST['question'], $_POST['qtype'])) {
                     // Récupérer les données du formulaire
                     $answer = $_POST['answer'];
                     $image = $_POST['image'];
@@ -35,26 +26,36 @@ if (isset($_SESSION['user_type'])) {
                     $prop3 = $_POST['prop3'];
                     $question = $_POST['question'];
                     $qtype = $_POST['qtype'];
-                    
+
                     // Valider l'URL de l'image
-                    if (filter_var($image, FILTER_VALIDATE_URL, FILTER_FLAG_PATH_REQUIRED)) {
-                        // Vérifier si les valeurs de answer, prop1, prop2 et prop3 sont différentes
-                        $values = [$answer, $prop1, $prop2, $prop3];
-                        if (count($values) === count(array_unique($values))) {
-                            try {
-                                // Préparer et exécuter la requête SQL pour insérer les données dans la base de données
-                                $query = "INSERT INTO data (answer, image, prop1, prop2, prop3, question, Qtype) VALUES (?, ?, ?, ?, ?, ?, ?)";
-                                $stmt = $connexion->prepare($query);
-                                $stmt->execute([$answer, $image, $prop1, $prop2, $prop3, $question, $qtype]);
-                                echo "<h1>Nouvelle ligne ajoutée avec succès!</h1>";
-                            } catch (PDOException $e) {
-                                echo "Erreur lors de l'ajout de la ligne : " . $e->getMessage();
-                            }
-                        } else {
-                            echo "<h1>Les valeurs de answer, prop1, prop2 et prop3 doivent être différentes.</h1>";
-                        }
-                    } else {
+                    if (!filter_var($image, FILTER_VALIDATE_URL)) {
                         echo "<h1>L'URL de l'image n'est pas valide.</h1>";
+                    }
+                    // Assurez-vous que la question se termine par un point d'interrogation
+                    elseif (substr($question, -1) !== '?') {
+                        echo "<h1>La question doit se terminer par un point d'interrogation (?).</h1>";
+                    }
+                    // Vérifiez si les valeurs de answer, prop1, prop2 et prop3 sont différentes
+                    elseif ($answer === $prop1 || $answer === $prop2 || $answer === $prop3 || $prop1 === $prop2 || $prop1 === $prop3 || $prop2 === $prop3) {
+                        echo "<h1>Les valeurs de answer, prop1, prop2 et prop3 doivent être différentes.</h1>";
+                    } else {
+                        // Créez une nouvelle connexion PDO
+                        try {
+                            $connexion = new PDO("mysql:host={$databaseConfig['server']};dbname={$databaseConfig['database']}", $databaseConfig['username'], $databaseConfig['password']);
+                            $connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                        } catch (PDOException $e) {
+                            echo "Erreur de connexion : " . $e->getMessage();
+                        }
+
+                        try {
+                            // Préparer et exécuter la requête SQL pour insérer les données dans la base de données
+                            $query = "INSERT INTO data (answer, image, prop1, prop2, prop3, question, Qtype) VALUES (?, ?, ?, ?, ?, ?, ?)";
+                            $stmt = $connexion->prepare($query);
+                            $stmt->execute([$answer, $image, $prop1, $prop2, $prop3, $question, $qtype]);
+                            echo "<h1>Nouvelle ligne ajoutée avec succès!</h1>";
+                        } catch (PDOException $e) {
+                            echo "Erreur lors de l'ajout de la ligne : " . $e->getMessage();
+                        }
                     }
                 } else {
                     echo "<h1>Tous les champs du formulaire sont requis.</h1>";
