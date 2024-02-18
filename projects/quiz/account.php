@@ -25,26 +25,36 @@ if (isset($_SESSION['user_type'])) {
                     echo "Erreur de connexion : " . $e->getMessage();
                 }
                 
-                // Vérifiez si toutes les données nécessaires sont fournies
-                if (isset($_POST['answer']) && isset($_POST['image']) && isset($_POST['prop1']) && isset($_POST['prop2']) && isset($_POST['prop3']) && isset($_POST['prop4']) && isset($_POST['question']) && isset($_POST['qtype'])) {
+                // Vérifiez si toutes les données nécessaires sont fournies et validez l'URL de l'image
+                if (isset($_POST['answer']) && isset($_POST['image']) && isset($_POST['prop1']) && isset($_POST['prop2']) && isset($_POST['prop3']) && isset($_POST['question']) && isset($_POST['qtype'])) {
                     // Récupérer les données du formulaire
                     $answer = $_POST['answer'];
                     $image = $_POST['image'];
                     $prop1 = $_POST['prop1'];
                     $prop2 = $_POST['prop2'];
                     $prop3 = $_POST['prop3'];
-                    $prop4 = $_POST['prop4'];
                     $question = $_POST['question'];
                     $qtype = $_POST['qtype'];
                     
-                    try {
-                        // Préparer et exécuter la requête SQL pour insérer les données dans la base de données
-                        $query = "INSERT INTO data (number, answer, image, prop1, prop2, prop3, prop4, question, Qtype) VALUES (1, ?, ?, ?, ?, ?, ?, ?, ?)";
-                        $stmt = $connexion->prepare($query);
-                        $stmt->execute([$answer, $image, $prop1, $prop2, $prop3, $prop4, $question, $qtype]);
-                        echo "<h1>Nouvelle ligne ajoutée avec succès!</h1>";
-                    } catch (PDOException $e) {
-                        echo "Erreur lors de l'ajout de la ligne : " . $e->getMessage();
+                    // Valider l'URL de l'image
+                    if (filter_var($image, FILTER_VALIDATE_URL, FILTER_FLAG_PATH_REQUIRED)) {
+                        // Vérifier si les valeurs de answer, prop1, prop2 et prop3 sont différentes
+                        $values = [$answer, $prop1, $prop2, $prop3];
+                        if (count($values) === count(array_unique($values))) {
+                            try {
+                                // Préparer et exécuter la requête SQL pour insérer les données dans la base de données
+                                $query = "INSERT INTO data (number, answer, image, prop1, prop2, prop3, question, Qtype) VALUES (1, ?, ?, ?, ?, ?, ?, ?)";
+                                $stmt = $connexion->prepare($query);
+                                $stmt->execute([$answer, $image, $prop1, $prop2, $prop3, $question, $qtype]);
+                                echo "<h1>Nouvelle ligne ajoutée avec succès!</h1>";
+                            } catch (PDOException $e) {
+                                echo "Erreur lors de l'ajout de la ligne : " . $e->getMessage();
+                            }
+                        } else {
+                            echo "<h1>Les valeurs de answer, prop1, prop2 et prop3 doivent être différentes.</h1>";
+                        }
+                    } else {
+                        echo "<h1>L'URL de l'image n'est pas valide.</h1>";
                     }
                 } else {
                     echo "<h1>Tous les champs du formulaire sont requis.</h1>";
@@ -59,7 +69,6 @@ if (isset($_SESSION['user_type'])) {
                 Prop1: <input type="text" name="prop1"><br>
                 Prop2: <input type="text" name="prop2"><br>
                 Prop3: <input type="text" name="prop3"><br>
-                Prop4: <input type="text" name="prop4"><br>
                 Question: <input type="text" name="question"><br>
                 Type de question: 
                 <input type="radio" name="qtype" value="duo">Duo
