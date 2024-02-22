@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page avec des cartes PHP</title>
     <!-- Liens vers vos fichiers CSS -->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="assets/css/cards.css">
+    <link rel="stylesheet" href="assets/css/style.css">
     <!-- Liens vers la bibliothèque Swiper -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 </head>
@@ -86,6 +87,6 @@
 
     <!-- Liens vers vos fichiers JavaScript -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script src="script.js"></script>
+    <script src="assets/js/cards.js"></script>
 </body>
 </html>
