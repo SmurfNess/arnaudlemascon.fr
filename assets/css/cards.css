@@ -1,3 +1,4 @@
+
 @import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap");
 
 *,
@@ -7,16 +8,6 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Comfortaa", cursive;
-}
-
-section {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #262626;
-  min-height: 100vh;
-  overflow: hidden;
 }
 
 /* SWIPER */
@@ -32,7 +23,7 @@ section {
   box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   background:black;
- }
+}
 
 .swiper-card {
   position:relative;
@@ -136,12 +127,4 @@ section {
   z-index:5;
   position:relative;
   height:16px;
-  display:none;
 }
-
-/*
-@media (max-width: 750px) {
-  .content {
-     flex-direction: column-reverse;
-  }
-*/

@@ -17,13 +17,15 @@
   --powder-blue: rgb(166, 179, 255);
   --federal-blue: rgb(10, 1, 79);
   --caribbean-current: rgb(56, 104, 106);
-  --ash-gray: rgb(255, 255, 255);
+  --ash-gray: rgb(199, 199, 199);
   --bg-grey:rgb(18, 18, 18);
   --gold:rgb(190, 188, 22);
   --BG:25px;
   --MD:20px;
   --SM:12px;
 }
+
+
 /* SCREEN 770 ############################################### */
 
 @media screen and (max-width: 770px) {
@@ -117,113 +119,126 @@ font-weight: bold;
 
 /* PROJECTS ##################################################### */
 
-.container-style {
-  margin-top: 5vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 0px; 
-}
 
-.project_carte {
+.swiper {
   width: 250px;
-  height: 250px;
+  height: 450px;
+  padding: 50px 0;
+  transform: scale(1.5);
+}
+
+.swiper-slide {
   position: relative;
-  color: white;
-  border: 2px solid #333;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
-  overflow: hidden;
-  transition: transform 0.3s, box-shadow 0.3s;
+  background:black;
+ }
+
+.swiper-card {
+  position:relative;
+  margin:10px;
+  height:325px;
+  width:230px;
+  border-radius: 1px;
+  color: black;
 }
 
-.p1{
-  background: url('https://arnaudlemascon.fr/assets/pictures/p_hooman.webp');
-  background-size: cover;
-}
-.p2{
-  background: url('https://arnaudlemascon.fr/assets/pictures/cvex.webp');
-  background-size: cover;
-}
-.p3{
-  background: url('https://arnaudlemascon.fr/assets/pictures/adfoc.webp');
-  background-size: cover;
-}
-.p4{
-  background: url('https://arnaudlemascon.fr/assets/pictures/quiz.webp');
-  background-size: cover;
-}
-.p5{
-  background: url('https://arnaudlemascon.fr/assets/pictures/salaire.jpg');
-  background-size: cover;
+.container-bande{
+  position:absolute;
+  z-index:2;
 }
 
-
-.project_carte:hover {
-  transform: perspective(800px) rotateX(10deg);
-  box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.5);
+.swiper-head, .swiper-type{
+    top:10px;
+    position: relative;
+    width: 225px;
+    height: 25px;
+    background-color: transparent;
+    overflow: hidden;
 }
 
-.project_carte::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0%;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.6) 90%);
-  z-index: 1;
-  opacity: 0;
-  transition: opacity 0.3s;
+.swiper-circle {
+    position: absolute;
+    top: 50%;
+    left: 51%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border-radius: 50%;
+    height: 100px;
+    width: 214px;
+  border:2px solid black;
+  color: black;
 }
 
-.project_carte:hover::before {
-  opacity: 1;
+.swiper-border{
+  position:absolute;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  width: 206px;
+  height:29px;
+  margin: 0 auto;
+  left:12px;
+  top:8px;
+  background:transparent;
+  padding: 5px 0px 0px 5px;
+  font-size:14px;
 }
 
-.project_description {
-  z-index: 1;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 10px;
-  background: rgba(0, 0, 0, 0.8);
-  color: white;
-  opacity: 0;
-  transform: translateY(100%);
-  transition: opacity 0.3s, transform 0.3s;
+.swiper-img{
+  z-index:1;
+  position:relative;
+  top:10px;
+  margin:2px 15px 0px 15px;
+  height:150px;
+  overflow:hidden;
+  text-align: center;
+  border:2px black solid;
 }
 
-.project_small_description {
-  display: none;
-  }
-
-.project_carte:hover .project_description {
-  opacity: 1;
-  transform: translateY(0);
+.swiper-slide:hover{
+ background: linear-gradient(180deg, rgb(110, 1, 1) 5%, rgb(255, 187, 0) 95%);
+ transform: perspective(1000px) rotateX(5deg);
+ top:5px;
 }
 
-.project_logos {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  display: flex;
-  flex-direction: row-reverse;
+.swiper-img img{
+  margin: 0 auto;
+  max-width: 100%;
 }
 
-.project_logo {
-  width: 30px;
-  height: 30px;
-  margin-left: 5px;
+.swiper-description{
+  z-index:1;
+  position: relative;
+  background:white;
+  width:auto;
+  top:30px;
+  height:125px;
+  margin:0px 15px 0px 15px;
+  padding:10px;
+  border: solid black 2px;
+  font-size:12px;
 }
 
-.project_titre {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  font-size: 16px;
-  font-weight: bold;
+.swiper-legend{
+  position:absolute;
+  color:white;
+  bottom:5px;
+  left:20px;
+  font-weight:bold;
+  font-size:10px;
 }
+
+.techno{
+  position:absolute;
+  top:14px;
+  right:10px;
+}
+.logo{
+  z-index:5;
+  position:relative;
+  height:16px
+}
+
 
 /* VALUES ####################################################### */
 
@@ -298,6 +313,7 @@ font-weight: bold;
   max-width: 1000px;
   object-fit: cover;
   object-position: 50% 50%;
+  border-radius: 25px;
 }
 
 .hidden-carousel-button{
@@ -334,13 +350,13 @@ font-weight: bold;
 
 .carousel-control-prev{
   right: 0%;
-  background: rgba(255, 255, 255, 0.5);
-  clip-path: polygon(90% 25%, 50% 50%, 90% 75%);
+  background: rgba(255, 255, 255, 0.25);
+  clip-path: polygon(90% 45%,80% 40%, 65% 40%,50% 50%,80% 63%, 90% 55%);
 } 
 .carousel-control-next {
   left: 0%;
-  background: rgba(255, 255, 255, 0.5);
-  clip-path: polygon(10% 25%, 50% 50%, 10% 75%);
+  background: rgba(255, 255, 255, 0.25);
+  clip-path: polygon(10% 45%, 25% 40%, 35% 40%, 50% 50%, 35% 60%,15% 60%, 10% 55%);
 }
 
 /* SKILLS ####################################################### */
@@ -468,7 +484,7 @@ input{
   top: 25%;
   left:0%;
   background: white;
-  border: none;
+  border: solid 1px black;
 }
 
 .btn-message:after {
@@ -479,8 +495,9 @@ input{
   width: 100%;
   height: 100%;
   background: var(--ash-gray);
-  clip-path: polygon(0% 0%, 100% 0%,50% 50%);
+  clip-path: polygon(0% 0%, 100% 0%, 50% 50%);
 }
+
 
 
 /* FOOTER ###################################################### */
