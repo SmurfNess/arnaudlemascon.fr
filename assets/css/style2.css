@@ -69,6 +69,11 @@
     --font-md: 15px;
     --font-sm: 10px;
   }
+  .background-svg{
+    max-width: 770px;
+    width: 100%;
+  }
+  
 }
 
 @media screen and (max-width: 990px) and (min-width: 770px) {
@@ -78,6 +83,10 @@
     --font-md:20px;
     --font-sm:15px;
   }
+  .background-svg{
+    max-width: 990px;
+    width: 100%;
+  }
 }
 
 @media screen and (max-width: 1200px) and (min-width: 971px) {
@@ -86,6 +95,10 @@
     --font-bg:25px;
     --font-md:20px;
     --font-sm:15px;
+  }
+  .background-svg{
+    max-width: 1200px;
+    width: 100%;
   }
 }
 /* to call with var(); */
