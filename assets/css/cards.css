@@ -1,13 +1,10 @@
 
-@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap");
-
 *,
 *::before,
 *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Comfortaa", cursive;
 }
 
 /* SWIPER */
@@ -86,7 +83,7 @@
 }
 
 .swiper-slide:hover{
- background: linear-gradient(180deg, rgba(200,200,200,1) 5%, rgba(0,0,0,5) 25%);
+ background: white;
  transform: perspective(1000px) rotateX(5deg);
  top:5px;
 }

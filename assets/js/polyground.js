@@ -1,6 +1,8 @@
 const canvas = document.getElementById('canvas');
 const context = canvas.getContext('2d');
-const colors = ['#3131312a', '#afafaf2a', '#0000002a', '#9292922a'];
+var maCouleur = getComputedStyle(document.documentElement).getPropertyValue('--color-tertiary');
+
+const colors = [maCouleur,'#FFFFFF2a'];
 
 document.addEventListener('DOMContentLoaded', function() {
 

@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <!-- Vis -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css" type="text/css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
   <!-- Style -->
   <link rel="stylesheet" href="assets/css/style2.css">
@@ -21,19 +22,15 @@
   <canvas id="canvas">a</canvas>
   
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="maBande">
+  <nav class="navbar navbar-expand-lg fixed-top">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon">
+          <img src="assets/pictures/toggler.webp">
+        </span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-        <!-- Bouton "SHAKE" à gauche -->
-          <svg class="shake" onclick="chargerImagesAleatoires();" width="40" height="40" xmlns="http://www.w3.org/2000/svg">
-            <path d="M 5 20 A 4 4 0 1 1 35 20 Z" fill="black" />
-            <path d="M 5 20 A 4 4 0 1 0 35 20 Z" fill="white"/>
-            <path d="M 5 20 A 4 4 0 1 0 15 20 Z" fill="black" />
-            <path d="M 25 20 A 4 4 0 1 0 35 20 Z" fill="black" />
-            <path d="M 15 20 A 4 4 0 1 1 25 20 Z" fill="white" />
-          </svg>
+
+          <img src="assets/pictures/logo.webp" class="shake" onclick="chargerImagesAleatoires();">
         
           <ul class="navbar-nav mx-auto">
             <li class="nav-item">
@@ -55,6 +52,7 @@
   
         <a href="index-en.html"><img src="assets/pictures/united-kingdom.webp" style="max-height: 38px; margin-right: 20px;"></a>
         <a href="index-es.html"><img src="assets/pictures/flag.webp" style="max-height: 40px;"></a>
+        <div class="underline"></div>
     </div>
   </nav>
   
@@ -119,12 +117,11 @@
       </div>
   
       <section id="HOME" class="light-section">
+        <svg viewBox="0 0 100 100" preserveAspectRatio="none" class="background-svg">
+          <path d="M0,00 L100,0 L100,55 Q95,70 70,70 Q00,70 0,85 Q40,75 0,85 Z"></path>
+        </svg>     
+        
         <div class="container-fluid">
-          <div class="row">
-            <div class="col-2"></div>
-            <div class="col-8"></div>
-            <div class="col-2"></div>
-          </div>
           <div class="row home">
             <div class="col-md-2 col-0"></div>
             <div class="col-md-4 col-12">
@@ -132,20 +129,19 @@
             </div>
             <div class="col-md-4 col-12 home-description">
               <article>
-                <h2 class="fs-2"></h2>
-                <br>
-                <p class="home-title">Hey, je suis Arnaud, bienvenue ici</p>
-                <p class="home-desc">Ancien étudiant en art, j'aime créer, autant avec mes mains qu'avec un ordinateur. J'ai créé ce site pour me challenger.
-                  
-                </p>
+                <p class="title">Hey, je suis Arnaud, bienvenue ici</p>
+                <p class="home-desc">Ancien étudiant en art, j'aime créer, autant avec mes mains qu'avec un ordinateur. J'ai créé ce site pour me challenger.</p>
               </article>
             </div>
             <div class="col-md-2 col-0"></div>
           </div>
         </div>
       </section>
+
     <section  id="PROJECTS">
-      <div class="content">
+      <div class="row row-projects">
+        <div class="col-12 mx-auto m-2 title">Quelques projets menés</div>
+        <div class="col-12 mx-auto m-2">
         <div class="swiper">
           <div class="swiper-wrapper">
             <div class="swiper-slide">
@@ -309,14 +305,16 @@
             </div>
         </div>
       </div>
+      </div>
     </div>
   </section>
    
   <section id="VALUES" class="dark-section1"> 
-    <div class="container-fluid">
+                
+    <div class="container-fluid container-values">
       <div class="row">
           <div class="col-2"></div>
-          <div class="col-8 section-desc">les valeurs qui m'animent</div>
+          <div class="col-8 title">Ce qui m'anime</div>
               <div class="col-2"></div>
       </div>
         <div class="row">
@@ -427,15 +425,15 @@
   <div class="container-fluid">
       <div class="row">
           <div class="col-2"></div>
-          <div class="col-8 section-desc">quelques infos à mon sujet</div>
+          <div class="col-8 title">quelques infos à mon sujet</div>
               <div class="col-2"></div>
       </div>
 
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-4">
             <a class="carousel-control-prev d-md-block d-none" href="#imageCarousel" role="button" data-slide="prev"></a>
         </div>
-          <div class="col-md-6 carrousel">
+          <div class="col-md-4 carrousel">
               <!-- Carrousel -->
               <div id="imageCarousel" class="carousel slide" data-ride="carousel">
                   <div class="carousel-inner">
@@ -476,7 +474,7 @@
                 </div>
               </div>
           </div>
-          <div class="col-md-3">
+          <div class="col-md-4">
             <a class="carousel-control-next d-md-block d-none" href="#imageCarousel" role="button" data-slide="next"></a>
         </div>
         <div class="col-5 hidden-carousel-button"></div>
@@ -494,7 +492,7 @@
   <div class="container-fluid">
       <div class="row">
           <div class="col-2"></div>
-          <div class="col-8 section-desc">Mes compétences</div>
+          <div class="col-8 title">En terme professionnel :</div>
           <div class="col-2"></div>
       </div>
 
@@ -512,7 +510,7 @@
                                 <div class="col-md-6">
                                   <div class="gauge-wrapper col-md-12">
                                     <div class="gauge">
-                                    <div class="gauge-level" style="width:40%"></div>
+                                    <div class="gauge-level" style="width:50%"></div>
                                     </div>
                                   </div>
                                 </div>
@@ -704,23 +702,24 @@
 </section>
   
   <section id="CONTACT">
+    <div class="background-polygon"></div>
     <div class="container-fluid">
       <div class="row">
-        <div class="col-2"></div>
+        <div class="col-2 contact-text">Contacte-moi</div>
         <div class="col-8">
           <form action="https://formspree.io/f/xdovyzdp" method="POST">
             <div class="row">
-            <label class="col-md-12 name">Ton nom et tes pronoms:<br>
+            <label class="col-md-12 name">Ton nom et tes pronoms :<br>
               <input type="name" name="name" style="width: 100%;" required>
             </label>
-            <label class="col-md-12 mail">Ton email:<br>
+            <label class="col-md-12 mail">Ton email :<br>
               <input type="email" name="email" style="width: 100%;" required>
             </label>
-            <label class="col-md-10 col-sm-12 message">Ton message:<br>
+            <label class="col-md-10 col-sm-12 message">Ton message :<br>
               <textarea name="message" rows="8" cols="0"></textarea required>
             </label>
             <div class="col-md-2 col-sm-12">
-              <button type="submit" class="btn-message"></button>
+              <button type="submit" class="btn-message">SEND</button>
             </div>
           </div>
           </form>
@@ -729,7 +728,7 @@
       </div>
     </div>
   </section>
-  <footer class=" bg-dark">
+  <footer>
     Imaginé &amp; construit par Arnaud Lemasçon © 2024 - <a href="#FOOTER" onclick="popup();">crédits et références</a>    
   </footer>
 
@@ -747,11 +746,29 @@
 
   <script>
     function closeNavbar() {
-         // Vérifier si le bouton de bascule est visible (navbar en mode réduit)
          if ($('.navbar-toggler').is(':visible')) {
            $('.navbar-toggler').click();
          }
        }
+   </script>
+   <script>
+    document.addEventListener("DOMContentLoaded", function() {
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    function setActiveLink(event) {
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+        });
+        event.target.classList.add('active');
+    }
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(event) {
+            setActiveLink(event);
+            closeNavbar(); // Appeler la fonction pour fermer la barre de navigation
+        });
+    });
+});
    </script>
 
 </body>
