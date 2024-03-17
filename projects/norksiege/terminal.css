@@ -1,0 +1,26 @@
+.terminal {
+    left:200px;
+    width: 50vw;
+    margin: 50px auto;
+    border: none;
+    padding: 10px;
+    font-family: monospace;
+    background-color: red;
+    color: white;
+    position: relative;
+  }
+  
+  .input {
+    width: calc(100% - 20px);
+    border: none;
+    outline: none;
+    font-family: monospace;
+    background-color: transparent;
+    color: white;
+      animation: blink-caret 0.75s step-end infinite;
+  }
+  
+  @keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: black; }
+  }
