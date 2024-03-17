@@ -6,7 +6,8 @@
     <title>norksiege</title>
         <!-- Bootstrap -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-        <link rel="cursor" type="image/cur" href="norm.cur">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.3/xlsx.full.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <link rel="stylesheet" href="terminal.css">
         <link rel="stylesheet" href="ns.css">
 
@@ -25,15 +26,15 @@
                     <tbody>
                         <tr>
                             <td class="attribute">Strenght</td>
-                            <td id="str">1</td>
+                            <td id="strengthCounter">0</td>
                         </tr>
                         <tr>
                             <td class="attribute">Dexterity</td>
-                            <td id="dex">2</td>
+                            <td id="dexterityCounter">0</td>
                         </tr>
                         <tr>
                             <td class="attribute">intelligence</td>
-                            <td id="int">3</td>
+                            <td id="intelligenceCounter">0</td>
                         </tr>
                      </tbody>
                 </table>
@@ -45,19 +46,23 @@
                     <tbody>
                         <tr>
                             <td class="attribute">Melee</td>
-                            <td id="mle">1</td>
+                            <td id="meleeCounter">0</td>
                         </tr>
                         <tr>
                             <td class="attribute">Ranged</td>
-                            <td id="rgd">2</td>
+                            <td id="rangedCounter">0</td>
                         </tr>
                         <tr>
                             <td class="attribute">Combat magic</td>
-                            <td id="cbt">3</td>
+                            <td id="combatCounter">0</td>
                         </tr>
                         <tr>
                             <td class="attribute">Nature magic</td>
-                            <td id="nat">4</td>
+                            <td id="natureCounter">0</td>
+                        </tr>
+                        <tr>
+                            <td class="attribute">Thief</td>
+                            <td id="thiefCounter">0</td>
                         </tr>
                      </tbody>
                 </table>
