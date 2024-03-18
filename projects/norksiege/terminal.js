@@ -69,9 +69,6 @@ function mettreAJourEtAfficher() {
     displayNatureElement.innerHTML = intNature;
     displayCombatElement.innerHTML = intCombat;
     displayThiefElement.innerHTML = intThief;
-
-    console.log(`${varStrength} + ${varDexterity} + ${varIntelligence}`);
-    console.log(`${varMelee} + ${varRanged} + ${varNature} + ${varCombat} + ${intCombat}`);
     }
 
 function echo(text) {

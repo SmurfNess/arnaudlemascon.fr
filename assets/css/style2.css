@@ -71,6 +71,7 @@
     --font-bg: 25px;
     --font-md: 15px;
     --font-sm: 10px;
+    --color-principal:green;
   }
   .background-svg{
     max-width: 770px;
@@ -84,6 +85,7 @@
     --font-bg:25px;
     --font-md:20px;
     --font-sm:15px;
+    --color-principal:red;
   }
   .background-svg{
     max-width: 990px;
@@ -97,7 +99,9 @@
     --font-bg:25px;
     --font-md:20px;
     --font-sm:15px;
+    --color-principal:purple;
   }
+  
   .background-svg{
     max-width: 1200px;
     width: 100%;
@@ -425,7 +429,7 @@ section{
   width: 16vw;
   min-width: 250px;
   border-radius: 25px;
-  transition: transform 0.3s, background-image 0.2s; 
+  transition: transform 0.5s, box-shadow 0.5s; 
 }
 
 .S1:hover, .S2:hover,.S3:hover{
@@ -434,8 +438,6 @@ section{
   transform: scale(1.01);
   box-shadow: 0 0 0 4px var(--color-font-principal);
 }
-
-
 
 .separator{
   position: relative;
