@@ -7,7 +7,8 @@
     --color-principal:red;
   }
   .background-svg{
-    width: 1600px;
+    width: 1024px;
+    top: 200px;
   }
 
   .project-text{
