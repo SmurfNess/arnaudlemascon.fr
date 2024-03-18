@@ -4,12 +4,12 @@
     --font-bg:25px;
     --font-md:20px;
     --font-sm:15px;
-    --color-principal:green;
+    --color-principal:grey;
   }
 
   .background-svg{
     width:1600px;
-    top: 800px;
+    top: 0px;
   }
 
     .project-text{
