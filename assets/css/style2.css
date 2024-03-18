@@ -65,7 +65,7 @@
   position: absolute;
 }
 
-@media screen and (max-width: 770px) {
+@media screen and (max-width: 768px) {
   :root {
     --font-vbg: 30px;
     --font-bg: 25px;
@@ -79,7 +79,7 @@
   }
 }
 
-@media screen and (max-width: 990px) and (min-width: 770px) {
+@media screen and (max-width: 1024px) and (min-width: 769px) {
   :root {
     --font-vbg:40px;
     --font-bg:25px;
@@ -93,7 +93,7 @@
   }
 }
 
-@media screen and (max-width: 1200px) and (min-width: 971px) {
+@media screen and (max-width: 1600px) and (min-width: 1025px) {
   :root {
     --font-vbg:35px;
     --font-bg:25px;
@@ -101,7 +101,7 @@
     --font-sm:15px;
     --color-principal:purple;
   }
-  
+
   .background-svg{
     max-width: 1200px;
     width: 100%;
