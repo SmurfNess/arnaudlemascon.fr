@@ -1,0 +1,69 @@
+@media screen and (max-width: 1400px) and (min-width: 1025px) {
+  :root {
+    --font-vbg:35px;
+    --font-bg:25px;
+    --font-md:20px;
+    --font-sm:15px;
+    --color-principal:green;
+  }
+
+  .background-svg{
+    width:2000px;
+  }
+
+    .project-text{
+      display: none;
+    }
+  
+    .project-text2{
+      display: block;
+    }
+  
+    .cp{
+      min-width: 200px;
+      max-width: 200px;
+    }
+  
+    .card_skills {
+      width: 30vw;
+      height: fit-content;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+    }
+  
+    .card_project {
+      width: 30vw;
+      height: 250px;
+    }
+    .project-text{
+      font-size: 15px;
+    }
+  
+    .img-card-softskill{
+      display: none;
+    }
+  
+    .softskillunit{
+      padding: 0%;
+    }
+  
+    .language{
+      display: none;
+    }
+      
+    .card-text{
+      scale: 0.8;
+    }
+  
+    .card-text-skill{
+      font-size: 10px;
+      bottom: 0%;
+      margin: 0%;
+      background-color: transparent;
+    } 
+  
+    footer{
+      font-size: 10px;
+    }
+  
+}
