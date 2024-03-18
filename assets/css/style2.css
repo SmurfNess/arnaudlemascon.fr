@@ -71,10 +71,10 @@
     --font-bg: 25px;
     --font-md: 15px;
     --font-sm: 10px;
-    --color-principal:green;
+    --color-principal:orange;
   }
   .background-svg{
-    max-width: 770px;
+    max-width: 768px;
     width: 100%;
   }
 }
@@ -88,7 +88,7 @@
     --color-principal:red;
   }
   .background-svg{
-    max-width: 990px;
+    max-width: 1024px;
     width: 100%;
   }
 }
@@ -103,7 +103,7 @@
   }
 
   .background-svg{
-    max-width: 1200px;
+    max-width: 1600px;
     width: 100%;
   }
 }
