@@ -93,7 +93,7 @@
   }
 }
 
-@media screen and (max-width: 1600px) and (min-width: 1025px) {
+@media screen and (max-width: 1400px) and (min-width: 1025px) {
   :root {
     --font-vbg:35px;
     --font-bg:25px;
