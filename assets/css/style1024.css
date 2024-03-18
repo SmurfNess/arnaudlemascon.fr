@@ -1,13 +1,19 @@
 @media screen and (max-width: 1024px) and (min-width: 769px) {
   :root {
-    --font-vbg:40px;
-    --font-bg:25px;
-    --font-md:20px;
+    --font-vbg:25px;
+    --font-bg:18px;
+    --font-md:15px;
     --font-sm:15px;
-    --color-principal:red;
+    --color-principal:goldenrod;
   }
   .background-svg{
     width: 1024px;
+    top:180px;
+  }
+
+  .home{
+    position: relative;
+    top:-120px;
   }
 
   .project-text{

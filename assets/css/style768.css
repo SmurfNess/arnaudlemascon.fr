@@ -4,10 +4,10 @@
     --font-bg: 25px;
     --font-md: 15px;
     --font-sm: 10px;
-    --color-principal:cyan;
+    --color-principal:goldenrod;
   }
   .background-svg{
-    width: 768px;
+display: none;
   }
 
   

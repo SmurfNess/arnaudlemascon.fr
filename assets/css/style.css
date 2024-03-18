@@ -27,7 +27,6 @@
   --color-gauge-h_back: rgba(0, 212, 250, 0.5);
   --color-gauge-h_front: rgb(0, 212, 250);
   
-
   --font-vbg: 40px;
   --font-bg: 25px;
   --font-md: 20px;
@@ -35,7 +34,6 @@
 
   --poppins-font: 'Poppins', sans-serif;
   --arial-font: Arial, sans-serif;
-
 }
 
 .title, .atitle{
@@ -59,11 +57,10 @@
 
 .background-svg{
   position: absolute;
-  left: 0-5px;
   fill: var(--color-principal);
-  width: 2600px;
-  position: absolute;
+  top:0px;
 }
+
 
 /* PAGE */
 
@@ -77,13 +74,13 @@ section{
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 800px;
   width: 100vw;
 }
 
 .container-fluid{
   position: relative;
-  top:21vh;
+  top:120px;
 }
 
 #canvas {
@@ -112,18 +109,13 @@ section{
   margin-top: 50px;
 }
 
-#HOME .background-svg{
-  position: absolute;
-  top:-125vh;
-  }
-
 .home-desc{
   font-size: var(--font-md);
 }
 
 #HOME .img-fluid{
   position: relative;
-  max-height:60vh;
+  max-height:400px;
   top:-10%;
 }
 
@@ -267,7 +259,7 @@ section{
 
 .carte {
   width: 200px;
-  height: 300px;
+  height: 250px;
   perspective: 1000px;
   color: #000000;
 }
@@ -313,10 +305,11 @@ section{
   width: 100%;
   height: 100%;
   max-width: 200px;
-  max-height: 250px;
+  max-height: 200px;
   top:0px;
   border-radius: 10px; 
   object-fit:cover;
+  
 }
 .face .value{
   position: relative;
@@ -327,8 +320,8 @@ section{
 /* TRIVIA ####################################################### */
 
 .img-fluid-carousel{
-  height: 60vh ;
-  max-width: 1000px;
+  height: 500px ;
+  width: 1000px;
   object-fit: cover;
   object-position: 50% 50%;
   border-radius: 25px;
@@ -382,7 +375,7 @@ section{
 .card_skills {
   position: relative;
   background-color: var(--color-dark);
-  height: 50vh;
+  height: 400px;
   width: 16vw;
   min-width: 250px;
   border-radius: 25px;
@@ -469,8 +462,8 @@ section{
   position: absolute;
   bottom: 0;
   background-color: var(--color-principal);
-  height: 60vh;
-  width: 100vw;
+  height: 700px;
+  width: 100%;
   clip-path: polygon(0% 0%, 100% 10%, 100% 100%, 0% 100%);
 }
 .name,.message,.mail{
@@ -488,8 +481,8 @@ textarea, input{
 
 .btn-message{
   position: relative;
-  width: 15vh; 
-  height: 15vh;
+  width: 150px; 
+  height: 150px;
   top: 25%;
   left:0%;
   color: var(--color-font-principal);
@@ -510,7 +503,7 @@ footer{
   color: var(--color-font-tertiary);
   font-size: 15px;
   padding: 15px;
-  background-color: var(--color-principal);
+  background-color:var(--color-principal) ;
 }
 
 /* POP-UP ###################################################### */
@@ -553,401 +546,3 @@ footer{
     border-radius: 5px;
     cursor: pointer;
   }
-
-/* SCREEN 770 ############################################### */
-
-@media screen and (max-width: 770px) {
-
-
-  .container-style {
-    margin-top: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 0px;
-  }
-  
-  .project_carte {
-    width: 250px;
-    height: 6vh;
-    position: relative;
-    color: white;
-    border: 2px solid #333;
-    border-radius: 10px;
-    overflow: hidden;
-    transition: transform 0.3s, box-shadow 0.3s;
-  }
-    
-  .project_carte:hover {
-    transform: perspective(800px) rotateX(10deg);
-    box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.5);
-  }
-  
-  .project_carte::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0%;
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.6) 90%);
-    z-index: 1;
-    opacity: 0;
-    transition: opacity 0.3s;
-  }
-  
-  .project_carte:hover::before {
-    opacity: 1;
-  }
-  
-  .project_description {
-    display: none;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 10px;
-    background: rgba(0, 0, 0, 0.8);
-    color: white;
-    opacity: 0;
-    transform: translateY(100%);
-    transition: opacity 0.3s, transform 0.3s;
-  }
-  
-  .project_font-small_description {
-  display: block;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 10px;
-  background: rgba(0, 0, 0, 0.8);
-  color: white;
-  opacity: 0;
-  transform: translateY(100%);
-  transition: opacity 0.3s, transform 0.3s;
-  }
-
-  .project_carte:hover .project_font-small_description {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  
-  .project_logos {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    display: flex;
-    flex-direction: row-reverse;
-  }
-  
-  .project_logo {
-    width: 30px;
-    height: 30px;
-    margin-left: 5px;
-  }
-  
-  .project_titre {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    font-size: 16px;
-    font-weight: bold;
-  }
-  
-
-/* ##################################################################### */
-
-.carte {
-  width: 160px;
-  height: 150px;
-  perspective: 1000px;
-  color: #000000;
-}
-
-
-.carte:hover .carte-inner {
-  transform: rotateY(0deg);
-}
-
-.face {
-  border: none;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
-}
-
-.face-avant {
-  transform: rotateY(0deg);
-}
-
-.face-arriere {
-  position: relative;
-  transform: rotateY(0deg);
-  background-color: transparent; 
-  padding: 0px;
-  text-align:center;
-  line-height: 16px;
-  color: white;
-}
-
-.face-arriere p{
-  top: 25px;
-  position: relative;
-}
-
-.face img {
-  position:absolute;
-  top:0px;
-  border-radius: 10px;
-}
-.face .value{
-  position: relative;
-  top: 0px;
-  font-size: var(--font-bg);
-  color: white;
-  font-weight: bold;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 20%, rgba(0, 0, 0, 0.9) 90%);
-  width: 100%;
-  height: 100%;
-  border-radius: 10px;
-  padding: 5px 5px 5px 5px;
-  text-align: center;
-}
-
-  .hidden-carousel-button{
-    display: flex;
-    top: 50px;
-  }
-
-  .btn-carousel{
-    background: var(--color-principal);
-    color: var(--color-font-tertiary);
-    border: none;
-  }
-
-  .btn-carousel:hover{
-    background: var(--color-principal);
-    color: var(--color-font-tertiary);
-    border: none;
-  }
-
-  .btn-carousel:focus {
-    background-color: var(--color-principal) !important;
-    outline: none; 
-    box-shadow: none !important;
-}
-  
-  .cp{
-    min-width: 75vw;
-    max-height: 15vh;
-  }
-
-  .cp:hover{
-    background-color: blue;
-  }
-
-  .project-text{
-    display: none;
-  }
-
-  .project-text2{
-    display: block;
-  }
- 
-  .card_project {
-    width: 70vw;
-    height: 200px;
-  }
-
-  .project-text{
-    font-size: 15px;
-  }
-
-  #SKILLS{
-    height: 150vh;
-  }
-
-  .card_skills {
-    width: 70vw;
-    height: fit-content;
-    background-color: rgba(0, 0, 0, 0.5);
-  }
-
-  .img-card-softskill{
-    display: none;
-  }
-
-  .softskillunit{
-    padding: 0%;
-  }
-  
-  .card-text-skill{
-    font-size: 10px;
-    text-align: left;
-    bottom: 0%;
-    margin-top: 10px;
-    background-color: transparent;
-  }
-
-  .gauge {
-    position: relative;
-    right: 5%;
-    width: 100%;
-    height: 10px;
-    background-color: rgba(0, 212, 250, 0.2);
-    border-radius: 25px;
-  }
-  
-  .gauge-level {
-    height: 100%;
-    background-color: rgba(0, 212, 250, 0.2);
-    position: absolute;
-    transition: width 0.5s;
-    border-radius: 25px;
-  }
-  
-
-  #imageCarousel {
-    height: 30vh;
-  }
-
-  #imageCarousel .img-fluid-carousel {
-    height: 35vh;
-    width: 100%;
-  }
-
-  .card-text-skill{
-    font-size: var(--font-sm);
-    text-align: left;
-
-  }
-
-  .language{
-    display: none;
-  }
-    
-  footer{
-    font-size: 10px;
-  }
-}
-
-/* SCREEN 990 ############################################### */
-
-@media screen and (max-width: 990px) and (min-width: 770px) {
-  
-  .project-text{
-    display: none;
-  }
-
-  .project-text2{
-    display: block;
-  }
-
-  .cp{
-    min-width: 200px;
-    max-width: 200px;
-  }
-  .card_project {
-    width: 60vw;
-    height: 200px;
-}
-
-.project-text{
-  font-size: 15px;
-}
-
-.card_skills {
-  width: 60vw;
-  height: fit-content;
-  color: white;
-  background-color: rgba(0, 0, 0, 0.5);
-}
-  
-  .img-card-softskill{
-    display: none;
-  }
-
-  .softskillunit{
-    padding: 0%;
-  }
-  
-  .card-text-skill{
-    font-size: 10px;
-    bottom: 0%;
-    background-color: transparent;
-    text-align: left;
-  }
-
-  .language{
-    display: none;
-  }
-          
-  .card-text{
-    scale: 0.8;
-  }
-
-  .shake{
-    display: none;
-  }
-
-  footer{
-    font-size: 10px;
-  }
-}
-/* SCREEN 1200 ############################################### */
-@media screen and (max-width: 1200px) and (min-width: 971px) {
-
-  .project-text{
-    display: none;
-  }
-
-  .project-text2{
-    display: block;
-  }
-
-  .cp{
-    min-width: 200px;
-    max-width: 200px;
-  }
-
-  .card_skills {
-    width: 30vw;
-    height: fit-content;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-  }
-
-  .card_project {
-    width: 30vw;
-    height: 250px;
-  }
-  .project-text{
-    font-size: 15px;
-  }
-
-  .img-card-softskill{
-    display: none;
-  }
-
-  .softskillunit{
-    padding: 0%;
-  }
-
-  .language{
-    display: none;
-  }
-    
-  .card-text{
-    scale: 0.8;
-  }
-
-  .card-text-skill{
-    font-size: 10px;
-    bottom: 0%;
-    margin: 0%;
-    background-color: transparent;
-  } 
-
-  footer{
-    font-size: 10px;
-  }
-}
