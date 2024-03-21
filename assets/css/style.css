@@ -58,6 +58,7 @@ body{
   overflow-x: hidden;
   font-family: var(--poppins-font);
   color: white;
+  background-color: var(--color-tertiary);
 }
 section{
   position: relative;
