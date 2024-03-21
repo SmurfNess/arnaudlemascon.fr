@@ -1,0 +1,161 @@
+@media screen and (max-width: 576px) {
+  :root {
+    --font-vbg: 25px;
+    --font-bg: 20px;
+    --font-md: 15px;
+    --font-sm: 10px;
+    --color-principal:dodgerblue;
+  }
+
+  #HOME .img-fluid{
+    max-height:300px;
+    top:-10%;
+  }
+
+  .home-description{
+    background-color: var(--color-principal);
+  }
+
+/* ##################################################################### */
+.carte {
+  width: 150px;
+  }
+
+  .hidden-carousel-button{
+    display: flex;
+    top: 125px;
+  }
+
+  .btn-carousel{
+    background: var(--color-principal);
+    color: var(--color-font-tertiary);
+    border: none;
+    width: 90vw;
+  }
+
+
+
+  .btn-carousel:hover{
+    background: var(--color-principal);
+    color: var(--color-font-tertiary);
+    border: none;
+  }
+
+  .btn-carousel:focus {
+    background-color: var(--color-principal) !important;
+    outline: none; 
+    box-shadow: none !important;
+}
+  
+  .cp{
+    min-width: 75vw;
+    max-height: 15vh;
+  }
+
+  .project-text{
+    display: none;
+  }
+
+  .project-text2{
+    display: block;
+  }
+ 
+  .card_project {
+    width: 70vw;
+    height: 200px;
+  }
+
+  .project-text{
+    font-size: 15px;
+  }
+
+  #SKILLS{
+    height: 150vh;
+  }
+
+  .card_skills {
+    width: 80vw;
+    height: fit-content;
+    background-color: rgba(0, 0, 0, 0.5);
+    left: 5vw;
+  }
+
+  .img-card-softskill{
+    display: none;
+  }
+
+  .softskillunit{
+    padding: 0%;
+  }
+  
+  .card-text-skill{
+    font-size: 10px;
+    text-align: left;
+    bottom: 0%;
+    margin-top: 10px;
+    background-color: transparent;
+  }
+
+  .gauge {
+    position: relative;
+    right: 5%;
+    width: 100%;
+    height: 10px;
+    background-color: rgba(0, 212, 250, 0.2);
+    border-radius: 25px;
+  }
+  
+  .gauge-level {
+    height: 100%;
+    background-color: rgba(0, 212, 250, 0.2);
+    position: absolute;
+    transition: width 0.5s;
+    border-radius: 25px;
+  }
+  
+  #TRIVIA{
+    height: 100vh;
+  }
+
+  #TRIVIA .container-fluid{
+    top:0px
+  }
+
+  #imageCarousel {
+    height: 30vh;
+    max-width: 90vw;
+  }
+
+  #imageCarousel .img-fluid-carousel {
+    height: 45vh;
+  }
+
+  .card-text-skill{
+    font-size: var(--font-sm);
+    text-align: left;
+
+  }
+
+  .contact-text{
+    bottom: 85px;
+    left:-100px;
+  }
+
+  .language{
+    display: none;
+  }
+
+  .btn-message{
+    height: 40px;
+    width: 185px;
+    left: -90px;
+    top:95px;
+    border-radius: 15px;
+    font-size: var(--font-md);
+    transform: rotate(90deg);
+  }
+    
+  footer{
+    font-size: 10px;
+  }
+}

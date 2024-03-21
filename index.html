@@ -15,10 +15,10 @@
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
   <!-- Style -->
   <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="assets/css/style480.css">
-  <link rel="stylesheet" href="assets/css/style768.css">
-  <link rel="stylesheet" href="assets/css/style1024.css">
-  <link rel="stylesheet" href="assets/css/style1600.css">
+  <link rel="stylesheet" href="assets/css/style_lg.css">
+  <link rel="stylesheet" href="assets/css/style_md.css">
+  <link rel="stylesheet" href="assets/css/style_sm.css">
+  <link rel="stylesheet" href="assets/css/style_xs.css">
   <link rel="stylesheet" href="assets/css/Banner.css">
 </head>
 
@@ -123,22 +123,22 @@
   
       <section id="HOME" class="light-section">
         <svg viewBox="0 0 100 100" preserveAspectRatio="none" class="background-svg">
-          <path d="M100 0 100 31C55 41 21 15 0 55L0 0"></path>
+          <path d="M100 0 100 31C55 41 21 15 0 40L0 0"></path>
         </svg>
 
         <div class="container-fluid">
           <div class="row home">
-            <div class="col-md-2 col-0"></div>
-            <div class="col-md-4 col-12">
+            <div class="col-md-1 col-xs-0"></div>
+            <div class="col-md-4 col-xs-12 text-center">
               <img src="assets/pictures/portrait5.webp" id="IMG-PORTRAIT" class="img-fluid">
             </div>
-            <div class="col-md-4 col-12 home-description">
+            <div class="col-md-6 col-xs-12 home-description">
               <article>
                 <p class="title">Hey, je suis Arnaud, bienvenue ici</p>
                 <p class="home-desc">Ancien étudiant en art, j'aime créer, autant avec mes mains qu'avec un ordinateur. J'ai créé ce site pour me challenger.</p>
               </article>
             </div>
-            <div class="col-md-2 col-0"></div>
+            <div class="col-md-1 col-xs-0"></div>
           </div>
         </div>
       </section>
@@ -318,16 +318,14 @@
                 
     <div class="container-fluid container-values">
       <div class="row">
-          <div class="col-2"></div>
-          <div class="col-8 title">Ce qui m'anime</div>
-              <div class="col-2"></div>
+      <div class="col-12 title">Ce qui m'anime</div>
       </div>
         <div class="row">
-            <div class="col-md-2 col-1"></div>
-            <div class="col-md-8 col-10">
+            <div class="col-lg-2 col-md-1"></div>
+            <div class="col-lg-8 col-md-10 col-xs-12 mx-3">
                 <div class="row">
                     <!-- Carte 1 -->
-                    <div class="col-md-4 col-6 mb-4">
+                    <div class="col-4 mb-4">
                       <div class="carte">
                         <div class="carte-inner">
                           <div class="face face-avant">
@@ -342,7 +340,7 @@
                     </div>
 
                     <!-- Carte 2 -->
-                    <div class="col-md-4 col-6 mb-4">
+                    <div class="col-4 mb-4">
                       <div class="carte">
                         <div class="carte-inner">
                           <div class="face face-avant">
@@ -357,7 +355,7 @@
                     </div>
 
                     <!-- Carte 3 -->
-                    <div class="col-md-4 col-6 mb-4">
+                    <div class="col-4 mb-4">
                       <div class="carte">
                         <div class="carte-inner">
                           <div class="face face-avant">
@@ -371,7 +369,7 @@
                       </div>
                     </div>
                     <!-- Carte 4 -->
-                    <div class="col-md-4 col-6 mb-4">
+                    <div class="col-4 mb-4">
                       <div class="carte">
                         <div class="carte-inner">
                           <div class="face face-avant">
@@ -386,7 +384,7 @@
                   </div>
 
                   <!-- Carte 5 -->
-                  <div class="col-md-4 col-6 mb-4">
+                  <div class="col-4 mb-4 ">
                     <div class="carte">
                       <div class="carte-inner">
                         <div class="face face-avant">
@@ -401,9 +399,8 @@
                   </div>
 
                   <!-- Carte 6 -->
-                  <div class="col-md-4 col-6 mb-4">
+                  <div class="col-4 mb-2">
                     <div class="carte">
-                      <!-- Répétez cette structure pour chaque carte -->
                       <div class="carte-inner">
                         <div class="face face-avant">
                           <img src="https://arnaudlemascon.fr/assets/pictures/IMG_1834.webp" alt="Image">
@@ -417,7 +414,7 @@
                   </div>
                 </div>
             </div>
-            <div class="col-md-2 col-0">
+            <div class="col-lg-2 col-md-1">
               
           </div>
 
@@ -435,10 +432,10 @@
       </div>
 
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-3 col-xs-2">
             <a class="carousel-control-prev d-md-block d-none" href="#imageCarousel" role="button" data-slide="prev"></a>
         </div>
-          <div class="col-md-6 carrousel">
+          <div class="col-md-6 col-xs-8 carrousel">
               <!-- Carrousel -->
               <div id="imageCarousel" class="carousel slide" data-ride="carousel">
                   <div class="carousel-inner">
@@ -479,16 +476,14 @@
                 </div>
               </div>
           </div>
-          <div class="col-md-3">
+          <div class="col-md-3 col-xs-2">
             <a class="carousel-control-next d-md-block d-none" href="#imageCarousel" role="button" data-slide="next"></a>
         </div>
-        <div class="col-5 hidden-carousel-button"></div>
-        <div class="col-2 hidden-carousel-button">
+        <div class="col-10 hidden-carousel-button">
           <div class="d-md-none text-center mt-2">
             <a class="btn btn-primary btn-carousel" href="#imageCarousel" role="button" data-slide="next">Suivant</a>
         </div>
         </div>
-        <div class="col-5 hidden-carousel-button"></div>        
       </div>
   </div>
 </section>              
@@ -496,96 +491,96 @@
 <section id="SKILLS" class="dark-section2">            
   <div class="container-fluid">
       <div class="row">
-          <div class="col-2"></div>
-          <div class="col-8 title">En terme professionnel :</div>
-          <div class="col-2"></div>
+          <div class="col-md-2"></div>
+          <div class="col-md-8 mb-4 title">En termes professionnels :</div>
+          <div class="col-md-2"></div>
       </div>
 
     <div class="row">
-        <div class="col-md-2 col-1"></div>
-        <div class="col-md-8 col-10">
-            <div class="row">
+      <div class="col-lg-2 col-md-2"></div>
+        <div class="col-lg-8 col-md-8">
+            <div class="row ">
                 <!-- Carte 1 -->
-                <div class="col-xl-4 col-lg-6 mb-4">
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 mb-2 mx-auto">
                   <div class="card_skills S1">
                         <div class="card-body">
                               <div class="row">
-                                <div class="col-md-12 card-title">Compétences informatiques</div>
-                                <div class="col-md-6 card-text-skill">Linux</div>
-                                <div class="col-md-6">
-                                  <div class="gauge-wrapper col-md-12">
+                                <div class="col-12 card-title">Compétences informatiques</div>
+                                <div class="col-5 card-text-skill">Linux</div>
+                                <div class="col-7">
+                                  <div class="gauge-wrapper col-12">
                                     <div class="gauge">
                                     <div class="gauge-level" style="width:50%"></div>
                                     </div>
                                   </div>
                                 </div>
-                                <div class="col-md-6 card-text-skill">Active Directory</div>
-                                <div class="col-md-6">
-                                  <div class="gauge-wrapper col-md-12">
+                                <div class="col-5 card-text-skill">Active Directory</div>
+                                <div class="col-7">
+                                  <div class="gauge-wrapper col-12">
                                     <div class="gauge">
                                     <div class="gauge-level" style="width:70%"></div>
                                     </div>
                                   </div>
                                 </div>
-                                <div class="col-md-6 card-text-skill">PowerShell</div>
-                                <div class="col-md-6">
-                                  <div class="gauge-wrapper col-md-12">
+                                <div class="col-5 card-text-skill">PowerShell</div>
+                                <div class="col-7">
+                                  <div class="gauge-wrapper col-12">
                                     <div class="gauge">
                                     <div class="gauge-level" style="width:75%"></div>
                                     </div>
                                   </div>
                                 </div>
-                                <div class="col-md-6 card-text-skill">Office 365</div>
-                                <div class="col-md-6">
-                                  <div class="gauge-wrapper col-md-12">
+                                <div class="col-5 card-text-skill">Office 365</div>
+                                <div class="col-7">
+                                  <div class="gauge-wrapper col-12">
                                     <div class="gauge">
                                     <div class="gauge-level" style="width:75%"></div>
                                     </div>
                                   </div>
                                 </div>
-                                <div class="col-md-6 card-text-skill">HTML 5</div>
-                                <div class="col-md-6">
-                                  <div class="gauge-wrapper col-md-12">
+                                <div class="col-5 card-text-skill">HTML 5</div>
+                                <div class="col-7">
+                                  <div class="gauge-wrapper col-12">
                                     <div class="gauge">
                                     <div class="gauge-level" style="width:50%"></div>
                                     </div>
                                   </div>
                                 </div>
-                                <div class="col-md-6 card-text-skill">CSS</div>
-                                <div class="col-md-6">
-                                  <div class="gauge-wrapper col-md-12">
+                                <div class="col-5 card-text-skill">CSS</div>
+                                <div class="col-7">
+                                  <div class="gauge-wrapper col-12">
                                     <div class="gauge">
                                     <div class="gauge-level" style="width:50%"></div>
                                     </div>
                                   </div>
                                 </div>
-                                <div class="col-md-6 card-text-skill">JavaScript</div>
-                                <div class="col-md-6">
-                                  <div class="gauge-wrapper col-md-12">
+                                <div class="col-5 card-text-skill">JavaScript</div>
+                                <div class="col-7">
+                                  <div class="gauge-wrapper col-12">
                                     <div class="gauge">
                                     <div class="gauge-level" style="width:40%"></div>
                                     </div>
                                   </div>
                                 </div>
-                                <div class="col-md-6 card-text-skill">PHP</div>
-                                <div class="col-md-6">
-                                  <div class="gauge-wrapper col-md-12">
+                                <div class="col-5 card-text-skill">PHP</div>
+                                <div class="col-7">
+                                  <div class="gauge-wrapper col-12">
                                     <div class="gauge">
                                     <div class="gauge-level" style="width:25%"></div>
                                     </div>
                                   </div>
                                 </div>
-                                <div class="col-md-6 card-text-skill">SQL</div>
-                                <div class="col-md-6 col-sm-0">
-                                  <div class="gauge-wrapper col-md-12">
+                                <div class="col-5 card-text-skill">SQL</div>
+                                <div class="col-7 col-sm-0">
+                                  <div class="gauge-wrapper col-12">
                                     <div class="gauge">
                                       <div class="gauge-level" style="width:40%"></div>
                                     </div>
                                   </div>
                                 </div>
-                                <div class="col-md-6 card-text-skill">Github</div>
-                                <div class="col-md-6 col-sm-0">
-                                  <div class="gauge-wrapper col-md-12">
+                                <div class="col-5 card-text-skill">Github</div>
+                                <div class="col-7 col-sm-0">
+                                  <div class="gauge-wrapper col-12">
                                     <div class="gauge">
                                       <div class="gauge-level" style="width:50%"></div>
                                     </div>
@@ -598,29 +593,29 @@
                         </div>
 
                 <!-- Carte 2 -->
-                <div class="col-xl-4 col-lg-6 mb-4">
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 mb-2 mx-auto">
                   <div class="card_skills S2">
                     <div class="card-body">
                       <div class="row">
-                        <div class="col-md-12 card-title">Compétences projets</div>
-                        <div class="col-md-7 card-text-skill">ITIL</div>
-                        <div class="col-md-5">
+                        <div class="col-12 card-title">Compétences projets</div>
+                        <div class="col-5 card-text-skill">ITIL</div>
+                        <div class="col-7">
                           <div class="gauge-wrapper col-md-12">
                             <div class="gauge">
                             <div class="gauge-level" style="width:40%"></div>
                             </div>
                           </div>
                         </div>
-                        <div class="col-md-7 card-text-skill">SCRUM</div>
-                        <div class="col-md-5">
+                        <div class="col-5 card-text-skill">SCRUM</div>
+                        <div class="col-7">
                           <div class="gauge-wrapper col-md-12">
                             <div class="gauge">
                             <div class="gauge-level" style="width:88%"></div>
                             </div>
                           </div>
                         </div>
-                        <div class="col-md-7 card-text-skill">Mener le changement</div>
-                        <div class="col-md-5">
+                        <div class="col-5 card-text-skill">Mener le changement</div>
+                        <div class="col-7">
                           <div class="gauge-wrapper col-md-12">
                             <div class="gauge">
                             <div class="gauge-level" style="width:86%"></div>
@@ -628,25 +623,25 @@
                           </div>
                         </div>
                         <div class="separator language"></div>
-                        <div class="col-md-12 card-title">Langues</div>
-                        <div class="col-md-6 card-text-skill">Français</div>
-                        <div class="col-md-6">
+                        <div class="col-12 card-title">Langues</div>
+                        <div class="col-5 card-text-skill">Français</div>
+                        <div class="col-7">
                           <div class="gauge-wrapper col-md-12">
                             <div class="gauge">
-                            <div class="gauge-level" style="width:40%"></div>
+                            <div class="gauge-level" style="width:100%;">natif</div>
                             </div>
                           </div>
                         </div>
-                        <div class="col-md-6 card-text-skill">Anglais</div>
-                        <div class="col-md-6">
+                        <div class="col-5 card-text-skill">Anglais</div>
+                        <div class="col-7">
                           <div class="gauge-wrapper col-md-12">
                             <div class="gauge">
                             <div class="gauge-level" style="width:75%"></div>
                             </div>
                           </div>
                         </div>
-                        <div class="col-md-6 card-text-skill">Espagnol</div>
-                        <div class="col-md-6">
+                        <div class="col-5 card-text-skill">Espagnol</div>
+                        <div class="col-7">
                           <div class="gauge-wrapper col-md-12">
                             <div class="gauge">
                             <div class="gauge-level" style="width:30%"></div>
@@ -659,10 +654,10 @@
               </div>
 
                 <!-- Carte 3 -->
-                <div class="col-xl-4 col-lg-6 mb-4">
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 mb-2">
                   <div class="card_skills S3">
                         <div class="card-body">
-                            <h5 class="card-title">Soft Skills</h5>
+                            <div class="card-title">Soft Skills</div>
                             <div class="row skillunit" id="skillunit_softskills">
                               <div class="softskillunit col-lg-6 col-sm-4 col-6">
                                 <img src="assets/pictures/creativity.webp" class="img-card-softskill" alt="">
@@ -678,7 +673,7 @@
                               </div>
                               <div class="softskillunit col-lg-6 col-sm-4 col-6">
                                 <img src="assets/pictures/learning.webp" class="img-card-softskill" alt="">
-                                <div class="title-softskill">Auto-apprentissage</div>
+                                <div class="title-softskill">Auto-<br>apprentissage</div>
                               </div>
                               <div class="softskillunit col-lg-6 col-sm-4 col-6">
                                 <img src="assets/pictures/resilience.webp" class="img-card-softskill" alt="">
@@ -686,7 +681,7 @@
                               </div>
                               <div class="softskillunit col-lg-6 col-sm-4 col-6">
                                 <img src="assets/pictures/team.webp" class="img-card-softskill" alt="">
-                                <div class="title-softskill">travail en équipe</div>
+                                <div class="title-softskill">travail<br>en équipe</div>
                               </div>
                               <div class="softskillunit col-lg-6 col-sm-4 col-6">
                                 <img src="assets/pictures/communication.webp" class="img-card-softskill" alt="">
@@ -701,29 +696,30 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-2 col-1"></div>
     </div>
-</div>
+    <div class="col-3 col-lg-2 col-md-2"></div>
+  </div>
 </section>
   
   <section id="CONTACT">
     <div class="background-polygon"></div>
     <div class="container-fluid">
       <div class="row">
-        <div class="col-2 contact-text">Contacte-moi</div>
+        <div class="col-2"></div>
         <div class="col-8">
+          <div class="contact-text">Contacte-moi</div>
           <form action="https://formspree.io/f/xdovyzdp" method="POST">
             <div class="row">
-            <label class="col-md-12 name">Ton nom et tes pronoms :<br>
+            <label class="col-12 name">Ton nom et tes pronoms :<br>
               <input type="name" name="name" style="width: 100%;" required>
             </label>
-            <label class="col-md-12 mail">Ton email :<br>
+            <label class="col-12 mail">Ton email :<br>
               <input type="email" name="email" style="width: 100%;" required>
             </label>
-            <label class="col-md-10 col-sm-12 message">Ton message :<br>
+            <label class="col-10 message">Ton message :<br>
               <textarea name="message" rows="8" cols="0"></textarea required>
             </label>
-            <div class="col-md-2 col-sm-12">
+            <div class="col-2">
               <button type="submit" class="btn-message">SEND</button>
             </div>
           </div>

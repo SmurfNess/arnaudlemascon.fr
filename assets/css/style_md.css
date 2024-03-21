@@ -1,10 +1,10 @@
-@media screen and (max-width: 1024px) and (min-width: 769px) {
+@media screen and (min-width: 768px ) and (max-width: 992px) {
   :root {
     --font-vbg:25px;
-    --font-bg:18px;
+    --font-bg:20px;
     --font-md:15px;
-    --font-sm:15px;
-    --color-principal:goldenrod;
+    --font-sm:12px;
+    --color-principal:red;
   }
   .background-svg{
     width: 1024px;
@@ -34,15 +34,29 @@
 }
 
 .project-text{
-  font-size: 15px;
+  font-size:var(--font-sm);
 }
 
+#SKILLS .title{
+  margin-bottom: 10px;
+}
 .card_skills {
-  width: 60vw;
-  height: fit-content;
+  width: 30vw;
+  height: 400px;
   color: white;
   background-color: rgba(0, 0, 0, 0.5);
 }
+
+.S3{
+  margin-top: 5px;
+  width: 63vw;
+  height: fit-content;
+}
+
+.gauge{
+  margin-bottom: 5px;
+}
+
   
   .img-card-softskill{
     display: none;
@@ -53,7 +67,7 @@
   }
   
   .card-text-skill{
-    font-size: 10px;
+    font-size: var(--font-sm);
     bottom: 0%;
     background-color: transparent;
     text-align: left;
@@ -69,6 +83,12 @@
 
   .shake{
     display: none;
+  }
+
+
+  .contact-text{
+    bottom: 85px;
+    left:-100px;
   }
 
   footer{

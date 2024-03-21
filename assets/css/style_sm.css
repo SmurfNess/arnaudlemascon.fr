@@ -1,0 +1,119 @@
+@media screen and (min-width: 577px) and (max-width: 768px) {
+  :root {
+    --font-vbg:25px;
+    --font-bg:20px;
+    --font-md:15px;
+    --font-sm:12px;
+    --color-principal:purple;
+  }
+  .background-svg{
+    width: 1024px;
+    top:180px;
+  }
+
+  .home{
+    position: relative;
+    top:-120px;
+  }
+
+  #HOME .img-fluid{
+    max-height:250px;
+    top:0;
+  }
+
+  .carte {
+    width: 170px;
+    }
+  
+    #VALUES .title{
+      margin-bottom: 10px;
+    }
+
+  .home-description{
+    background-color: var(--color-principal);
+  }
+
+  .project-text{
+    display: none;
+  }
+
+  .project-text2{
+    display: block;
+  }
+
+  .cp{
+    min-width: 200px;
+    max-width: 200px;
+  }
+  .card_project {
+    width: 60vw;
+    height: 200px;
+}
+
+.project-text{
+  font-size:var(--font-sm);
+}
+
+.card_skills {
+  width: 40vw;
+  height: 370px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.S3{
+  width: 90vw;
+  height: fit-content;
+}
+
+.gauge{
+  margin-bottom: 5px;
+}
+
+  
+  .img-card-softskill{
+    display: none;
+  }
+
+  .softskillunit{
+    padding: 0%;
+  }
+  
+  .card-text-skill{
+    font-size: var(--font-sm);
+    bottom: 0%;
+    background-color: transparent;
+    text-align: left;
+  }
+
+  .language{
+    display: none;
+  }
+          
+  .card-text{
+    scale: 0.8;
+  }
+
+  .shake{
+    display: none;
+  }
+
+  .contact-text{
+    bottom: 85px;
+    left:-100px;
+  }
+
+  .btn-message{
+    height: 40px;
+    width: 185px;
+    left: -90px;
+    top:95px;
+    border-radius: 15px;
+    font-size: var(--font-md);
+    transform: rotate(90deg);
+  }
+
+  footer{
+    font-size: 10px;
+  }
+}

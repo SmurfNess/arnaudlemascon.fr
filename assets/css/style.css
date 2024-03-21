@@ -27,9 +27,9 @@
   --color-gauge-h_back: rgba(0, 212, 250, 0.5);
   --color-gauge-h_front: rgb(0, 212, 250);
   
-  --font-vbg: 40px;
+  --font-vbg: 30px;
   --font-bg: 25px;
-  --font-md: 20px;
+  --font-md: 18px;
   --font-sm: 15px;
 
   --poppins-font: 'Poppins', sans-serif;
@@ -44,21 +44,10 @@
   text-align: center;
   }
 
-.contact-text{
-  top: 300px;
-  right: -80px;
-  height: 50px;
-  font-size: var(--font-vbg);
-  font-weight: bold;
-  color: var(--color-font-principal);
-  transform: rotate(-90deg);
-  white-space: nowrap;
-}
-
 .background-svg{
   position: absolute;
   fill: var(--color-principal);
-  top:0px;
+  top:150px;
 }
 
 
@@ -106,7 +95,7 @@ section{
 
 .home{
   position: relative;
-  margin-top: 50px;
+  top: -50px;
 }
 
 .home-desc{
@@ -375,18 +364,23 @@ section{
 .card_skills {
   position: relative;
   background-color: var(--color-dark);
-  height: 400px;
-  width: 16vw;
-  min-width: 250px;
+  height: 425px;
+  width: 20vw;
+  min-width: 194px;
   border-radius: 25px;
-  transition: transform 0.5s, box-shadow 0.5s; 
+  transition: transform 0.3s, box-shadow 0.3s; 
+}
+
+.card-title{
+  text-align: center;
+  text-decoration:underline;
 }
 
 .S1:hover, .S2:hover,.S3:hover{
   background-image: linear-gradient(65deg, var(--color-tertiary) 0%, var(--color-dark) 60%);
   color: white;
   transform: scale(1.01);
-  box-shadow: 0 0 0 4px var(--color-font-principal);
+  box-shadow: 0 0 0 3px var(--color-font-principal);
 }
 
 .separator{
@@ -397,11 +391,15 @@ section{
   margin: 20px 0px 10px 0px;
 }
 
+.gauge-wrapper{
+  margin-bottom: 5px;
+}
+
 .gauge {
   position: relative;
   right: 0%;
   width: 100%;
-  height: 20px;
+  height: 15px;
   background-color:var(--color-gauge-back);
   border-radius: 25px;
 }
@@ -412,6 +410,10 @@ section{
   position: absolute;
   transition: width 0.5s;
   border-radius: 25px;
+  text-align:center;
+  font-size: var(--font-sm);
+  color: transparent;
+  transition: color 0.3s;
 }
 
 .card_skills.S1:hover .gauge, .card_skills.S2:hover .gauge {
@@ -419,6 +421,7 @@ section{
 }
 .card_skills.S1:hover .gauge-level, .card_skills.S2:hover .gauge-level {
   background-color: var(--color-gauge-h_front);
+  color: var(--color-font-tertiary);
 }
 .card_skills.S3:hover .img-card-softskill {
   opacity: 1;
@@ -446,13 +449,14 @@ section{
 
 .title-softskill {
   position: relative;
-  font-size: 11px;
+  font-size: var(--font-sm);
   text-align: center;
+  white-space: nowrap;
 }
 
 .img-card-softskill {
   position: relative;
-  max-height: 50px;
+  height: 40px;
   max-width: 60px;
   opacity: 0.5;
 }
@@ -460,7 +464,7 @@ section{
 
 #CONTACT .background-polygon{
   position: absolute;
-  bottom: 0;
+  bottom: -5px;
   background-color: var(--color-principal);
   height: 700px;
   width: 100%;
@@ -477,6 +481,19 @@ textarea, input{
   background-color: var(--color-input);
   border-radius: 15px;
   border: none;
+}
+
+
+.contact-text{
+  position: absolute;
+  bottom: 100px;
+  left:-125px;
+  height: 50px;
+  font-size: var(--font-vbg);
+  font-weight: bold;
+  color: var(--color-font-principal);
+  transform: rotate(-90deg);
+  white-space: nowrap;
 }
 
 .btn-message{
