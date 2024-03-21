@@ -88,13 +88,13 @@
   
   .links-container {
       position: fixed;
-      bottom: 50px;
+      top: 200px;
       height: 150px;
-      right: 1%;
+      right: 5px;
       display: flex;
       flex-direction: column; /* Alignement vertical des liens */
       padding: 5px;
-      z-index: 450;
+      z-index: 50;
       scale: 1;
     }
     

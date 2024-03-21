@@ -146,13 +146,12 @@
   }
 
   .btn-message{
-    height: 40px;
-    width: 185px;
-    left: -90px;
-    top:95px;
+    height: 185px;
+    width: 40px;
+    left:0px;
+    top:20px;
     border-radius: 15px;
     font-size: var(--font-md);
-    transform: rotate(90deg);
   }
     
   footer{
