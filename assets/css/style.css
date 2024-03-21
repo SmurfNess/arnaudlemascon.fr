@@ -114,17 +114,16 @@ section{
 
 .row-projects{
   position: relative;
-  background-color: red;
   width: 85vw;
   top: 100px;
 }
 .swiper {
   position: relative;
   margin-top: 25px;
-  width: 250px;
+  width: 90%;
   height: 450px;
   padding: 50px 0;
-  transform: scale(1.2);
+  transform: scale(1);
 }
 
 .swiper-slide {
