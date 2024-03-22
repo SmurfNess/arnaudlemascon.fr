@@ -4,6 +4,7 @@ body{
 }
 
 .col-4{
+    margin: 100px;
     background-color:teal;
     border-radius: 15px;
     color: white;
