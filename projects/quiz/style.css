@@ -3,6 +3,10 @@ body{
     font-family:'Poppins', sans-serif;
 }
 
+.row{
+    position: absolute;
+    top:10vh;
+}
 .col-4{
     margin: 100px;
     background-color:teal;
