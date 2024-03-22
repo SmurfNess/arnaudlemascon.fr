@@ -1,0 +1,25 @@
+body{
+    background-color: black;
+    color:white;
+}
+
+h1{
+    position: absolute;
+    left: 75px;
+    top: 15px;
+}
+
+.col-10{
+    border-radius: 15px;
+    margin: 75px;
+    padding: 3%;
+}
+.containerQ{
+    background-color: dodgerblue;
+}
+.containerA{
+    background-color: red;
+    line-height: 1.8;
+    display: none;
+    font-weight: bold;
+}

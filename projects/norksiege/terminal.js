@@ -18,7 +18,7 @@ function autoFocusInput() {
   document.getElementById("input").focus();
 }
 
-setInterval(autoFocusInput, 500);
+setInterval(autoFocusInput, 5000);
 
 function processInput(input) {
   setTimeout(() => {
@@ -48,7 +48,6 @@ var displayCombatElement = document.getElementById("combatCounter");
 var displayThiefElement = document.getElementById("thiefCounter");
 
 
-// Fonction pour mettre à jour et afficher les variables toutes les 5 secondes
 function mettreAJourEtAfficher() {
 
     intStrength = parseInt(varStrength);
