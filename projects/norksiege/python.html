@@ -15,7 +15,7 @@
 <script>
 $(document).ready(function() {
     $.ajax({
-        url: 'http://87.90.78.93:5000/app.py', // Remplacez "port" par le port sur lequel votre application Python écoute
+        url: 'http://87.90.78.93:80/app.py', // Remplacez "port" par le port sur lequel votre application Python écoute
         type: 'GET', // ou 'POST' selon ce que votre application attend
         success: function(response) {
             $('#response').html('<pre>' + response + '</pre>');
