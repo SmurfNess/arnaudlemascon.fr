@@ -15,10 +15,11 @@
 <script>
 $(document).ready(function() {
     $.ajax({
-        url: 'http://87.90.78.93:5000/app.py', // Remplacez "port" par le port sur lequel votre application Python écoute
-        type: 'GET', // ou 'POST' selon ce que votre application attend
+        url: '/get_data', // Accédez à la route '/get_data' de votre application Flask
+        type: 'GET',
+        dataType: 'json', // Indiquez que vous attendez des données JSON
         success: function(response) {
-            $('#response').html('<pre>' + response + '</pre>');
+            $('#response').html('<pre>' + JSON.stringify(response, null, 2) + '</pre>');
         },
         error: function(xhr, status, error) {
             $('#response').html('<p>Une erreur s\'est produite lors de la requête vers le serveur Python.</p>');
