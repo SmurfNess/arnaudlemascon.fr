@@ -3,7 +3,7 @@
 $databaseConfig = array(
     'server' => '87.90.78.93',
     'username' => 'portfolio_cv',
-    'password' => '123456',
+    'password' => 'neSShaSpaSSword3010!',
     'database' => 'CV',
 );
 
