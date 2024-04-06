@@ -17,5 +17,5 @@ $dbname = "CV" ;
 
 $username = "portfolio_cv" ;
 
-$password = "123456";
+$password = "Smurf_CV";
 ?>
