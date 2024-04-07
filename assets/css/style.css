@@ -235,7 +235,8 @@ section{
 .logo{
   z-index:5;
   position:relative;
-  height:16px
+  height:20px;
+  top:-5px;
 }
 
 
@@ -375,6 +376,7 @@ section{
 }
 
 .card-title{
+  font-size: var(--font-sm);
   text-align: center;
   text-decoration:underline;
 }
@@ -391,7 +393,7 @@ section{
   background-color: rgba(255, 255, 255, 0.25);
   height: 1px;
   width: 100%;
-  margin: 20px 0px 10px 0px;
+  margin: 10px 0px 10px 0px;
 }
 
 .gauge-wrapper{
