@@ -162,7 +162,7 @@ require_once 'config.php' ;
 
 try {
 
-    $bdd = new PDO('mysql:host=$host;dbname=$dbname', $username, $password) ;
+    $bdd = new PDO("mysql:host=$host;dbname=$dbname", $username, $password) ;
 
     $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
