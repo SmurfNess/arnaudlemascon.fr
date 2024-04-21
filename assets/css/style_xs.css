@@ -4,11 +4,10 @@
     --font-bg: 20px;
     --font-md: 15px;
     --font-sm: 10px;
-    --color-principal:rgba(255, 0, 0, 0.514);
+    --color-principal:goldenrod;
   }
 
   #SKILLS{
-    background-color: rgba(200, 208, 0, 0.493);
     height: 1200px;
     padding-top: -150px;
   }
@@ -20,6 +19,9 @@
 
   .home-description{
     background-color: var(--color-principal);
+    height: 300px;
+    padding: 50px 20px 50px 20px;
+    clip-path: polygon(0% 0%, 100% 15%, 100% 100%, 0% 85%);
   }
 
 
