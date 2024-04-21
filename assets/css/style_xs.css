@@ -9,7 +9,7 @@
 
   #SKILLS{
     background-color: rgba(0, 128, 0, 0.493);
-    height: 1100px;
+    height: 1200px;
   }
 
   #HOME .img-fluid{
@@ -151,7 +151,6 @@
 
   #CONTACT .background-polygon{
     position: relative;
-    bottom: 0px;
     background-color: var(--color-principal);
     height: 300px;
     width: 100%;
