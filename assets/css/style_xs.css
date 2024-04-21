@@ -151,7 +151,7 @@
     position: relative;
     bottom: -50px;
     background-color: var(--color-principal);
-    height: 700px;
+    height: 300px;
     width: 100%;
     clip-path: polygon(0% 0%, 100% 5%, 100% 100%, 0% 100%);
   }
