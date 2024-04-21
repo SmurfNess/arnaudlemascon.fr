@@ -149,9 +149,9 @@
 
   #CONTACT .background-polygon{
     position: absolute;
-    bottom: -5px;
+    bottom: -50px;
     background-color: var(--color-principal);
-    height: 600px;
+    height: 700px;
     width: 100%;
     clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
   }
