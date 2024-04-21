@@ -474,6 +474,7 @@ section{
   height: 700px;
   width: 100%;
   clip-path: polygon(0% 0%, 100% 10%, 100% 100%, 0% 100%);
+  padding-top: 100px;
 }
 .name,.message,.mail{
   color:var(--color-font-principal);

@@ -148,22 +148,24 @@
   }
 
   #CONTACT .background-polygon{
-    position: absolute;
+    position: relative;
     bottom: -50px;
     background-color: var(--color-principal);
     height: 700px;
     width: 100%;
-    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    clip-path: polygon(0% 0%, 100% 5%, 100% 100%, 0% 100%);
   }
   
 
   .btn-message{
-    height: 185px;
-    width: 40px;
-    left:0px;
-    top:20px;
+    position: absolute;
+    height: 50px;
+    width: 190px;
+    left:-60px;
+    top:90px;
     border-radius: 15px;
-    font-size: var(--font-md);
+    font-size: var(--font-bg);
+    transform: rotate(-90deg);
   }
     
   footer{
