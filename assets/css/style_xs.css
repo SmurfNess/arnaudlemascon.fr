@@ -4,7 +4,11 @@
     --font-bg: 20px;
     --font-md: 15px;
     --font-sm: 10px;
-    --color-principal:red;
+    --color-principal:rgba(255, 0, 0, 0.514);
+  }
+
+  #SKILLS{
+    background-color: rgba(0, 128, 0, 0.493);
   }
 
   #HOME .img-fluid{
