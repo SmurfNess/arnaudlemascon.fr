@@ -149,7 +149,7 @@
 
   #CONTACT .background-polygon{
     position: relative;
-    bottom: -50px;
+    bottom: 0px;
     background-color: var(--color-principal);
     height: 300px;
     width: 100%;
