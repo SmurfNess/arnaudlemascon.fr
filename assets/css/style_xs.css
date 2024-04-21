@@ -9,7 +9,7 @@
 
   #SKILLS{
     background-color: rgba(0, 128, 0, 0.493);
-    height: 1500px;
+    height: 1200px;
   }
 
   #HOME .img-fluid{
@@ -76,9 +76,6 @@
     font-size: 15px;
   }
 
-  #SKILLS{
-    height: 150vh;
-  }
 
   .card_skills {
     width: 80vw;
