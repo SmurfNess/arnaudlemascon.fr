@@ -150,11 +150,13 @@
   }
 
   #CONTACT .background-polygon{
-    position: relative;
+    position: absolute;
+    bottom: -5px;
     background-color: var(--color-principal);
-    height: 300px;
+    height: 700px;
     width: 100%;
-    clip-path: polygon(0% 0%, 100% 5%, 100% 100%, 0% 100%);
+    clip-path: polygon(0% 0%, 100% 10%, 100% 100%, 0% 100%);
+    padding-top: 100px;
   }
   
 
