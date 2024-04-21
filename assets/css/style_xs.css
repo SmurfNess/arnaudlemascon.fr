@@ -4,7 +4,7 @@
     --font-bg: 20px;
     --font-md: 15px;
     --font-sm: 10px;
-    --color-principal:goldenrod;
+    --color-principal:red;
   }
 
   #HOME .img-fluid{
@@ -146,6 +146,16 @@
   .language{
     display: none;
   }
+
+  #CONTACT .background-polygon{
+    position: absolute;
+    bottom: -5px;
+    background-color: var(--color-principal);
+    height: 500px;
+    width: 100%;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+  
 
   .btn-message{
     height: 185px;
