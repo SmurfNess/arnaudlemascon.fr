@@ -210,8 +210,8 @@ try {
         }
 
 .logo-container img{
-    max-height:100px;
-    max-width:100px;
+    height:100px;
+    width:100px;
     border-radius:50%;
 }
 		
