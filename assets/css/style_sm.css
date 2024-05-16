@@ -77,6 +77,12 @@
   .softskillunit{
     padding: 0%;
   }
+
+  .title-softskill{
+    padding: 3px;
+    width: 100px;
+    border-bottom: 0.5px solid white;
+  }
   
   .card-text-skill{
     font-size: var(--font-sm);

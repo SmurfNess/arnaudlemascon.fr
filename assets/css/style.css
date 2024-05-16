@@ -379,6 +379,7 @@ section{
   font-size: var(--font-sm);
   text-align: center;
   text-decoration:underline;
+  top:6px;
 }
 
 .S1:hover, .S2:hover,.S3:hover{
@@ -397,14 +398,14 @@ section{
 }
 
 .gauge-wrapper{
-  margin-bottom: 5px;
+  margin-bottom: 2px;
 }
 
 .gauge {
   position: relative;
-  right: 0%;
   width: 100%;
-  height: 15px;
+  top: 5px;
+  height: 10px;
   background-color:var(--color-gauge-back);
   border-radius: 25px;
 }
@@ -436,7 +437,7 @@ section{
   text-align: right;
   position: relative;
   font-size: var(--font-sm);
-  margin-bottom: 5px;
+  margin-bottom: 2px;
 }
 
 .S3 .card-text-skill{
