@@ -15,7 +15,7 @@ if (isset($_SESSION['user_type'])) {
                 $connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
                 // Sélectionner les joueurs de l'utilisateur connecté
-                $query = "SELECT name, class, team FROM player WHERE owner = :owner";
+                $query = "SELECT name, class, team FROM players WHERE owner = :owner";
                 $stmt = $connexion->prepare($query);
                 $stmt->bindParam(':owner', $login_username);
                 $stmt->execute();
