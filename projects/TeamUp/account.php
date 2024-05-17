@@ -19,12 +19,11 @@ if (isset($_SESSION['user_type'])) {
                 <label for="class">Classe :</label>
                 <input type="text" id="class" name="class" required><br><br>
                 
-                <label for="owner">Propriétaire :</label>
-                <input type="text" id="owner" name="owner" required><br><br>
-                
                 <input type="submit" value="Envoyer">
             </form>
             <?php
+
+            
         } elseif ($user_type == $util) {
             try {
                 $connexion = new PDO("mysql:host={$databaseConfig['server']};dbname={$databaseConfig['database']}", $databaseConfig['username'], $databaseConfig['password']);
