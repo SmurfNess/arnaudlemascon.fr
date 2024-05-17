@@ -12,7 +12,7 @@ if (isset($_SESSION['user_type'])) {
         if ($user_type == $admin) {
             // Si l'utilisateur est un administrateur, afficher le formulaire
             ?>
-            <form method="post" action="traitement.php">
+            <form method="post" action="team.php">
                 <label for="name">Nom :</label>
                 <input type="text" id="name" name="name" required><br><br>
                 
