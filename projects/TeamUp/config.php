@@ -2,8 +2,8 @@
 
 $databaseConfig = array(
     'server' => '87.90.78.93',
-    'username' => 'portfolio_tu',
-    'password' => 'Smurf_TU',
+    'username' => 'portfolio_team',
+    'password' => '123456',
     'database' => 'TU',
 );
 
@@ -15,7 +15,9 @@ $host = "87.90.78.93" ;
 
 $dbname = "TU" ;
 
-$username = "portfolio_tu" ;
+$username = "portfolio_team" ;
 
-$password = "Smurf_TU";
+$password = "123456";
+$admin="898989";
+$util="404";
 ?>
