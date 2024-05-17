@@ -172,11 +172,11 @@ if (isset($_SESSION['user_type'])) {
             echo "<h1>Bienvenue..</h1>";
         }
     } else {
-        header("Location: acces.html");
+        header("Location: teamup.html");
         exit();
     }
 } else {
-    header("Location: acces.html");
+    header("Location: teamup.html");
     exit();
 }
 ?>
