@@ -9,7 +9,7 @@ if (isset($_SESSION['user_type'])) {
     if (isset($_SESSION['login_username'])) {
         $login_username = $_SESSION['login_username'];
 
-        if ($user_type == $admin) {
+        if ($user_type == "admin") { // Modification de la condition de comparaison
             // Si l'utilisateur est un administrateur, afficher le formulaire pour ajouter des joueurs
             ?>
             <form method="post" action="team.php">
@@ -56,7 +56,7 @@ if (isset($_SESSION['user_type'])) {
             </html>
 
             <?php
-        } elseif ($user_type == $util) {
+        } elseif ($user_type == "util") { // Modification de la condition de comparaison
             // Si l'utilisateur est un utilisateur ordinaire, afficher un message de bienvenue
             echo "<h1>Bienvenue..</h1>";
         } else {
