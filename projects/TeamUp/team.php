@@ -106,14 +106,13 @@ if (isset($_SESSION['user_type'])) {
                         }
                     }
 
-                    $selected_players = [];
-                    if (isset($team_size, $selected_classes)) {
-                        $placeholders = implode(',', array_fill(0, count($selected_classes), '?'));
-                        $query = "SELECT name, class, team FROM players WHERE owner = ? AND class IN ($placeholders) ORDER BY team ASC";
-                        $stmt = $connexion->prepare($query);
-                        $stmt->execute(array_merge([$login_username], $selected_classes));
-                        $selected_players = $stmt->fetchAll(PDO::FETCH_ASSOC);
-                    }
+                    // Récupérer les joueurs pour affichage
+                    $query = "SELECT name, class, team FROM players WHERE owner = :owner ORDER BY team ASC";
+                    $stmt = $connexion->prepare($query);
+                    $stmt->bindParam(':owner', $login_username);
+                    $stmt->execute();
+                    $players = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                }
             } catch (PDOException $e) {
                 echo "Erreur de connexion : " . $e->getMessage();
             }
