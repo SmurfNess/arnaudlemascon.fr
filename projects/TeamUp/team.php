@@ -107,61 +107,57 @@ if (isset($_SESSION['user_type'])) {
             }
             ?>
 
-            <!DOCTYPE html>
-            <html lang="en">
-            <head>
-                <meta charset="UTF-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>Équipe</title>
-            </head>
-            <body>
-                <h1>Vos joueurs</h1>
-                <form method="post" action="team.php">
-                    <label for="name">Nom :</label>
-                    <input type="text" id="name" name="name" required><br><br>
-                                        
-                    <label for="class">Classe :</label>
-                    <input type="text" id="class" name="class" required><br><br>
-                    
-                    <input type="submit" value="Envoyer">
-                </form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Équipe</title>
+</head>
+<body>
+    <h1>Gestion des joueurs et des équipes</h1>
 
-                <h2>Filtrer par classe</h2>
-                <form method="post" action="team.php">
-                    <select name="selected_classes[]" multiple>
-                        <option value="all">All</option>
-                        <?php foreach ($classes as $class): ?>
-                            <option value="<?php echo $class; ?>" <?php echo in_array($class, $selected_classes) ? 'selected' : ''; ?>>
-                                <?php echo $class; ?>
-                            </option>
-                        <?php endforeach; ?>
-                    </select>
-                    <input type="submit" value="Filtrer">
-                </form>
+    <section>
+        <h2>Ajouter un joueur</h2>
+        <form method="post" action="team.php">
+            <label for="name">Nom :</label>
+            <input type="text" id="name" name="name" required><br><br>
+                                
+            <label for="class">Classe :</label>
+            <input type="text" id="class" name="class" required><br><br>
+            
+            <input type="submit" value="Ajouter">
+        </form>
+    </section>
 
-                <h2>Générer des équipes</h2>
-                <form method="post" action="team.php">
-                    <label for="team_size">Taille de l'équipe :</label>
-                    <input type="number" id="team_size" name="team_size" value="2" min="2" required>
-                    <input type="hidden" name="generate_teams" value="true">
-                    <input type="submit" value="Générer des équipes">
-                </form>
+    <section>
+        <h2>Liste des joueurs</h2>
+        <ul>
+            <?php foreach ($players as $player): ?>
+                <li>
+                    <?php echo $player['name']; ?> - <?php echo $player['class']; ?> - <?php echo $player['team']; ?>
+                    <form method="post" action="team.php" style="display:inline;">
+                        <input type="hidden" name="delete_player" value="true">
+                        <input type="hidden" name="player_name" value="<?php echo $player['name']; ?>">
+                        <input type="hidden" name="player_class" value="<?php echo $player['class']; ?>">
+                        <input type="submit" value="Supprimer">
+                    </form>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    </section>
 
-                <ul>
-                    <?php foreach ($players as $player): ?>
-                        <li>
-                            <?php echo $player['name']; ?> - <?php echo $player['class']; ?> - <?php echo $player['team']; ?>
-                            <form method="post" action="team.php" style="display:inline;">
-                                <input type="hidden" name="delete_player" value="true">
-                                <input type="hidden" name="player_name" value="<?php echo $player['name']; ?>">
-                                <input type="hidden" name="player_class" value="<?php echo $player['class']; ?>">
-                                <input type="submit" value="Supprimer">
-                            </form>
-                        </li>
-                    <?php endforeach; ?>
-                </ul>
-            </body>
-            </html>
+    <section>
+        <h2>Générer les équipes</h2>
+        <form method="post" action="team.php">
+            <label for="team_size">Taille de l'équipe :</label>
+            <input type="number" id="team_size" name="team_size" value="2" min="2" required>
+            <input type="hidden" name="generate_teams" value="true">
+            <input type="submit" value="Générer les équipes">
+        </form>
+    </section>
+</body>
+</html>
 
             <?php
         } elseif ($user_type == $util) {
