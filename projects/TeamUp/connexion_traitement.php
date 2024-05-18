@@ -22,11 +22,11 @@ try {
         } else {
             // Vérifier si le mot de passe correspond
             if (password_verify($login_password, $user_data['password'])) {
-                // Mot de passe correct, rediriger vers la page account.php
+                // Mot de passe correct, rediriger vers la page team.php
                 session_start();
                 $_SESSION['user_type'] = $user_data['type'];  // Stocker le type de compte dans la session si nécessaire
                 $_SESSION['login_username'] = $login_username; // Stocker le nom d'utilisateur dans la session
-                header("Location: account.php");
+                header("Location: team.php");
                 exit();
             } else {
                 echo "<p class='message'>Mot de passe incorrect.</p>";
