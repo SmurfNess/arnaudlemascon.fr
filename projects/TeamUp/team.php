@@ -15,7 +15,7 @@ if (isset($_SESSION['user_type'])) {
                 $connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
                 // Traitement de l'ajout d'un joueur
-                if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['name']) && isset($_POST['class']) && !isset($_POST['delete_player']) && !isset($_POST['generate_teams'])) {
+                if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['name']) && isset($_POST['class']) && !isset($_POST['delete_player']) && !isset($_POST['valider'])) {
                     $name = $_POST['name'];
                     $class = $_POST['class'];
 
@@ -40,6 +40,46 @@ if (isset($_SESSION['user_type'])) {
                     $stmt->execute();
                 }
 
+                // Traitement du filtrage et de la génération des équipes
+                if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['valider'])) {
+                    // Filtrer les joueurs par classe sélectionnée
+                    $selected_classes = isset($_POST['selected_classes']) ? $_POST['selected_classes'] : [];
+                    if (!empty($selected_classes)) {
+                        $placeholders = implode(',', array_fill(0, count($selected_classes), '?'));
+                        $query = "SELECT name, class, team FROM players WHERE owner = ? AND class IN ($placeholders)";
+                        $stmt = $connexion->prepare($query);
+                        $stmt->execute(array_merge([$login_username], $selected_classes));
+                        $players = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+                        // Génération des équipes
+                        $team_size = max(2, count($players) / 2);
+                        shuffle($players);
+
+                        $teams = [];
+                        foreach ($players as $index => $player) {
+                            $team_number = (int)($index / $team_size) + 1;
+                            $teams[$team_number][] = $player;
+                        }
+
+                        // Mise à jour des équipes dans la base de données
+                        foreach ($teams as $team_number => $team_players) {
+                            foreach ($team_players as $player) {
+                                $query = "UPDATE players SET team = :team WHERE name = :name AND class = :class AND owner = :owner";
+                                $stmt = $connexion->prepare($query);
+                                $stmt->bindParam(':team', $team_number);
+                                $stmt->bindParam(':name', $player['name']);
+                                $stmt->bindParam(':class', $player['class']);
+                                $stmt->bindParam(':owner', $login_username);
+                                $stmt->execute();
+                            }
+                        }
+
+                        // Rediriger pour afficher la liste mise à jour
+                        header("Location: team.php");
+                        exit();
+                    }
+                }
+
                 // Sélectionner les joueurs de l'utilisateur connecté
                 $query = "SELECT name, class, team FROM players WHERE owner = :owner";
                 $stmt = $connexion->prepare($query);
@@ -54,54 +94,6 @@ if (isset($_SESSION['user_type'])) {
                 $stmt->execute();
                 $classes = $stmt->fetchAll(PDO::FETCH_COLUMN);
 
-                // Filtrer les joueurs par classe sélectionnée
-                $selected_classes = isset($_POST['selected_classes']) ? $_POST['selected_classes'] : [];
-                if (!empty($selected_classes)) {
-                    $placeholders = implode(',', array_fill(0, count($selected_classes), '?'));
-                    $query = "SELECT name, class, team FROM players WHERE owner = ? AND class IN ($placeholders)";
-                    $stmt = $connexion->prepare($query);
-                    $stmt->execute(array_merge([$login_username], $selected_classes));
-                    $players = $stmt->fetchAll(PDO::FETCH_ASSOC);
-                }
-
-                // Génération des équipes aléatoires
-                if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['generate_teams']) && isset($_POST['team_size'])) {
-                    $team_size = max(2, (int)$_POST['team_size']);
-                    shuffle($players);
-
-                    $teams = [];
-                    foreach ($players as $index => $player) {
-                        $team_number = (int)($index / $team_size) + 1;
-                        $teams[$team_number][] = $player;
-                    }
-
-                    // Redistribution des joueurs si la dernière équipe a moins de 2 joueurs
-                    $last_team = end($teams);
-                    if (count($last_team) < 2 && count($teams) > 1) {
-                        array_pop($teams);  // Remove the last team
-                        foreach ($last_team as $player) {
-                            $random_team = array_rand($teams);
-                            $teams[$random_team][] = $player;
-                        }
-                    }
-
-                    // Mise à jour des équipes dans la base de données
-                    foreach ($teams as $team_number => $team_players) {
-                        foreach ($team_players as $player) {
-                            $query = "UPDATE players SET team = :team WHERE name = :name AND class = :class AND owner = :owner";
-                            $stmt = $connexion->prepare($query);
-                            $stmt->bindParam(':team', $team_number);
-                            $stmt->bindParam(':name', $player['name']);
-                            $stmt->bindParam(':class', $player['class']);
-                            $stmt->bindParam(':owner', $login_username);
-                            $stmt->execute();
-                        }
-                    }
-
-                    // Après la mise à jour, rediriger pour afficher la liste mise à jour
-                    header("Location: team.php");
-                    exit();
-                }
             } catch (PDOException $e) {
                 echo "Erreur de connexion : " . $e->getMessage();
             }
@@ -119,7 +111,7 @@ if (isset($_SESSION['user_type'])) {
                 <form method="post" action="team.php">
                     <label for="name">Nom :</label>
                     <input type="text" id="name" name="name" required><br><br>
-                                        
+                    
                     <label for="class">Classe :</label>
                     <input type="text" id="class" name="class" required><br><br>
                     
@@ -131,22 +123,13 @@ if (isset($_SESSION['user_type'])) {
                     <select name="selected_classes[]" multiple>
                         <option value="all">All</option>
                         <?php foreach ($classes as $class): ?>
-                            <option value="<?php echo $class; ?>" <?php echo in_array($class, $selected_classes) ? 'selected' : ''; ?>>
-                                <?php echo $class; ?>
-                            </option>
-                        <?php endforeach; ?>
+                           
+                            <?php endforeach; ?>
                     </select>
-                    <input type="submit" value="Filtrer">
+                    <input type="submit" name="valider" value="Valider">
                 </form>
 
-                <h2>Générer des équipes</h2>
-                <form method="post" action="team.php">
-                    <label for="team_size">Taille de l'équipe :</label>
-                    <input type="number" id="team_size" name="team_size" value="2" min="2" required>
-                    <input type="hidden" name="generate_teams" value="true">
-                    <input type="submit" value="Générer des équipes">
-                </form>
-
+                <h2>Équipes</h2>
                 <ul>
                     <?php foreach ($players as $player): ?>
                         <li>
