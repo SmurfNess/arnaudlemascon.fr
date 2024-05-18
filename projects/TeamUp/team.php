@@ -40,8 +40,6 @@ if (isset($_SESSION['user_type'])) {
                     $stmt->execute();
                 }
 
-                /////////////////////////////////////////////////////////////////////////
-
                 // Sélectionner les joueurs de l'utilisateur connecté
                 $query = "SELECT name, class, team FROM players WHERE owner = :owner";
                 $stmt = $connexion->prepare($query);
@@ -57,26 +55,45 @@ if (isset($_SESSION['user_type'])) {
                 $classes = $stmt->fetchAll(PDO::FETCH_COLUMN);
 
                 // Génération des équipes en fonction des classes sélectionnées
-                if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['generate_teams']) && isset($_POST['team_size']) && isset($_POST['selected_classes'])) {
+                if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['generate_teams']) && isset($_POST['team_size'])) {
                     $team_size = max(2, (int)$_POST['team_size']);
-                    $selected_classes = $_POST['selected_classes'];
+                    $selected_classes = $_POST['selected_classes'] ?? [];
 
-                    // Sélectionner les joueurs des classes sélectionnées
-                    $placeholders = implode(',', array_fill(0, count($selected_classes), '?'));
-                    $query = "SELECT name, class, team FROM players WHERE owner = ? AND class IN ($placeholders)";
-                    $stmt = $connexion->prepare($query);
-                    $stmt->execute(array_merge([$login_username], $selected_classes));
-                    $players = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    if (empty($selected_classes)) {
+                        $query = "SELECT name, class, team FROM players WHERE owner = :owner";
+                        $stmt = $connexion->prepare($query);
+                        $stmt->bindParam(':owner', $login_username);
+                        $stmt->execute();
+                        $players = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    } else {
+                        $placeholders = implode(',', array_fill(0, count($selected_classes), '?'));
+                        $query = "SELECT name, class, team FROM players WHERE owner = ? AND class IN ($placeholders)";
+                        $stmt = $connexion->prepare($query);
+                        $stmt->execute(array_merge([$login_username], $selected_classes));
+                        $players = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    }
 
                     // Mélanger les joueurs et les répartir dans les équipes
                     shuffle($players);
                     $teams = [];
-                    foreach ($players as $index => $player) {
-                        $team_number = (int)($index / $team_size) + 1;
-                        $teams[$team_number][] = $player;
+                    $team_number = 1;
+                    $players_count = count($players);
+
+                    for ($i = 0; $i < $players_count; $i += $team_size) {
+                        $current_team = array_slice($players, $i, $team_size);
+
+                        // Si une équipe a moins de deux joueurs, ajouter ces joueurs à une autre équipe
+                        if (count($current_team) < 2) {
+                            foreach ($current_team as $player) {
+                                $random_team = array_rand($teams);
+                                $teams[$random_team][] = $player;
+                            }
+                        } else {
+                            $teams[$team_number++] = $current_team;
+                        }
                     }
 
-                    // Mettre à jour les équipes dans la base de données...
+                    // Mettre à jour les équipes dans la base de données
                     foreach ($teams as $team_number => $team_players) {
                         foreach ($team_players as $player) {
                             $query = "UPDATE players SET team = :team WHERE name = :name AND class = :class AND owner = :owner";
@@ -89,23 +106,12 @@ if (isset($_SESSION['user_type'])) {
                         }
                     }
 
-                /////////////////////////////////////////////////////////////////////////
-
-                    // Après la mise à jour des équipes, récupérer uniquement les joueurs des équipes sélectionnées
-                    $query = "SELECT name, class, team FROM players ORDER BY team ASC WHERE owner = :owner AND class IN ($placeholders)";
+                    // Récupérer les joueurs pour affichage
+                    $query = "SELECT name, class, team FROM players WHERE owner = :owner ORDER BY team ASC";
                     $stmt = $connexion->prepare($query);
-                    $stmt->execute(array_merge([$login_username], $selected_classes));
-                    $selected_players = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-                    // Afficher uniquement les joueurs des équipes sélectionnées
-                    foreach ($selected_players as $player): ?>
-                        <tr>
-                            <td><?php echo $player['name']; ?></td>
-                            <td><?php echo $player['class']; ?></td>
-                            <td><?php echo isset($player['team']) ? $player['team'] : ''; ?></td>
-                        </tr>
-                    <?php endforeach;
-
+                    $stmt->bindParam(':owner', $login_username);
+                    $stmt->execute();
+                    $players = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 }
             } catch (PDOException $e) {
                 echo "Erreur de connexion : " . $e->getMessage();
@@ -113,7 +119,7 @@ if (isset($_SESSION['user_type'])) {
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -158,17 +164,17 @@ if (isset($_SESSION['user_type'])) {
         <table>
             <thead>
                 <tr>
+                    <th>Équipe</th>
                     <th>Nom</th>
                     <th>Classe</th>
-                    <th>Équipe</th>
                 </tr>
             </thead>
             <tbody>
                 <?php foreach ($players as $player): ?>
                     <tr>
+                        <td><?php echo isset($player['team']) ? $player['team'] : ''; ?></td>
                         <td><?php echo $player['name']; ?></td>
                         <td><?php echo $player['class']; ?></td>
-                        <td><?php echo isset($player['team']) ? $player['team'] : ''; ?></td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
@@ -228,4 +234,3 @@ if (isset($_SESSION['user_type'])) {
     exit();
 }
 ?>
-
