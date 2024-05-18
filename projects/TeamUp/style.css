@@ -16,3 +16,15 @@ body{
 input, button{
     border-radius: 15px;
 }
+
+.team-1 {
+    background-color: #ff9999;
+}
+
+.team-2 {
+    background-color: #99ff99;
+}
+
+.team-3 {
+    background-color: #9999ff;
+}
