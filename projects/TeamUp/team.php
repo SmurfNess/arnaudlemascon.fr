@@ -66,38 +66,27 @@ if (isset($_SESSION['user_type'])) {
                     $stmt->execute(array_merge([$login_username], $selected_classes));
                     $players = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-// Mélanger les joueurs et les répartir dans les équipes
-shuffle($players);
-$teams = [];
-foreach ($players as $index => $player) {
-    $team_number = (int)($index / $team_size) + 1;
-    $teams[$team_number][] = $player;
-}
+                    // Mélanger les joueurs et les répartir dans les équipes
+                    shuffle($players);
+                    $teams = [];
+                    foreach ($players as $index => $player) {
+                        $team_number = (int)($index / $team_size) + 1;
+                        $teams[$team_number][] = $player;
+                    }
 
-// Vérifier si une équipe a moins de 2 joueurs
-foreach ($teams as $team_number => $team_players) {
-    if (count($team_players) < 2) {
-        // Trouver une autre équipe avec plus d'un joueur pour fusionner
-        foreach ($teams as $other_team_number => $other_team_players) {
-            if ($other_team_number !== $team_number && count($other_team_players) > 1) {
-                // Fusionner les équipes
-                $merged_players = array_merge($team_players, $other_team_players);
-                // Réinitialiser les équipes
-                $teams[$team_number] = [];
-                $teams[$other_team_number] = [];
-                // Répartir les joueurs fusionnés dans les équipes
-                foreach ($merged_players as $merged_player) {
-                    $random_team = array_rand($teams);
-                    $teams[$random_team][] = $merged_player;
-                }
-                break 2; // Sortir des boucles foreach
-            }
-        }
-    }
-}
+                    // Vérifier si une équipe a moins de 2 joueurs
+                    foreach ($teams as $team_number => $team_players) {
+                        if (count($team_players) < 2) {
+                            // Ajouter les joueurs restants à d'autres équipes
+                            $remaining_players = array_splice($team_players, 2 - count($team_players));
+                            foreach ($remaining_players as $remaining_player) {
+                                $random_team = array_rand($teams);
+                                $teams[$random_team][] = $remaining_player;
+                            }
+                        }
+                    }
 
-// Mettre à jour les équipes dans la base de données...
-
+                    // Mettre à jour les équipes dans la base de données...
 
                     foreach ($teams as $team_number => $team_players) {
                         foreach ($team_players as $player) {
