@@ -1,12 +1,12 @@
 body{
-    background-color:rgb(130, 219, 219);
+    background-color:darkslategray;
     font-family:'Poppins', sans-serif;
 }
 
 
 .col-4{
     position: relative;
-    background-color:rgb(123, 238, 238) !important;
+    background-color:teal !important;
     height: fit-content;
     width: 300px;
     border-radius: 15px;
@@ -18,14 +18,41 @@ input, button{
 }
 
 .team-1 {
-    background-color: #ff9999;
+    background-color: #9999ff;
 }
 
 .team-2 {
-    background-color: #99ff99;
+    background-color: #7C9ACC;
 }
 
 .team-3 {
-    background-color: #9999ff;
+    background-color: #90B7CF;
     font:red;
+}
+.team-4 {
+    background-color: #B3DDCD;
+}
+
+.team-5 {
+    background-color: #D0E7DA;
+}
+
+.team-6 {
+    background-color: #E8BED3;
+    font:red;
+}
+.team-7 {
+    background-color: #9999ff;
+}
+
+.team-8 {
+    background-color: #7C9ACC;
+}
+
+.team-9 {
+    background-color: #90B7CF;
+}
+
+.team-10 {
+    background-color: #B3DDCD;
 }
