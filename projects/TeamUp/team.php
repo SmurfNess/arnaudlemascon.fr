@@ -56,38 +56,11 @@ if (isset($_SESSION['user_type'])) {
                 $stmt->execute();
                 $classes = $stmt->fetchAll(PDO::FETCH_COLUMN);
 
-                // Génération des équipes en fonction des classes sélectionnées
-                if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['generate_teams']) && isset($_POST['team_size']) && isset($_POST['selected_classes'])) {
-                    $team_size = max(2, (int)$_POST['team_size']);
-                    $selected_classes = $_POST['selected_classes'];
+                /////////////////////////////////////////////////////////////////////////
 
-                    // Sélectionner les joueurs des classes sélectionnées
-                    $placeholders = implode(',', array_fill(0, count($selected_classes), '?'));
-                    $query = "SELECT name, class, team FROM players WHERE owner = ? AND class IN ($placeholders)";
-                    $stmt = $connexion->prepare($query);
-                    $stmt->execute(array_merge([$login_username], $selected_classes));
-                    $players = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                
 
-                    // Mélanger les joueurs et les répartir dans les équipes
-                    shuffle($players);
-                    $teams = [];
-                    foreach ($players as $index => $player) {
-                        $team_number = (int)($index / $team_size) + 1;
-                        $teams[$team_number][] = $player;
-                    }
-
-                    // Mettre à jour les équipes dans la base de données...
-                    foreach ($teams as $team_number => $team_players) {
-                        foreach ($team_players as $player) {
-                            $query = "UPDATE players SET team = :team WHERE name = :name AND class = :class AND owner = :owner";
-                            $stmt = $connexion->prepare($query);
-                            $stmt->bindParam(':team', $team_number);
-                            $stmt->bindParam(':name', $player['name']);
-                            $stmt->bindParam(':class', $player['class']);
-                            $stmt->bindParam(':owner', $login_username);
-                            $stmt->execute();
-                        }
-                    }
+                /////////////////////////////////////////////////////////////////////////
 
                     // Après la mise à jour des équipes, récupérer uniquement les joueurs des équipes sélectionnées
                     $query = "SELECT name, class, team FROM players ORDER BY team ASC WHERE owner = :owner AND class IN ($placeholders)";
