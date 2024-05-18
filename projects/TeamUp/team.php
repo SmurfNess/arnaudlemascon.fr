@@ -160,57 +160,69 @@ if (isset($_SESSION['user_type'])) {
     </section>
 
     <section>
-        <h2>Résultat de la génération d'équipes</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Équipe</th>
-                    <th>Nom</th>
-                    <th>Classe</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($players as $player): ?>
-                    <tr>
-                        <td><?php echo isset($player['team']) ? $player['team'] : ''; ?></td>
+    <h2>Résultat de la génération d'équipes</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Équipe</th>
+                <th>Nom</th>
+                <th>Classe</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($players as $player): ?>
+                <?php if (isset($player['team']) && in_array($player['class'], $selected_classes)): ?>
+                    <tr class="team-<?php echo $player['team']; ?>">
+                        <td><?php echo $player['team']; ?></td>
                         <td><?php echo $player['name']; ?></td>
                         <td><?php echo $player['class']; ?></td>
                     </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
-    </section>
+                <?php endif; ?>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+</section>
 
-    <section>
-        <h2>Liste complète des joueurs</h2>
-        <table>
-            <thead>
+<section>
+    <h2>Liste complète des joueurs</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Classe</th>
+                <th>Équipe</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            // Nouvelle requête pour récupérer tous les joueurs du propriétaire
+            $query = "SELECT name, class, team FROM players WHERE owner = :owner ORDER BY team ASC";
+            $stmt = $connexion->prepare($query);
+            $stmt->bindParam(':owner', $login_username);
+            $stmt->execute();
+            $all_players = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            foreach ($all_players as $player):
+            ?>
                 <tr>
-                    <th>Nom</th>
-                    <th>Classe</th>
-                    <th>Équipe</th>
-                    <th>Action</th>
+                    <td><?php echo $player['name']; ?></td>
+                    <td><?php echo $player['class']; ?></td>
+                    <td><?php echo isset($player['team']) ? $player['team'] : ''; ?></td>
+                    <td>
+                        <form method="post" action="team.php" style="display:inline;">
+                            <input type="hidden" name="delete_player" value="true">
+                            <input type="hidden" name="player_name" value="<?php echo $player['name']; ?>">
+                            <input type="hidden" name="player_class" value="<?php echo $player['class']; ?>">
+                            <input type="submit" value="Supprimer">
+                        </form>
+                    </td>
                 </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($players as $player): ?>
-                    <tr>
-                        <td><?php echo $player['name']; ?></td>
-                        <td><?php echo $player['class']; ?></td>
-                        <td><?php echo isset($player['team']) ? $player['team'] : ''; ?></td>
-                        <td>
-                            <form method="post" action="team.php" style="display:inline;">
-                                <input type="hidden" name="delete_player" value="true">
-                                <input type="hidden" name="player_name" value="<?php echo $player['name']; ?>">
-                                <input type="hidden" name="player_class" value="<?php echo $player['class']; ?>">
-                                <input type="submit" value="Supprimer">
-                            </form>
-                        </td>
-                    </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
-    </section>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+</section>
+
 </body>
 </html>
 
