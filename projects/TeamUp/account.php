@@ -59,23 +59,6 @@ if (isset($_SESSION['user_type'])) {
         } elseif ($user_type == $util) {
             // Si l'utilisateur est un utilisateur ordinaire, afficher un message de bienvenue
             echo "<h1>Bienvenue..</h1>";
-            <?php
-
-            try {
-                $connexion = new PDO("mysql:host={$databaseConfig['server']};dbname={$databaseConfig['database']}", $databaseConfig['username'], $databaseConfig['password']);
-                $connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-                // Sélectionner les joueurs de l'utilisateur connecté
-                $query = "SELECT name, class, team FROM players WHERE owner = :owner";
-                $stmt = $connexion->prepare($query);
-                $stmt->bindParam(':owner', $login_username);
-                $stmt->execute();
-                $players = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            } catch (PDOException $e) {
-                echo "Erreur de connexion : " . $e->getMessage();
-            }
-            ?>
-
         } else {
             // Si le type d'utilisateur n'est ni admin ni utilisateur, rediriger vers la page de connexion
             header("Location: teamup.html");
