@@ -87,6 +87,12 @@ if (isset($_SESSION['user_type'])) {
                         }
                     }
 
+                    // Après la mise à jour des équipes, trier les équipes par numéro
+                    $query = "SELECT name, class, team FROM players ORDER BY team ASC";
+                    $stmt = $connexion->prepare($query);
+                    $stmt->execute(array_merge([$login_username], $selected_classes));
+                    $selected_players = $stmt->fetchAll(PDO::FETCH_ASSOC)
+
                     // Après la mise à jour des équipes, récupérer uniquement les joueurs des équipes sélectionnées
                     $query = "SELECT name, class, team FROM players WHERE owner = :owner AND class IN ($placeholders) ORDER BY team ASC";
                     $stmt = $connexion->prepare($query);
