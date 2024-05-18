@@ -48,9 +48,12 @@ if (isset($_SESSION['user_type'])) {
             <body>
                 <h1>Vos joueurs</h1>
                 <ul>
-                    <?php foreach ($players as $player): ?>
-                        <li><?php echo $player['name']; ?> - <?php echo $player['class']; ?> - <?php echo $player['team']; ?></li>
-                    <?php endforeach; ?>
+                <?php foreach ($players as $player): ?>
+                    <li>
+                        <?php echo $player['name']; ?> - <?php echo $player['class']; ?> - <?php echo $player['team']; ?>
+                        <button class="delete-btn" data-player-id="<?php echo $player['id']; ?>">Supprimer</button>
+                    </li>
+                <?php endforeach; ?>
                 </ul>
             </body>
             </html>
