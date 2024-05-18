@@ -104,14 +104,29 @@ if (isset($_SESSION['user_type'])) {
                     usort($selected_players, 'compareTeams');
 
                     // Afficher uniquement les joueurs des équipes sélectionnées
-                    foreach ($selected_players as $player): ?>
-                        <tr>
-                            <td><?php echo htmlspecialchars($player['name']); ?></td>
-                            <td><?php echo htmlspecialchars($player['class']); ?></td>
-                            <td><?php echo isset($player['team']) ? htmlspecialchars($player['team']) : ''; ?></td>
-                        </tr>
-                    <?php endforeach;
-
+                    ?>
+                    <section>
+                        <h2>Résultat de la génération d'équipes</h2>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Nom</th>
+                                    <th>Classe</th>
+                                    <th>Équipe</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($selected_players as $player): ?>
+                                    <tr>
+                                        <td><?php echo htmlspecialchars($player['name']); ?></td>
+                                        <td><?php echo htmlspecialchars($player['class']); ?></td>
+                                        <td><?php echo isset($player['team']) ? htmlspecialchars($player['team']) : ''; ?></td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </section>
+                    <?php
                 }
             } catch (PDOException $e) {
                 echo "Erreur de connexion : " . $e->getMessage();
@@ -157,28 +172,6 @@ if (isset($_SESSION['user_type'])) {
             <input type="hidden" name="generate_teams" value="true">
             <input type="submit" value="Générer les équipes">
         </form>
-    </section>
-
-    <section>
-        <h2>Résultat de la génération d'équipes</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Nom</th>
-                    <th>Classe</th>
-                    <th>Équipe</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($players as $player): ?>
-                    <tr>
-                        <td><?php echo htmlspecialchars($player['name']); ?></td>
-                        <td><?php echo htmlspecialchars($player['class']); ?></td>
-                        <td><?php echo isset($player['team']) ? htmlspecialchars($player['team']) : ''; ?></td>
-                    </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
     </section>
 
     <section>
