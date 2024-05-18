@@ -74,7 +74,20 @@ if (isset($_SESSION['user_type'])) {
                         $teams[$team_number][] = $player;
                     }
 
+                    // Vérifier si une équipe a moins de 2 joueurs
+                    foreach ($teams as $team_number => $team_players) {
+                        if (count($team_players) < 2) {
+                            // Ajouter les joueurs restants à d'autres équipes
+                            $remaining_players = array_splice($team_players, 2 - count($team_players));
+                            foreach ($remaining_players as $remaining_player) {
+                                $random_team = array_rand($teams);
+                                $teams[$random_team][] = $remaining_player;
+                            }
+                        }
+                    }
+
                     // Mettre à jour les équipes dans la base de données...
+
                     foreach ($teams as $team_number => $team_players) {
                         foreach ($team_players as $player) {
                             $query = "UPDATE players SET team = :team WHERE name = :name AND class = :class AND owner = :owner";
@@ -87,9 +100,21 @@ if (isset($_SESSION['user_type'])) {
                         }
                     }
 
-                    // Après la mise à jour, rediriger pour afficher la liste mise à jour
-                    header("Location: team.php");
-                    exit();
+                    // Après la mise à jour des équipes, récupérer uniquement les joueurs des équipes sélectionnées
+                    $query = "SELECT name, class, team FROM players WHERE owner = :owner AND class IN ($placeholders)";
+                    $stmt = $connexion->prepare($query);
+                    $stmt->execute(array_merge([$login_username], $selected_classes));
+                    $selected_players = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+                    // Afficher uniquement les joueurs des équipes sélectionnées
+                    foreach ($selected_players as $player): ?>
+                        <tr>
+                            <td><?php echo $player['name']; ?></td>
+                            <td><?php echo $player['class']; ?></td>
+                            <td><?php echo isset($player['team']) ? $player['team'] : ''; ?></td>
+                        </tr>
+                    <?php endforeach;
+
                 }
             } catch (PDOException $e) {
                 echo "Erreur de connexion : " . $e->getMessage();
