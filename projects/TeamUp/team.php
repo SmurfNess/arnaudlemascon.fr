@@ -148,7 +148,27 @@ if (isset($_SESSION['user_type'])) {
     <form>
     </section>
 
-
+    <section>
+    <h2>Résultat de la génération d'équipes</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Classe</th>
+                <th>Équipe</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($players as $player): ?>
+                <tr>
+                    <td><?php echo $player['name']; ?></td>
+                    <td><?php echo $player['class']; ?></td>
+                    <td><?php echo isset($player['team']) ? $player['team'] : ''; ?></td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+</section>
 
     <section>
         <h2>Liste des joueurs</h2>
