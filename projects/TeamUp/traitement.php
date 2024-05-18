@@ -78,7 +78,7 @@ if ($form_password !== $confirm_password) {
         echo "<p class='message'>Le nom d'utilisateur existe déjà.</p>";
     } else {
         // Préparer la requête d'insertion
-        $insert_query = $connexion->prepare("INSERT INTO access (username, password, class, type) VALUES (?, ?, '404')");
+        $insert_query = $connexion->prepare("INSERT INTO access (username, password, type, class) VALUES (?, ?, '404', ?)");
 
         // Exécuter la requête avec les données du formulaire
         if ($insert_query->execute([$form_username, $hashed_password])) {
