@@ -30,6 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $stmt->execute(['name' => $name, 'class' => $class, 'owner' => $owner]);
                     
                     echo "Données insérées avec succès.";
+                    echo "<a href=\"https://arnaudlemascon.fr/projects/TeamUp/account.php\">Retour</a>";
                 } catch (PDOException $e) {
                     echo "Erreur d'insertion : " . $e->getMessage();
                 }
