@@ -106,98 +106,104 @@ if (isset($_SESSION['user_type'])) {
                         }
                     }
 
-// Récupérer uniquement les joueurs des classes sélectionnées pour affichage
-$selected_players = [];
-if (isset($team_size, $selected_classes)) {
-    $placeholders = implode(',', array_fill(0, count($selected_classes), '?'));
-    $query = "SELECT name, class, team FROM players WHERE owner = ? AND class IN ($placeholders) ORDER BY team ASC";
-    $stmt = $connexion->prepare($query);
-    $stmt->execute(array_merge([$login_username], $selected_classes));
-    $selected_players = $stmt->fetchAll(PDO::FETCH_ASSOC);
-}
-
-/////////////////////////////////////////////////////////////////////////
-
-// Après la mise à jour des équipes, récupérer uniquement les joueurs des équipes sélectionnées
-$query = "SELECT name, class, team FROM players WHERE owner = :owner AND class IN ($placeholders) ORDER BY team ASC";
-$stmt = $connexion->prepare($query);
-$stmt->execute(array_merge([$login_username], $selected_classes));
-$selected_players = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-} catch (PDOException $e) {
-echo "Erreur de connexion : " . $e->getMessage();
-}
+                    // Récupérer les joueurs pour affichage
+                    $query = "SELECT name, class, team FROM players WHERE owner = :owner ORDER BY team ASC";
+                    $stmt = $connexion->prepare($query);
+                    $stmt->bindParam(':owner', $login_username);
+                    $stmt->execute();
+                    $players = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                }
+            } catch (PDOException $e) {
+                echo "Erreur de connexion : " . $e->getMessage();
+            }
 ?>
 
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Équipe</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Équipe</title>
 </head>
 <body>
-<h1>Gestion des joueurs et des équipes</h1>
+    <h1>Gestion des joueurs et des équipes</h1>
 
-<section>
-<!-- Ajouter un joueur -->
-</section>
+    <section>
+        <h2>Ajouter un joueur</h2>
+        <form method="post" action="team.php">
+            <label for="name">Nom :</label>
+            <input type="text" id="name" name="name" required><br><br>
+                                
+            <label for="class">Classe :</label>
+            <input type="text" id="class" name="class" required><br><br>
+            
+            <input type="submit" value="Ajouter">
+        </form>
+    </section>
 
-<section>
-<!-- Générer les équipes -->
-</section>
+    <section>
+        <h2>Générer les équipes</h2>
+        <form method="post" action="team.php">
+            <label for="team_size">Taille de l'équipe :</label>
+            <input type="number" id="team_size" name="team_size" value="2" min="2" required><br><br>
+            
+            <label for="selected_classes[]">Sélectionner les classes :</label>
+            <select name="selected_classes[]" multiple>
+                <?php foreach ($classes as $class): ?>
+                    <option value="<?php echo $class; ?>"><?php echo $class; ?></option>
+                <?php endforeach; ?>
+            </select><br><br>
+            
+            <input type="hidden" name="generate_teams" value="true">
+            <input type="submit" value="Générer les équipes">
+        </form>
+    </section>
 
-<section>
-<h2>Résultat de la génération d'équipes</h2>
-<table>
-<thead>
-<tr>
-    <th>Équipe</th>
-    <th>Nom</th>
-    <th>Classe</th>
-</tr>
-</thead>
-<tbody>
-<?php foreach ($selected_players as $player): ?>
-    <tr>
-        <td><?php echo isset($player['team']) ? $player['team'] : ''; ?></td>
-        <td><?php echo $player['name']; ?></td>
-        <td><?php echo $player['class']; ?></td>
-    </tr>
-<?php endforeach; ?>
-</tbody>
-</table>
-</section>
+    <section>
+        <h2>Résultat de la génération d'équipes</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Équipe</th>
+                    <th>Nom</th>
+                    <th>Classe</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($players as $player): ?>
+                    <tr>
+                        <td><?php echo isset($player['team']) ? $player['team'] : ''; ?></td>
+                        <td><?php echo $player['name']; ?></td>
+                        <td><?php echo $player['class']; ?></td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </section>
 
-<section>
-<h2>Liste complète des joueurs</h2>
-<table>
-<thead>
-<tr>
-    <th>Nom</th>
-    <th>Classe</th>
-    <th>Équipe</th>
-    <th>Action</th>
-</tr>
-</thead>
-<tbody>
-<?php foreach ($players as $player): ?>
-    <tr>
-        <td><?php echo $player['name']; ?></td>
-        <td><?php echo $player['class']; ?></td>
-        <td><?php echo isset($player['team']) ? $player['team'] : ''; ?></td>
-        <td>
-            <form method="post" action="team.php" style="display:inline;">
-                <input type="hidden" name="delete_player" value="true">
-                <input type="hidden" name="player_name" value="<?php echo $player['name']; ?>">
-                <input type="hidden" name="player_class" value="<?php echo $player['class']; ?>">
-               
-
-
-
-
-
-    <input type="submit" value="Supprimer">
+    <section>
+        <h2>Liste complète des joueurs</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Classe</th>
+                    <th>Équipe</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($players as $player): ?>
+                    <tr>
+                        <td><?php echo $player['name']; ?></td>
+                        <td><?php echo $player['class']; ?></td>
+                        <td><?php echo isset($player['team']) ? $player['team'] : ''; ?></td>
+                        <td>
+                            <form method="post" action="team.php" style="display:inline;">
+                                <input type="hidden" name="delete_player" value="true">
+                                <input type="hidden" name="player_name" value="<?php echo $player['name']; ?>">
+                                <input type="hidden" name="player_class" value="<?php echo $player['class']; ?>">
+                                <input type="submit" value="Supprimer">
                             </form>
                         </td>
                     </tr>
@@ -228,4 +234,3 @@ echo "Erreur de connexion : " . $e->getMessage();
     exit();
 }
 ?>
-
