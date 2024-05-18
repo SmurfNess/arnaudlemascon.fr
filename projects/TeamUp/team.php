@@ -15,7 +15,7 @@ if (isset($_SESSION['user_type'])) {
                 $connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
                 // Traitement de l'ajout d'un joueur
-                if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['name']) && isset($_POST['class']) && !isset($_POST['delete_player'])) {
+                if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['name']) && isset($_POST['class']) && !isset($_POST['delete_player']) && !isset($_POST['generate_teams'])) {
                     $name = $_POST['name'];
                     $class = $_POST['class'];
 
@@ -68,6 +68,50 @@ if (isset($_SESSION['user_type'])) {
                     $stmt->execute([$login_username]);
                     $players_by_class['all'] = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 }
+
+                // Génération des équipes aléatoires
+                if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['generate_teams']) && isset($_POST['team_size'])) {
+                    $team_size = intval($_POST['team_size']);
+                    if ($team_size >= 2) {
+                        $all_players = [];
+                        foreach ($players_by_class as $players) {
+                            $all_players = array_merge($all_players, $players);
+                        }
+
+                        shuffle($all_players);
+
+                        $team_number = 1;
+                        $remaining_players = [];
+                        foreach ($all_players as $index => $player) {
+                            if ($index % $team_size === 0 && count($remaining_players) >= 2) {
+                                $team_number++;
+                            }
+                            $remaining_players[] = $player;
+                            if (count($remaining_players) == $team_size) {
+                                foreach ($remaining_players as $team_player) {
+                                    $query = "UPDATE players SET team = ? WHERE name = ? AND class = ? AND owner = ?";
+                                    $stmt = $connexion->prepare($query);
+                                    $stmt->execute([$team_number, $team_player['name'], $team_player['class'], $login_username]);
+                                }
+                                $remaining_players = [];
+                            }
+                        }
+
+                        if (count($remaining_players) > 0) {
+                            foreach ($remaining_players as $team_player) {
+                                $query = "UPDATE players SET team = ? WHERE name = ? AND class = ? AND owner = ?";
+                                $stmt = $connexion->prepare($query);
+                                $stmt->execute([rand(1, $team_number), $team_player['name'], $team_player['class'], $login_username]);
+                            }
+                        }
+
+                        // Rafraîchir la page pour afficher les nouvelles équipes
+                        header("Location: team.php");
+                        exit();
+                    } else {
+                        echo "La taille de l'équipe doit être au moins 2.";
+                    }
+                }
             } catch (PDOException $e) {
                 echo "Erreur de connexion : " . $e->getMessage();
             }
@@ -102,6 +146,13 @@ if (isset($_SESSION['user_type'])) {
                         <?php endforeach; ?>
                     </select>
                     <input type="submit" value="Filtrer">
+                </form>
+
+                <form method="post" action="team.php">
+                    <label for="team_size">Taille de l'équipe :</label>
+                    <input type="number" id="team_size" name="team_size" min="2" required>
+                    <input type="hidden" name="generate_teams" value="true">
+                    <input type="submit" value="Générer des équipes">
                 </form>
 
                 <?php if (!empty($selected_classes)): ?>
@@ -144,23 +195,4 @@ if (isset($_SESSION['user_type'])) {
             </body>
             </html>
 
-            <?php
-        } elseif ($user_type == $util) {
-            // Si l'utilisateur est un utilisateur ordinaire, afficher un message de bienvenue
-            echo "<h1>Bienvenue..</h1>";
-        } else {
-            // Si le type d'utilisateur n'est ni admin ni utilisateur, rediriger vers la page de connexion
-            header("Location: teamup.html");
-            exit();
-        }
-    } else {
-        // Si l'utilisateur n'est pas connecté, rediriger vers la page de connexion
-        header("Location: teamup.html");
-        exit();
-    }
-} else {
-    // Si le type d'utilisateur n'est pas défini, rediriger vers la page de connexion
-    header("Location: teamup.html");
-    exit();
-}
-?>
+           
