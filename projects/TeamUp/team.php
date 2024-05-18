@@ -54,29 +54,38 @@ if (isset($_SESSION['user_type'])) {
                 $stmt->execute();
                 $classes = $stmt->fetchAll(PDO::FETCH_COLUMN);
 
-// Génération des équipes en fonction des classes sélectionnées
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['generate_teams']) && isset($_POST['team_size']) && isset($_POST['selected_classes'])) {
-    $team_size = max(2, (int)$_POST['team_size']);
-    $selected_classes = $_POST['selected_classes'];
+                // Filtrer les joueurs par classe sélectionnée
+                $selected_classes = isset($_POST['selected_classes']) ? $_POST['selected_classes'] : [];
+                if (!empty($selected_classes)) {
+                    $placeholders = implode(',', array_fill(0, count($selected_classes), '?'));
+                    $query = "SELECT name, class, team FROM players WHERE owner = ? AND class IN ($placeholders)";
+                    $stmt = $connexion->prepare($query);
+                    $stmt->execute(array_merge([$login_username], $selected_classes));
+                    $players = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                }
 
-    // Sélectionner les joueurs des classes sélectionnées
-    $placeholders = implode(',', array_fill(0, count($selected_classes), '?'));
-    $query = "SELECT name, class, team FROM players WHERE owner = ? AND class IN ($placeholders)";
-    $stmt = $connexion->prepare($query);
-    $stmt->execute(array_merge([$login_username], $selected_classes));
-    $players = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                // Génération des équipes aléatoires
+                if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['generate_teams']) && isset($_POST['team_size'])) {
+                    $team_size = max(2, (int)$_POST['team_size']);
+                    shuffle($players);
 
-    // Mélanger les joueurs et les répartir dans les équipes
-    shuffle($players);
-    $teams = [];
-    foreach ($players as $index => $player) {
-        $team_number = (int)($index / $team_size) + 1;
-        $teams[$team_number][] = $player;
-    }
+                    $teams = [];
+                    foreach ($players as $index => $player) {
+                        $team_number = (int)($index / $team_size) + 1;
+                        $teams[$team_number][] = $player;
+                    }
 
-    // Mettre à jour les équipes dans la base de données...
-}
+                    // Redistribution des joueurs si la dernière équipe a moins de 2 joueurs
+                    $last_team = end($teams);
+                    if (count($last_team) < 2 && count($teams) > 1) {
+                        array_pop($teams);  // Remove the last team
+                        foreach ($last_team as $player) {
+                            $random_team = array_rand($teams);
+                            $teams[$random_team][] = $player;
+                        }
+                    }
 
+                    // Mise à jour des équipes dans la base de données
                     foreach ($teams as $team_number => $team_players) {
                         foreach ($team_players as $player) {
                             $query = "UPDATE players SET team = :team WHERE name = :name AND class = :class AND owner = :owner";
