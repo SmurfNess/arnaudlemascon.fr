@@ -5,8 +5,7 @@ body{
 
 
 .col-4{
-    position: absolute;
-    margin-top: 250px;
+    position: relative;
     background-color:teal !important;
     height: fit-content;
     border-radius: 15px;
