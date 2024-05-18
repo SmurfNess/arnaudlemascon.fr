@@ -195,4 +195,23 @@ if (isset($_SESSION['user_type'])) {
             </body>
             </html>
 
-           
+            <?php
+        } elseif ($user_type == $util) {
+            // Si l'utilisateur est un utilisateur ordinaire, afficher un message de bienvenue
+            echo "<h1>Bienvenue..</h1>";
+        } else {
+            // Si le type d'utilisateur n'est ni admin ni utilisateur, rediriger vers la page de connexion
+            header("Location: teamup.html");
+            exit();
+        }
+    } else {
+        // Si l'utilisateur n'est pas connecté, rediriger vers la page de connexion
+        header("Location: teamup.html");
+        exit();
+    }
+} else {
+    // Si le type d'utilisateur n'est pas défini, rediriger vers la page de connexion
+    header("Location: teamup.html");
+    exit();
+}
+?>
