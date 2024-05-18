@@ -76,7 +76,7 @@ if (isset($_SESSION['user_type'])) {
 
                     // Vérifier si une équipe a moins de 2 joueurs
                     foreach ($teams as $team_number => $team_players) {
-                        if (count($team_players) < 2) {
+                        if (count($team_players) = 1) {
                             // Ajouter les joueurs restants à d'autres équipes
                             $remaining_players = array_splice($team_players, 2 - count($team_players));
                             foreach ($remaining_players as $remaining_player) {
