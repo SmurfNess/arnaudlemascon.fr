@@ -158,7 +158,9 @@ if (isset($_SESSION['user_type'])) {
                                     <td><?php echo $player['class']; ?></td>
                                     <td><?php echo $player['team']; ?></td>
                                     <td>
-                                            <form method="post" action="team.php" style="display:inline;">
+                                        <form method="post" action="team.php" style="display:inline;">
+                                            <input
+                                        <form method="post" action="team.php" style="display:inline;">
                                             <input type="hidden" name="delete_player" value="true">
                                             <input type="hidden" name="player_name" value="<?php echo $player['name']; ?>">
                                             <input type="hidden" name="player_class" value="<?php echo $player['class']; ?>">
