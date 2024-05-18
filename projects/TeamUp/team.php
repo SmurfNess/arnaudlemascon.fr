@@ -102,4 +102,22 @@ if (isset($_SESSION['user_type'])) {
                         foreach ($team_players as $player) {
                             $query = "UPDATE players SET team = :team WHERE name = :name AND class = :class AND owner = :owner";
                             $stmt = $connexion->prepare($query);
-                            $stmt->bindParam(':
+                            $stmt->bindParam(':team', $team_number);
+                            $stmt->bindParam(':name', $player['name']);
+                            $stmt->bindParam(':class', $player['class']);
+                            $stmt->bindParam(':owner', $login_username);
+                            $stmt->execute();
+                        }
+                    }
+
+                    // Après la mise à jour, rediriger pour afficher la liste mise à jour
+                    header("Location: team.php");
+                    exit();
+                }
+            } catch (PDOException $e) {
+                echo "Erreur de connexion : " . $e->getMessage();
+            }
+            ?>
+
+            <!DOCTYPE html>
+           
