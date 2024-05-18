@@ -40,6 +40,7 @@ if (isset($_SESSION['user_type'])) {
                     $stmt->execute();
                 }
 
+                /////////////////////////////////////////////////////////////////////////
 
                 // Sélectionner les joueurs de l'utilisateur connecté
                 $query = "SELECT name, class, team FROM players WHERE owner = :owner";
