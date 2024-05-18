@@ -50,21 +50,24 @@ if (isset($_SESSION['user_type'])) {
                 // Sélectionner les classes filtrées
                 $selected_classes = isset($_GET['class_filter']) ? $_GET['class_filter'] : [];
 
-                // Sélectionner les joueurs de l'utilisateur connecté en fonction du filtre
-                $query = "SELECT name, class, team FROM players WHERE owner = :owner";
+                // Initialisation du tableau des joueurs
+                $players_by_class = [];
+
                 if (!empty($selected_classes)) {
-                    $placeholders = str_repeat('?,', count($selected_classes) - 1) . '?';
-                    $query .= " AND class IN ($placeholders)";
-                }
-                $stmt = $connexion->prepare($query);
-                $stmt->bindParam(':owner', $login_username);
-                if (!empty($selected_classes)) {
-                    foreach ($selected_classes as $index => $class) {
-                        $stmt->bindValue($index + 1, $class);
+                    // Sélectionner les joueurs de l'utilisateur connecté en fonction du filtre
+                    foreach ($selected_classes as $class) {
+                        $query = "SELECT name, class, team FROM players WHERE owner = ? AND class = ?";
+                        $stmt = $connexion->prepare($query);
+                        $stmt->execute([$login_username, $class]);
+                        $players_by_class[$class] = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     }
+                } else {
+                    // Sélectionner tous les joueurs de l'utilisateur connecté
+                    $query = "SELECT name, class, team FROM players WHERE owner = ?";
+                    $stmt = $connexion->prepare($query);
+                    $stmt->execute([$login_username]);
+                    $players_by_class['all'] = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 }
-                $stmt->execute();
-                $players = $stmt->fetchAll(PDO::FETCH_ASSOC);
             } catch (PDOException $e) {
                 echo "Erreur de connexion : " . $e->getMessage();
             }
@@ -91,7 +94,7 @@ if (isset($_SESSION['user_type'])) {
 
                 <form method="get" action="team.php">
                     <label for="class_filter">Filtrer par classe :</label>
-                    <select id="class_filter" name="class_filter[]" multiple onchange="this.form.submit()">
+                    <select id="class_filter" name="class_filter[]" multiple>
                         <?php foreach ($classes as $class): ?>
                             <option value="<?php echo $class['class']; ?>" <?php echo in_array($class['class'], $selected_classes) ? 'selected' : ''; ?>>
                                 <?php echo $class['class']; ?>
@@ -101,19 +104,43 @@ if (isset($_SESSION['user_type'])) {
                     <input type="submit" value="Filtrer">
                 </form>
 
-                <ul>
-                    <?php foreach ($players as $player): ?>
-                        <li>
-                            <?php echo $player['name']; ?> - <?php echo $player['class']; ?> - <?php echo $player['team']; ?>
-                            <form method="post" action="team.php" style="display:inline;">
-                                <input type="hidden" name="delete_player" value="true">
-                                <input type="hidden" name="player_name" value="<?php echo $player['name']; ?>">
-                                <input type="hidden" name="player_class" value="<?php echo $player['class']; ?>">
-                                <input type="submit" value="Supprimer">
-                            </form>
-                        </li>
+                <?php if (!empty($selected_classes)): ?>
+                    <?php foreach ($selected_classes as $class): ?>
+                        <h2>Classe : <?php echo $class; ?></h2>
+                        <ul>
+                            <?php if (isset($players_by_class[$class])): ?>
+                                <?php foreach ($players_by_class[$class] as $player): ?>
+                                    <li>
+                                        <?php echo $player['name']; ?> - <?php echo $player['class']; ?> - <?php echo $player['team']; ?>
+                                        <form method="post" action="team.php" style="display:inline;">
+                                            <input type="hidden" name="delete_player" value="true">
+                                            <input type="hidden" name="player_name" value="<?php echo $player['name']; ?>">
+                                            <input type="hidden" name="player_class" value="<?php echo $player['class']; ?>">
+                                            <input type="submit" value="Supprimer">
+                                        </form>
+                                    </li>
+                                <?php endforeach; ?>
+                            <?php else: ?>
+                                <li>Aucun joueur trouvé dans cette classe.</li>
+                            <?php endif; ?>
+                        </ul>
                     <?php endforeach; ?>
-                </ul>
+                <?php else: ?>
+                    <h2>Tous les joueurs</h2>
+                    <ul>
+                        <?php foreach ($players_by_class['all'] as $player): ?>
+                            <li>
+                                <?php echo $player['name']; ?> - <?php echo $player['class']; ?> - <?php echo $player['team']; ?>
+                                <form method="post" action="team.php" style="display:inline;">
+                                    <input type="hidden" name="delete_player" value="true">
+                                    <input type="hidden" name="player_name" value="<?php echo $player['name']; ?>">
+                                    <input type="hidden" name="player_class" value="<?php echo $player['class']; ?>">
+                                    <input type="submit" value="Supprimer">
+                                </form>
+                            </li>
+                        <?php endforeach; ?>
+                    </ul>
+                <?php endif; ?>
             </body>
             </html>
 
