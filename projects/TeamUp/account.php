@@ -14,21 +14,17 @@ if (isset($_SESSION['user_type'])) {
                 $connexion = new PDO("mysql:host={$databaseConfig['server']};dbname={$databaseConfig['database']}", $databaseConfig['username'], $databaseConfig['password']);
                 $connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-                if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_player'])) {
-                    try {
-                        $query = "DELETE FROM players WHERE name = :player_name AND class = :player_class AND owner = :owner";
-                        $stmt = $connexion->prepare($query);
-                        $stmt->bindParam(':player_name', $_POST['player_name']);
-                        $stmt->bindParam(':player_class', $_POST['player_class']);
-                        $stmt->bindParam(':owner', $login_username);
-                        $stmt->execute();
+                // Ajout d'un joueur si le formulaire est soumis
+                if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['name']) && isset($_POST['class'])) {
+                    $name = $_POST['name'];
+                    $class = $_POST['class'];
 
-                        // Rediriger vers la même page pour afficher la liste mise à jour des joueurs
-                        header("Location: team.php");
-                        exit();
-                    } catch (PDOException $e) {
-                        echo "Erreur de suppression : " . $e->getMessage();
-                    }
+                    $query = "INSERT INTO players (name, class, owner) VALUES (:name, :class, :owner)";
+                    $stmt = $connexion->prepare($query);
+                    $stmt->bindParam(':name', $name);
+                    $stmt->bindParam(':class', $class);
+                    $stmt->bindParam(':owner', $login_username);
+                    $stmt->execute();
                 }
 
                 // Sélectionner les joueurs de l'utilisateur connecté
@@ -51,6 +47,16 @@ if (isset($_SESSION['user_type'])) {
             </head>
             <body>
                 <h1>Vos joueurs</h1>
+                <form method="post" action="team.php">
+                    <label for="name">Nom :</label>
+                    <input type="text" id="name" name="name" required><br><br>
+                    
+                    <label for="class">Classe :</label>
+                    <input type="text" id="class" name="class" required><br><br>
+                    
+                    <input type="submit" value="Envoyer">
+                </form>
+
                 <ul>
                     <?php foreach ($players as $player): ?>
                         <li>
@@ -68,6 +74,24 @@ if (isset($_SESSION['user_type'])) {
             </html>
 
             <?php
+            if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_player'])) {
+                try {
+                    $connexion = new PDO("mysql:host={$databaseConfig['server']};dbname={$databaseConfig['database']}", $databaseConfig['username'], $databaseConfig['password']);
+                    $connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+                    $query = "DELETE FROM players WHERE name = :player_name AND class = :player_class";
+                    $stmt = $connexion->prepare($query);
+                    $stmt->bindParam(':player_name', $_POST['player_name']);
+                    $stmt->bindParam(':player_class', $_POST['player_class']);
+                    $stmt->execute();
+
+                    // Après la suppression, rediriger vers la même page pour afficher la liste mise à jour
+                    header("Location: team.php");
+                    exit();
+                } catch (PDOException $e) {
+                    echo "Erreur de suppression : " . $e->getMessage();
+                }
+            }
         } elseif ($user_type == $util) {
             // Si l'utilisateur est un utilisateur ordinaire, afficher un message de bienvenue
             echo "<h1>Bienvenue..</h1>";
