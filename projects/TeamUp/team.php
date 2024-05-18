@@ -131,23 +131,6 @@ if (isset($_SESSION['user_type'])) {
     </section>
 
     <section>
-        <h2>Liste des joueurs</h2>
-        <ul>
-            <?php foreach ($players as $player): ?>
-                <li>
-                    <?php echo $player['name']; ?> - <?php echo $player['class']; ?> - <?php echo $player['team']; ?>
-                    <form method="post" action="team.php" style="display:inline;">
-                        <input type="hidden" name="delete_player" value="true">
-                        <input type="hidden" name="player_name" value="<?php echo $player['name']; ?>">
-                        <input type="hidden" name="player_class" value="<?php echo $player['class']; ?>">
-                        <input type="submit" value="Supprimer">
-                    </form>
-                </li>
-            <?php endforeach; ?>
-        </ul>
-    </section>
-
-    <section>
         <h2>Générer les équipes</h2>
         <form method="post" action="team.php">
             <label for="team_size">Taille de l'équipe :</label>
@@ -155,6 +138,37 @@ if (isset($_SESSION['user_type'])) {
             <input type="hidden" name="generate_teams" value="true">
             <input type="submit" value="Générer les équipes">
         </form>
+    </section>
+
+    <section>
+        <h2>Liste des joueurs</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Classe</th>
+                    <th>Équipe</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($players as $player): ?>
+                    <tr>
+                        <td><?php echo $player['name']; ?></td>
+                        <td><?php echo $player['class']; ?></td>
+                        <td><?php echo $player['team']; ?></td>
+                        <td>
+                            <form method="post" action="team.php" style="display:inline;">
+                                <input type="hidden" name="delete_player" value="true">
+                                <input type="hidden" name="player_name" value="<?php echo $player['name']; ?>">
+                                <input type="hidden" name="player_class" value="<?php echo $player['class']; ?>">
+                                <input type="submit" value="Supprimer">
+                            </form>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
     </section>
 </body>
 </html>
