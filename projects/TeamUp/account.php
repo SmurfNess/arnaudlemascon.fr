@@ -15,7 +15,7 @@ if (isset($_SESSION['user_type'])) {
                 $connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
                 // Ajout d'un joueur si le formulaire est soumis
-                if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['name']) && isset($_POST['class'])) {
+                if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['name']) && isset($_POST['class']) && !isset($_POST['delete_player'])) {
                     $name = $_POST['name'];
                     $class = $_POST['class'];
 
@@ -27,10 +27,39 @@ if (isset($_SESSION['user_type'])) {
                     $stmt->execute();
                 }
 
-                // Sélectionner les joueurs de l'utilisateur connecté
-                $query = "SELECT name, class, team FROM players WHERE owner = :owner";
+                // Suppression d'un joueur si le formulaire est soumis
+                if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_player'])) {
+                    $query = "DELETE FROM players WHERE name = :player_name AND class = :player_class";
+                    $stmt = $connexion->prepare($query);
+                    $stmt->bindParam(':player_name', $_POST['player_name']);
+                    $stmt->bindParam(':player_class', $_POST['player_class']);
+                    $stmt->execute();
+
+                    // Après la suppression, rediriger vers la même page pour afficher la liste mise à jour
+                    header("Location: team.php");
+                    exit();
+                }
+
+                // Récupérer les classes distinctes
+                $query = "SELECT DISTINCT class FROM players WHERE owner = :owner";
                 $stmt = $connexion->prepare($query);
                 $stmt->bindParam(':owner', $login_username);
+                $stmt->execute();
+                $classes = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+                // Récupérer la classe sélectionnée
+                $selected_class = isset($_GET['class_filter']) ? $_GET['class_filter'] : 'all';
+
+                // Sélectionner les joueurs de l'utilisateur connecté en fonction du filtre
+                $query = "SELECT name, class, team FROM players WHERE owner = :owner";
+                if ($selected_class !== 'all') {
+                    $query .= " AND class = :class";
+                }
+                $stmt = $connexion->prepare($query);
+                $stmt->bindParam(':owner', $login_username);
+                if ($selected_class !== 'all') {
+                    $stmt->bindParam(':class', $selected_class);
+                }
                 $stmt->execute();
                 $players = $stmt->fetchAll(PDO::FETCH_ASSOC);
             } catch (PDOException $e) {
@@ -57,11 +86,23 @@ if (isset($_SESSION['user_type'])) {
                     <input type="submit" value="Envoyer">
                 </form>
 
+                <form method="get" action="team.php">
+                    <label for="class_filter">Filtrer par classe :</label>
+                    <select id="class_filter" name="class_filter" onchange="this.form.submit()">
+                        <option value="all" <?php echo $selected_class === 'all' ? 'selected' : ''; ?>>Tous</option>
+                        <?php foreach ($classes as $class): ?>
+                            <option value="<?php echo $class['class']; ?>" <?php echo $selected_class === $class['class'] ? 'selected' : ''; ?>>
+                                <?php echo $class['class']; ?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
+                </form>
+
                 <ul>
                     <?php foreach ($players as $player): ?>
                         <li>
                             <?php echo $player['name']; ?> - <?php echo $player['class']; ?> - <?php echo $player['team']; ?>
-                            <form method="post" action="team.php">
+                            <form method="post" action="team.php" style="display:inline;">
                                 <input type="hidden" name="delete_player" value="true">
                                 <input type="hidden" name="player_name" value="<?php echo $player['name']; ?>">
                                 <input type="hidden" name="player_class" value="<?php echo $player['class']; ?>">
@@ -74,24 +115,6 @@ if (isset($_SESSION['user_type'])) {
             </html>
 
             <?php
-            if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_player'])) {
-                try {
-                    $connexion = new PDO("mysql:host={$databaseConfig['server']};dbname={$databaseConfig['database']}", $databaseConfig['username'], $databaseConfig['password']);
-                    $connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-                    $query = "DELETE FROM players WHERE name = :player_name AND class = :player_class";
-                    $stmt = $connexion->prepare($query);
-                    $stmt->bindParam(':player_name', $_POST['player_name']);
-                    $stmt->bindParam(':player_class', $_POST['player_class']);
-                    $stmt->execute();
-
-                    // Après la suppression, rediriger vers la même page pour afficher la liste mise à jour
-                    header("Location: team.php");
-                    exit();
-                } catch (PDOException $e) {
-                    echo "Erreur de suppression : " . $e->getMessage();
-                }
-            }
         } elseif ($user_type == $util) {
             // Si l'utilisateur est un utilisateur ordinaire, afficher un message de bienvenue
             echo "<h1>Bienvenue..</h1>";
