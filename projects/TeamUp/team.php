@@ -56,7 +56,8 @@ if (isset($_SESSION['user_type'])) {
 
                 // Filtrer les joueurs par classe sélectionnée
                 $selected_classes = isset($_POST['selected_classes']) ? $_POST['selected_classes'] : [];
-                if (!empty($selected_classes)) {
+                if (!empty($selected_classes) && $selected_classes[0] !== 'all') {
+                    // Filtrage des joueurs par classe sélectionnée
                     $placeholders = implode(',', array_fill(0, count($selected_classes), '?'));
                     $query = "SELECT name, class, team FROM players WHERE owner = ? AND class IN ($placeholders)";
                     $stmt = $connexion->prepare($query);
@@ -67,10 +68,21 @@ if (isset($_SESSION['user_type'])) {
                 // Génération des équipes aléatoires
                 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['generate_teams']) && isset($_POST['team_size'])) {
                     $team_size = max(2, (int)$_POST['team_size']);
-                    shuffle($players);
+                    $filtered_players = $players; // Copie des joueurs non filtrés par défaut
+
+                    if (!empty($selected_classes) && $selected_classes[0] !== 'all') {
+                        // Filtrage des joueurs par classe sélectionnée
+                        $placeholders = implode(',', array_fill(0, count($selected_classes), '?'));
+                        $query = "SELECT name, class, team FROM players WHERE owner = ? AND class IN ($placeholders)";
+                        $stmt = $connexion->prepare($query);
+                        $stmt->execute(array_merge([$login_username], $selected_classes));
+                        $filtered_players = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    }
+
+                    shuffle($filtered_players);
 
                     $teams = [];
-                    foreach ($players as $index => $player) {
+                    foreach ($filtered_players as $index => $player) {
                         $team_number = (int)($index / $team_size) + 1;
                         $teams[$team_number][] = $player;
                     }
@@ -90,96 +102,4 @@ if (isset($_SESSION['user_type'])) {
                         foreach ($team_players as $player) {
                             $query = "UPDATE players SET team = :team WHERE name = :name AND class = :class AND owner = :owner";
                             $stmt = $connexion->prepare($query);
-                            $stmt->bindParam(':team', $team_number);
-                            $stmt->bindParam(':name', $player['name']);
-                            $stmt->bindParam(':class', $player['class']);
-                            $stmt->bindParam(':owner', $login_username);
-                            $stmt->execute();
-                        }
-                    }
-
-                    // Après la mise à jour, rediriger pour afficher la liste mise à jour
-                    header("Location: team.php");
-                    exit();
-                }
-            } catch (PDOException $e) {
-                echo "Erreur de connexion : " . $e->getMessage();
-            }
-            ?>
-
-            <!DOCTYPE html>
-            <html lang="en">
-            <head>
-                <meta charset="UTF-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>Équipe</title>
-            </head>
-            <body>
-                <h1>Vos joueurs</h1>
-                <form method="post" action="team.php">
-                    <label for="name">Nom :</label>
-                    <input type="text" id="name" name="name" required><br><br>
-                    
-                    <label for="class">Classe :</label>
-                    <input type="text" id="class" name="class" required><br><br>
-                    
-                    <input type="submit" value="Envoyer">
-                </form>
-
-                <h2>Filtrer par classe</h2>
-                <form method="post" action="team.php">
-                    <select name="selected_classes[]" multiple>
-                        <option value="all">All</option>
-                        <?php foreach ($classes as $class): ?>
-                            <option value="<?php echo $class; ?>" <?php echo in_array($class, $selected_classes) ? 'selected' : ''; ?>>
-                                <?php echo $class; ?>
-                            </option>
-                        <?php endforeach; ?>
-                    </select>
-                    <input type="submit" value="Filtrer">
-                </form>
-
-                <h2>Générer des équipes</h2>
-                <form method="post" action="team.php">
-                    <label for="team_size">Taille de l'équipe :</label>
-                    <input type="number" id="team_size" name="team_size" value="2" min="2" required>
-                    <input type="hidden" name="generate_teams" value="true">
-                    <input type="submit" value="Générer des équipes">
-                </form>
-
-                <ul>
-                    <?php foreach ($players as $player): ?>
-                        <li>
-                            <?php echo $player['name']; ?> - <?php echo $player['class']; ?> - <?php echo $player['team']; ?>
-                            <form method="post" action="team.php" style="display:inline;">
-                                <input type="hidden" name="delete_player" value="true">
-                                <input type="hidden" name="player_name" value="<?php echo $player['name']; ?>">
-                                <input type="hidden" name="player_class" value="<?php echo $player['class']; ?>">
-                                <input type="submit" value="Supprimer">
-                            </form>
-                        </li>
-                    <?php endforeach; ?>
-                </ul>
-            </body>
-            </html>
-
-            <?php
-        } elseif ($user_type == $util) {
-            // Si l'utilisateur est un utilisateur ordinaire, afficher un message de bienvenue
-            echo "<h1>Bienvenue..</h1>";
-        } else {
-            // Si le type d'utilisateur n'est ni admin ni utilisateur, rediriger vers la page de connexion
-            header("Location: teamup.html");
-            exit();
-        }
-    } else {
-        // Si l'utilisateur n'est pas connecté, rediriger vers la page de connexion
-        header("Location: teamup.html");
-        exit();
-    }
-} else {
-    // Si le type d'utilisateur n'est pas défini, rediriger vers la page de connexion
-    header("Location: teamup.html");
-    exit();
-}
-?>
+                            $stmt->bindParam(':
