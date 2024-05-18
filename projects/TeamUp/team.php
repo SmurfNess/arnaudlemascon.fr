@@ -1,49 +1,108 @@
 <?php
 session_start();
 
-// Inclure le fichier de configuration de la base de données
 require_once 'config.php';
 
-// Vérifier si les données du formulaire sont envoyées via la méthode POST
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Vérifier si l'utilisateur est connecté et est administrateur
-    if (isset($_SESSION['user_type']) && $_SESSION['user_type'] == $admin) {
-        // Vérifier si les champs requis sont présents dans la demande
-        if (isset($_POST['name']) && isset($_POST['class'])) {
-            // Récupérer les données du formulaire
-            $name = $_POST['name'];
-            $class = $_POST['class'];
+if (isset($_SESSION['user_type'])) {
+    $user_type = $_SESSION['user_type'];
+    
+    if (isset($_SESSION['login_username'])) {
+        $login_username = $_SESSION['login_username'];
 
-            // Récupérer le nom d'utilisateur à partir de la session
-            if (isset($_SESSION['login_username'])) {
-                $owner = $_SESSION['login_username'];
+        if ($user_type == $admin) {
+            try {
+                $connexion = new PDO("mysql:host={$databaseConfig['server']};dbname={$databaseConfig['database']}", $databaseConfig['username'], $databaseConfig['password']);
+                $connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-                // Connexion à la base de données avec PDO
-                try {
-                    $pdo = new PDO("mysql:host={$databaseConfig['server']};dbname={$databaseConfig['database']}", $databaseConfig['username'], $databaseConfig['password']);
-                    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                    
-                    // Préparer la requête d'insertion
-                    $stmt = $pdo->prepare("INSERT INTO players (name, class, owner) VALUES (:name, :class, :owner)");
-                    
-                    // Exécuter la requête en liant les valeurs des paramètres
-                    $stmt->execute(['name' => $name, 'class' => $class, 'owner' => $owner]);
-                    
-                    echo "Données insérées avec succès.";
-                    echo "<a href=\"https://arnaudlemascon.fr/projects/TeamUp/account.php\">Retour</a>";
-                } catch (PDOException $e) {
-                    echo "Erreur d'insertion : " . $e->getMessage();
+                // Traitement de l'ajout d'un joueur
+                if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['name']) && isset($_POST['class'])) {
+                    $name = $_POST['name'];
+                    $class = $_POST['class'];
+
+                    $query = "INSERT INTO players (name, class, owner) VALUES (:name, :class, :owner)";
+                    $stmt = $connexion->prepare($query);
+                    $stmt->bindParam(':name', $name);
+                    $stmt->bindParam(':class', $class);
+                    $stmt->bindParam(':owner', $login_username);
+                    $stmt->execute();
                 }
-            } else {
-                echo "Nom d'utilisateur non disponible dans la session.";
+
+                // Traitement de la suppression d'un joueur
+                if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_player'])) {
+                    $player_name = $_POST['player_name'];
+                    $player_class = $_POST['player_class'];
+
+                    $query = "DELETE FROM players WHERE name = :player_name AND class = :player_class AND owner = :owner";
+                    $stmt = $connexion->prepare($query);
+                    $stmt->bindParam(':player_name', $player_name);
+                    $stmt->bindParam(':player_class', $player_class);
+                    $stmt->bindParam(':owner', $login_username);
+                    $stmt->execute();
+                }
+
+                // Sélectionner les joueurs de l'utilisateur connecté
+                $query = "SELECT name, class, team FROM players WHERE owner = :owner";
+                $stmt = $connexion->prepare($query);
+                $stmt->bindParam(':owner', $login_username);
+                $stmt->execute();
+                $players = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            } catch (PDOException $e) {
+                echo "Erreur de connexion : " . $e->getMessage();
             }
+            ?>
+
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Équipe</title>
+            </head>
+            <body>
+                <h1>Vos joueurs</h1>
+                <form method="post" action="team.php">
+                    <label for="name">Nom :</label>
+                    <input type="text" id="name" name="name" required><br><br>
+                    
+                    <label for="class">Classe :</label>
+                    <input type="text" id="class" name="class" required><br><br>
+                    
+                    <input type="submit" value="Envoyer">
+                </form>
+
+                <ul>
+                    <?php foreach ($players as $player): ?>
+                        <li>
+                            <?php echo $player['name']; ?> - <?php echo $player['class']; ?> - <?php echo $player['team']; ?>
+                            <form method="post" action="team.php">
+                                <input type="hidden" name="delete_player" value="true">
+                                <input type="hidden" name="player_name" value="<?php echo $player['name']; ?>">
+                                <input type="hidden" name="player_class" value="<?php echo $player['class']; ?>">
+                                <input type="submit" value="Supprimer">
+                            </form>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+            </body>
+            </html>
+
+            <?php
+        } elseif ($user_type == $util) {
+            // Si l'utilisateur est un utilisateur ordinaire, afficher un message de bienvenue
+            echo "<h1>Bienvenue..</h1>";
         } else {
-            echo "Tous les champs sont requis.";
+            // Si le type d'utilisateur n'est ni admin ni utilisateur, rediriger vers la page de connexion
+            header("Location: teamup.html");
+            exit();
         }
     } else {
-        echo "Vous n'avez pas les autorisations nécessaires pour effectuer cette action.";
+        // Si l'utilisateur n'est pas connecté, rediriger vers la page de connexion
+        header("Location: teamup.html");
+        exit();
     }
 } else {
-    echo "Accès refusé.";
+    // Si le type d'utilisateur n'est pas défini, rediriger vers la page de connexion
+    header("Location: teamup.html");
+    exit();
 }
 ?>
