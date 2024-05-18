@@ -47,18 +47,21 @@ if (isset($_SESSION['user_type'])) {
                 $stmt->execute();
                 $classes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-                // Sélectionner la classe filtrée
-                $selected_class = isset($_GET['class_filter']) ? $_GET['class_filter'] : 'all';
+                // Sélectionner les classes filtrées
+                $selected_classes = isset($_GET['class_filter']) ? $_GET['class_filter'] : [];
 
                 // Sélectionner les joueurs de l'utilisateur connecté en fonction du filtre
                 $query = "SELECT name, class, team FROM players WHERE owner = :owner";
-                if ($selected_class !== 'all') {
-                    $query .= " AND class = :class";
+                if (!empty($selected_classes)) {
+                    $placeholders = str_repeat('?,', count($selected_classes) - 1) . '?';
+                    $query .= " AND class IN ($placeholders)";
                 }
                 $stmt = $connexion->prepare($query);
                 $stmt->bindParam(':owner', $login_username);
-                if ($selected_class !== 'all') {
-                    $stmt->bindParam(':class', $selected_class);
+                if (!empty($selected_classes)) {
+                    foreach ($selected_classes as $index => $class) {
+                        $stmt->bindValue($index + 1, $class);
+                    }
                 }
                 $stmt->execute();
                 $players = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -88,14 +91,14 @@ if (isset($_SESSION['user_type'])) {
 
                 <form method="get" action="team.php">
                     <label for="class_filter">Filtrer par classe :</label>
-                    <select id="class_filter" name="class_filter" onchange="this.form.submit()">
-                        <option value="all" <?php echo $selected_class === 'all' ? 'selected' : ''; ?>>Tous</option>
+                    <select id="class_filter" name="class_filter[]" multiple onchange="this.form.submit()">
                         <?php foreach ($classes as $class): ?>
-                            <option value="<?php echo $class['class']; ?>" <?php echo $selected_class === $class['class'] ? 'selected' : ''; ?>>
+                            <option value="<?php echo $class['class']; ?>" <?php echo in_array($class['class'], $selected_classes) ? 'selected' : ''; ?>>
                                 <?php echo $class['class']; ?>
                             </option>
                         <?php endforeach; ?>
                     </select>
+                    <input type="submit" value="Filtrer">
                 </form>
 
                 <ul>
