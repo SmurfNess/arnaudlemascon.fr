@@ -93,12 +93,22 @@ if (isset($_SESSION['user_type'])) {
                     $stmt->execute(array_merge([$login_username], $selected_classes));
                     $selected_players = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+                    // Fonction de comparaison pour trier par numéro d'équipe
+                    function compareTeams($a, $b) {
+                        $teamA = isset($a['team']) ? $a['team'] : PHP_INT_MAX;
+                        $teamB = isset($b['team']) ? $b['team'] : PHP_INT_MAX;
+                        return $teamA <=> $teamB;
+                    }
+
+                    // Trier les joueurs par ordre croissant du numéro d'équipe
+                    usort($selected_players, 'compareTeams');
+
                     // Afficher uniquement les joueurs des équipes sélectionnées
                     foreach ($selected_players as $player): ?>
                         <tr>
-                            <td><?php echo $player['name']; ?></td>
-                            <td><?php echo $player['class']; ?></td>
-                            <td><?php echo isset($player['team']) ? $player['team'] : ''; ?></td>
+                            <td><?php echo htmlspecialchars($player['name']); ?></td>
+                            <td><?php echo htmlspecialchars($player['class']); ?></td>
+                            <td><?php echo isset($player['team']) ? htmlspecialchars($player['team']) : ''; ?></td>
                         </tr>
                     <?php endforeach;
 
@@ -140,7 +150,7 @@ if (isset($_SESSION['user_type'])) {
             <label for="selected_classes[]">Sélectionner les classes :</label>
             <select name="selected_classes[]" multiple>
                 <?php foreach ($classes as $class): ?>
-                    <option value="<?php echo $class; ?>"><?php echo $class; ?></option>
+                    <option value="<?php echo htmlspecialchars($class); ?>"><?php echo htmlspecialchars($class); ?></option>
                 <?php endforeach; ?>
             </select><br><br>
             
@@ -162,9 +172,9 @@ if (isset($_SESSION['user_type'])) {
             <tbody>
                 <?php foreach ($players as $player): ?>
                     <tr>
-                        <td><?php echo $player['name']; ?></td>
-                        <td><?php echo $player['class']; ?></td>
-                        <td><?php echo isset($player['team']) ? $player['team'] : ''; ?></td>
+                        <td><?php echo htmlspecialchars($player['name']); ?></td>
+                        <td><?php echo htmlspecialchars($player['class']); ?></td>
+                        <td><?php echo isset($player['team']) ? htmlspecialchars($player['team']) : ''; ?></td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
@@ -185,14 +195,14 @@ if (isset($_SESSION['user_type'])) {
             <tbody>
                 <?php foreach ($players as $player): ?>
                     <tr>
-                        <td><?php echo $player['name']; ?></td>
-                        <td><?php echo $player['class']; ?></td>
-                        <td><?php echo isset($player['team']) ? $player['team'] : ''; ?></td>
+                        <td><?php echo htmlspecialchars($player['name']); ?></td>
+                        <td><?php echo htmlspecialchars($player['class']); ?></td>
+                        <td><?php echo isset($player['team']) ? htmlspecialchars($player['team']) : ''; ?></td>
                         <td>
                             <form method="post" action="team.php" style="display:inline;">
                                 <input type="hidden" name="delete_player" value="true">
-                                <input type="hidden" name="player_name" value="<?php echo $player['name']; ?>">
-                                <input type="hidden" name="player_class" value="<?php echo $player['class']; ?>">
+                                <input type="hidden" name="player_name" value="<?php echo htmlspecialchars($player['name']); ?>">
+                                <input type="hidden" name="player_class" value="<?php echo htmlspecialchars($player['class']); ?>">
                                 <input type="submit" value="Supprimer">
                             </form>
                         </td>
@@ -224,4 +234,3 @@ if (isset($_SESSION['user_type'])) {
     exit();
 }
 ?>
-
