@@ -191,7 +191,13 @@ echo "Erreur de connexion : " . $e->getMessage();
                 <input type="hidden" name="delete_player" value="true">
                 <input type="hidden" name="player_name" value="<?php echo $player['name']; ?>">
                 <input type="hidden" name="player_class" value="<?php echo $player['class']; ?>">
-                <input type="submit" value="Supprimer">
+               
+
+
+
+
+
+    <input type="submit" value="Supprimer">
                             </form>
                         </td>
                     </tr>
