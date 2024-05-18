@@ -13,6 +13,10 @@ body{
     color: white;
 }
 
+.col-6{
+    background-color: dodgerblue;
+}
+
 input, button{
     border-radius: 15px;
 }
@@ -27,7 +31,6 @@ input, button{
 
 .team-3 {
     background-color: #90B7CF;
-    font:red;
 }
 .team-4 {
     background-color: #B3DDCD;
