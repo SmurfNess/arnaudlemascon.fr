@@ -8,6 +8,7 @@ body{
     position: relative;
     background-color:teal !important;
     height: fit-content;
+    width: fit-content;
     border-radius: 15px;
     color: white;
 }
