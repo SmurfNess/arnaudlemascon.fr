@@ -160,37 +160,3 @@ if (isset($_SESSION['user_type'])) {
                                     <td>
                                         <form method="post" action="team.php" style="display:inline;">
                                             <input
-                                        <form method="post" action="team.php" style="display:inline;">
-                                            <input type="hidden" name="delete_player" value="true">
-                                            <input type="hidden" name="player_name" value="<?php echo $player['name']; ?>">
-                                            <input type="hidden" name="player_class" value="<?php echo $player['class']; ?>">
-                                            <input type="submit" value="Supprimer">
-                                        </form>
-                                    </td>
-                                </tr>
-                            <?php endforeach; ?>
-                        </tbody>
-                    </table>
-                </section>
-            </body>
-            </html>
-            <?php
-        } elseif ($user_type == $util) {
-            // Si l'utilisateur est un utilisateur ordinaire, afficher un message de bienvenue
-            echo "<h1>Bienvenue..</h1>";
-        } else {
-            // Si le type d'utilisateur n'est ni admin ni utilisateur, rediriger vers la page de connexion
-            header("Location: teamup.html");
-            exit();
-        }
-    } else {
-        // Si l'utilisateur n'est pas connecté, rediriger vers la page de connexion
-        header("Location: teamup.html");
-        exit();
-    }
-} else {
-    // Si le type d'utilisateur n'est pas défini, rediriger vers la page de connexion
-    header("Location: teamup.html");
-    exit();
-}
-?>
