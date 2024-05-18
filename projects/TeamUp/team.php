@@ -74,18 +74,14 @@ foreach ($players as $index => $player) {
     $teams[$team_number][] = $player;
 }
 
-// Vérifier si une équipe a moins de 2 joueurs
+// Vérifier si une équipe a moins de 2 joueurs et fusionner si nécessaire
 foreach ($teams as $team_number => $team_players) {
     if (count($team_players) < 2) {
-        // Trouver une autre équipe avec plus d'un joueur pour fusionner
         foreach ($teams as $other_team_number => $other_team_players) {
             if ($other_team_number !== $team_number && count($other_team_players) > 1) {
-                // Fusionner les équipes
                 $merged_players = array_merge($team_players, $other_team_players);
-                // Réinitialiser les équipes
                 $teams[$team_number] = [];
                 $teams[$other_team_number] = [];
-                // Répartir les joueurs fusionnés dans les équipes
                 foreach ($merged_players as $merged_player) {
                     $random_team = array_rand($teams);
                     $teams[$random_team][] = $merged_player;
@@ -94,6 +90,20 @@ foreach ($teams as $team_number => $team_players) {
             }
         }
     }
+}
+
+// Tri des équipes par numéro d'équipe
+ksort($teams);
+
+// Afficher uniquement les joueurs des équipes sélectionnées
+foreach ($teams as $team_number => $team_players) {
+    foreach ($team_players as $player): ?>
+        <tr>
+            <td><?php echo $player['name']; ?></td>
+            <td><?php echo $player['class']; ?></td>
+            <td><?php echo isset($player['team']) ? $player['team'] : ''; ?></td>
+        </tr>
+    <?php endforeach;
 }
 
 // Mettre à jour les équipes dans la base de données...
