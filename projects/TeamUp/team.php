@@ -54,125 +54,124 @@ if (isset($_SESSION['user_type'])) {
                 $stmt->execute();
                 $classes = $stmt->fetchAll(PDO::FETCH_COLUMN);
 
-                // Filtrer les joueurs par classe sélectionnée
-                $selected_classes = isset($_POST['selected_classes']) ? $_POST['selected_classes'] : [];
-                if (!empty($selected_classes)) {
-                    $placeholders = implode(',', array_fill(0, count($selected_classes), '?'));
-                    $query = "SELECT name, class, team FROM players WHERE owner = ? AND class IN ($placeholders)";
-                    $stmt = $connexion->prepare($query);
-                    $stmt->execute(array_merge([$login_username], $selected_classes));
-                    $players = $stmt->fetchAll(PDO::FETCH_ASSOC);
-                }
-
-                // Génération des équipes aléatoires
-                if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['generate_teams']) && isset($_POST['team_size'])) {
+                // Génération des équipes en fonction de l'option choisie
+                if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['generate_teams']) && isset($_POST['team_size']) && isset($_POST['team_option'])) {
                     $team_size = max(2, (int)$_POST['team_size']);
-                    shuffle($players);
+                    $team_option = $_POST['team_option'];
 
-                    $teams = [];
-                    foreach ($players as $index => $player) {
-                        $team_number = (int)($index / $team_size) + 1;
-                        $teams[$team_number][] = $player;
-                    }
+                    // Fonction pour mélanger les joueurs selon l'option choisie
+                    function shufflePlayers($players, $team_size, $team_option) {
+                        shuffle($players);
 
-                    // Redistribution des joueurs si la dernière équipe a moins de 2 joueurs
-                    $last_team = end($teams);
-                    if (count($last_team) < 2 && count($teams) > 1) {
-                        array_pop($teams);  // Remove the last team
-                        foreach ($last_team as $player) {
-                            $random_team = array_rand($teams);
-                            $teams[$random_team][] = $player;
+                        $teams = [];
+                        $class_teams = [];
+
+                        foreach ($players as $player) {
+                            if ($team_option === 'all_classes' || $team_option === 'mixed_classes') {
+                                $class_teams[$player['class']][] = $player;
+                            } elseif ($team_option === $player['class']) {
+                                $teams[] = [$player];
+                            }
                         }
-                    }
 
-                    // Mise à jour des équipes dans la base de données
-                    foreach ($teams as $team_number => $team_players) {
-                        foreach ($team_players as $player) {
-                            $query = "UPDATE players SET team = :team WHERE name = :name AND class = :class AND owner = :owner";
-                            $stmt = $connexion->prepare($query);
-                            $stmt->bindParam(':team', $team_number);
-                            $stmt->bindParam(':name', $player['name']);
-                            $stmt->bindParam(':class', $player['class']);
-                            $stmt->bindParam(':owner', $login_username);
-                            $stmt->execute();
+                        if ($team_option === 'mixed_classes') {
+                            foreach ($class_teams as $class_players) {
+                                $team_index = 0;
+                                foreach ($class_players as $player) {
+                                    $teams[$team_index][] = $player;
+                                    $team_index = ($team_index + 1) % $team_size;
+                                }
+                            }
                         }
+
+                        return $teams;
                     }
 
-                    // Après la mise à jour, rediriger pour afficher la liste mise à jour
-                    header("Location: team.php");
-                    exit();
+                    // Générer les équipes en fonction de l'option choisie
+                    $teams = shufflePlayers($players, $team_size, $team_option);
+
+                    // Mise à jour des équipes dans la base de données...
                 }
             } catch (PDOException $e) {
                 echo "Erreur de connexion : " . $e->getMessage();
             }
             ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Équipe</title>
-</head>
-<body>
-    <h1>Gestion des joueurs et des équipes</h1>
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Équipe</title>
+            </head>
+            <body>
+                <h1>Gestion des joueurs et des équipes</h1>
 
-    <section>
-        <h2>Ajouter un joueur</h2>
-        <form method="post" action="team.php">
-            <label for="name">Nom :</label>
-            <input type="text" id="name" name="name" required><br><br>
-                                
-            <label for="class">Classe :</label>
-            <input type="text" id="class" name="class" required><br><br>
-            
-            <input type="submit" value="Ajouter">
-        </form>
-    </section>
+                <section>
+                    <h2>Ajouter un joueur</h2>
+                    <form method="post" action="team.php">
+                        <label for="name">Nom :</label>
+                        <input type="text" id="name" name="name" required><br><br>
+                                            
+                        <label for="class">Classe :</label>
+                        <input type="text" id="class" name="class" required><br><br>
+                        
+                        <input type="submit" value="Ajouter">
+                    </form>
+                </section>
 
-    <section>
-        <h2>Générer les équipes</h2>
-        <form method="post" action="team.php">
-            <label for="team_size">Taille de l'équipe :</label>
-            <input type="number" id="team_size" name="team_size" value="2" min="2" required>
-            <input type="hidden" name="generate_teams" value="true">
-            <input type="submit" value="Générer les équipes">
-        </form>
-    </section>
+                <section>
+                    <h2>Générer les équipes</h2>
+                    <form method="post" action="team.php">
+                        <label for="team_size">Taille de l'équipe :</label>
+                        <input type="number" id="team_size" name="team_size" value="2" min="2" required><br><br>
+                        
+                        <label for="team_option">Option de génération :</label>
+                        <select name="team_option" id="team_option">
+                            <option value="all_classes">Toutes les classes</option>
+                            <?php foreach ($classes as $class): ?>
+                                <option value="<?php echo $class; ?>">Classe <?php echo $class; ?></option>
+                            <?php endforeach; ?>
+                            <option value="mixed_classes">Classes mixtes</option>
+                        </select><br><br>
+                        
+                        <input type="hidden" name="generate_teams" value="true">
+                        <input type="submit" value="Générer les équipes">
+                    </form>
+                </section>
 
-    <section>
-        <h2>Liste des joueurs</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Nom</th>
-                    <th>Classe</th>
-                    <th>Équipe</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($players as $player): ?>
-                    <tr>
-                        <td><?php echo $player['name']; ?></td>
-                        <td><?php echo $player['class']; ?></td>
-                        <td><?php echo $player['team']; ?></td>
-                        <td>
-                            <form method="post" action="team.php" style="display:inline;">
-                                <input type="hidden" name="delete_player" value="true">
-                                <input type="hidden" name="player_name" value="<?php echo $player['name']; ?>">
-                                <input type="hidden" name="player_class" value="<?php echo $player['class']; ?>">
-                                <input type="submit" value="Supprimer">
-                            </form>
-                        </td>
-                    </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
-    </section>
-</body>
-</html>
-
+                <section>
+                    <h2>Liste des joueurs</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nom</th>
+                                <th>Classe</th>
+                                <th>Équipe</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($players as $player): ?>
+                                <tr>
+                                    <td><?php echo $player['name']; ?></td>
+                                    <td><?php echo $player['class']; ?></td>
+                                    <td><?php echo $player['team']; ?></td>
+                                    <td>
+                                            <form method="post" action="team.php" style="display:inline;">
+                                            <input type="hidden" name="delete_player" value="true">
+                                            <input type="hidden" name="player_name" value="<?php echo $player['name']; ?>">
+                                            <input type="hidden" name="player_class" value="<?php echo $player['class']; ?>">
+                                            <input type="submit" value="Supprimer">
+                                        </form>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </section>
+            </body>
+            </html>
             <?php
         } elseif ($user_type == $util) {
             // Si l'utilisateur est un utilisateur ordinaire, afficher un message de bienvenue
