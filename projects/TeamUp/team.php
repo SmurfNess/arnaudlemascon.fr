@@ -93,14 +93,30 @@ if (isset($_SESSION['user_type'])) {
                     $stmt->execute(array_merge([$login_username], $selected_classes));
                     $selected_players = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-                    // Afficher uniquement les joueurs des équipes sélectionnées
-                    foreach ($selected_players as $player): ?>
-                        <tr>
-                            <td><?php echo $player['name']; ?></td>
-                            <td><?php echo $player['class']; ?></td>
-                            <td><?php echo isset($player['team']) ? $player['team'] : ''; ?></td>
-                        </tr>
-                    <?php endforeach;
+// Fonction de comparaison pour trier par numéro d'équipe
+function compareTeams($a, $b) {
+    // Si l'une des équipes n'est pas définie, la considérer comme ayant la plus grande valeur possible
+    $teamA = isset($a['team']) ? $a['team'] : PHP_INT_MAX;
+    $teamB = isset($b['team']) ? $b['team'] : PHP_INT_MAX;
+
+    if ($teamA == $teamB) {
+        return 0;
+    }
+    return ($teamA < $teamB) ? -1 : 1;
+}
+
+// Trier les joueurs par ordre croissant du numéro d'équipe
+usort($selected_players, 'compareTeams');
+
+// Afficher les joueurs triés
+foreach ($selected_players as $player): ?>
+    <tr>
+        <td><?php echo htmlspecialchars($player['name']); ?></td>
+        <td><?php echo htmlspecialchars($player['class']); ?></td>
+        <td><?php echo isset($player['team']) ? htmlspecialchars($player['team']) : ''; ?></td>
+    </tr>
+<?php endforeach; ?>
+
 
                 }
             } catch (PDOException $e) {
