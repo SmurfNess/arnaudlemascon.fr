@@ -50,7 +50,6 @@
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Récupérer les données du formulaire
             $form_username = $_POST['username'];
-            $form_username = $_POST['class'];
             $form_password = $_POST['password'];
             $confirm_password = $_POST['confirm_password'];
 
@@ -78,7 +77,7 @@ if ($form_password !== $confirm_password) {
         echo "<p class='message'>Le nom d'utilisateur existe déjà.</p>";
     } else {
         // Préparer la requête d'insertion
-        $insert_query = $connexion->prepare("INSERT INTO access (username, password, type, class) VALUES (?, ?, '404', ?)");
+        $insert_query = $connexion->prepare("INSERT INTO access (username, password, type) VALUES (?, ?, '404')");
 
         // Exécuter la requête avec les données du formulaire
         if ($insert_query->execute([$form_username, $hashed_password])) {

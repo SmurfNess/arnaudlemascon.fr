@@ -67,9 +67,6 @@
     <label for="username">Nom d'utilisateur :</label>
     <input type="text" id="username" name="username" required><br>
 
-    <label for="class">Group/Class :</label>
-    <input type="text" id="class" name="class" required><br>
-
     <label for="password">Mot de passe :</label>
     <input type="password" id="password" name="password" required oninput="validatePassword()">
     <span id="lengthMessage"></span><br>
@@ -97,7 +94,8 @@
     </form>
 
     <!-- Afficher les messages de traitement du formulaire ici -->
-    <?php include('connexion_traitement.php'); ?></div>
+    <?php include('connexion_traitement.php'); ?>
+    </div>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
