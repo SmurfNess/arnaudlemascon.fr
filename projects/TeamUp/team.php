@@ -127,6 +127,8 @@ if (isset($_SESSION['user_type'])) {
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="row">
+        <div class="col-6">
     <h1>Gestion des joueurs et des équipes</h1>
 
     <section>
@@ -141,7 +143,9 @@ if (isset($_SESSION['user_type'])) {
             <input type="submit" value="Ajouter">
         </form>
     </section>
-
+    </div>
+    
+    <div class="col-6">
     <section>
         <h2>Générer les équipes</h2>
         <form method="post" action="team.php">
@@ -159,6 +163,8 @@ if (isset($_SESSION['user_type'])) {
             <input type="submit" value="Générer les équipes">
         </form>
     </section>
+    </div>
+    </div>
 
     <section>
     <h2>Résultat de la génération d'équipes</h2>
