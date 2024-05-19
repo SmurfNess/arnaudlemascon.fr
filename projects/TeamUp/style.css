@@ -8,7 +8,7 @@ body{
     position: relative;
     background-color:teal !important;
     height: fit-content;
-    min-height: 350px;
+    min-height: 300px;
     width: 300px;
     border-radius: 15px;
     color: white;
