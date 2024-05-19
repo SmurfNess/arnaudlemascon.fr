@@ -8,7 +8,7 @@ body{
     position: relative;
     background-color:teal !important;
     height: fit-content;
-    min-height: 400px;
+    min-height: 350px;
     width: 300px;
     border-radius: 15px;
     color: white;
@@ -16,7 +16,7 @@ body{
 
 table{
 min-width: 30vw;
-background-color: red;
+background-color: transparent;
 }
 
 input, button{
