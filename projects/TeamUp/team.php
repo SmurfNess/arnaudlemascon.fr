@@ -173,6 +173,38 @@ if (isset($_SESSION['user_type'])) {
     </div>
 
     <div class="row justify-content-center">
+    <div class="col-8 col-sm-4 m-2 d-flex justify-content-center">
+        <section>
+            <h4>Population par classe</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Classe</th>
+                        <th>Population</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    // Effectuer une requête pour compter le nombre de joueurs par classe
+                    $query = "SELECT class, COUNT(*) AS population FROM players WHERE owner = :owner GROUP BY class";
+                    $stmt = $connexion->prepare($query);
+                    $stmt->bindParam(':owner', $login_username);
+                    $stmt->execute();
+                    $class_population = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+                    // Afficher les résultats
+                    foreach ($class_population as $class_data) {
+                        echo "<tr><td>{$class_data['class']}</td><td>{$class_data['population']}</td></tr>";
+                    }
+                    ?>
+                </tbody>
+            </table>
+        </section>
+    </div>
+</div>
+
+
+    <div class="row justify-content-center">
         <div class="col-8 col-sm-4 m-2 d-flex justify-content-center">
             <section>
                 <h4>Résultat de la génération d'équipes</h4>
