@@ -14,6 +14,16 @@ body{
     color: white;
 }
 
+h2{
+    font-size: 2em;
+}
+
+@media (max-width:600px){
+    h2{
+        font-size: 1.5em;
+    }
+}
+
 table{
 min-width: 30vw;
 background-color: transparent;
