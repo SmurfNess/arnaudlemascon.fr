@@ -46,7 +46,6 @@ if (isset($_SESSION['user_type'])) {
                     $selected_classes = $_POST['selected_classes'] ?? [];
 
                     if (empty($selected_classes)) {
-                        $placeholders = implode(',', array_fill(0, count($selected_classes), '?'));
                         $query = "SELECT name, class, team FROM players WHERE owner = :owner";
                         $stmt = $connexion->prepare($query);
                         $stmt->bindParam(':owner', $login_username);
