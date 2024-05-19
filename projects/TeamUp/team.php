@@ -59,34 +59,24 @@ if (isset($_SESSION['user_type'])) {
                         $players = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     }
 
-// Mélanger les joueurs et les répartir dans les équipes
-shuffle($players);
-$teams = [];
-$team_number = 1;
-$players_count = count($players);
+                    // Répartir les joueurs en équipes de taille égale autant que possible
+                    $teams = [];
+                    $team_number = 1;
+                    $players_count = count($players);
 
-// Assigner chaque joueur à une équipe jusqu'à ce que toutes les équipes aient au moins un joueur
-foreach ($players as $player) {
-    if ($team_number > count($teams)) {
-        $teams[$team_number] = [];
-    }
-    $teams[$team_number++][] = $player;
-}
+                    for ($i = 0; $i < $players_count; $i += $team_size) {
+                        $teams[$team_number++] = array_slice($players, $i, $team_size);
+                    }
 
-// Pour chaque joueur restant, trouver l'équipe avec le moins de joueurs et les ajouter à cette équipe
-for ($i = 0; $i < $players_count; $i += $team_size) {
-    $current_team = array_slice($players, $i, $team_size);
-
-    // Si une équipe a moins de deux joueurs, ajouter ces joueurs à l'équipe avec le moins de joueurs
-    if (count($current_team) < 2) {
-        $min_team_size = min(array_map('count', $teams));
-        $min_team_key = array_search($min_team_size, array_map('count', $teams));
-        foreach ($current_team as $player) {
-            $teams[$min_team_key][] = $player;
-        }
-    }
-}
-
+                    // Ajouter les joueurs restants aux équipes incomplètes
+                    for ($i = $team_number; $i <= ceil($players_count / $team_size); $i++) {
+                        foreach ($players as $player) {
+                            if (!in_array($player, $teams[$i] ?? [], true)) {
+                                $teams[$i][] = $player;
+                                break;
+                            }
+                        }
+                    }
 
                     // Mettre à jour les équipes dans la base de données
                     foreach ($teams as $team_number => $team_players) {
@@ -127,7 +117,6 @@ for ($i = 0; $i < $players_count; $i += $team_size) {
                 echo "Erreur de connexion : " . $e->getMessage();
             }
 ?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -142,8 +131,7 @@ for ($i = 0; $i < $players_count; $i += $team_size) {
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
-
-<h2 style="text-align: center;">Gestion des joueurs et des équipes</h2>
+    <h2 style="text-align: center;">Gestion des joueurs et des équipes</h2>
     <div class="row justify-content-center">
         <div class="col-8 col-sm-4 m-2 d-flex justify-content-center">
             <section>
@@ -182,36 +170,35 @@ for ($i = 0; $i < $players_count; $i += $team_size) {
     </div>
 
     <div class="row justify-content-center">
-    <div class="col-8 col-sm-4 m-2 d-flex justify-content-center">
-        <section>
-            <h4>Population par classe</h4>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Classe</th>
-                        <th>Population</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                    // Effectuer une requête pour compter le nombre de joueurs par classe
-                    $query = "SELECT class, COUNT(*) AS population FROM players WHERE owner = :owner GROUP BY class";
-                    $stmt = $connexion->prepare($query);
-                    $stmt->bindParam(':owner', $login_username);
-                    $stmt->execute();
-                    $class_population = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        <div class="col-8 col-sm-4 m-2 d-flex justify-content-center">
+            <section>
+                <h4>Population par classe</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Classe</th>
+                            <th>Population</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        // Effectuer une requête pour compter le nombre de joueurs par classe
+                        $query = "SELECT class, COUNT(*) AS population FROM players WHERE owner = :owner GROUP BY class";
+                        $stmt = $connexion->prepare($query);
+                        $stmt->bindParam(':owner', $login_username);
+                        $stmt->execute();
+                        $class_population = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-                    // Afficher les résultats
-                    foreach ($class_population as $class_data) {
-                        echo "<tr><td>{$class_data['class']}</td><td>{$class_data['population']}</td></tr>";
-                    }
-                    ?>
-                </tbody>
-            </table>
-        </section>
+                        // Afficher les résultats
+                        foreach ($class_population as $class_data) {
+                            echo "<tr><td>{$class_data['class']}</td><td>{$class_data['population']}</td></tr>";
+                        }
+                        ?>
+                    </tbody>
+                </table>
+            </section>
+        </div>
     </div>
-</div>
-
 
     <div class="row justify-content-center">
         <div class="col-8 col-sm-4 m-2 d-flex justify-content-center">
@@ -282,7 +269,6 @@ for ($i = 0; $i < $players_count; $i += $team_size) {
     </div>
 </body>
 </html>
-
 <?php
         } elseif ($user_type == $util) {
             // Si l'utilisateur est un utilisateur ordinaire, afficher un message de bienvenue
