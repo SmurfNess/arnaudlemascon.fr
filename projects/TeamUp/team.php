@@ -71,14 +71,7 @@ if (isset($_SESSION['user_type'])) {
                         $teams[$team_number++] = array_slice($players, $i, $team_size);
                     }
 
-                    // Ajouter les joueurs restants aux équipes déjà complètes
-                    $remaining_players = $players_count % $team_size;
-                    if ($remaining_players > 0 && $remaining_players < $team_size / 2) {
-                        $team_number = 1;
-                        for ($i = $players_count - $remaining_players; $i < $players_count; $i++) {
-                            $teams[$team_number++ % (int)ceil($players_count / $team_size)][] = $players[$i];
-                        }
-                    }
+
 
                     // Mettre à jour les équipes dans la base de données
                     foreach ($teams as $team_number => $team_players) {
