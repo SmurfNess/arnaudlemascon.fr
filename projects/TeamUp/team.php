@@ -57,11 +57,10 @@ if (isset($_SESSION['user_type'])) {
                         $stmt = $connexion->prepare($query);
                         $stmt->execute(array_merge([$login_username], $selected_classes));
                         $players = $stmt->fetchAll(PDO::FETCH_ASSOC);
-                        shuffle($players);
                     }
 
                     // Mélanger les joueurs aléatoirement
-
+                    shuffle($players);
 
                     // Répartir les joueurs en équipes
                     $teams = [];
