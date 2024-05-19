@@ -45,19 +45,13 @@ if (isset($_SESSION['user_type'])) {
                     $team_size = max(2, (int)$_POST['team_size']);
                     $selected_classes = $_POST['selected_classes'] ?? [];
 
-                    if (empty($selected_classes)) {
-                        $query = "SELECT name, class, team FROM players WHERE owner = :owner";
-                        $stmt = $connexion->prepare($query);
-                        $stmt->bindParam(':owner', $login_username);
-                        $stmt->execute();
-                        $players = $stmt->fetchAll(PDO::FETCH_ASSOC);
-                    } else {
+
                         $placeholders = implode(',', array_fill(0, count($selected_classes), '?'));
                         $query = "SELECT name, class, team FROM players WHERE owner = ? AND class IN ($placeholders)";
                         $stmt = $connexion->prepare($query);
                         $stmt->execute(array_merge([$login_username], $selected_classes));
                         $players = $stmt->fetchAll(PDO::FETCH_ASSOC);
-                    }
+                    
 
                     // Mélanger les joueurs aléatoirement
                     shuffle($players);
@@ -71,7 +65,14 @@ if (isset($_SESSION['user_type'])) {
                         $teams[$team_number++] = array_slice($players, $i, $team_size);
                     }
 
-
+                    // Ajouter les joueurs restants aux équipes déjà complètes
+                    $remaining_players = $players_count % $team_size;
+                    if ($remaining_players > 0 && $remaining_players < $team_size / 2) {
+                        $team_number = 1;
+                        for ($i = $players_count - $remaining_players; $i < $players_count; $i++) {
+                            $teams[$team_number++ % (int)ceil($players_count / $team_size)][] = $players[$i];
+                        }
+                    }
 
                     // Mettre à jour les équipes dans la base de données
                     foreach ($teams as $team_number => $team_players) {
