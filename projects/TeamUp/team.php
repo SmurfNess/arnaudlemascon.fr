@@ -9,12 +9,12 @@ if (isset($_SESSION['user_type'])) {
     if (isset($_SESSION['login_username'])) {
         $login_username = $_SESSION['login_username'];
 
-        if ($user_type == 'admin') { // Fix the condition to check the admin type properly
+        if ($user_type == $admin) {
             try {
                 $connexion = new PDO("mysql:host={$databaseConfig['server']};dbname={$databaseConfig['database']}", $databaseConfig['username'], $databaseConfig['password']);
                 $connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-                // Handle adding a player
+                // Traitement de l'ajout d'un joueur
                 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['name']) && isset($_POST['class']) && !isset($_POST['delete_player']) && !isset($_POST['generate_teams'])) {
                     $name = $_POST['name'];
                     $class = $_POST['class'];
@@ -27,7 +27,7 @@ if (isset($_SESSION['user_type'])) {
                     $stmt->execute();
                 }
 
-                // Handle deleting a player
+                // Traitement de la suppression d'un joueur
                 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_player'])) {
                     $player_name = $_POST['player_name'];
                     $player_class = $_POST['player_class'];
@@ -40,7 +40,7 @@ if (isset($_SESSION['user_type'])) {
                     $stmt->execute();
                 }
 
-                // Generate teams based on selected classes and team size
+                // Génération des équipes en fonction des classes sélectionnées
                 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['generate_teams']) && isset($_POST['team_size'])) {
                     $team_size = max(2, (int)$_POST['team_size']);
                     $selected_classes = $_POST['selected_classes'] ?? [];
@@ -59,39 +59,26 @@ if (isset($_SESSION['user_type'])) {
                         $players = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     }
 
-                    // Shuffle players for random assignment
-                    shuffle($players);
-
-                    // Initialize teams array
+                    // Répartir les joueurs en équipes de taille égale autant que possible
                     $teams = [];
                     $team_number = 1;
                     $players_count = count($players);
-                    $full_teams = floor($players_count / team_size);
-                    $remaining_players = $players_count % team_size;
 
-                    // Distribute players into teams
-                    for ($i = 0; $i < $players_count - $remaining_players; $i += $team_size) {
+                    for ($i = 0; $i < $players_count; $i += $team_size) {
                         $teams[$team_number++] = array_slice($players, $i, $team_size);
                     }
 
-                    // Distribute remaining players
-                    if ($remaining_players > 0 && $remaining_players < ($team_size / 2)) {
-                        $i = 0;
+                    // Ajouter les joueurs restants aux équipes incomplètes
+                    for ($i = $team_number; $i <= ceil($players_count / $team_size); $i++) {
                         foreach ($players as $player) {
-                            if ($i < $remaining_players) {
-                                $teams[($i % $full_teams) + 1][] = $player;
-                                $i++;
-                            } else {
+                            if (!in_array($player, $teams[$i] ?? [], true)) {
+                                $teams[$i][] = $player;
                                 break;
                             }
                         }
-                    } else {
-                        for ($i = $players_count - $remaining_players; $i < $players_count; $i++) {
-                            $teams[$team_number][] = $players[$i];
-                        }
                     }
 
-                    // Update teams in the database
+                    // Mettre à jour les équipes dans la base de données
                     foreach ($teams as $team_number => $team_players) {
                         foreach ($team_players as $player) {
                             $query = "UPDATE players SET team = :team WHERE name = :name AND class = :class AND owner = :owner";
@@ -104,7 +91,7 @@ if (isset($_SESSION['user_type'])) {
                         }
                     }
 
-                    // Fetch players for display
+                    // Récupérer les joueurs pour affichage
                     $query = "SELECT name, class, team FROM players WHERE owner = :owner ORDER BY team ASC";
                     $stmt = $connexion->prepare($query);
                     $stmt->bindParam(':owner', $login_username);
@@ -112,14 +99,14 @@ if (isset($_SESSION['user_type'])) {
                     $players = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 }
 
-                // Fetch all players of the owner
+                // Nouvelle requête pour récupérer tous les joueurs du propriétaire
                 $query = "SELECT name, class, team FROM players WHERE owner = :owner ORDER BY class ASC;";
                 $stmt = $connexion->prepare($query);
                 $stmt->bindParam(':owner', $login_username);
                 $stmt->execute();
                 $all_players = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-                // Fetch distinct classes of players
+                // Récupérer les classes distinctes des joueurs
                 $query = "SELECT DISTINCT class FROM players WHERE owner = :owner";
                 $stmt = $connexion->prepare($query);
                 $stmt->bindParam(':owner', $login_username);
@@ -195,14 +182,14 @@ if (isset($_SESSION['user_type'])) {
                     </thead>
                     <tbody>
                         <?php
-                        // Query to count the number of players per class
+                        // Effectuer une requête pour compter le nombre de joueurs par classe
                         $query = "SELECT class, COUNT(*) AS population FROM players WHERE owner = :owner GROUP BY class";
                         $stmt = $connexion->prepare($query);
                         $stmt->bindParam(':owner', $login_username);
                         $stmt->execute();
                         $class_population = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-                        // Display the results
+                        // Afficher les résultats
                         foreach ($class_population as $class_data) {
                             echo "<tr><td>{$class_data['class']}</td><td>{$class_data['population']}</td></tr>";
                         }
@@ -228,11 +215,13 @@ if (isset($_SESSION['user_type'])) {
                     <tbody>
                         <?php if (!empty($players)): ?>
                             <?php foreach ($players as $player): ?>
-                                <tr class="team-<?php echo $player['team']; ?>">
-                                    <td><?php echo $player['team']; ?></td>
-                                    <td><?php echo $player['name']; ?></td>
-                                    <td><?php echo $player['class']; ?></td>
-                                </tr>
+                                <?php if (isset($player['team']) && in_array($player['class'], $selected_classes)): ?>
+                                    <tr class="team-<?php echo $player['team']; ?>">
+                                        <td><?php echo $player['team']; ?></td>
+                                        <td><?php echo $player['name']; ?></td>
+                                        <td><?php echo $player['class']; ?></td>
+                                    </tr>
+                                <?php endif; ?>
                             <?php endforeach; ?>
                         <?php else: ?>
                             <tr>
@@ -281,21 +270,21 @@ if (isset($_SESSION['user_type'])) {
 </body>
 </html>
 <?php
-        } elseif ($user_type == 'util') { // Fix the condition to check the util type properly
-            // If the user is a regular user, display a welcome message
+        } elseif ($user_type == $util) {
+            // Si l'utilisateur est un utilisateur ordinaire, afficher un message de bienvenue
             echo "<h1>Bienvenue..</h1>";
         } else {
-            // If the user type is neither admin nor util, redirect to the login page
+            // Si le type d'utilisateur n'est ni admin ni utilisateur, rediriger vers la page de connexion
             header("Location: teamup.html");
             exit();
         }
     } else {
-        // If the user is not logged in, redirect to the login page
+        // Si l'utilisateur n'est pas connecté, rediriger vers la page de connexion
         header("Location: teamup.html");
         exit();
     }
 } else {
-    // If the user type is not defined, redirect to the login page
+    // Si le type d'utilisateur n'est pas défini, rediriger vers la page de connexion
     header("Location: teamup.html");
     exit();
 }
