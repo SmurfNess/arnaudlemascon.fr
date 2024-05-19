@@ -105,7 +105,7 @@ if (isset($_SESSION['user_type'])) {
                 }
 
 // Récupérer les équipes avec un nombre de joueurs inférieur ou égal à la moitié de la taille d'équipe
-$query = "SELECT team, COUNT(*) AS players_count FROM players WHERE owner = :owner GROUP BY team HAVING players_count <= :half_team_size";
+$query = "SELECT team, COUNT(*) AS players_count FROM players WHERE owner = :owner GROUP BY team HAVING players_count =< :half_team_size";
 $stmt = $connexion->prepare($query);
 $stmt->bindParam(':owner', $login_username);
 $half_team_size = ceil($team_size / 2);
