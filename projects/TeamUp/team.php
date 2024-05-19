@@ -214,7 +214,7 @@ if (isset($_SESSION['user_type'])) {
         <tbody>
             <?php
             // Nouvelle requête pour récupérer tous les joueurs du propriétaire
-            $query = "SELECT name, class, team FROM players WHERE owner = :owner ORDER BY team ASC";
+            $query = "SELECT name, class, team FROM players WHERE owner = :owner ORDER BY class ASC";
             $stmt = $connexion->prepare($query);
             $stmt->bindParam(':owner', $login_username);
             $stmt->execute();
