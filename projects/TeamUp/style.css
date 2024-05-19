@@ -10,6 +10,7 @@ body{
     height: fit-content;
     width: 300px;
     border-radius: 15px;
+    color: white;
 }
 
 table{
@@ -22,38 +23,48 @@ input, button{
 
 .team-1 {
     background-color: #9999ff;
+    color: black;
 }
 
 .team-2 {
     background-color: #7C9ACC;
+    color: black;
 }
 
 .team-3 {
     background-color: #90B7CF;
+    color: black;
 }
 .team-4 {
     background-color: #B3DDCD;
+    color: black;
 }
 
 .team-5 {
     background-color: #D0E7DA;
+    color: black;
 }
 
 .team-6 {
     background-color: #E8BED3;
+    color: black;
 }
 .team-7 {
     background-color: #9999ff;
+    color: black;
 }
 
 .team-8 {
     background-color: #7C9ACC;
+    color: black;
 }
 
 .team-9 {
     background-color: #90B7CF;
+    color: black;
 }
 
 .team-10 {
     background-color: #B3DDCD;
+    color: black;
 }
