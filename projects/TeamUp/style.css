@@ -14,7 +14,7 @@ body{
 }
 
 table{
-    color:red;
+border-radius: 5px;
 }
 
 input, button{
