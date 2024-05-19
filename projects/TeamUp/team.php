@@ -98,60 +98,12 @@ if (isset($_SESSION['user_type'])) {
                         }
                     }
 
-// Récupérer les équipes avec moins de joueurs que la moitié de la taille d'équipe
-$query = "SELECT team, COUNT(*) AS players_count FROM players WHERE owner = :owner GROUP BY team HAVING players_count < :half_team_size";
-$stmt = $connexion->prepare($query);
-$stmt->bindParam(':owner', $login_username);
-$half_team_size = ceil($team_size / 2);
-$stmt->bindParam(':half_team_size', $half_team_size, PDO::PARAM_INT);
-$stmt->execute();
-$teams_with_few_players = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-// Déplacer chaque joueur de ces équipes dans une équipe complète dans l'ordre croissant
-foreach ($teams_with_few_players as $team_info) {
-    $team_number = $team_info['team'];
-    $players_to_move = $team_size - $team_info['players_count'];
-
-    // Récupérer les joueurs à déplacer de cette équipe
-    $query = "SELECT name, class FROM players WHERE owner = :owner AND team = :team_number ORDER BY class ASC LIMIT :players_to_move";
-    $stmt = $connexion->prepare($query);
-    $stmt->bindParam(':owner', $login_username);
-    $stmt->bindParam(':team_number', $team_number, PDO::PARAM_INT);
-    $stmt->bindParam(':players_to_move', $players_to_move, PDO::PARAM_INT);
-    $stmt->execute();
-    $players_to_move = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-    // Trouver l'équipe disponible suivante
-    $next_team_number = $team_number + 1;
-    if ($next_team_number > count($teams)) {
-        $next_team_number = 1;
-    }
-
-    // Déplacer les joueurs dans l'équipe suivante
-    foreach ($players_to_move as $player) {
-        $query = "UPDATE players SET team = :next_team_number WHERE name = :name AND class = :class AND owner = :owner";
-        $stmt = $connexion->prepare($query);
-        $stmt->bindParam(':next_team_number', $next_team_number, PDO::PARAM_INT);
-        $stmt->bindParam(':name', $player['name']);
-        $stmt->bindParam(':class', $player['class']);
-        $stmt->bindParam(':owner', $login_username);
-        $stmt->execute();
-
-        // Mettre à jour l'équipe suivante pour le prochain joueur
-        $next_team_number++;
-        if ($next_team_number > count($teams)) {
-            $next_team_number = 1;
-        }
-    }
-}
-
-// Requête pour récupérer les joueurs après déplacement
-$query = "SELECT name, class, team FROM players WHERE owner = :owner ORDER BY team ASC";
-$stmt = $connexion->prepare($query);
-$stmt->bindParam(':owner', $login_username);
-$stmt->execute();
-$players = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
+                    // Récupérer les joueurs pour affichage
+                    $query = "SELECT name, class, team FROM players WHERE owner = :owner ORDER BY team ASC";
+                    $stmt = $connexion->prepare($query);
+                    $stmt->bindParam(':owner', $login_username);
+                    $stmt->execute();
+                    $players = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 }
 
                 // Nouvelle requête pour récupérer tous les joueurs du propriétaire
