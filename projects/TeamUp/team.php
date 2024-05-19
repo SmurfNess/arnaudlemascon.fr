@@ -134,7 +134,7 @@ if (isset($_SESSION['user_type'])) {
 </head>
 <body>
 
-    <h1>Gestion des joueurs et des équipes</h1>
+<h2 style="text-align: center;">Gestion des joueurs et des équipes</h2>
     <div class="row  justify-content-center">
     <div class="col-8 col-sm-4 m-2 d-flex justify-content-center">
     <section>
