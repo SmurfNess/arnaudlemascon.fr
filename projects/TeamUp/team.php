@@ -268,7 +268,7 @@ $players = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </section>
         </div>
         <div class="col-8 col-sm-4 m-2 d-flex justify-content-center">
-        <section>
+<section>
     <h4>Population par équipe</h4>
     <table>
         <thead>
