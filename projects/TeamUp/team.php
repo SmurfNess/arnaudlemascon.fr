@@ -279,13 +279,7 @@ $players = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </thead>
             <tbody>
                 <?php 
-                // Effectuer une requête pour récupérer la population de chaque équipe
-$query = "SELECT team, COUNT(*) AS population FROM players WHERE owner = :owner GROUP BY team";
-$stmt = $connexion->prepare($query);
-$stmt->bindParam(':owner', $login_username);
-$stmt->execute();
-$team_populations = $stmt->fetchAll(PDO::FETCH_ASSOC);
-foreach ($team_populations as $team_population): ?>
+                foreach ($team_populations as $team_population): ?>
                     <tr>
                         <td><?php echo $team_population['team']; ?></td>
                         <td><?php echo $team_population['population']; ?></td>
