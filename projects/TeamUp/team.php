@@ -71,7 +71,6 @@ if (isset($_SESSION['user_type'])) {
                         // Afficher le résultat de chaque itération dans la console
                         echo "Équipe $team_number : ";
                         $team = array_slice($players, $i, $team_size);
-                        print_r($team);
                         
                         // Ajouter l'équipe au tableau des équipes
                         $teams[$team_number++] = $team;
