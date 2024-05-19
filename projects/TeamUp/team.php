@@ -40,59 +40,66 @@ if (isset($_SESSION['user_type'])) {
                     $stmt->execute();
                 }
 
-// Génération des équipes en fonction des classes sélectionnées
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['generate_teams']) && isset($_POST['team_size'])) {
-    $team_size = max(2, (int)$_POST['team_size']);
-    $selected_classes = $_POST['selected_classes'] ?? [];
+                // Génération des équipes en fonction des classes sélectionnées
+                if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['generate_teams']) && isset($_POST['team_size'])) {
+                    $team_size = max(2, (int)$_POST['team_size']);
+                    $selected_classes = $_POST['selected_classes'] ?? [];
 
-    // Sélectionner les joueurs des classes spécifiées
-    if (empty($selected_classes)) {
-        // Aucune classe sélectionnée, pas de génération d'équipes
-        $teams = [];
-    } else {
-        // Classes sélectionnées, récupérer les joueurs des classes spécifiées
-        $placeholders = implode(',', array_fill(0, count($selected_classes), '?'));
-        $query = "SELECT name, class FROM players WHERE owner = ? AND class IN ($placeholders)";
-        $stmt = $connexion->prepare($query);
-        $stmt->execute(array_merge([$login_username], $selected_classes));
-        $players = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    if (empty($selected_classes)) {
+                        $query = "SELECT name, class, team FROM players WHERE owner = :owner";
+                        $stmt = $connexion->prepare($query);
+                        $stmt->bindParam(':owner', $login_username);
+                        $stmt->execute();
+                        $players = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    } else {
+                        $placeholders = implode(',', array_fill(0, count($selected_classes), '?'));
+                        $query = "SELECT name, class, team FROM players WHERE owner = ? AND class IN ($placeholders)";
+                        $stmt = $connexion->prepare($query);
+                        $stmt->execute(array_merge([$login_username], $selected_classes));
+                        $players = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    }
 
-        // Mélanger les joueurs pour une répartition aléatoire
-        shuffle($players);
+                    // Mélanger les joueurs aléatoirement
+                    shuffle($players);
 
-        // Initialiser les équipes
-        $teams = [];
+                    // Répartir les joueurs en équipes
+                    $teams = [];
+                    $team_number = 1;
+                    $players_count = count($players);
 
-        // Répartir les joueurs dans les équipes
-        foreach ($players as $index => $player) {
-            // Calculer le numéro de l'équipe pour le joueur actuel
-            $team_number = ($index % $team_size) + 1;
+                    for ($i = 0; $i < $players_count; $i += $team_size) {
+                        $teams[$team_number++] = array_slice($players, $i, $team_size);
+                    }
 
-            // Ajouter le joueur à l'équipe correspondante
-            $teams[$team_number][] = $player;
-        }
-    }
+                    // Ajouter les joueurs restants aux équipes déjà complètes
+                    $remaining_players = $players_count % $team_size;
+                    if ($remaining_players > 0 && $remaining_players < $team_size / 2) {
+                        $team_number = 1;
+                        for ($i = $players_count - $remaining_players; $i < $players_count; $i++) {
+                            $teams[$team_number++ % (int)ceil($players_count / $team_size)][] = $players[$i];
+                        }
+                    }
 
-    // Mettre à jour les équipes dans la base de données
-    foreach ($teams as $team_number => $team_players) {
-        foreach ($team_players as $player) {
-            $query = "UPDATE players SET team = :team WHERE name = :name AND class = :class AND owner = :owner";
-            $stmt = $connexion->prepare($query);
-            $stmt->bindParam(':team', $team_number);
-            $stmt->bindParam(':name', $player['name']);
-            $stmt->bindParam(':class', $player['class']);
-            $stmt->bindParam(':owner', $login_username);
-            $stmt->execute();
-        }
-    }
+                    // Mettre à jour les équipes dans la base de données
+                    foreach ($teams as $team_number => $team_players) {
+                        foreach ($team_players as $player) {
+                            $query = "UPDATE players SET team = :team WHERE name = :name AND class = :class AND owner = :owner";
+                            $stmt = $connexion->prepare($query);
+                            $stmt->bindParam(':team', $team_number);
+                            $stmt->bindParam(':name', $player['name']);
+                            $stmt->bindParam(':class', $player['class']);
+                            $stmt->bindParam(':owner', $login_username);
+                            $stmt->execute();
+                        }
+                    }
 
-    // Récupérer les joueurs pour affichage
-    $query = "SELECT name, class, team FROM players WHERE owner = :owner ORDER BY team ASC";
-    $stmt = $connexion->prepare($query);
-    $stmt->bindParam(':owner', $login_username);
-    $stmt->execute();
-    $players = $stmt->fetchAll(PDO::FETCH_ASSOC);
-}
+                    // Récupérer les joueurs pour affichage
+                    $query = "SELECT name, class, team FROM players WHERE owner = :owner ORDER BY team ASC";
+                    $stmt = $connexion->prepare($query);
+                    $stmt->bindParam(':owner', $login_username);
+                    $stmt->execute();
+                    $players = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                }
 
                 // Nouvelle requête pour récupérer tous les joueurs du propriétaire
                 $query = "SELECT name, class, team FROM players WHERE owner = :owner ORDER BY class ASC;";
