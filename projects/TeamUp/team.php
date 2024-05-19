@@ -59,7 +59,10 @@ if (isset($_SESSION['user_type'])) {
                         $players = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     }
 
-                    // Répartir les joueurs en équipes de taille égale autant que possible
+                    // Mélanger les joueurs aléatoirement
+                    shuffle($players);
+
+                    // Répartir les joueurs en équipes
                     $teams = [];
                     $team_number = 1;
                     $players_count = count($players);
@@ -68,13 +71,12 @@ if (isset($_SESSION['user_type'])) {
                         $teams[$team_number++] = array_slice($players, $i, $team_size);
                     }
 
-                    // Ajouter les joueurs restants aux équipes incomplètes
-                    for ($i = $team_number; $i <= ceil($players_count / $team_size); $i++) {
-                        foreach ($players as $player) {
-                            if (!in_array($player, $teams[$i] ?? [], true)) {
-                                $teams[$i][] = $player;
-                                break;
-                            }
+                    // Ajouter les joueurs restants aux équipes déjà complètes
+                    $remaining_players = $players_count % $team_size;
+                    if ($remaining_players > 0 && $remaining_players < $team_size / 2) {
+                        $team_number = 1;
+                        for ($i = $players_count - $remaining_players; $i < $players_count; $i++) {
+                            $teams[$team_number++ % (int)ceil($players_count / $team_size)][] = $players[$i];
                         }
                     }
 
