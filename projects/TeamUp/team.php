@@ -259,6 +259,50 @@ $players = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 </table>
             </section>
         </div>
+        <div class="col-8 col-sm-4 m-2 d-flex justify-content-center">
+        <section>
+    <h4>Population par équipe</h4>
+    <table>
+        <thead>
+            <tr>
+                <th>Équipe</th>
+                <th>Population</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php 
+            // Effectuer une requête pour récupérer la population de chaque équipe en tenant compte des classes sélectionnées
+            $selected_classes_placeholder = implode(',', array_fill(0, count($selected_classes), '?'));
+            $query = "SELECT team, COUNT(*) AS population FROM players WHERE owner = :owner";
+            if (!empty($selected_classes)) {
+                $query .= " AND class IN ($selected_classes_placeholder)";
+            }
+            $query .= " GROUP BY team";
+            $stmt = $connexion->prepare($query);
+            $stmt->bindParam(':owner', $login_username);
+            foreach ($selected_classes as $index => $class) {
+                $stmt->bindValue($index + 1, $class);
+            }
+            $stmt->execute();
+            $team_populations = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            // Afficher la population de chaque équipe
+            for ($i = 1; $i <= count($teams); $i++) {
+                $population = 0;
+                foreach ($team_populations as $team_population) {
+                    if ($team_population['team'] == $i) {
+                        $population = $team_population['population'];
+                        break;
+                    }
+                }
+                echo "<tr><td>$i</td><td>$population</td></tr>";
+            }
+            ?>
+        </tbody>
+    </table>
+</section>
+</div>
+
     </div>
 
     <div class="row justify-content-center">
