@@ -4,7 +4,7 @@ body{
 }
 
 
-.col-4{
+.col-8, .col-sm-4{
     position: relative;
     background-color:teal !important;
     height: fit-content;
