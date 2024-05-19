@@ -46,11 +46,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['generate_teams']) && 
     $selected_classes = $_POST['selected_classes'] ?? [];
 
     // Sélectionner les joueurs des classes spécifiées
-    if (empty($selected_classes)) {
-        // Aucune classe sélectionnée, pas de génération d'équipes
-        $teams = [];
-    } else {
-        // Classes sélectionnées, récupérer les joueurs des classes spécifiées
+    if (!empty($selected_classes)) {
+        // Construction de la requête pour sélectionner les joueurs des classes spécifiées
         $placeholders = implode(',', array_fill(0, count($selected_classes), '?'));
         $query = "SELECT name, class FROM players WHERE owner = ? AND class IN ($placeholders)";
         $stmt = $connexion->prepare($query);
@@ -64,12 +61,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['generate_teams']) && 
         $teams = [];
 
         // Répartir les joueurs dans les équipes
-        foreach ($players as $index => $player) {
-            // Calculer le numéro de l'équipe pour le joueur actuel
-            $team_number = (int)($index / $team_size) + 1;
+        foreach ($players as $player) {
+            // Choisir une équipe aléatoire
+            $team_number = array_rand($teams, 1);
 
-            // Ajouter le joueur à l'équipe correspondante
-            $teams[$team_number][] = $player;
+            // Vérifier si l'équipe a atteint la taille maximale
+            if (count($teams[$team_number]) < $team_size) {
+                // Ajouter le joueur à l'équipe correspondante
+                $teams[$team_number][] = $player;
+            } else {
+                // Si l'équipe est pleine, créer une nouvelle équipe et y ajouter le joueur
+                $teams[] = [$player];
+            }
         }
     }
 
@@ -78,7 +81,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['generate_teams']) && 
         foreach ($team_players as $player) {
             $query = "UPDATE players SET team = :team WHERE name = :name AND class = :class AND owner = :owner";
             $stmt = $connexion->prepare($query);
-            $stmt->bindParam(':team', $team_number);
+            $stmt->bindParam(':team', $team_number + 1); // Les équipes commencent à partir de 1
             $stmt->bindParam(':name', $player['name']);
             $stmt->bindParam(':class', $player['class']);
             $stmt->bindParam(':owner', $login_username);
@@ -86,14 +89,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['generate_teams']) && 
         }
     }
 
-    // Récupérer les joueurs pour affichage
+    // Récupérer les joueurs pour affichage, classés par ordre croissant d'équipe
     $query = "SELECT name, class, team FROM players WHERE owner = :owner ORDER BY team ASC";
     $stmt = $connexion->prepare($query);
     $stmt->bindParam(':owner', $login_username);
     $stmt->execute();
     $players = $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
-
 
                 // Nouvelle requête pour récupérer tous les joueurs du propriétaire
                 $query = "SELECT name, class, team FROM players WHERE owner = :owner ORDER BY class ASC;";
