@@ -156,7 +156,7 @@ if (isset($_SESSION['user_type'])) {
         <h2>Générer les équipes</h2>
         <form method="post" action="team.php">
             <label for="team_size">Taille de l'équipe :</label>
-            <input type="number" id="team_size" name="team_size" value="2" min="2" required><br><br>
+            <input type="number" id="team_size" name="team_size" value="0" min="0" required><br><br>
             
             <label for="selected_classes[]">Sélectionner les classes :</label>
             <select name="selected_classes[]" multiple>

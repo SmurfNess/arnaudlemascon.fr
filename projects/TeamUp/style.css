@@ -19,6 +19,9 @@ min-width: 30vw;
 background-color: transparent;
 }
 
+.void{
+    color: transparent;
+}
 input, button{
     border-radius: 15px;
 }
