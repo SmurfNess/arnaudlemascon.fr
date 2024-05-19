@@ -124,8 +124,6 @@ $stmt->bindParam(':half_team_size', $half_team_size, PDO::PARAM_INT);
 $stmt->execute();
 $teams_with_few_players = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-
-
 // Déplacer chaque joueur de ces équipes dans une équipe complète dans l'ordre croissant
 foreach ($teams_with_few_players as $team_info) {
     $team_number = $team_info['team'];
