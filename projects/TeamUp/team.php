@@ -134,7 +134,7 @@ if (isset($_SESSION['user_type'])) {
 </head>
 <body>
     <div class="row  justify-content-center">
-    <div class="col-4 m-1">
+    <div class="col-4 col-xs-12 m-1">
     <h1>Gestion des joueurs et des équipes</h1>
 
     <section>
@@ -151,7 +151,7 @@ if (isset($_SESSION['user_type'])) {
     </section>
     </div>
     
-    <div class="col-4 m-1">
+    <div class="col-4 col-xs-12 m-1">
     <section>
         <h2>Générer les équipes</h2>
         <form method="post" action="team.php">
@@ -173,7 +173,7 @@ if (isset($_SESSION['user_type'])) {
     </div>
 
     <div class="row  justify-content-center">
-    <div class="col-4 m-1">
+    <div class="col-4 col-xs-12 m-1">
     <section>
     <h2>Résultat de la génération d'équipes</h2>
     <table>
@@ -200,7 +200,7 @@ if (isset($_SESSION['user_type'])) {
 </section>
 </div>
     
-<div class="col-4 m-1">
+<div class="col-4 col-xs-12 m-1">
 <section>
     <h2>Liste complète des joueurs</h2>
     <table>
