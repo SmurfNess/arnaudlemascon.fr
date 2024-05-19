@@ -66,10 +66,17 @@ if (isset($_SESSION['user_type'])) {
                     $teams = [];
                     $team_number = 1;
                     $players_count = count($players);
-
+                    
                     for ($i = 0; $i < $players_count; $i += $team_size) {
-                        $teams[$team_number++] = array_slice($players, $i, $team_size);
+                        // Afficher le résultat de chaque itération dans la console
+                        echo "Équipe $team_number : ";
+                        $team = array_slice($players, $i, $team_size);
+                        print_r($team);
+                        
+                        // Ajouter l'équipe au tableau des équipes
+                        $teams[$team_number++] = $team;
                     }
+                    
 
                     // Ajouter les joueurs restants aux équipes déjà complètes
                     $remaining_players = $players_count % $team_size;
