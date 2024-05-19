@@ -62,27 +62,37 @@ if (isset($_SESSION['user_type'])) {
                     // Mélanger les joueurs aléatoirement
                     shuffle($players);
 
-                    // Répartir les joueurs en équipes
-                    $teams = [];
-                    $team_number = 1;
-                    $players_count = count($players);
-                    
-                    for ($i = 0; $i < $players_count; $i += $team_size) {
-                        // Afficher le résultat de chaque itération dans la console
-                        $team = array_slice($players, $i, $team_size);
-                        
-                        // Ajouter l'équipe au tableau des équipes
-                        $teams[$team_number++] = $team;
-                    }
-                    
-                    // Ajouter les joueurs restants aux équipes déjà complètes
-                    $remaining_players = $players_count % $team_size;
-                    if ($remaining_players > 0 && $remaining_players < $team_size / 2) {
-                        $team_number = 1;
-                        for ($i = $players_count - $remaining_players; $i < $players_count; $i++) {
-                            $teams[$team_number++ % (int)ceil($players_count / $team_size)][] = $players[$i];
-                        }
-                    }
+// Répartir les joueurs en équipes
+$teams = [];
+$team_number = 1;
+$players_count = count($players);
+
+for ($i = 0; $i < $players_count; $i += $team_size) {
+    // Afficher le résultat de chaque itération dans la console
+    echo "Attribution des joueurs à l'équipe $team_number : ";
+
+    $team = array_slice($players, $i, $team_size);
+
+    // Ajouter l'équipe au tableau des équipes
+    $teams[$team_number++] = $team;
+
+    // Afficher les joueurs attribués à l'équipe actuelle
+    foreach ($team as $player) {
+        echo $player['name'] . " ";
+    }
+    echo "<br>";
+}
+
+// Afficher les joueurs restants dans les équipes déjà complètes
+$remaining_players = $players_count % $team_size;
+if ($remaining_players > 0 && $remaining_players < $team_size / 2) {
+    $team_number = 1;
+    for ($i = $players_count - $remaining_players; $i < $players_count; $i++) {
+        echo "Attribution du joueur {$players[$i]['name']} à l'équipe " . ($team_number % (int)ceil($players_count / $team_size)) . "<br>";
+        $teams[$team_number++ % (int)ceil($players_count / $team_size)][] = $players[$i];
+    }
+}
+
 
                     // Mettre à jour les équipes dans la base de données
                     foreach ($teams as $team_number => $team_players) {
