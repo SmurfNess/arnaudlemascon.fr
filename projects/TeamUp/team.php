@@ -123,7 +123,7 @@ if (isset($_SESSION['user_type'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Équipe</title>
+    <title>TeamUp</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css" type="text/css" />
@@ -133,12 +133,12 @@ if (isset($_SESSION['user_type'])) {
 
 </head>
 <body>
+
+    <h1>Gestion des joueurs et des équipes</h1>
     <div class="row  justify-content-center">
     <div class="col-8 col-sm-4 m-2 d-flex justify-content-center">
-    <h1>Gestion des joueurs et des équipes</h1>
-
     <section>
-        <h2>Ajouter un joueur</h2>
+        <h4>Ajouter un joueur</h4>
         <form method="post" action="team.php">
             <label for="name">Nom :</label>
             <input type="text" id="name" name="name" required><br><br>
@@ -153,7 +153,7 @@ if (isset($_SESSION['user_type'])) {
     
     <div class="col-8 col-sm-4 m-2 d-flex justify-content-center">
     <section>
-        <h2>Générer les équipes</h2>
+        <h4>Générer les équipes</h4>
         <form method="post" action="team.php">
             <label for="team_size">Taille de l'équipe :</label>
             <input type="number" id="team_size" name="team_size" value="0" min="0" required><br><br>
@@ -175,7 +175,7 @@ if (isset($_SESSION['user_type'])) {
     <div class="row  justify-content-center">
     <div class="col-8 col-sm-4 m-2 d-flex justify-content-center">
     <section>
-    <h2>Résultat de la génération d'équipes</h2>
+    <h4>Résultat de la génération d'équipes</h4>
     <table>
         <thead>
             <tr>
@@ -202,7 +202,7 @@ if (isset($_SESSION['user_type'])) {
     
 <div class="col-8 col-sm-4 m-2 d-flex justify-content-center">
 <section>
-    <h2>Liste complète des joueurs</h2>
+    <h4>Liste complète des joueurs</h4>
     <table>
         <thead>
             <tr>
