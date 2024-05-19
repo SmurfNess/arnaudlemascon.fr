@@ -5,7 +5,7 @@ require_once 'config.php';
 
 if (isset($_SESSION['user_type'])) {
     $user_type = $_SESSION['user_type'];
-    
+
     if (isset($_SESSION['login_username'])) {
         $login_username = $_SESSION['login_username'];
 
@@ -39,20 +39,6 @@ if (isset($_SESSION['user_type'])) {
                     $stmt->bindParam(':owner', $login_username);
                     $stmt->execute();
                 }
-
-                // Sélectionner les joueurs de l'utilisateur connecté
-                $query = "SELECT name, class, team FROM players WHERE owner = :owner";
-                $stmt = $connexion->prepare($query);
-                $stmt->bindParam(':owner', $login_username);
-                $stmt->execute();
-                $players = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-                // Récupérer les classes distinctes des joueurs
-                $query = "SELECT DISTINCT class FROM players WHERE owner = :owner";
-                $stmt = $connexion->prepare($query);
-                $stmt->bindParam(':owner', $login_username);
-                $stmt->execute();
-                $classes = $stmt->fetchAll(PDO::FETCH_COLUMN);
 
                 // Génération des équipes en fonction des classes sélectionnées
                 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['generate_teams']) && isset($_POST['team_size'])) {
@@ -115,11 +101,19 @@ if (isset($_SESSION['user_type'])) {
                 }
 
                 // Nouvelle requête pour récupérer tous les joueurs du propriétaire
-                $query = "SELECT name, class, team FROM players WHERE owner = :owner ORDER BY class ASC";
+                $query = "SELECT name, class, team FROM players WHERE owner = :owner ORDER BY name ASC, class ASC";
                 $stmt = $connexion->prepare($query);
                 $stmt->bindParam(':owner', $login_username);
                 $stmt->execute();
                 $all_players = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+                // Récupérer les classes distinctes des joueurs
+                $query = "SELECT DISTINCT class FROM players WHERE owner = :owner";
+                $stmt = $connexion->prepare($query);
+                $stmt->bindParam(':owner', $login_username);
+                $stmt->execute();
+                $classes = $stmt->fetchAll(PDO::FETCH_COLUMN);
+
             } catch (PDOException $e) {
                 echo "Erreur de connexion : " . $e->getMessage();
             }
@@ -191,15 +185,21 @@ if (isset($_SESSION['user_type'])) {
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($players as $player): ?>
-                            <?php if (isset($player['team']) && in_array($player['class'], $selected_classes)): ?>
-                                <tr class="team-<?php echo $player['team']; ?>">
-                                    <td><?php echo $player['team']; ?></td>
-                                    <td><?php echo $player['name']; ?></td>
-                                    <td><?php echo $player['class']; ?></td>
-                                </tr>
-                            <?php endif; ?>
-                        <?php endforeach; ?>
+                        <?php if (!empty($players)): ?>
+                            <?php foreach ($players as $player): ?>
+                                <?php if (isset($player['team']) && in_array($player['class'], $selected_classes)): ?>
+                                    <tr class="team-<?php echo $player['team']; ?>">
+                                        <td><?php echo $player['team']; ?></td>
+                                        <td><?php echo $player['name']; ?></td>
+                                        <td><?php echo $player['class']; ?></td>
+                                    </tr>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
+                        <?php else: ?>
+                            <tr>
+                                <td colspan="3">Aucune équipe générée.</td>
+                            </tr>
+                        <?php endif; ?>
                     </tbody>
                 </table>
                 <div class="void">_</div>
