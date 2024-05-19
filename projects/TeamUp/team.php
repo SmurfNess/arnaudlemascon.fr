@@ -265,7 +265,10 @@ $players = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         ?>
                     </tbody>
                 </table>
-                <section>
+            </section>
+        </div>
+        <div class="col-8 col-sm-4 m-2 d-flex justify-content-center">
+        <section>
     <h4>Population par équipe</h4>
     <table>
         <thead>
@@ -290,23 +293,15 @@ $players = $stmt->fetchAll(PDO::FETCH_ASSOC);
             }
             $stmt->execute();
             $team_populations = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-            // Afficher la population de chaque équipe
-            for ($i = 1; $i <= count($teams); $i++) {
-                $population = 0;
-                foreach ($team_populations as $team_population) {
-                    if ($team_population['team'] == $i) {
-                        $population = $team_population['population'];
-                        break;
-                    }
-                }
-                echo "<tr><td>$i</td><td>$population</td></tr>";
-            }
-            ?>
+            foreach ($team_populations as $team_population): ?>
+                <tr>
+                    <td><?php echo $team_population['team']; ?></td>
+                    <td><?php echo $team_population['population']; ?></td>
+                </tr>
+            <?php endforeach; ?>
         </tbody>
     </table>
 </section>
-
 
 </div>
 
