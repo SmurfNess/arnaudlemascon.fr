@@ -196,6 +196,7 @@ if (isset($_SESSION['user_type'])) {
             <?php endforeach; ?>
         </tbody>
     </table>
+    <div class="void">_</div>
 </section>
 </div>
     
