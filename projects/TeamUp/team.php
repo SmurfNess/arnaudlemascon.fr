@@ -158,6 +158,14 @@ foreach ($teams_with_few_players as $team_info) {
                     $stmt->bindParam(':owner', $login_username);
                     $stmt->execute();
                     $players = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+                    // Effectuer une requête pour compter le nombre de joueurs par équipe
+                    $query = "SELECT team, COUNT(*) AS population FROM players WHERE owner = :owner GROUP BY team ORDER BY team ASC";
+                    $stmt = $connexion->prepare($query);
+                    $stmt->bindParam(':owner', $login_username);
+                    $stmt->execute();
+                    $team_population = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
                 }
 
 
@@ -270,10 +278,26 @@ $players = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </section>
         </div>
         <div class="col-8 col-sm-4 m-2 d-flex justify-content-center">
-            <section>
-                <h4>Population par équipe</h4>
-                
-            </section>
+        <section>
+    <h4>Population par équipe</h4>
+    <table>
+        <thead>
+            <tr>
+                <th>Équipe</th>
+                <th>Population</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            // Afficher les résultats
+            foreach ($team_population as $team_data) {
+                echo "<tr><td>{$team_data['team']}</td><td>{$team_data['population']}</td></tr>";
+            }
+            ?>
+        </tbody>
+    </table>
+</section>
+
         </div>
     </div>
 
