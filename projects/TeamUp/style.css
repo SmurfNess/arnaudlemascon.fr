@@ -8,15 +8,14 @@ body{
     position: relative;
     background-color:teal !important;
     height: fit-content;
-    min-height: 500px;
+    min-height: 400px;
     width: 300px;
     border-radius: 15px;
     color: white;
 }
 
 table{
-border-radius: 5px;
-min-width: 40vw;
+min-width: 30vw;
 background-color: red;
 }
 
