@@ -268,28 +268,11 @@ $players = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </section>
         </div>
         <div class="col-8 col-sm-4 m-2 d-flex justify-content-center">
-    <section>
-        <h4>Population par équipe</h4>
-        <table>
-            <thead>
-                <tr>
-                    <th>Équipe</th>
-                    <th>Population</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php 
-                foreach ($team_populations as $team_population): ?>
-                    <tr>
-                        <td><?php echo $team_population['team']; ?></td>
-                        <td><?php echo $team_population['population']; ?></td>
-                    </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
-    </section>
-</div>
-
+            <section>
+                <h4>Population par équipe</h4>
+                
+            </section>
+        </div>
     </div>
 
     <div class="row justify-content-center">
