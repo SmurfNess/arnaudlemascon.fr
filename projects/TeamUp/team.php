@@ -59,39 +59,22 @@ if (isset($_SESSION['user_type'])) {
                         $players = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     }
 
-                    // Mélanger les joueurs et les répartir dans les équipes
-                    shuffle($players);
+                    // Répartir les joueurs en équipes de taille égale autant que possible
                     $teams = [];
                     $team_number = 1;
                     $players_count = count($players);
 
-                    // Répartir les joueurs en équipes de taille égale autant que possible
                     for ($i = 0; $i < $players_count; $i += $team_size) {
                         $teams[$team_number++] = array_slice($players, $i, $team_size);
                     }
 
-                    // Gérer les joueurs isolés
-                    if ($players_count % $team_size !== 0) {
-                        $remaining_players = array_slice($players, $team_number * $team_size);
-                        shuffle($remaining_players);
-                        $team_number = 1;
-                        foreach ($remaining_players as $player) {
-                            $teams[$team_number++][] = $player;
-                            if ($team_number > count($teams)) {
-                                $team_number = 1; // Revenir à la première équipe si on dépasse le nombre d'équipes existantes
+                    // Ajouter les joueurs restants aux équipes incomplètes
+                    for ($i = $team_number; $i <= ceil($players_count / $team_size); $i++) {
+                        foreach ($players as $player) {
+                            if (!in_array($player, $teams[$i] ?? [], true)) {
+                                $teams[$i][] = $player;
+                                break;
                             }
-                        }
-                    }
-
-                    // Attribuer aléatoirement les équipes
-                    $team_keys = array_keys($teams);
-                    foreach ($players as $key => $player) {
-                        $random_team_key = array_rand($team_keys);
-                        $random_team = $team_keys[$random_team_key];
-                        $teams[$random_team][] = $player;
-                        // Remove the team key if it's full
-                        if (count($teams[$random_team]) >= $team_size) {
-                            unset($team_keys[$random_team_key]);
                         }
                     }
 
@@ -148,145 +131,144 @@ if (isset($_SESSION['user_type'])) {
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
-<h2 style="text-align: center;">Gestion des joueurs et des équipes</h2>
-<div class="row justify-content-center">
-    <div class="col-8 col-sm-4 m-2 d-flex justify-content-center">
-        <section>
-            <h4>Ajouter un joueur</h4>
-            <form method="post" action="team.php">
-                <label for="name">Nom :</label>
-                <input type="text" id="name" name="name" required><br><br>
-                                
-                <label for="class">Classe :</label>
-                <input type="text" id="class" name="class" required><br><br>
-                
-                <input type="submit" value="Ajouter">
-            </form>
-        </section>
-    </div>
-    
-    <div class="col-8 col-sm-4 m-2 d-flex justify-content-center">
-        <section>
-            <h4>Générer les équipes</h4>
-            <form method="post" action="team.php">
-                <label for="team_size">Taille de l'équipe :</label>
-                <input type="number" id="team_size" name="team_size" value="2" min="2" required><br><br>
-                
-                <label for="selected_classes[]">Sélectionner les classes :</label>
-                <select name="selected_classes[]" multiple>
-                    <?php foreach ($classes as $class): ?>
-                        <option value="<?php echo $class; ?>"><?php echo $class; ?></option>
-                    <?php endforeach; ?>
-                </select><br><br>
-                
-                <input type="hidden" name="generate_teams" value="true">
-                <input type="submit" value="Générer les équipes">
-            </form>
-        </section>
-    </div>
-</div>
-
-<div class="row justify-content-center">
-<div class="col-8 col-sm-4 m-2 d-flex justify-content-center">
-    <section>
-        <h4>Population par classe</h4>
-        <table>
-            <thead>
-                <tr>
-                    <th>Classe</th>
-                    <th>Population</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                // Effectuer une requête pour compter le nombre de joueurs par classe
-                $query = "SELECT class, COUNT(*) AS population FROM players WHERE owner = :owner GROUP BY class";
-                $stmt = $connexion->prepare($query);
-                $stmt->bindParam(':owner', $login_username);
-                $stmt->execute();
-                $class_population = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-                // Afficher les résultats
-                foreach ($class_population as $class_data) {
-                    echo "<tr><td>{$class_data['class']}</td><td>{$class_data['population']}</td></tr>";
-                }
-                ?>
-            </tbody>
-        </table>
-    </section>
-</div>
-</div>
-
-<div class="row justify-content-center">
-    <div class="col-8 col-sm-4 m-2 d-flex justify-content-center">
-        <section>
-            <h4>Résultat de la génération d'équipes</h4>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Équipe</th>
-                        <th>Nom</th>
-                        <th>Classe</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php if (!empty($players)): ?>
-                        <?php foreach ($players as $player): ?>
-                            <?php if (isset($player['team']) && in_array($player['class'], $selected_classes)): ?>
-                                <tr class="team-<?php echo $player['team']; ?>">
-                                    <td><?php echo $player['team']; ?></td>
-                                    <td><?php echo $player['name']; ?></td>
-                                    <td><?php echo $player['class']; ?></td>
-                                </tr>
-                            <?php endif; ?>
+    <h2 style="text-align: center;">Gestion des joueurs et des équipes</h2>
+    <div class="row justify-content-center">
+        <div class="col-8 col-sm-4 m-2 d-flex justify-content-center">
+            <section>
+                <h4>Ajouter un joueur</h4>
+                <form method="post" action="team.php">
+                    <label for="name">Nom :</label>
+                    <input type="text" id="name" name="name" required><br><br>
+                                    
+                    <label for="class">Classe :</label>
+                    <input type="text" id="class" name="class" required><br><br>
+                    
+                    <input type="submit" value="Ajouter">
+                </form>
+            </section>
+        </div>
+        
+        <div class="col-8 col-sm-4 m-2 d-flex justify-content-center">
+            <section>
+                <h4>Générer les équipes</h4>
+                <form method="post" action="team.php">
+                    <label for="team_size">Taille de l'équipe :</label>
+                    <input type="number" id="team_size" name="team_size" value="2" min="2" required><br><br>
+                    
+                    <label for="selected_classes[]">Sélectionner les classes :</label>
+                    <select name="selected_classes[]" multiple>
+                        <?php foreach ($classes as $class): ?>
+                            <option value="<?php echo $class; ?>"><?php echo $class; ?></option>
                         <?php endforeach; ?>
-                    <?php else: ?>
-                        <tr>
-                            <td colspan="3">Aucune équipe générée.</td>
-                        </tr>
-                    <?php endif; ?>
-                </tbody>
-            </table>
-            <div class="void">_</div>
-        </section>
+                    </select><br><br>
+                    
+                    <input type="hidden" name="generate_teams" value="true">
+                    <input type="submit" value="Générer les équipes">
+                </form>
+            </section>
+        </div>
     </div>
-    
-    <div class="col-8 col-sm-4 m-2 d-flex justify-content-center">
-        <section>
-            <h4>Liste complète des joueurs</h4>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Nom</th>
-                        <th>Classe</th>
-                        <th>Équipe</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($all_players as $player): ?>
+
+    <div class="row justify-content-center">
+        <div class="col-8 col-sm-4 m-2 d-flex justify-content-center">
+            <section>
+                <h4>Population par classe</h4>
+                <table>
+                    <thead>
                         <tr>
-                            <td><?php echo $player['name']; ?></td>
-                            <td><?php echo $player['class']; ?></td>
-                            <td><?php echo isset($player['team']) ? $player['team'] : ''; ?></td>
-                            <td>
-                                <form method="post" action="team.php" style="display:inline;">
-                                    <input type="hidden" name="delete_player" value="true">
-                                    <input type="hidden" name="player_name" value="<?php echo $player['name']; ?>">
-                                    <input type="hidden" name="player_class" value="<?php echo $player['class']; ?>">
-                                    <input type="submit" value="Supprimer">
-                                </form>
-                            </td>
+                            <th>Classe</th>
+                            <th>Population</th>
                         </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
-        </section>
+                    </thead>
+                    <tbody>
+                        <?php
+                        // Effectuer une requête pour compter le nombre de joueurs par classe
+                        $query = "SELECT class, COUNT(*) AS population FROM players WHERE owner = :owner GROUP BY class";
+                        $stmt = $connexion->prepare($query);
+                        $stmt->bindParam(':owner', $login_username);
+                        $stmt->execute();
+                        $class_population = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+                        // Afficher les résultats
+                        foreach ($class_population as $class_data) {
+                            echo "<tr><td>{$class_data['class']}</td><td>{$class_data['population']}</td></tr>";
+                        }
+                        ?>
+                    </tbody>
+                </table>
+            </section>
+        </div>
     </div>
-</div>
+
+    <div class="row justify-content-center">
+        <div class="col-8 col-sm-4 m-2 d-flex justify-content-center">
+            <section>
+                <h4>Résultat de la génération d'équipes</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Équipe</th>
+                            <th>Nom</th>
+                            <th>Classe</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php if (!empty($players)): ?>
+                            <?php foreach ($players as $player): ?>
+                                <?php if (isset($player['team']) && in_array($player['class'], $selected_classes)): ?>
+                                    <tr class="team-<?php echo $player['team']; ?>">
+                                        <td><?php echo $player['team']; ?></td>
+                                        <td><?php echo $player['name']; ?></td>
+                                        <td><?php echo $player['class']; ?></td>
+                                    </tr>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
+                        <?php else: ?>
+                            <tr>
+                                <td colspan="3">Aucune équipe générée.</td>
+                            </tr>
+                        <?php endif; ?>
+                    </tbody>
+                </table>
+                <div class="void">_</div>
+            </section>
+        </div>
+        
+        <div class="col-8 col-sm-4 m-2 d-flex justify-content-center">
+            <section>
+                <h4>Liste complète des joueurs</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nom</th>
+                            <th>Classe</th>
+                            <th>Équipe</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($all_players as $player): ?>
+                            <tr>
+                                <td><?php echo $player['name']; ?></td>
+                                <td><?php echo $player['class']; ?></td>
+                                <td><?php echo isset($player['team']) ? $player['team'] : ''; ?></td>
+                                <td>
+                                    <form method="post" action="team.php" style="display:inline;">
+                                        <input type="hidden" name="delete_player" value="true">
+                                        <input type="hidden" name="player_name" value="<?php echo $player['name']; ?>">
+                                        <input type="hidden" name="player_class" value="<?php echo $player['class']; ?>">
+                                        <input type="submit" value="Supprimer">
+                                    </form>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </section>
+        </div>
+    </div>
 </body>
 </html>
-
 <?php
         } elseif ($user_type == $util) {
             // Si l'utilisateur est un utilisateur ordinaire, afficher un message de bienvenue
