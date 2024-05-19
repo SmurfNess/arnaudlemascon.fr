@@ -83,22 +83,13 @@ for ($i = 0; $i < $players_count; $i += $team_size) {
     echo "<br>";
 }
 
-// Ajouter les joueurs restants aux équipes déjà complètes
+// Afficher les joueurs restants dans les équipes déjà complètes
 $remaining_players = $players_count % $team_size;
 if ($remaining_players > 0 && $remaining_players < $team_size / 2) {
     $team_number = 1;
     for ($i = $players_count - $remaining_players; $i < $players_count; $i++) {
-        // Afficher l'attribution du joueur à l'équipe
-        echo "Attribution du joueur {$players[$i]['name']} à l'équipe $team_number<br>";
-        
-        // Ajouter le joueur à l'équipe
-        $teams[$team_number][] = $players[$i];
-        
-        // Incrémenter l'index de l'équipe pour le prochain joueur
-        $team_number++;
-        if ($team_number > count($teams)) {
-            $team_number = 1;
-        }
+        echo "Attribution du joueur {$players[$i]['name']} à l'équipe " . ($team_number % (int)ceil($players_count / $team_size)) . "<br>";
+        $teams[$team_number++ % (int)ceil($players_count / $team_size)][] = $players[$i];
     }
 }
 
