@@ -268,51 +268,41 @@ $players = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </section>
         </div>
         <div class="col-8 col-sm-4 m-2 d-flex justify-content-center">
-    <section>
-        <h4>Population par équipe</h4>
-        <table>
-            <thead>
-                <tr>
-                    <th>Équipe</th>
-                    <th>Population</th>
-                </tr>
-            </thead>
-            <tbody>
+        <section>
+    <h4>Population par équipe</h4>
+    <table>
+        <thead>
+            <tr>
+                <th>Équipe</th>
+                <th>Population</th>
+            </tr>
+        </thead>
+        <tbody>
             <?php 
-// Effectuer une requête pour récupérer la population de chaque équipe
-$query = "SELECT team, COUNT(*) AS population FROM players WHERE owner = :owner";
+            // Effectuer une requête pour récupérer la population de chaque équipe en tenant compte des classes sélectionnées
+            $selected_classes_placeholder = implode(',', array_fill(0, count($selected_classes), '?'));
+            $query = "SELECT team, COUNT(*) AS population FROM players WHERE owner = :owner";
+            if (!empty($selected_classes)) {
+                $query .= " AND class IN ($selected_classes_placeholder)";
+            }
+            $query .= " GROUP BY team";
+            $stmt = $connexion->prepare($query);
+            $stmt->bindParam(':owner', $login_username);
+            foreach ($selected_classes as $index => $class) {
+                $stmt->bindValue($index + 1, $class);
+            }
+            $stmt->execute();
+            $team_populations = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            foreach ($team_populations as $team_population): ?>
+                <tr>
+                    <td><?php echo $team_population['team']; ?></td>
+                    <td><?php echo $team_population['population']; ?></td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+</section>
 
-// Ajouter une condition pour filtrer les joueurs en fonction des classes sélectionnées
-if (!empty($selected_classes)) {
-    $placeholders = implode(',', array_fill(0, count($selected_classes), '?'));
-    $query .= " AND class IN ($placeholders)";
-}
-
-$query .= " GROUP BY team";
-
-$stmt = $connexion->prepare($query);
-$stmt->bindParam(':owner', $login_username);
-
-// Si des classes sont sélectionnées, passez-les en paramètres à la requête
-if (!empty($selected_classes)) {
-    foreach ($selected_classes as $index => $class) {
-        $stmt->bindValue($index + 1, $class);
-    }
-}
-
-$stmt->execute();
-$team_populations = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-foreach ($team_populations as $team_population): ?>
-    <tr>
-        <td><?php echo $team_population['team']; ?></td>
-        <td><?php echo $team_population['population']; ?></td>
-    </tr>
-<?php endforeach; ?>
-
-            </tbody>
-        </table>
-    </section>
 </div>
 
     </div>
