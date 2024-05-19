@@ -96,15 +96,7 @@ if (isset($_SESSION['user_type'])) {
                         }
                     }
 
-                    // Récupérer les joueurs pour affichage
-                    $query = "SELECT name, class, team FROM players WHERE owner = :owner ORDER BY team ASC";
-                    $stmt = $connexion->prepare($query);
-                    $stmt->bindParam(':owner', $login_username);
-                    $stmt->execute();
-                    $players = $stmt->fetchAll(PDO::FETCH_ASSOC);
-                }
-
-                // Récupérer les équipes avec moins de joueurs que la moitié de la taille d'équipe
+                                    // Récupérer les équipes avec moins de joueurs que la moitié de la taille d'équipe
 $query = "SELECT team, COUNT(*) AS players_count FROM players WHERE owner = :owner GROUP BY team HAVING players_count < :half_team_size";
 $stmt = $connexion->prepare($query);
 $stmt->bindParam(':owner', $login_username);
@@ -159,6 +151,16 @@ foreach ($teams_with_few_players as $team_info) {
         }
     }
 }
+
+                    // Récupérer les joueurs pour affichage
+                    $query = "SELECT name, class, team FROM players WHERE owner = :owner ORDER BY team ASC";
+                    $stmt = $connexion->prepare($query);
+                    $stmt->bindParam(':owner', $login_username);
+                    $stmt->execute();
+                    $players = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                }
+
+
 
 // Requête pour récupérer les joueurs après déplacement
 $query = "SELECT name, class, team FROM players WHERE owner = :owner ORDER BY team ASC";
