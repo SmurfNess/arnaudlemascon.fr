@@ -105,17 +105,13 @@ if (isset($_SESSION['user_type'])) {
                 }
 
 // Récupérer les équipes avec un nombre de joueurs inférieur ou égal à la moitié de la taille d'équipe
-$query = "SELECT team, COUNT(*) AS players_count FROM players WHERE owner = :owner GROUP BY team HAVING players_count <= :threshold";
+$query = "SELECT team, COUNT(*) AS players_count FROM players WHERE owner = :owner GROUP BY team HAVING players_count <= :half_team_size";
 $stmt = $connexion->prepare($query);
 $stmt->bindParam(':owner', $login_username);
-
-// Calculer le seuil à 66% de la taille de l'équipe
-$threshold = ceil($team_size * 0.66);
-$stmt->bindParam(':threshold', $threshold, PDO::PARAM_INT);
-
+$half_team_size = ceil($team_size / 2);
+$stmt->bindParam(':half_team_size', $half_team_size, PDO::PARAM_INT);
 $stmt->execute();
 $teams_with_few_players = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
 
 // Déplacer chaque joueur de ces équipes dans une équipe complète dans l'ordre croissant
 foreach ($teams_with_few_players as $team_info) {
