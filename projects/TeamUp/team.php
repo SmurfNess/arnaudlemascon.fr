@@ -67,7 +67,7 @@ if (isset($_SESSION['user_type'])) {
                     $team_number = 1;
                     $players_count = count($players);
 
-                    for ($i = 1; $i < $players_count; $i += $team_size) {
+                    for ($i = 0; $i < $players_count; $i += $team_size) {
                         $teams[$team_number++] = array_slice($players, $i, $team_size);
                     }
 
