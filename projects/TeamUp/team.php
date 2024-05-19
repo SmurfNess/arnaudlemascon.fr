@@ -106,8 +106,21 @@ if (isset($_SESSION['user_type'])) {
                     $players = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 }
 
+                // Récupérer les équipes avec moins de joueurs que la moitié de la taille d'équipe
+$query = "SELECT team, COUNT(*) AS players_count FROM players WHERE owner = :owner GROUP BY team HAVING players_count < :half_team_size";
+$stmt = $connexion->prepare($query);
+$stmt->bindParam(':owner', $login_username);
+$half_team_size = ceil($team_size / 2);
+$stmt->bindParam(':half_team_size', $half_team_size, PDO::PARAM_INT);
+$stmt->execute();
+$teams_with_few_players = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
 // Récupérer les équipes avec un nombre de joueurs inférieur ou égal à la moitié de la taille d'équipe
-$query = "SELECT team, COUNT(*) AS players_count FROM players WHERE owner = :owner GROUP BY team HAVING players_count <= :half_team_size";
+if (isset($_POST['allow_solitary_players']) && $_POST['allow_solitary_players'] == 1) {
+    $query = "SELECT team, COUNT(*) AS players_count FROM players WHERE owner = :owner GROUP BY team HAVING players_count < :half_team_size";
+} else {
+    $query = "SELECT team, COUNT(*) AS players_count FROM players WHERE owner = :owner GROUP BY team HAVING players_count <= :half_team_size";
+}
 $stmt = $connexion->prepare($query);
 $stmt->bindParam(':owner', $login_username);
 $half_team_size = ceil($team_size / 2);
@@ -217,14 +230,17 @@ $players = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <form method="post" action="team.php">
                     <label for="team_size">Taille de l'équipe :</label>
                     <input type="number" id="team_size" name="team_size" value="2" min="2" required><br><br>
-                    
+
                     <label for="selected_classes[]">Sélectionner les classes :</label>
                     <select name="selected_classes[]" multiple>
                         <?php foreach ($classes as $class): ?>
                             <option value="<?php echo $class; ?>"><?php echo $class; ?></option>
                         <?php endforeach; ?>
                     </select><br><br>
-                    
+
+                    <label for="allow_solitary_players">Autoriser les joueurs solitaires :</label>
+                    <input type="checkbox" id="allow_solitary_players" name="allow_solitary_players" value="1"><br><br>
+
                     <input type="hidden" name="generate_teams" value="true">
                     <input type="submit" value="Générer les équipes">
                 </form>
