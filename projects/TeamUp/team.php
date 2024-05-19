@@ -268,26 +268,26 @@ $players = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </section>
         </div>
         <div class="col-8 col-sm-4 m-2 d-flex justify-content-center">
-            <section>
-            <h4>Population par équipe</h4>
-<table>
-    <thead>
-        <tr>
-            <th>Équipe</th>
-            <th>Population</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php foreach ($teams as $team_number => $team_players): ?>
-            <tr>
-                <td><?php echo $team_number; ?></td>
-                <td><?php echo count($team_players); ?></td>
-            </tr>
-        <?php endforeach; ?>
-    </tbody>
-</table>
-            </section>
-        </div>
+    <section>
+        <h4>Population par équipe</h4>
+        <table>
+            <thead>
+                <tr>
+                    <th>Équipe</th>
+                    <th>Population</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($teams as $team_number => $team_players): ?>
+                    <tr>
+                        <td><?php echo $team_number; ?></td>
+                        <td><?php echo count($team_players); ?></td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </section>
+</div>
     </div>
 
     <div class="row justify-content-center">
