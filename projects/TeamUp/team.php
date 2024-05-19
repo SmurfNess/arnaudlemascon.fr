@@ -45,34 +45,38 @@ if (isset($_SESSION['user_type'])) {
                     $team_size = max(2, (int)$_POST['team_size']);
                     $selected_classes = $_POST['selected_classes'] ?? [];
 
-                    // Sélectionner les joueurs des classes spécifiées
-                    if (!empty($selected_classes)) {
-                        // Construction de la requête pour sélectionner les joueurs des classes spécifiées
+                    if (empty($selected_classes)) {
+                        $query = "SELECT name, class, team FROM players WHERE owner = :owner";
+                        $stmt = $connexion->prepare($query);
+                        $stmt->bindParam(':owner', $login_username);
+                        $stmt->execute();
+                        $players = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    } else {
                         $placeholders = implode(',', array_fill(0, count($selected_classes), '?'));
-                        $query = "SELECT name, class FROM players WHERE owner = ? AND class IN ($placeholders)";
+                        $query = "SELECT name, class, team FROM players WHERE owner = ? AND class IN ($placeholders)";
                         $stmt = $connexion->prepare($query);
                         $stmt->execute(array_merge([$login_username], $selected_classes));
                         $players = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    }
 
-                        // Mélanger les joueurs pour une répartition aléatoire
-                        shuffle($players);
+                    // Mélanger les joueurs aléatoirement
+                    shuffle($players);
 
-                        // Initialiser les équipes
-                        $teams = [];
+                    // Répartir les joueurs en équipes
+                    $teams = [];
+                    $team_number = 1;
+                    $players_count = count($players);
 
-                        // Répartir les joueurs dans les équipes
-                        foreach ($players as $player) {
-                            // Choisir une équipe aléatoire
-                            $team_number = array_rand($teams, 1);
+                    for ($i = 0; $i < $players_count; $i += $team_size) {
+                        $teams[$team_number++] = array_slice($players, $i, $team_size);
+                    }
 
-                            // Vérifier si l'équipe a atteint la taille maximale
-                            if (count($teams[$team_number]) < $team_size) {
-                                // Ajouter le joueur à l'équipe correspondante
-                                $teams[$team_number][] = $player;
-                            } else {
-                                // Si l'équipe est pleine, créer une nouvelle équipe et y ajouter le joueur
-                                $teams[] = [$player];
-                            }
+                    // Ajouter les joueurs restants aux équipes déjà complètes
+                    $remaining_players = $players_count % $team_size;
+                    if ($remaining_players > 0 && $remaining_players < $team_size / 2) {
+                        $team_number = 1;
+                        for ($i = $players_count - $remaining_players; $i < $players_count; $i++) {
+                            $teams[$team_number++ % (int)ceil($players_count / $team_size)][] = $players[$i];
                         }
                     }
 
@@ -81,7 +85,7 @@ if (isset($_SESSION['user_type'])) {
                         foreach ($team_players as $player) {
                             $query = "UPDATE players SET team = :team WHERE name = :name AND class = :class AND owner = :owner";
                             $stmt = $connexion->prepare($query);
-                            $stmt->bindParam(':team', $team_number + 1); // Les équipes commencent à partir de 1
+                            $stmt->bindParam(':team', $team_number);
                             $stmt->bindParam(':name', $player['name']);
                             $stmt->bindParam(':class', $player['class']);
                             $stmt->bindParam(':owner', $login_username);
@@ -89,7 +93,7 @@ if (isset($_SESSION['user_type'])) {
                         }
                     }
 
-                    // Récupérer les joueurs pour affichage, classés par ordre croissant d'équipe
+                    // Récupérer les joueurs pour affichage
                     $query = "SELECT name, class, team FROM players WHERE owner = :owner ORDER BY team ASC";
                     $stmt = $connexion->prepare($query);
                     $stmt->bindParam(':owner', $login_username);
@@ -114,26 +118,7 @@ if (isset($_SESSION['user_type'])) {
             } catch (PDOException $e) {
                 echo "Erreur de connexion : " . $e->getMessage();
             }
-        } elseif ($user_type == $util) {
-            // Si l'utilisateur est un utilisateur ordinaire, afficher un message de bienvenue
-            echo "<h1>Bienvenue..</h1>";
-        } else {
-            // Si le type d'utilisateur n'est ni admin ni utilisateur, rediriger vers la page de connexion
-            header("Location: teamup.html");
-            exit();
-        }
-    } else {
-        // Si l'utilisateur n'est pas connecté, rediriger vers la page de connexion
-        header("Location: teamup.html");
-        exit();
-    }
-} else {
-    // Si le type d'utilisateur n'est pas défini, rediriger vers la page de connexion
-    header("Location: teamup.html");
-    exit();
-}
 ?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -141,8 +126,7 @@ if (isset($_SESSION['user_type'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TeamUp</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com
-/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css" type="text/css" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
@@ -287,3 +271,23 @@ if (isset($_SESSION['user_type'])) {
     </div>
 </body>
 </html>
+<?php
+        } elseif ($user_type == $util) {
+            // Si l'utilisateur est un utilisateur ordinaire, afficher un message de bienvenue
+            echo "<h1>Bienvenue..</h1>";
+        } else {
+            // Si le type d'utilisateur n'est ni admin ni utilisateur, rediriger vers la page de connexion
+            header("Location: teamup.html");
+            exit();
+        }
+    } else {
+        // Si l'utilisateur n'est pas connecté, rediriger vers la page de connexion
+        header("Location: teamup.html");
+        exit();
+    }
+} else {
+    // Si le type d'utilisateur n'est pas défini, rediriger vers la page de connexion
+    header("Location: teamup.html");
+    exit();
+}
+?>
