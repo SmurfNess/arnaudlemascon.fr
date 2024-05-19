@@ -49,7 +49,7 @@ if (isset($_SESSION['user_type'])) {
                         $query = "SELECT name, class, team FROM players WHERE owner = :owner";
                         $stmt = $connexion->prepare($query);
                         $stmt->bindParam(':owner', $login_username);
-                        $stmt->execute(array_merge([$login_username], $selected_classes));
+                        $stmt->execute();
                         $players = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     } else {
                         $placeholders = implode(',', array_fill(0, count($selected_classes), '?'));
