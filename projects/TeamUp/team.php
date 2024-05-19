@@ -59,25 +59,34 @@ if (isset($_SESSION['user_type'])) {
                         $players = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     }
 
-                    // Mélanger les joueurs et les répartir dans les équipes
-                    shuffle($players);
-                    $teams = [];
-                    $team_number = 1;
-                    $players_count = count($players);
+// Mélanger les joueurs et les répartir dans les équipes
+shuffle($players);
+$teams = [];
+$team_number = 1;
+$players_count = count($players);
 
-                    for ($i = 0; $i < $players_count; $i += $team_size) {
-                        $current_team = array_slice($players, $i, $team_size);
+// Assigner chaque joueur à une équipe jusqu'à ce que toutes les équipes aient au moins un joueur
+foreach ($players as $player) {
+    if ($team_number > count($teams)) {
+        $teams[$team_number] = [];
+    }
+    $teams[$team_number++][] = $player;
+}
 
-                        // Si une équipe a moins de deux joueurs, ajouter ces joueurs à une autre équipe
-                        if (count($current_team) < 2) {
-                            foreach ($current_team as $player) {
-                                $random_team = array_rand($teams);
-                                $teams[$random_team][] = $player;
-                            }
-                        } else {
-                            $teams[$team_number++] = $current_team;
-                        }
-                    }
+// Pour chaque joueur restant, trouver l'équipe avec le moins de joueurs et les ajouter à cette équipe
+for ($i = 0; $i < $players_count; $i += $team_size) {
+    $current_team = array_slice($players, $i, $team_size);
+
+    // Si une équipe a moins de deux joueurs, ajouter ces joueurs à l'équipe avec le moins de joueurs
+    if (count($current_team) < 2) {
+        $min_team_size = min(array_map('count', $teams));
+        $min_team_key = array_search($min_team_size, array_map('count', $teams));
+        foreach ($current_team as $player) {
+            $teams[$min_team_key][] = $player;
+        }
+    }
+}
+
 
                     // Mettre à jour les équipes dans la base de données
                     foreach ($teams as $team_number => $team_players) {
