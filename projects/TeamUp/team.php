@@ -146,25 +146,14 @@ foreach ($players_to_move as $player) {
         }
     }
     
-// Si aucune équipe n'a été trouvée pour le joueur, attribuer une équipe complète
-if (!$team_found) {
-    // Trouver la première équipe complète
-    foreach ($teams_to_fill as &$team_info) {
-        if ($team_info['players_count'] < $team_size) {
-            // Attribuer l'équipe au joueur
-            $query = "UPDATE players SET team = :team_number WHERE id = :player_id";
-            $stmt = $connexion->prepare($query);
-            $stmt->bindParam(':team_number', $team_info['team'], PDO::PARAM_INT);
-            $stmt->bindParam(':player_id', $player['id'], PDO::PARAM_INT);
-            $stmt->execute();
-
-            // Augmenter le compteur de joueurs de l'équipe
-            $team_info['players_count']++;
-            break; // Sortir de la boucle une fois que le joueur est déplacé
-        }
+    // Si aucune équipe n'a été trouvée pour le joueur, nous devons le retirer de l'équipe vide
+    if (!$team_found) {
+        $query = "UPDATE players SET team = NULL WHERE id = :player_id";
+        $stmt = $connexion->prepare($query);
+        $stmt->bindParam(':player_id', $player['id'], PDO::PARAM_INT);
+        $stmt->execute();
     }
 }
-
 
                 }
 
