@@ -132,6 +132,11 @@ $stmt->bindParam(':team_size', $team_size, PDO::PARAM_INT);
 $stmt->execute();
 $teams_to_fill = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+// Tri des équipes à remplir par nombre de joueurs, en ordre croissant
+usort($teams_to_fill, function($a, $b) {
+    return $a['players_count'] - $b['players_count'];
+});
+
 foreach ($players_to_move as $player) {
     foreach ($teams_to_fill as &$team_info) {
         if ($team_info['players_count'] < $team_size) {
@@ -145,9 +150,7 @@ foreach ($players_to_move as $player) {
             // Augmenter le compteur de joueurs de l'équipe
             $team_info['players_count']++;
 
-            // Retirer le joueur de l'équipe vide
-            $players_to_move = array_diff($players_to_move, [$player]);
-            break;
+            break; // Sortir de la boucle une fois que le joueur est déplacé
         }
     }
 }
