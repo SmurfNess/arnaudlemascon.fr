@@ -52,14 +52,14 @@ if (isset($_SESSION['user_type'])) {
                     $selected_classes = $_POST['selected_classes'] ?? [];
 
                     if (empty($selected_classes)) {
-                        $query = "SELECT name, class, team FROM players WHERE owner = :owner";
+                        $query = "SELECT id, name, class FROM players WHERE owner = :owner";
                         $stmt = $connexion->prepare($query);
                         $stmt->bindParam(':owner', $login_username);
                         $stmt->execute();
                         $players = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     } else {
                         $placeholders = implode(',', array_fill(0, count($selected_classes), '?'));
-                        $query = "SELECT name, class, team FROM players WHERE owner = ? AND class IN ($placeholders)";
+                        $query = "SELECT id, name, class FROM players WHERE owner = ? AND class IN ($placeholders)";
                         $stmt = $connexion->prepare($query);
                         $stmt->execute(array_merge([$login_username], $selected_classes));
                         $players = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -75,7 +75,7 @@ if (isset($_SESSION['user_type'])) {
 
                     for ($i = 0; $i < $players_count; $i += $team_size) {
                         $team = array_slice($players, $i, $team_size);
-                        
+
                         // Ajouter l'équipe au tableau des équipes
                         $teams[$team_number++] = $team;
                     }
@@ -92,26 +92,24 @@ if (isset($_SESSION['user_type'])) {
                     // Mettre à jour les équipes dans la base de données
                     foreach ($teams as $team_number => $team_players) {
                         foreach ($team_players as $player) {
-                            $query = "UPDATE players SET team = :team WHERE name = :name AND class = :class AND owner = :owner";
+                            $query = "UPDATE players SET team = :team WHERE id = :id";
                             $stmt = $connexion->prepare($query);
                             $stmt->bindParam(':team', $team_number);
-                            $stmt->bindParam(':name', $player['name']);
-                            $stmt->bindParam(':class', $player['class']);
-                            $stmt->bindParam(':owner', $login_username);
+                            $stmt->bindParam(':id', $player['id']);
                             $stmt->execute();
                         }
                     }
 
                     // Redistribution des joueurs des équipes sous-peuplées
                     // Récupérer les équipes avec un nombre de joueurs inférieur à la moitié de la taille d'équipe
-                    $query = "SELECT team, COUNT(*) AS players_count FROM players WHERE owner = :owner GROUP BY team HAVING players_count < :half_team_size";
+                    $query = "SELECT team FROM players WHERE owner = :owner GROUP BY team HAVING COUNT(*) < :half_team_size";
                     $stmt = $connexion->prepare($query);
                     $stmt->bindParam(':owner', $login_username);
                     $half_team_size = ceil($team_size / 2);
                     $stmt->bindParam(':half_team_size', $half_team_size, PDO::PARAM_INT);
                     $stmt->execute();
                     $teams_with_few_players = $stmt->fetchAll(PDO::FETCH_ASSOC);
-                    
+
                     // Récupérer les joueurs de ces équipes sous-peuplées
                     $players_to_move = [];
                     foreach ($teams_with_few_players as $team_info) {
@@ -123,38 +121,30 @@ if (isset($_SESSION['user_type'])) {
                         $stmt->execute();
                         $players_to_move = array_merge($players_to_move, $stmt->fetchAll(PDO::FETCH_ASSOC));
                     }
-                    
-// Redistribuer les joueurs dans des équipes non complètes
-foreach ($players_to_move as $player) {
-    // Rechercher une équipe non complète pour ce joueur
-    $team_found = false;
-    foreach ($teams_to_fill as &$team_info) {
-        if ($team_info['players_count'] < $team_size) {
-            // Déplacer le joueur dans l'équipe non vide
-            $query = "UPDATE players SET team = :team_number WHERE id = :player_id";
-            $stmt = $connexion->prepare($query);
-            $stmt->bindParam(':team_number', $team_info['team'], PDO::PARAM_INT);
-            $stmt->bindParam(':player_id', $player['id'], PDO::PARAM_INT);
-            $stmt->execute();
 
-            // Augmenter le compteur de joueurs de l'équipe
-            $team_info['players_count']++;
-            
-            // Marquer que l'équipe a été trouvée pour ce joueur
-            $team_found = true;
-            break; // Sortir de la boucle une fois que le joueur est déplacé
-        }
-    }
-    
-    // Si aucune équipe n'a été trouvée pour le joueur, nous devons le retirer de l'équipe vide
-    if (!$team_found) {
-        $query = "UPDATE players SET team = NULL WHERE id = :player_id";
-        $stmt = $connexion->prepare($query);
-        $stmt->bindParam(':player_id', $player['id'], PDO::PARAM_INT);
-        $stmt->execute();
-    }
-}
+                    // Redistribuer les joueurs dans des équipes non complètes
+                    foreach ($players_to_move as $player) {
+                        // Rechercher une équipe non complète pour ce joueur
+                        $team_found = false;
+                        foreach ($teams as &$team_players) {
+                            if (count($team_players) < $team_size) {
+                                // Déplacer le joueur dans l'équipe non vide
+                                $team_players[] = $player;
 
+                                // Marquer que l'équipe a été trouvée pour ce joueur
+                                $team_found = true;
+                                break; // Sortir de la boucle une fois que le joueur est déplacé
+                            }
+                        }
+
+                        // Si aucune équipe n'a été trouvée pour le joueur, nous devons le retirer de l'équipe vide
+                        if (!$team_found) {
+                            $query = "UPDATE players SET team = NULL WHERE id = :id";
+                            $stmt = $connexion->prepare($query);
+                            $stmt->bindParam(':id', $player['id']);
+                            $stmt->execute();
+                        }
+                    }
                 }
 
                 // Nouvelle requête pour récupérer tous les joueurs du propriétaire
