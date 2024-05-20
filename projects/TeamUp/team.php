@@ -116,7 +116,7 @@ if (isset($_SESSION['user_type'])) {
                     $players_to_move = [];
                     foreach ($teams_with_few_players as $team_info) {
                         $team_number = $team_info['team'];
-                        $query = "SELECT id, name, class FROM players WHERE owner = :owner AND team = :team_number";
+                        $query = "SELECT name, class FROM players WHERE owner = :owner AND team = :team_number";
                         $stmt = $connexion->prepare($query);
                         $stmt->bindParam(':owner', $login_username);
                         $stmt->bindParam(':team_number', $team_number, PDO::PARAM_INT);
