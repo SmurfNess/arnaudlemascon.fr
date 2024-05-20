@@ -102,7 +102,7 @@ if (isset($_SESSION['user_type'])) {
                         }
                     }
 
-                    <?php
+                    // Redistribution des joueurs des équipes sous-peuplées
                     // Récupérer les équipes avec un nombre de joueurs inférieur à la moitié de la taille d'équipe
                     $query = "SELECT team, COUNT(*) AS players_count FROM players WHERE owner = :owner GROUP BY team HAVING players_count < :half_team_size";
                     $stmt = $connexion->prepare($query);
@@ -146,22 +146,6 @@ if (isset($_SESSION['user_type'])) {
                             }
                         }
                     }
-                    ?>
-                    
-
-                    // Récupérer les joueurs pour affichage
-                    $query = "SELECT name, class, team FROM players WHERE owner = :owner ORDER BY team ASC";
-                    $stmt = $connexion->prepare($query);
-                    $stmt->bindParam(':owner', $login_username);
-                    $stmt->execute();
-                    $players = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-                    // Effectuer une requête pour compter le nombre de joueurs par équipe
-                    $query = "SELECT team, COUNT(*) AS population FROM players WHERE owner = :owner GROUP BY team ORDER BY team ASC";
-                    $stmt = $connexion->prepare($query);
-                    $stmt->bindParam(':owner', $login_username);
-                    $stmt->execute();
-                    $team_population = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 }
 
                 // Nouvelle requête pour récupérer tous les joueurs du propriétaire
@@ -253,34 +237,33 @@ if (isset($_SESSION['user_type'])) {
         <button type="submit">Ajouter</button>
     </form>
 
-<!-- Formulaire de génération des équipes -->
-<h2>Générer des équipes</h2>
-<form method="post">
-    <label for="team_size">Taille des équipes :</label>
-    <input type="number" id="team_size" name="team_size" required>
-    
-    <label for="selected_classes">Classes sélectionnées :</label>
-    <select id="selected_classes" name="selected_classes[]" multiple>
-        <!-- Ajouter des options de classes ici -->
-        <?php
-        // Générer dynamiquement les options des classes avec le nombre d'élèves par classe
-        $query = "SELECT class, COUNT(*) as student_count FROM players WHERE owner = :owner GROUP BY class ORDER BY class ASC";
-        $stmt = $connexion->prepare($query);
-        $stmt->bindParam(':owner', $login_username);
-        $stmt->execute();
-        $classes = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        foreach ($classes as $class) {
-            echo '<option value="' . htmlspecialchars($class['class']) . '">' . htmlspecialchars($class['class']) . ' (' . $class['student_count'] . ' élèves)</option>';
-        }
-        ?>
-    </select>
-    
-    <button type="submit" name="generate_teams">Générer les équipes</button>
-</form>
+    <!-- Formulaire de génération des équipes -->
+    <h2>Générer des équipes</h2>
+    <form method="post">
+        <label for="team_size">Taille des équipes :</label>
+        <input type="number" id="team_size" name="team_size" required>
+        
+        <label for="selected_classes">Classes sélectionnées :</label>
+        <select id="selected_classes" name="selected_classes[]" multiple>
+            <!-- Ajouter des options de classes ici -->
+            <?php
+            // Générer dynamiquement les options des classes avec le nombre d'élèves par classe
+            $query = "SELECT class, COUNT(*) as student_count FROM players WHERE owner = :owner GROUP BY class ORDER BY class ASC";
+            $stmt = $connexion->prepare($query);
+            $stmt->bindParam(':owner', $login_username);
+            $stmt->execute();
+            $classes = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            foreach ($classes as $class) {
+                echo '<option value="' . htmlspecialchars($class['class']) . '">' . htmlspecialchars($class['class']) . ' (' . $class['student_count'] . ' élèves)</option>';
+            }
+            ?>
+        </select>
+        
+        <button type="submit" name="generate_teams">Générer les équipes</button>
+    </form>
 
-
-        <!-- Affichage des équipes -->
-        <?php if (isset($teams)): ?>
+    <!-- Affichage des équipes -->
+    <?php if (isset($teams)): ?>
         <h2>Équipes générées</h2>
         <?php foreach ($teams as $team_number => $team_players): ?>
             <div class="team">
@@ -307,14 +290,7 @@ if (isset($_SESSION['user_type'])) {
         </thead>
         <tbody>
             <?php
-            // Nouvelle requête pour récupérer tous les joueurs du propriétaire
-            $query = "SELECT name, class, team FROM players WHERE owner = :owner ORDER BY team ASC";
-            $stmt = $connexion->prepare($query);
-            $stmt->bindParam(':owner', $login_username);
-            $stmt->execute();
-            $all_players = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-            foreach ($all_players as $player):
+            foreach ($players as $player):
             ?>
                 <tr>
                     <td><?php echo $player['name']; ?></td>
@@ -332,7 +308,6 @@ if (isset($_SESSION['user_type'])) {
             <?php endforeach; ?>
         </tbody>
     </table>
-
 </div>
 </body>
 </html>
