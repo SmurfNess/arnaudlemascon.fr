@@ -102,7 +102,8 @@ if (isset($_SESSION['user_type'])) {
                         }
                     }
 
-                    // Récupérer les équipes avec moins de joueurs que la moitié de la taille d'équipe
+                    <?php
+                    // Récupérer les équipes avec un nombre de joueurs inférieur à la moitié de la taille d'équipe
                     $query = "SELECT team, COUNT(*) AS players_count FROM players WHERE owner = :owner GROUP BY team HAVING players_count < :half_team_size";
                     $stmt = $connexion->prepare($query);
                     $stmt->bindParam(':owner', $login_username);
@@ -110,52 +111,43 @@ if (isset($_SESSION['user_type'])) {
                     $stmt->bindParam(':half_team_size', $half_team_size, PDO::PARAM_INT);
                     $stmt->execute();
                     $teams_with_few_players = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-                    // Récupérer les équipes avec un nombre de joueurs inférieur ou égal à la moitié de la taille d'équipe
-                    $query = "SELECT team, COUNT(*) AS players_count FROM players WHERE owner = :owner GROUP BY team HAVING players_count <= :half_team_size";
-                    $stmt = $connexion->prepare($query);
-                    $stmt->bindParam(':owner', $login_username);
-                    $stmt->bindParam(':half_team_size', $half_team_size, PDO::PARAM_INT);
-                    $stmt->execute();
-                    $teams_with_few_players = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-                    // Déplacer chaque joueur de ces équipes dans une équipe complète dans l'ordre croissant
+                    
+                    // Récupérer les joueurs de ces équipes sous-peuplées
+                    $players_to_move = [];
                     foreach ($teams_with_few_players as $team_info) {
                         $team_number = $team_info['team'];
-                        $players_to_move = $team_size - $team_info['players_count'];
-
-                        // Récupérer les joueurs à déplacer de cette équipe
-                        $query = "SELECT name, class FROM players WHERE owner = :owner AND team = :team_number ORDER BY class ASC LIMIT :players_to_move";
+                        $query = "SELECT id, name, class FROM players WHERE owner = :owner AND team = :team_number";
                         $stmt = $connexion->prepare($query);
                         $stmt->bindParam(':owner', $login_username);
                         $stmt->bindParam(':team_number', $team_number, PDO::PARAM_INT);
-                        $stmt->bindParam(':players_to_move', $players_to_move, PDO::PARAM_INT);
                         $stmt->execute();
-                        $players_to_move = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-                        // Trouver l'équipe disponible suivante
-                        $next_team_number = $team_number + 1;
-                        if ($next_team_number > count($teams)) {
-                            $next_team_number = 1;
-                        }
-
-                        // Déplacer les joueurs dans l'équipe suivante
-                        foreach ($players_to_move as $player) {
-                            $query = "UPDATE players SET team = :next_team_number WHERE name = :name AND class = :class AND owner = :owner";
-                            $stmt = $connexion->prepare($query);
-                            $stmt->bindParam(':next_team_number', $next_team_number, PDO::PARAM_INT);
-                            $stmt->bindParam(':name', $player['name']);
-                            $stmt->bindParam(':class', $player['class']);
-                            $stmt->bindParam(':owner', $login_username);
-                            $stmt->execute();
-
-                            // Mettre à jour l'équipe suivante pour le prochain joueur
-                            $next_team_number++;
-                            if ($next_team_number > count($teams)) {
-                                $next_team_number = 1;
+                        $players_to_move = array_merge($players_to_move, $stmt->fetchAll(PDO::FETCH_ASSOC));
+                    }
+                    
+                    // Redistribuer les joueurs dans des équipes non complètes
+                    $query = "SELECT team, COUNT(*) AS players_count FROM players WHERE owner = :owner GROUP BY team HAVING players_count < :team_size ORDER BY players_count ASC";
+                    $stmt = $connexion->prepare($query);
+                    $stmt->bindParam(':owner', $login_username);
+                    $stmt->bindParam(':team_size', $team_size, PDO::PARAM_INT);
+                    $stmt->execute();
+                    $teams_to_fill = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    
+                    foreach ($players_to_move as $player) {
+                        foreach ($teams_to_fill as &$team_info) {
+                            if ($team_info['players_count'] < $team_size) {
+                                $query = "UPDATE players SET team = :team_number WHERE id = :player_id";
+                                $stmt = $connexion->prepare($query);
+                                $stmt->bindParam(':team_number', $team_info['team'], PDO::PARAM_INT);
+                                $stmt->bindParam(':player_id', $player['id'], PDO::PARAM_INT);
+                                $stmt->execute();
+                                
+                                $team_info['players_count']++;
+                                break;
                             }
                         }
                     }
+                    ?>
+                    
 
                     // Récupérer les joueurs pour affichage
                     $query = "SELECT name, class, team FROM players WHERE owner = :owner ORDER BY team ASC";
