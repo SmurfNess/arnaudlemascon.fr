@@ -340,20 +340,6 @@ if (isset($_SESSION['user_type'])) {
         </tbody>
     </table>
 
-    <!-- Affichage des équipes -->
-    <?php if (isset($teams)): ?>
-        <h2>Équipes générées</h2>
-        <?php foreach ($teams as $team_number => $team_players): ?>
-            <div class="team">
-                <div class="team-title">Équipe <?php echo $team_number; ?></div>
-                <ul class="player-list">
-                    <?php foreach ($team_players as $player): ?>
-                        <li><?php echo htmlspecialchars($player['name']); ?> (Classe : <?php echo htmlspecialchars($player['class']); ?>)</li>
-                    <?php endforeach; ?>
-                </ul>
-            </div>
-        <?php endforeach; ?>
-    <?php endif; ?>
 </div>
 </body>
 </html>
