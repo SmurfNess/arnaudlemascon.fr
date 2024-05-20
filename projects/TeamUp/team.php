@@ -3,6 +3,10 @@ session_start();
 
 require_once 'config.php';
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 if (isset($_SESSION['user_type'])) {
     $user_type = $_SESSION['user_type'];
 
@@ -172,12 +176,11 @@ if (isset($_SESSION['user_type'])) {
                 </form>
             </section>
         </div>
-        
         <div class="col-8 col-sm-4 m-2 d-flex justify-content-center">
             <section>
-                <h4>Générer les équipes</h4>
+                <h4>Générer des équipes</h4>
                 <form method="post" action="team.php">
-                    <label for="team_size">Taille de l'équipe :</label>
+                    <label for="team_size">Nombre de joueurs par équipe :</label>
                     <input type="number" id="team_size" name="team_size" value="2" min="2"><br><br>
 
                     <label for="selected_classes">Classes de joueurs à inclure :</label>
