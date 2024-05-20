@@ -146,14 +146,25 @@ foreach ($players_to_move as $player) {
         }
     }
     
-    // Si aucune équipe n'a été trouvée pour le joueur, nous devons le retirer de l'équipe vide
-    if (!$team_found) {
-        $query = "UPDATE players SET team = 1 WHERE id = :player_id";
-        $stmt = $connexion->prepare($query);
-        $stmt->bindParam(':player_id', $player['id'], PDO::PARAM_INT);
-        $stmt->execute();
+// Si aucune équipe n'a été trouvée pour le joueur, attribuer une équipe complète
+if (!$team_found) {
+    // Trouver la première équipe complète
+    foreach ($teams_to_fill as &$team_info) {
+        if ($team_info['players_count'] < $team_size) {
+            // Attribuer l'équipe au joueur
+            $query = "UPDATE players SET team = :team_number WHERE id = :player_id";
+            $stmt = $connexion->prepare($query);
+            $stmt->bindParam(':team_number', $team_info['team'], PDO::PARAM_INT);
+            $stmt->bindParam(':player_id', $player['id'], PDO::PARAM_INT);
+            $stmt->execute();
+
+            // Augmenter le compteur de joueurs de l'équipe
+            $team_info['players_count']++;
+            break; // Sortir de la boucle une fois que le joueur est déplacé
+        }
     }
 }
+
 
                 }
 
@@ -271,20 +282,30 @@ foreach ($players_to_move as $player) {
         <button type="submit" name="generate_teams">Générer les équipes</button>
     </form>
 
-    <!-- Affichage des équipes -->
-    <?php if (isset($teams)): ?>
-        <h2>Équipes générées</h2>
-        <?php foreach ($teams as $team_number => $team_players): ?>
-            <div class="team">
-                <div class="team-title">Équipe <?php echo $team_number; ?></div>
-                <ul class="player-list">
-                    <?php foreach ($team_players as $player): ?>
-                        <li><?php echo htmlspecialchars($player['name']); ?> (Classe : <?php echo htmlspecialchars($player['class']); ?>)</li>
-                    <?php endforeach; ?>
-                </ul>
-            </div>
-        <?php endforeach; ?>
-    <?php endif; ?>
+    // Affichage des équipes
+<?php if (isset($team_population)): ?>
+    <h2>Équipes générées</h2>
+    <?php foreach ($team_population as $team_info): ?>
+        <div class="team">
+            <div class="team-title">Équipe <?php echo $team_info['team']; ?></div>
+            <ul class="player-list">
+                <?php
+                // Récupérer les joueurs de cette équipe
+                $query = "SELECT name, class FROM players WHERE owner = :owner AND team = :team_number ORDER BY name ASC";
+                $stmt = $connexion->prepare($query);
+                $stmt->bindParam(':owner', $login_username);
+                $stmt->bindParam(':team_number', $team_info['team']);
+                $stmt->execute();
+                $team_players = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+                foreach ($team_players as $player): ?>
+                    <li><?php echo htmlspecialchars($player['name']); ?> (Classe : <?php echo htmlspecialchars($player['class']); ?>)</li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    <?php endforeach; ?>
+<?php endif; ?>
+
 
     <!-- Affichage des joueurs -->
     <h2>Liste complète des joueurs</h2>
