@@ -42,6 +42,12 @@ if (isset($_SESSION['user_type'])) {
 
                 // Génération des équipes en fonction des classes sélectionnées
                 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['generate_teams']) && isset($_POST['team_size'])) {
+                    // Mettre à NULL la colonne team pour chaque ligne
+                    $query = "UPDATE players SET team = NULL WHERE owner = :owner";
+                    $stmt = $connexion->prepare($query);
+                    $stmt->bindParam(':owner', $login_username);
+                    $stmt->execute();
+
                     $team_size = max(2, (int)$_POST['team_size']);
                     $selected_classes = $_POST['selected_classes'] ?? [];
 
@@ -289,6 +295,7 @@ $players = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </thead>
         <tbody>
             <?php
+
             // Afficher les résultats
             foreach ($team_population as $team_data) {
                 echo "<tr><td>{$team_data['team']}</td><td>{$team_data['population']}</td></tr>";
