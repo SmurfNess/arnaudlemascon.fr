@@ -100,51 +100,49 @@ if (isset($_SESSION['user_type'])) {
                         }
                     }
 
-                    // Redistribution des joueurs des équipes sous-peuplées
-                    // Récupérer les équipes avec un nombre de joueurs inférieur à la moitié de la taille d'équipe
-                    $query = "SELECT team FROM players WHERE owner = :owner GROUP BY team HAVING COUNT(*) < :half_team_size";
-                    $stmt = $connexion->prepare($query);
-                    $stmt->bindParam(':owner', $login_username);
-                    $half_team_size = ceil($team_size / 2);
-                    $stmt->bindParam(':half_team_size', $half_team_size, PDO::PARAM_INT);
-                    $stmt->execute();
-                    $teams_with_few_players = $stmt->fetchAll(PDO::FETCH_ASSOC);
+// Redistribution des joueurs des équipes sous-peuplées
+// Récupérer les équipes avec un nombre de joueurs inférieur à la moitié de la taille d'équipe
+$query = "SELECT team, COUNT(*) AS players_count FROM players WHERE owner = :owner GROUP BY team HAVING players_count < :half_team_size";
+$stmt = $connexion->prepare($query);
+$stmt->bindParam(':owner', $login_username);
+$half_team_size = ceil($team_size / 2);
+$stmt->bindParam(':half_team_size', $half_team_size, PDO::PARAM_INT);
+$stmt->execute();
+$teams_with_few_players = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-                    // Récupérer les joueurs de ces équipes sous-peuplées
-                    $players_to_move = [];
-                    foreach ($teams_with_few_players as $team_info) {
-                        $team_number = $team_info['team'];
-                        $query = "SELECT id, name, class FROM players WHERE owner = :owner AND team = :team_number";
-                        $stmt = $connexion->prepare($query);
-                        $stmt->bindParam(':owner', $login_username);
-                        $stmt->bindParam(':team_number', $team_number, PDO::PARAM_INT);
-                        $stmt->execute();
-                        $players_to_move = array_merge($players_to_move, $stmt->fetchAll(PDO::FETCH_ASSOC));
-                    }
+// Trier les équipes sous-peuplées par nombre de joueurs décroissant
+usort($teams_with_few_players, function($a, $b) {
+    return $b['players_count'] - $a['players_count'];
+});
 
-                    // Redistribuer les joueurs dans des équipes non complètes
-                    foreach ($players_to_move as $player) {
-                        // Rechercher une équipe non complète pour ce joueur
-                        $team_found = false;
-                        foreach ($teams as &$team_players) {
-                            if (count($team_players) < $team_size) {
-                                // Déplacer le joueur dans l'équipe non vide
-                                $team_players[] = $player;
+// Redistribuer les joueurs des équipes sous-peuplées
+foreach ($teams_with_few_players as $team_info) {
+    $team_number = $team_info['team'];
+    $query = "SELECT id, name, class FROM players WHERE owner = :owner AND team = :team_number";
+    $stmt = $connexion->prepare($query);
+    $stmt->bindParam(':owner', $login_username);
+    $stmt->bindParam(':team_number', $team_number, PDO::PARAM_INT);
+    $stmt->execute();
+    $players_to_move = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-                                // Marquer que l'équipe a été trouvée pour ce joueur
-                                $team_found = true;
-                                break; // Sortir de la boucle une fois que le joueur est déplacé
-                            }
-                        }
+    // Redistribuer les joueurs aux équipes moins peuplées
+    foreach ($players_to_move as $player) {
+        // Trouver l'équipe avec le moins de joueurs
+        $min_team = min(array_column($teams_with_few_players, 'players_count'));
+        $target_team = array_search($min_team, array_column($teams_with_few_players, 'players_count'));
 
-                        // Si aucune équipe n'a été trouvée pour le joueur, nous devons le retirer de l'équipe vide
-                        if (!$team_found) {
-                            $query = "UPDATE players SET team = NULL WHERE id = :id";
-                            $stmt = $connexion->prepare($query);
-                            $stmt->bindParam(':id', $player['id']);
-                            $stmt->execute();
-                        }
-                    }
+        // Déplacer le joueur vers l'équipe cible
+        $query = "UPDATE players SET team = :target_team WHERE id = :player_id";
+        $stmt = $connexion->prepare($query);
+        $stmt->bindParam(':target_team', $target_team, PDO::PARAM_INT);
+        $stmt->bindParam(':player_id', $player['id'], PDO::PARAM_INT);
+        $stmt->execute();
+
+        // Mettre à jour le compteur de joueurs dans l'équipe cible
+        $teams_with_few_players[$target_team]['players_count']++;
+    }
+}
+
                 }
 
                 // Nouvelle requête pour récupérer tous les joueurs du propriétaire
