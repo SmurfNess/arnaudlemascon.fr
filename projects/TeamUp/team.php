@@ -132,7 +132,7 @@ foreach ($teams_with_few_players as $team_info) {
         $target_team = array_search($min_team, array_column($teams_with_few_players, 'players_count'));
 
         // Déplacer le joueur vers l'équipe cible
-        $query = "UPDATE players SET team = '1' :target_team WHERE id = :player_id";
+        $query = "UPDATE players SET team = 1 :target_team WHERE id = :player_id";
         $stmt = $connexion->prepare($query);
         $stmt->bindParam(':target_team', $target_team, PDO::PARAM_INT);
         $stmt->bindParam(':player_id', $player['id'], PDO::PARAM_INT);
