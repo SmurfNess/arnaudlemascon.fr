@@ -148,7 +148,7 @@ foreach ($players_to_move as $player) {
     
     // Si aucune équipe n'a été trouvée pour le joueur, nous devons le retirer de l'équipe vide
     if (!$team_found) {
-        $query = "UPDATE players SET team = $team_number WHERE id = :player_id";
+        $query = "UPDATE players SET team = 1 WHERE id = :player_id";
         $stmt = $connexion->prepare($query);
         $stmt->bindParam(':player_id', $player['id'], PDO::PARAM_INT);
         $stmt->execute();
