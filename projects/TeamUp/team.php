@@ -261,18 +261,6 @@ if (isset($_SESSION['user_type'])) {
         <button type="submit">Ajouter</button>
     </form>
 
-    <!-- Formulaire de suppression de joueur -->
-    <h2>Supprimer un joueur</h2>
-    <form method="post">
-        <label for="player_name">Nom du joueur :</label>
-        <input type="text" id="player_name" name="player_name" required>
-        
-        <label for="player_class">Classe :</label>
-        <input type="text" id="player_class" name="player_class" required>
-        
-        <button type="submit" name="delete_player">Supprimer</button>
-    </form>
-
     <!-- Formulaire de génération des équipes -->
     <h2>Générer des équipes</h2>
     <form method="post">
@@ -299,12 +287,43 @@ if (isset($_SESSION['user_type'])) {
     </form>
 
     <!-- Affichage des joueurs -->
-    <h2>Liste des joueurs</h2>
-    <ul>
-        <?php foreach ($players as $player): ?>
-            <li><?php echo htmlspecialchars($player['name']); ?> (Classe : <?php echo htmlspecialchars($player['class']); ?>, Équipe : <?php echo htmlspecialchars($player['team']); ?>)</li>
-        <?php endforeach; ?>
-    </ul>
+    <h2>Liste complète des joueurs</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Classe</th>
+                <th>Équipe</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            // Nouvelle requête pour récupérer tous les joueurs du propriétaire
+            $query = "SELECT name, class, team FROM players WHERE owner = :owner ORDER BY team ASC";
+            $stmt = $connexion->prepare($query);
+            $stmt->bindParam(':owner', $login_username);
+            $stmt->execute();
+            $all_players = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            foreach ($all_players as $player):
+            ?>
+                <tr>
+                    <td><?php echo $player['name']; ?></td>
+                    <td><?php echo $player['class']; ?></td>
+                    <td><?php echo isset($player['team']) ? $player['team'] : ''; ?></td>
+                    <td>
+                        <form method="post" action="team.php" style="display:inline;">
+                            <input type="hidden" name="delete_player" value="true">
+                            <input type="hidden" name="player_name" value="<?php echo $player['name']; ?>">
+                            <input type="hidden" name="player_class" value="<?php echo $player['class']; ?>">
+                            <input type="submit" value="Supprimer">
+                        </form>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
 
     <!-- Affichage des équipes -->
     <?php if (isset($teams)): ?>
