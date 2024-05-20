@@ -125,22 +125,26 @@ foreach ($teams_with_few_players as $team_info) {
     $stmt->execute();
     $players_to_move = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    // Redistribuer les joueurs aux équipes moins peuplées
-    foreach ($players_to_move as $player) {
-        // Trouver l'équipe avec le moins de joueurs
-        $min_team = min(array_column($teams_with_few_players, 'players_count'));
-        $target_team = array_search($min_team, array_column($teams_with_few_players, 'players_count'));
+// Redistribuer les joueurs aux équipes moins peuplées
+foreach ($players_to_move as $player) {
+    // Trouver l'équipe avec le moins de joueurs
+    $min_team = min(array_column($teams_with_few_players, 'players_count'));
+    $target_team = array_search($min_team, array_column($teams_with_few_players, 'players_count'));
 
-        // Déplacer le joueur vers l'équipe cible
-        $query = "UPDATE players SET team = :target_team WHERE id = :player_id";
-        $stmt = $connexion->prepare($query);
-        $stmt->bindParam(':target_team', $target_team, PDO::PARAM_INT);
-        $stmt->bindParam(':player_id', $player['id'], PDO::PARAM_INT);
-        $stmt->execute();
+    // Ajuster le numéro de l'équipe cible pour commencer à partir de 1
+    $target_team += 1;
 
-        // Mettre à jour le compteur de joueurs dans l'équipe cible
-        $teams_with_few_players[$target_team]['players_count']++;
-    }
+    // Déplacer le joueur vers l'équipe cible
+    $query = "UPDATE players SET team = :target_team WHERE id = :player_id";    
+    $stmt = $connexion->prepare($query);
+    $stmt->bindParam(':target_team', $target_team, PDO::PARAM_INT);
+    $stmt->bindParam(':player_id', $player['id'], PDO::PARAM_INT);
+    $stmt->execute();
+
+    // Mettre à jour le compteur de joueurs dans l'équipe cible
+    $teams_with_few_players[$target_team]['players_count']++;
+}
+
 }
 
                 }
