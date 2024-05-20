@@ -263,20 +263,37 @@ foreach ($players_to_move as $player) {
         <button type="submit" name="generate_teams">Générer les équipes</button>
     </form>
 
-    <!-- Affichage des équipes -->
-    <?php if (isset($teams)): ?>
-        <h2>Équipes générées</h2>
-        <?php foreach ($teams as $team_number => $team_players): ?>
-            <div class="team">
-                <div class="team-title">Équipe <?php echo $team_number; ?></div>
-                <ul class="player-list">
-                    <?php foreach ($team_players as $player): ?>
-                        <li><?php echo htmlspecialchars($player['name']); ?> (Classe : <?php echo htmlspecialchars($player['class']); ?>)</li>
-                    <?php endforeach; ?>
-                </ul>
-            </div>
-        <?php endforeach; ?>
-    <?php endif; ?>
+<!-- Affichage des équipes -->
+<?php
+// Récupérer les équipes de la base de données
+$query = "SELECT DISTINCT team FROM players WHERE owner = :owner ORDER BY team ASC";
+$stmt = $connexion->prepare($query);
+$stmt->bindParam(':owner', $login_username);
+$stmt->execute();
+$team_numbers = $stmt->fetchAll(PDO::FETCH_COLUMN);
+
+// Afficher les équipes
+foreach ($team_numbers as $team_number) {
+    $query = "SELECT name, class FROM players WHERE owner = :owner AND team = :team ORDER BY name ASC";
+    $stmt = $connexion->prepare($query);
+    $stmt->bindParam(':owner', $login_username);
+    $stmt->bindParam(':team', $team_number);
+    $stmt->execute();
+    $team_players = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    if (!empty($team_players)) {
+        echo '<div class="team">';
+        echo '<div class="team-title">Équipe ' . $team_number . '</div>';
+        echo '<ul class="player-list">';
+        foreach ($team_players as $player) {
+            echo '<li>' . htmlspecialchars($player['name']) . ' (Classe : ' . htmlspecialchars($player['class']) . ')</li>';
+        }
+        echo '</ul>';
+        echo '</div>';
+    }
+}
+?>
+
 
     <!-- Affichage des joueurs -->
     <h2>Liste complète des joueurs</h2>
