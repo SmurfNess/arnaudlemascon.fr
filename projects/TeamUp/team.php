@@ -3,10 +3,6 @@ session_start();
 
 require_once 'config.php';
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
 if (isset($_SESSION['user_type'])) {
     $user_type = $_SESSION['user_type'];
 
@@ -46,7 +42,7 @@ if (isset($_SESSION['user_type'])) {
 
                 // Génération des équipes en fonction des classes sélectionnées
                 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['generate_teams']) && isset($_POST['team_size'])) {
-                    // Réinitialiser les équipes à NULL
+                    // Mettre à NULL la colonne team pour chaque ligne
                     $query = "UPDATE players SET team = NULL WHERE owner = :owner";
                     $stmt = $connexion->prepare($query);
                     $stmt->bindParam(':owner', $login_username);
@@ -76,14 +72,14 @@ if (isset($_SESSION['user_type'])) {
                     $teams = [];
                     $team_number = 1;
                     $players_count = count($players);
-                    
+
                     for ($i = 0; $i < $players_count; $i += $team_size) {
                         $team = array_slice($players, $i, $team_size);
                         
                         // Ajouter l'équipe au tableau des équipes
                         $teams[$team_number++] = $team;
                     }
-                    
+
                     // Ajouter les joueurs restants aux équipes déjà complètes
                     $remaining_players = $players_count % $team_size;
                     if ($remaining_players > 0 && $remaining_players < $team_size / 2) {
@@ -106,7 +102,62 @@ if (isset($_SESSION['user_type'])) {
                         }
                     }
 
-                    // Requête pour récupérer les joueurs après génération des équipes
+                    // Récupérer les équipes avec moins de joueurs que la moitié de la taille d'équipe
+                    $query = "SELECT team, COUNT(*) AS players_count FROM players WHERE owner = :owner GROUP BY team HAVING players_count < :half_team_size";
+                    $stmt = $connexion->prepare($query);
+                    $stmt->bindParam(':owner', $login_username);
+                    $half_team_size = ceil($team_size / 2);
+                    $stmt->bindParam(':half_team_size', $half_team_size, PDO::PARAM_INT);
+                    $stmt->execute();
+                    $teams_with_few_players = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+                    // Récupérer les équipes avec un nombre de joueurs inférieur ou égal à la moitié de la taille d'équipe
+                    $query = "SELECT team, COUNT(*) AS players_count FROM players WHERE owner = :owner GROUP BY team HAVING players_count <= :half_team_size";
+                    $stmt = $connexion->prepare($query);
+                    $stmt->bindParam(':owner', $login_username);
+                    $stmt->bindParam(':half_team_size', $half_team_size, PDO::PARAM_INT);
+                    $stmt->execute();
+                    $teams_with_few_players = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+                    // Déplacer chaque joueur de ces équipes dans une équipe complète dans l'ordre croissant
+                    foreach ($teams_with_few_players as $team_info) {
+                        $team_number = $team_info['team'];
+                        $players_to_move = $team_size - $team_info['players_count'];
+
+                        // Récupérer les joueurs à déplacer de cette équipe
+                        $query = "SELECT name, class FROM players WHERE owner = :owner AND team = :team_number ORDER BY class ASC LIMIT :players_to_move";
+                        $stmt = $connexion->prepare($query);
+                        $stmt->bindParam(':owner', $login_username);
+                        $stmt->bindParam(':team_number', $team_number, PDO::PARAM_INT);
+                        $stmt->bindParam(':players_to_move', $players_to_move, PDO::PARAM_INT);
+                        $stmt->execute();
+                        $players_to_move = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+                        // Trouver l'équipe disponible suivante
+                        $next_team_number = $team_number + 1;
+                        if ($next_team_number > count($teams)) {
+                            $next_team_number = 1;
+                        }
+
+                        // Déplacer les joueurs dans l'équipe suivante
+                        foreach ($players_to_move as $player) {
+                            $query = "UPDATE players SET team = :next_team_number WHERE name = :name AND class = :class AND owner = :owner";
+                            $stmt = $connexion->prepare($query);
+                            $stmt->bindParam(':next_team_number', $next_team_number, PDO::PARAM_INT);
+                            $stmt->bindParam(':name', $player['name']);
+                            $stmt->bindParam(':class', $player['class']);
+                            $stmt->bindParam(':owner', $login_username);
+                            $stmt->execute();
+
+                            // Mettre à jour l'équipe suivante pour le prochain joueur
+                            $next_team_number++;
+                            if ($next_team_number > count($teams)) {
+                                $next_team_number = 1;
+                            }
+                        }
+                    }
+
+                    // Récupérer les joueurs pour affichage
                     $query = "SELECT name, class, team FROM players WHERE owner = :owner ORDER BY team ASC";
                     $stmt = $connexion->prepare($query);
                     $stmt->bindParam(':owner', $login_username);
@@ -119,156 +170,156 @@ if (isset($_SESSION['user_type'])) {
                     $stmt->bindParam(':owner', $login_username);
                     $stmt->execute();
                     $team_population = $stmt->fetchAll(PDO::FETCH_ASSOC);
-                } else {
-                    // Requête pour récupérer les joueurs
-                    $query = "SELECT name, class, team FROM players WHERE owner = :owner ORDER BY name ASC";
-                    $stmt = $connexion->prepare($query);
-                    $stmt->bindParam(':owner', $login_username);
-                    $stmt->execute();
-                    $players = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 }
 
                 // Nouvelle requête pour récupérer tous les joueurs du propriétaire
-                $query = "SELECT name, class, team FROM players WHERE owner = :owner ORDER BY class ASC;";
+                $query = "SELECT name, class, team FROM players WHERE owner = :owner ORDER BY name ASC";
                 $stmt = $connexion->prepare($query);
                 $stmt->bindParam(':owner', $login_username);
                 $stmt->execute();
-                $all_players = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-                // Récupérer les classes distinctes des joueurs
-                $query = "SELECT DISTINCT class FROM players WHERE owner = :owner";
-                $stmt = $connexion->prepare($query);
-                $stmt->bindParam(':owner', $login_username);
-                $stmt->execute();
-                $classes = $stmt->fetchAll(PDO::FETCH_COLUMN);
+                $players = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
             } catch (PDOException $e) {
-                echo "Erreur de connexion : " . $e->getMessage();
+                die("Erreur de connexion : " . $e->getMessage());
             }
-?>
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TeamUp</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css" type="text/css" />
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</head>
-<body>
-    <h2 style="text-align: center;">Gestion des joueurs et des équipes</h2>
-    <div class="row justify-content-center">
-        <div class="col-8 col-sm-4 m-2 d-flex justify-content-center">
-            <section>
-                <h4>Ajouter un joueur</h4>
-                <form method="post" action="team.php">
-                    <label for="name">Nom :</label>
-                    <input type="text" id="name" name="name" required><br><br>
-                                    
-                    <label for="class">Classe :</label>
-                    <input type="text" id="class" name="class" required><br><br>
-                    
-                    <input type="submit" value="Ajouter">
-                </form>
-            </section>
-        </div>
-        <div class="col-8 col-sm-4 m-2 d-flex justify-content-center">
-            <section>
-                <h4>Générer des équipes</h4>
-                <form method="post" action="team.php">
-                    <label for="team_size">Nombre de joueurs par équipe :</label>
-                    <input type="number" id="team_size" name="team_size" value="2" min="2"><br><br>
-
-                    <label for="selected_classes">Classes de joueurs à inclure :</label>
-                    <select id="selected_classes" name="selected_classes[]" multiple>
-                        <?php foreach ($classes as $class): ?>
-                            <option value="<?= htmlspecialchars($class) ?>"><?= htmlspecialchars($class) ?></option>
-                        <?php endforeach; ?>
-                    </select><br><br>
-
-                    <input type="submit" name="generate_teams" value="Générer">
-                </form>
-            </section>
-        </div>
-    </div>
-    
-    <div class="row justify-content-center">
-        <div class="col-12 col-sm-8 m-2 d-flex justify-content-center">
-            <section>
-                <h3>Liste des joueurs</h3>
-                <?php if (isset($players) && count($players) > 0): ?>
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr>
-                                <th>Nom</th>
-                                <th>Classe</th>
-                                <th>Équipe</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php foreach ($players as $player): ?>
-                                <tr>
-                                    <td><?= htmlspecialchars($player['name']) ?></td>
-                                    <td><?= htmlspecialchars($player['class']) ?></td>
-                                    <td><?= htmlspecialchars($player['team']) ?></td>
-                                    <td>
-                                        <form method="post" action="team.php" style="display:inline;">
-                                            <input type="hidden" name="player_name" value="<?= htmlspecialchars($player['name']) ?>">
-                                            <input type="hidden" name="player_class" value="<?= htmlspecialchars($player['class']) ?>">
-                                            <input type="submit" name="delete_player" value="Supprimer" class="btn btn-danger btn-sm">
-                                        </form>
-                                    </td>
-                                </tr>
-                            <?php endforeach; ?>
-                        </tbody>
-                    </table>
-                <?php else: ?>
-                    <p>Aucun joueur trouvé.</p>
-                <?php endif; ?>
-            </section>
-        </div>
-    </div>
-    
-    <?php if (isset($teams) && count($teams) > 0): ?>
-        <div class="row justify-content-center">
-            <div class="col-12 col-sm-8 m-2 d-flex justify-content-center">
-                <section>
-                    <h3>Équipes générées</h3>
-                    <div class="list-group">
-                        <?php foreach ($teams as $team_number => $team): ?>
-                            <div class="list-group-item">
-                                <h4>Équipe <?= $team_number ?></h4>
-                                <ul>
-                                    <?php foreach ($team as $player): ?>
-                                        <li><?= htmlspecialchars($player['name']) ?> (<?= htmlspecialchars($player['class']) ?>)</li>
-                                    <?php endforeach; ?>
-                                </ul>
-                            </div>
-                        <?php endforeach; ?>
-                    </div>
-                </section>
-            </div>
-        </div>
-    <?php endif; ?>
-</body>
-</html>
-<?php
-            } catch (PDOException $e) {
-                echo "Erreur de connexion : " . $e->getMessage();
-            }
-        } else {
-            echo "Erreur : le nom d'utilisateur n'est pas défini.";
         }
-    } else {
-        echo "Erreur : le type d'utilisateur n'est pas défini.";
     }
-} else {
-    header('Location: index.html');
-    exit;
 }
 ?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Gestion des équipes</title>
+    <style>
+        /* Styles CSS pour la présentation */
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"], select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .team {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+        .team-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .player-list {
+            list-style: none;
+            padding: 0;
+        }
+        .player-list li {
+            padding: 5px 0;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Gestion des équipes</h1>
+
+    <!-- Formulaire d'ajout de joueur -->
+    <h2>Ajouter un joueur</h2>
+    <form method="post">
+        <label for="name">Nom du joueur :</label>
+        <input type="text" id="name" name="name" required>
+        
+        <label for="class">Classe :</label>
+        <input type="text" id="class" name="class" required>
+        
+        <button type="submit">Ajouter</button>
+    </form>
+
+    <!-- Formulaire de suppression de joueur -->
+    <h2>Supprimer un joueur</h2>
+    <form method="post">
+        <label for="player_name">Nom du joueur :</label>
+        <input type="text" id="player_name" name="player_name" required>
+        
+        <label for="player_class">Classe :</label>
+        <input type="text" id="player_class" name="player_class" required>
+        
+        <button type="submit" name="delete_player">Supprimer</button>
+    </form>
+
+    <!-- Formulaire de génération des équipes -->
+    <h2>Générer des équipes</h2>
+    <form method="post">
+        <label for="team_size">Taille des équipes :</label>
+        <input type="number" id="team_size" name="team_size" required>
+        
+        <label for="selected_classes">Classes sélectionnées :</label>
+        <select id="selected_classes" name="selected_classes[]" multiple>
+            <!-- Ajouter des options de classes ici -->
+            <?php
+            // Générer dynamiquement les options des classes
+            $query = "SELECT DISTINCT class FROM players WHERE owner = :owner ORDER BY class ASC";
+            $stmt = $connexion->prepare($query);
+            $stmt->bindParam(':owner', $login_username);
+            $stmt->execute();
+            $classes = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            foreach ($classes as $class) {
+                echo '<option value="' . htmlspecialchars($class['class']) . '">' . htmlspecialchars($class['class']) . '</option>';
+            }
+            ?>
+        </select>
+        
+        <button type="submit" name="generate_teams">Générer les équipes</button>
+    </form>
+
+    <!-- Affichage des joueurs -->
+    <h2>Liste des joueurs</h2>
+    <ul>
+        <?php foreach ($players as $player): ?>
+            <li><?php echo htmlspecialchars($player['name']); ?> (Classe : <?php echo htmlspecialchars($player['class']); ?>, Équipe : <?php echo htmlspecialchars($player['team']); ?>)</li>
+        <?php endforeach; ?>
+    </ul>
+
+    <!-- Affichage des équipes -->
+    <?php if (isset($teams)): ?>
+        <h2>Équipes générées</h2>
+        <?php foreach ($teams as $team_number => $team_players): ?>
+            <div class="team">
+                <div class="team-title">Équipe <?php echo $team_number; ?></div>
+                <ul class="player-list">
+                    <?php foreach ($team_players as $player): ?>
+                        <li><?php echo htmlspecialchars($player['name']); ?> (Classe : <?php echo htmlspecialchars($player['class']); ?>)</li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
+        <?php endforeach; ?>
+    <?php endif; ?>
+</div>
+</body>
+</html>
