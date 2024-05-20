@@ -220,6 +220,35 @@ foreach ($players_to_move as $player) {
         .player-list li {
             padding: 5px 0;
         }
+
+        .team-1,.team-7,.team-13 {
+    background-color: #9999ff;
+    color: black;
+}
+
+.team-2,.team-8,.team-14 {
+    background-color: #7C9ACC;
+    color: black;
+}
+
+.team-3,.team-9,.team-15 {
+    background-color: #90B7CF;
+    color: black;
+}
+.team-4,.team-10,.team-16 {
+    background-color: #B3DDCD;
+    color: black;
+}
+
+.team-5,.team-11,.team-17 {
+    background-color: #D0E7DA;
+    color: black;
+}
+
+.team-6,.team-12,.team-18 {
+    background-color: #E8BED3;
+    color: black;
+}
     </style>
 </head>
 <body>
@@ -282,7 +311,7 @@ foreach ($team_numbers as $team_number) {
     $team_players = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     if (!empty($team_players)) {
-        echo '<div class="team">';
+        echo '<div class="team team-' . $team_number . '">';
         echo '<div class="team-title">Équipe ' . $team_number . '</div>';
         echo '<ul class="player-list">';
         foreach ($team_players as $player) {
@@ -291,6 +320,7 @@ foreach ($team_numbers as $team_number) {
         echo '</ul>';
         echo '</div>';
     }
+    
 }
 ?>
 
