@@ -110,6 +110,23 @@ section{
   top:-10%;
 }
 
+.portrait-container {
+  position: relative;
+  height: 350px;
+  width: 300px;
+  border-radius: 50%;
+  overflow: hidden;
+  }
+
+.portrait-container img {
+  position: absolute;
+}
+
+.flag{
+  height: 35px;
+  width: 35px;
+}
+
 /* PROJECTS ##################################################### */
 
 .row-projects{

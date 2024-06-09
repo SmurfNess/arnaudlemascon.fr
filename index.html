@@ -55,8 +55,8 @@
             </li>
         </ul>
   
-        <a href="index-en.html"><img src="assets/pictures/united-kingdom.webp" style="max-height: 38px; margin-right: 20px;"></a>
-        <a href="index-es.html"><img src="assets/pictures/flag.webp" style="max-height: 40px;"></a>
+        <a href="index-en.html"><img src="assets/pictures/united-kingdom.webp" class="flag" style="margin-right: 20px;"></a>
+        <a href="index-es.html"><img src="assets/pictures/flag.webp"class="flag"></a>
         <div class="underline"></div>
     </div>
   </nav>
@@ -130,7 +130,16 @@
           <div class="row home">
             <div class="col-md-1 col-xs-0"></div>
             <div class="col-md-4 col-xs-12 text-center">
-              <img src="assets/pictures/portrait5.webp" id="IMG-PORTRAIT" class="img-fluid">
+              <div class="portrait-container">
+                <svg viewBox="0 0 100 100" class="starfish-svg">
+                  <defs>
+                    <clipPath id="clip">
+                      <path d="M58 88C44 87 23 92 22 58 9 59 10 16 23 40 12-10 79-1 73 34 68 71 92 80 58 88"/>
+                    </clipPath>
+                  </defs>
+                  <image xlink:href="assets/pictures/cv.webp" width="100" height="100" clip-path="url(#clip)" />
+                </svg>
+              </div>
             </div>
             <div class="col-md-6 col-xs-12 home-description">
               <article>
@@ -440,7 +449,7 @@
                             <div class="value">Créativité</div>
                           </div>
                           <div class="face face-arriere">
-                            <p>Créer un jeux de société et apprendre l'automatisation pour limiter le nombre de tâches sans valeurs ajouté</p>
+                            <p>Faire une table, un jeu de société, un site web, automatiser mes action redondante, faire du rhum arrangé</p>
                           </div>
                         </div>
                       </div>                        
@@ -545,7 +554,7 @@
                       <img src="assets/pictures/carousel-linkness.webp" class="d-block w-100 mx-auto img-fluid-carousel text-center" alt="Image 2">
                       <div class="carousel-caption d-md-block mx-auto">
                         <h4>Sociable</h4>
-                          <p>Quand je cherchais à me faire des amis, j'ai fondé un groupe meetup qui a finit par accueillir un millier de membres et près de 500 évènements </p>
+                          <p>Quand je cherchais à me faire des amis en arrivant sur Lyon, j'ai fondé un groupe meetup qui a finit par accueillir un millier de membres et près de 500 évènements</p>
                       </div>
                   </div>
                   <!-- Image 3 -->

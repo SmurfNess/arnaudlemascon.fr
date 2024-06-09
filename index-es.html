@@ -55,8 +55,8 @@
             </li>
         </ul>
   
-        <a href="index-en.html"><img src="assets/pictures/united-kingdom.webp" style="max-height: 38px; margin-right: 20px;"></a>
-        <a href="index-es.html"><img src="assets/pictures/flag.webp" style="max-height: 40px;"></a>
+        <a href="index.html"><img src="assets/pictures/fr.webp" class="flag" style="margin-right: 20px;"></a>
+        <a href="index-en.html"><img src="assets/pictures/uk.webp" class="flag"></a>
         <div class="underline"></div>
     </div>
   </nav>
@@ -130,7 +130,16 @@
           <div class="row home">
             <div class="col-md-1 col-xs-0"></div>
             <div class="col-md-4 col-xs-12 text-center">
-              <img src="assets/pictures/portrait5.webp" id="IMG-PORTRAIT" class="img-fluid">
+              <div class="portrait-container">
+                <svg viewBox="0 0 100 100" class="starfish-svg">
+                  <defs>
+                    <clipPath id="clip">
+                      <path d="M58 88C44 87 23 92 22 58 9 59 10 16 23 40 12-10 79-1 73 34 68 71 92 80 58 88"/>
+                    </clipPath>
+                  </defs>
+                  <image xlink:href="assets/pictures/cv.webp" width="100" height="100" clip-path="url(#clip)" />
+                </svg>
+              </div>
             </div>
             <div class="col-md-6 col-xs-12 home-description">
               <article>
@@ -383,7 +392,7 @@
                             <div class="value">Creatividad</div>
                           </div>
                           <div class="face face-arriere">
-                            <p>Crear un juego de mesa y aprender automatización para limitar la cantidad de tareas sin valor agregado</p>
+                            <p>Hacer una mesa, un juego de mesa, un sitio web, automatizar mis acciones redundantes, hacer rhum arrangé</p>
                           </div>
                         </div>
                       </div>                        
@@ -488,7 +497,7 @@
                       <img src="assets/pictures/carousel-linkness.webp" class="d-block w-100 mx-auto img-fluid-carousel text-center" alt="Image 2">
                       <div class="carousel-caption d-md-block mx-auto">
                         <h4>Sociable</h4>
-                          <p>Cuando buscaba hacer amigos, fundé un grupo de Meetup que terminó acogiendo a mil miembros y cerca de 500 eventos</p>
+                          <p>Cuando me mudé a Lyon por primera vez para hacer amigos, fundé un grupo de encuentro que acabó teniendo mil miembros y casi 500 eventos</p>
                       </div>
                   </div>
                   <!-- Image 3 -->
