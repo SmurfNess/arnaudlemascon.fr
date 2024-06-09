@@ -15,13 +15,13 @@
 
 :root {
   --color-principal:goldenrod;
-  --color-other:#5a67a0;
-  --color-tertiary:#3D467A;
+  --color-other:rgb(90, 103, 160);
+  --color-tertiary:rgb(61, 70, 122);
   --color-dark:#1b1f36c4;
   --color-input:white;
   --color-font-principal:white;
   --color-font-secondary:goldenrod;
-  --color-font-tertiary:#3D467A;
+  --color-font-tertiary:rgb(61, 70, 122);
   --color-gauge-front: rgba(0, 212, 250, 0.2);
   --color-gauge-back: rgba(0, 212, 250, 0.2);
   --color-gauge-h_back: rgba(0, 212, 250, 0.5);
@@ -92,6 +92,15 @@ section{
   opacity: 1;
   transition: opacity 0.3s ease-in;
 }
+
+.iconcv{
+  background-color: transparent;
+  border-radius: 25px;
+  font-family: var(--arial-font);
+  padding: 2px 0px 0px 1px;
+  font-weight: bolder;
+}
+
 
 /* HOME ######################################################### */
 
