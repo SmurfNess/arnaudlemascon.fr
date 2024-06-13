@@ -69,23 +69,32 @@ echo '      </div>';
 
     
 
-private function generatePositionCards() {
-    $positionQuery = $this->bdd->prepare("SELECT * FROM Position ORDER BY start DESC");
-    $positionQuery->execute();
-    $positions = $positionQuery->fetchAll(PDO::FETCH_ASSOC);
+ private function generatePositionCards() {
+  $positionQuery = $this->bdd->prepare("SELECT * FROM Position ORDER BY enterprise, start DESC");
+  $positionQuery->execute();
+  $positions = $positionQuery->fetchAll(PDO::FETCH_ASSOC);
 
-    foreach ($positions as $position) {
-        if ($position['end'] == '0000-00-00') {
-            $position['end'] = date('Y-m-d');
-        }
-        $startDate = new DateTime($position['start']);
-        $endDate = new DateTime($position['end']);
-        echo '<div class="entreprise">' . $position['enterprise'] . '</div>';
-        echo '<div class="cardP">';
-        echo '<div class="title" >' . $position['title'] . '</div>';
-        echo '<div class="duration" >' . $startDate->format('m-Y') . ' - ' . $endDate->format('m-Y') . ' (' . $this->calculateDuration($position['start'], $position['end']) . ')</div>';
-        echo '</div>';
-    }
+  // Grouper les positions par entreprise
+  $groupedPositions = [];
+  foreach ($positions as $position) {
+      if ($position['end'] == '0000-00-00') {
+          $position['end'] = date('Y-m-d');
+      }
+      $groupedPositions[$position['enterprise']][] = $position;
+  }
+
+  // Afficher les entreprises et leurs positions
+  foreach ($groupedPositions as $enterprise => $positions) {
+      echo '<div class="entreprise">' . $enterprise . '</div>';
+      foreach ($positions as $position) {
+          $startDate = new DateTime($position['start']);
+          $endDate = new DateTime($position['end']);
+          echo '<div class="cardP">';
+          echo '<div class="title" >' . $position['title'] . '</div>';
+          echo '<div class="duration" >' . $startDate->format('m-Y') . ' - ' . $endDate->format('m-Y') . ' (' . $this->calculateDuration($position['start'], $position['end']) . ')</div>';
+          echo '</div>';
+      }
+  }
 }
 
 
