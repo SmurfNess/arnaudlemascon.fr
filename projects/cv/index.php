@@ -20,7 +20,6 @@ class CVGenerator {
     private function generateHeaderColumn() {
         echo '    <div class="col-lg-4 header">';
         echo '      <div class="row">';
-        $this->generateImageColumn();
         $this->generatePersonalInfoColumn();
         echo '      </div>';
         echo '      <div class="row">';
