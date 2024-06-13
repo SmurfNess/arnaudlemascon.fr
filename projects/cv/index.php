@@ -83,7 +83,7 @@ private function generatePositionCards() {
         echo '<div class="entreprise">' . $position['enterprise'] . '</div>';
         echo '<div class="cardP">';
         echo '<div class="title" >' . $position['title'] . '</div>';
-        echo '<div class="duration" >' . $startDate->format('m-Y') . ' - ' . $endDate->format('d-m-Y') . ' (' . $this->calculateDuration($position['start'], $position['end']) . ')</div>'
+        echo '<div class="duration" >' . $startDate->format('m-Y') . ' - ' . $endDate->format('m-Y') . ' (' . $this->calculateDuration($position['start'], $position['end']) . ')</div>';
         echo '</div>';
     }
 }
