@@ -2,7 +2,7 @@
 <html lang="fr" >
 <head>
   <meta charset="UTF-8" >
-  <title>CV - Français</title>
+  <title>CV - English</title>
   <style>
         :root {
         --color-principal: rgb(224, 175, 51);
