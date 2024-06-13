@@ -54,6 +54,9 @@ class CVGenerator {
       echo '  </div>'
       echo '</div>'
       echo '}'
+      echo '<div class="right" >'
+      $this->generatePositionCards();
+      echo '</div>'
 
     private function generateHeaderColumn() {
         echo '    <div class="col-lg-4 header">';
