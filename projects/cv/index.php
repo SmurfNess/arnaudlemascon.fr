@@ -35,7 +35,7 @@ echo '            <li>PSC</li>';
 echo '            <li>Mener le changement</li>';
 echo '          </ul>';
 echo '        </div>';
-echo '  
+echo '  ';
 echo '        <div class="languages" >';
 echo '          <div class="intro intro_left" >Langues</div>';
 echo '          <ul>';
