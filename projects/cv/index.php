@@ -9,12 +9,53 @@ class CVGenerator {
     }
 
     public function generateCV() {
-        echo '<div class="container">';
-        echo '  <div class="row">';
-        $this->generateHeaderColumn();
-        $this->generateMainContentColumn();
-        echo '  </div>';
-        echo '</div>'; 
+echo '      <div class="container" > ';
+echo '      <div class="left" >';
+echo '        <div class="portrait-container" >';
+echo '          <img src="./Générateur de CV_files/cv.webp" alt="Mon portrait par Mélanie Kosowski" >';
+echo '        </div>';
+echo '        <div class="informations" >';
+echo '          <div class="calcul" id="resultat" >34 ans</div>';
+echo '          <div class="location" >Lyon, France</div>';
+echo '          <div class="mail" >contact@arnaudlemascon.fr</div>';
+echo '        </div>';
+echo '        <div class="skills" >';
+echo '          <div class="intro intro_left" >Compétences</div>';
+echo '          <ul>';
+echo '            <li>Projet</li>';
+echo '            <li>Office 365</li>';
+echo '            <li>Scrum</li>';
+echo '          </ul>';
+echo '        </div>';
+echo '        <div class="hobbies" >';
+echo '          <div class="intro intro_left" >Certifications</div>';
+echo '          <ul>';
+echo '            <li>PSM1</li>';
+echo '            <li>PSC</li>';
+echo '            <li>Mener le changement</li>';
+echo '          </ul>';
+echo '        </div>';
+echo '  
+echo '        <div class="languages" >';
+echo '          <div class="intro intro_left" >Langues</div>';
+echo '          <ul>';
+echo '            <li>Français : natif</li>';
+echo '            <li>Anglais : écrit professionnel</li>';
+echo '            <li>Espagnol : en apprentissage</li>';
+echo '          </ul>';
+echo '        </div>';
+echo '        <div class="hobbies" >';
+echo '          <div class="intro intro_left" >Loisirs</div>';
+echo '          <ul>';
+echo '            <li>Projet</li>';
+echo '            <li>Gaming</li>';
+echo '            <li>coding</li>';
+echo '          </ul>';
+echo '        </div>';
+echo '      </div>';
+echo '      <div class="right" >';
+echo '      </div>';
+  
     }
 
     private function generateHeaderColumn() {
