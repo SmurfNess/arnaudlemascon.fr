@@ -34,14 +34,6 @@ class CVGenerator {
         echo '    </div>';
     }
 
-    private function generateImageColumn() {
-        echo '        <div class="col-md-6 col-sm-12">';
-        echo '          <div class="image-container">';
-        echo '            <img src="https://arnaudlemascon.fr/assets/pictures/cv.webp" alt="Mon portrait par Mélanie Kosowski">';
-        echo '          </div>';
-        echo '        </div>';
-    }
-
     private function generatePersonalInfoColumn() {
         echo '        <div class="col-md-6 col-sm-12">';
         echo '          <div class="row">';
