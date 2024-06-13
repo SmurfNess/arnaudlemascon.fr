@@ -57,7 +57,7 @@ echo '      <div class="right" >';
 echo '              <div class="name" >arnaud lemasçon</div>';
 echo '              <div class="position" >scrum master / chef de projets</div>';
 echo '              <div class="bio" >';
-echo '                Après 8 ans dans le support informatique, j'ai engagé une évolution dans le management de projet en étoffant notamment dans l'accompagnement au changement et l'agilité.';
+echo '                Après 8 ans dans le support informatique, j'ai engagé une évolution dans le management de projet en étoffant notamment dans l\'accompagnement au changement et l\'agilité.';
 echo '                <br>Je souhaite aujourd'hui m'orienter davantage vers la culture agile.';
 echo '              </div>';
 echo '              <div class="positions" >';
