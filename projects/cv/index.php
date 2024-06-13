@@ -65,43 +65,9 @@ echo '                <div class="intro intro_right" >expérience professionnell
 echo '                <div id="cvContainer" >';
 $this->generatePositionCards();
 echo '      </div>';
-  
-    }
+ }
 
-    private function generateHeaderColumn() {
-        echo '    <div class="col-lg-4 header">';
-        echo '      <div class="row">';
-        $this->generatePersonalInfoColumn();
-        echo '      </div>';
-        echo '      <div class="row">';
-        echo '        <div class="col-12 EducationContainer">';
-        $this->generateEducationCards();
-        echo '        </div>';
-        echo '        <div class="col-12 certificationsContainer">';
-        $this->generateCertificationsList();
-        echo '        </div>';
-        echo '      </div>';
-        echo '    </div>';
-    }
-
-    private function generatePersonalInfoColumn() {
-        echo '        <div class="col-md-6 col-sm-12">';
-        echo '          <div class="row">';
-        echo '            <div class="col-12">Arnaud LEMASÇON</div>';
-        echo '            <div class="col-12 calcul" id="resultat"></div>';
-        echo '            <div class="col-12">City: Lyon</div>';
-        echo '            <div class="col-12"><br>D\'un naturel curieux, j\'aime découvrir de nouveaux outils et technologies.</div>';
-        echo '          </div>';
-        echo '        </div>';
-    }
-
-    private function generateMainContentColumn() {
-        echo '    <div class="col-lg-8">';
-        echo '      <div class="col-12" id="cvContainer">';
-        $this->generatePositionCards();
-        echo '      </div>';
-        echo '    </div>';
-    }
+    
 
 private function generatePositionCards() {
     $positionQuery = $this->bdd->prepare("SELECT * FROM Position ORDER BY start DESC");
@@ -112,21 +78,13 @@ private function generatePositionCards() {
         if ($position['end'] == '0000-00-00') {
             $position['end'] = date('Y-m-d');
         }
-
-        echo '<span class="infobulle" title="' . $position['description_fr'] . '">';
-        echo '<div class="cardP col-md-12">';
-        echo '<div class="row">';
-        echo '<div class="col-md-2 logo-container"><img src="' . $position['logo'] . '" alt="Logo"></div>';
-        echo '<div class="col-md-10">';
         $startDate = new DateTime($position['start']);
         $endDate = new DateTime($position['end']);
-        echo '<h6 class="duration">' . $startDate->format('d-m-Y') . ' - ' . $endDate->format('d-m-Y') . ' (' . $this->calculateDuration($position['start'], $position['end']) . ')</h6>';
-        echo '<h5>' . $position['title'] . '</h5>';
-        echo '<h6 style="text-transform:uppercase;">' . $position['enterprise'] . ' - ' . $position['city'] . '</h6>';
+        echo '<div class="entreprise">' . $position['enterprise'] . '</div>';
+        echo '<div class="cardP">';
+        echo '<div class="title" >' . $position['title'] . '</div>';
+        echo '<div class="duration" >' . $startDate->format('m-Y') . ' - ' . $endDate->format('d-m-Y') . ' (' . $this->calculateDuration($position['start'], $position['end']) . ')</div>'
         echo '</div>';
-        echo '</div>';
-        echo '</div>';
-        echo '</span>';
     }
 }
 
