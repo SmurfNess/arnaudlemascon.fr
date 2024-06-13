@@ -70,11 +70,11 @@ echo '      </div>';
     
 
  private function generatePositionCards() {
-  $positionQuery = $this->bdd->prepare("SELECT * FROM Position ORDER BY enterprise, start DESC");
+  $positionQuery = $this->bdd->prepare("SELECT * FROM Position ORDER BY start DESC");
   $positionQuery->execute();
   $positions = $positionQuery->fetchAll(PDO::FETCH_ASSOC);
 
-  // Grouper les positions par entreprise
+  // Grouper les positions par entreprise tout en conservant l'ordre
   $groupedPositions = [];
   foreach ($positions as $position) {
       if ($position['end'] == '0000-00-00') {
@@ -83,16 +83,21 @@ echo '      </div>';
       $groupedPositions[$position['enterprise']][] = $position;
   }
 
-  // Afficher les entreprises et leurs positions
-  foreach ($groupedPositions as $enterprise => $positions) {
-      echo '<div class="entreprise">' . $enterprise . '</div>';
-      foreach ($positions as $position) {
-          $startDate = new DateTime($position['start']);
-          $endDate = new DateTime($position['end']);
-          echo '<div class="cardP">';
-          echo '<div class="title" >' . $position['title'] . '</div>';
-          echo '<div class="duration" >' . $startDate->format('m-Y') . ' - ' . $endDate->format('m-Y') . ' (' . $this->calculateDuration($position['start'], $position['end']) . ')</div>';
-          echo '</div>';
+  // Afficher les entreprises et leurs positions dans l'ordre original
+  $displayedEnterprises = [];
+  foreach ($positions as $position) {
+      $enterprise = $position['enterprise'];
+      if (!in_array($enterprise, $displayedEnterprises)) {
+          echo '<div class="entreprise">' . $enterprise . '</div>';
+          $displayedEnterprises[] = $enterprise;
+          foreach ($groupedPositions[$enterprise] as $enterprisePosition) {
+              $startDate = new DateTime($enterprisePosition['start']);
+              $endDate = new DateTime($enterprisePosition['end']);
+              echo '<div class="cardP">';
+              echo '<div class="title" >' . $enterprisePosition['title'] . '</div>';
+              echo '<div class="duration" >' . $startDate->format('m-Y') . ' - ' . $endDate->format('m-Y') . ' (' . $this->calculateDuration($enterprisePosition['start'], $enterprisePosition['end']) . ')</div>';
+              echo '</div>';
+          }
       }
   }
 }
