@@ -4,200 +4,200 @@
   <meta charset="UTF-8" >
   <title>CV - Français</title>
   <style>
-    :root {
-      --color-principal: rgb(224, 175, 51);
-      --color-other: rgb(90, 103, 160);
-      --color-tertiary: rgb(61, 70, 122);
-      --color-dark: #1b1f36c4;
-      --color-input: white;
-      --color-font-principal: rgb(0, 0, 0);
-      --color-font-secondary:rgb(189, 147, 40);
-      --color-font-tertiary: rgb(61, 70, 122);
-      --color-gauge-front: rgba(0, 212, 250, 0.2);
-      --color-gauge-back: rgba(0, 212, 250, 0.2);
-      --color-gauge-h_back: rgba(0, 212, 250, 0.5);
-      --color-gauge-h_front: rgb(0, 212, 250);
+        :root {
+        --color-principal: rgb(224, 175, 51);
+        --color-other: rgb(90, 103, 160);
+        --color-tertiary: rgb(61, 70, 122);
+        --color-dark: #1b1f36c4;
+        --color-input: white;
+        --color-font-principal: rgb(0, 0, 0);
+        --color-font-secondary:rgb(189, 147, 40);
+        --color-font-tertiary: rgb(61, 70, 122);
+        --color-gauge-front: rgba(0, 212, 250, 0.2);
+        --color-gauge-back: rgba(0, 212, 250, 0.2);
+        --color-gauge-h_back: rgba(0, 212, 250, 0.5);
+        --color-gauge-h_front: rgb(0, 212, 250);
 
-      --font-vbg: 30px;
-      --font-bg: 20px;
-      --font-md: 15px;
-      --font-sm: 12px;
+        --font-vbg: 30px;
+        --font-bg: 20px;
+        --font-md: 15px;
+        --font-sm: 12px;
 
-      --poppins-font: 'Poppins', sans-serif;
-      --arial-font: Arial, sans-serif;
+        --poppins-font: 'Poppins', sans-serif;
+        --arial-font: Arial, sans-serif;
+        }
+
+        body {
+        font-family: var(--poppins-font);
+        margin: 0;
+        background-color: lightgray;
+        display: flex;
+        justify-content: center;
+        }
+
+        .container {
+        display: flex;
+        height: 100vh;
+
+        }
+
+        .left,
+        .right {
+        padding: 10px;
+        box-sizing: border-box;
+        overflow: hidden;
+        }
+
+        .left {
+        background-color: var(--color-principal);
+        width: 250px;
+        color: white;
+        }
+
+        .portrait-container {
+        margin: 0px 35px;
+        height: 180px;
+        width: 150px;
+        overflow: hidden;
+        border: white 5px solid;
+        }
+
+        .portrait-container img {
+        position: relative;
+        width: 110%;
+        top: -10px;
+        }
+
+        .informations,
+        .skills,
+        .languages,
+        .hobbies {
+        padding-left: 20px;
+        padding-top: 10px;
+        }
+
+        .intro{
+        position: relative;
+        left: -50px;
+        border-radius: 25px;
+        height: 35px;
+        width:fit-content;
+        padding-left: 50px;
+        padding-right: 20px;
+        display: flex;
+        align-items: center;
+        font-weight: bold;
+        font-size: var(--font-md);
+        color: white;
+        text-transform: uppercase;
+        }
+
+        .intro_left {
+        background-color: white;
+        color: black;
+        }
+
+        .intro_right{
+        background-color: var(--color-principal);
+        margin-top:20px;
+        }
+
+        ul {
+        font-size: var(--font-md);
+        margin:5px;
+        }
+
+        li {
+        position: relative;
+        text-transform: capitalize;
+        }
+
+        .right {
+        padding: 10px;
+        width: 500px;
+        background-color: white;
+        }
+
+        .name{
+        font-size: var(--font-vbg);
+        font-weight: bold;
+        text-transform: uppercase;
+        color: var(--color-principal);
+        margin-bottom: 10px;
+        }
+
+        .bio{
+        font-size: var(--font-sm);
+        }
+        .position{
+        font-weight: bold;
+        text-transform: capitalize;
+        }
+
+    .entreprise{
+        margin-top: 15px;
+        text-transform: uppercase;
+        text-decoration: underline 4px var(--color-principal);
+        font-weight: bold;
     }
-
-    body {
-      font-family: var(--poppins-font);
-      margin: 0;
-      background-color: lightgray;
-      display: flex;
-      justify-content: center;
+    .title, .degree{
+        font-size: var(--font-md);
+        font-weight: bold;
     }
+        
+        .cardP, .card {
+        position: relative;
+        padding-left: 20px;
+        width: 100%;
+        margin-top: 10px;
+        background: linear-gradient(90deg, var(--color-principal) 0%, transparent  2%, transparent 100%);
+        font-size: var(--font-sm);
+        }
 
-    .container {
-      display: flex;
-      height: 100vh;
+        .duration{
+        color: var(--color-font-secondary);
+        font-size: var(--font-sm);
+        font-weight: bold;
+        margin-bottom: 3px;
+        }
 
-    }
+        .descP{
+        padding-right: 15px;
+        font-size: var(--font-sd);
+        }
 
-    .left,
-    .right {
-      padding: 10px;
-      box-sizing: border-box;
-      overflow: hidden;
-    }
-
-    .left {
-      background-color: var(--color-principal);
-      width: 250px;
-      color: white;
-    }
-
-    .portrait-container {
-      margin: 0px 35px;
-      height: 180px;
-      width: 150px;
-      overflow: hidden;
-      border: white 5px solid;
-    }
-
-    .portrait-container img {
-      position: relative;
-      width: 110%;
-      top: -10px;
-    }
-
-    .informations,
-    .skills,
-    .languages,
-    .hobbies {
-      padding-left: 20px;
-      padding-top: 10px;
-    }
-
-    .intro{
-      position: relative;
-      left: -50px;
-      border-radius: 25px;
-      height: 35px;
-      width:fit-content;
-      padding-left: 50px;
-      padding-right: 20px;
-      display: flex;
-      align-items: center;
-      font-weight: bold;
-      font-size: var(--font-md);
-      color: white;
-      text-transform: uppercase;
-    }
-
-    .intro_left {
-      background-color: white;
-      color: black;
-    }
-
-    .intro_right{
-      background-color: var(--color-principal);
-      margin-top:20px;
-    }
-
-    ul {
-      font-size: var(--font-md);
-      margin:5px;
-    }
-
-    li {
-      position: relative;
-      text-transform: capitalize;
-    }
-
-    .right {
-      padding: 10px;
-      width: 500px;
-      background-color: white;
-    }
-
-    .name{
-      font-size: var(--font-vbg);
-      font-weight: bold;
-      text-transform: uppercase;
-      color: var(--color-principal);
-      margin-bottom: 10px;
-    }
-
-    .bio{
-      font-size: var(--font-sm);
-    }
-    .position{
-      font-weight: bold;
-      text-transform: capitalize;
-    }
-
-   .entreprise{
-    margin-top: 15px;
-    text-transform: uppercase;
-    text-decoration: underline 4px var(--color-principal);
-    font-weight: bold;
-   }
-   .title, .degree{
-    font-size: var(--font-md);
-    font-weight: bold;
-   }
+    .separator {
+        color: var(--color-principal);
+        font-weight: 900;
+        margin-left: 10px;
+        margin-right: 10px;
+        }
     
-    .cardP, .card {
-      position: relative;
-      padding-left: 20px;
-      width: 100%;
-      margin-top: 10px;
-      background: linear-gradient(90deg, var(--color-principal) 0%, transparent  2%, transparent 100%);
-      font-size: var(--font-sm);
-    }
+        .infobulle {
+        position: relative;
+        cursor: help;
+        }
 
-    .duration{
-      color: var(--color-font-secondary);
-      font-size: var(--font-sm);
-      font-weight: bold;
-      margin-bottom: 3px;
-    }
+        .infobulle:hover::before {
+        content: attr(title);
+        background-color: rgb(18, 18, 18);
+        color: #fff;
+        padding: 5px;
+        border-radius: 15px;
+        position: absolute;
+        z-index: 1;
+        top: 10%;
+        left: 35%;
+        transform: translateX(-50%);
+        opacity: 0;
+        transition: opacity 0.3s;
+        width: fit-content;
+        }
 
-    .descP{
-      padding-right: 15px;
-      font-size: var(--font-sd);
-    }
-
-  .separator {
-      color: var(--color-principal);
-      font-weight: 900;
-      margin-left: 10px;
-      margin-right: 10px;
-    }
-  
-    .infobulle {
-      position: relative;
-      cursor: help;
-    }
-
-    .infobulle:hover::before {
-      content: attr(title);
-      background-color: rgb(18, 18, 18);
-      color: #fff;
-      padding: 5px;
-      border-radius: 15px;
-      position: absolute;
-      z-index: 1;
-      top: 10%;
-      left: 35%;
-      transform: translateX(-50%);
-      opacity: 0;
-      transition: opacity 0.3s;
-      width: fit-content;
-    }
-
-    .infobulle:hover::before {
-      opacity: 1;
-    }
-  </style>
+        .infobulle:hover::before {
+        opacity: 1;
+        }
+</style>
 </head>
 <body>
   <div class="container" >
