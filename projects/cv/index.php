@@ -9,54 +9,13 @@ class CVGenerator {
     }
 
     public function generateCV() {
-      echo '<div class="container">'
-      echo '<div class="left" >'
-      echo '  <div class="portrait-container" >'
-      echo '    <img src="./Générateur de CV_files/cv.webp" alt="Mon portrait par Mélanie Kosowski" >'
-      echo '  </div>'
-      echo '  <div class="informations" >'
-      echo '    <div class="calcul" id="resultat" >34 ans</div>'
-      echo '    <div class="location" >Lyon, France</div>'
-      echo '    <div class="mail" >contact@arnaudlemascon.fr</div>'
-      echo '  </div>'
-      echo '  <div class="skills" >'
-      echo '    <div class="intro intro_left" >Compétences</div>'
-      echo '    <ul>'
-      echo '      <li>Projet</li>'
-      echo '      <li>Office 365</li>'
-      echo '      <li>Scrum</li>'
-      echo '    </ul>'
-      echo '  </div>'
-      echo '  <div class="hobbies" >'
-      echo '    <div class="intro intro_left" >Certifications</div>'
-      echo '    <ul>'
-      echo '      <li>PSM1</li>'
-      echo '      <li>PSC</li>'
-      echo '      <li>Mener le changement</li>'
-      echo '    </ul>'
-      echo '  </div>'
-  
-      echo '  <div class="languages" >'
-      echo '    <div class="intro intro_left" >Langues</div>'
-      echo '    <ul>'
-      echo '      <li>Français : natif</li>'
-      echo '      <li>Anglais : écrit professionnel</li>'
-      echo '      <li>Espagnol : en apprentissage</li>'
-      echo '    </ul>'
-      echo '  </div>'
-      echo '  <div class="hobbies" >'
-      echo '    <div class="intro intro_left" >Loisirs</div>'
-      echo '    <ul>'
-      echo '      <li>Projet</li>'
-      echo '      <li>Gaming</li>'
-      echo '      <li>coding</li>'
-      echo '    </ul>'
-      echo '  </div>'
-      echo '</div>'
-      echo '}'
-      echo '<div class="right" >'
-      $this->generatePositionCards();
-      echo '</div>'
+        echo '<div class="container">';
+        echo '  <div class="row">';
+        $this->generateHeaderColumn();
+        $this->generateMainContentColumn();
+        echo '  </div>';
+        echo '</div>'; 
+    }
 
     private function generateHeaderColumn() {
         echo '    <div class="col-lg-4 header">';
@@ -67,6 +26,9 @@ class CVGenerator {
         echo '      <div class="row">';
         echo '        <div class="col-12 EducationContainer">';
         $this->generateEducationCards();
+        echo '        </div>';
+        echo '        <div class="col-12 certificationsContainer">';
+        $this->generateCertificationsList();
         echo '        </div>';
         echo '      </div>';
         echo '    </div>';
@@ -147,6 +109,31 @@ private function generatePositionCards() {
         }
     }
 
+    private function generateCertificationsList() {
+        // Fetch data from the 'Certification' table
+        $certificationQuery = $this->bdd->prepare("SELECT * FROM Certification WHERE source != 'Linkedin'");
+        $certificationQuery->execute();
+        $certifications = $certificationQuery->fetchAll(PDO::FETCH_ASSOC);
+
+        // Display certifications list in certificationsContainer
+        echo '<ul class="certificationsList">';
+        foreach ($certifications as $certification) {
+            echo '<li>';
+            echo '<a href="' . $certification['link'] . '" target="_blank">' . $certification['title'] . ' - ' . $certification['source'] . ' - ' . $certification['date'] . '</a>';
+            echo '</li>';
+        }
+        echo '</ul>';
+
+        // Fetch and display the sum of LinkedIn certifications
+        $linkedinCertificationQuery = $this->bdd->prepare("SELECT COUNT(*) AS total FROM Certification WHERE source = 'Linkedin'");
+        $linkedinCertificationQuery->execute();
+        $linkedinCertificationCount = $linkedinCertificationQuery->fetch(PDO::FETCH_ASSOC);
+
+        // Display the final sentences
+        echo '<div class="cert col-12">et ' . $linkedinCertificationCount['total'] . ' certifications LinkedIn ont été passées, sur divers sujets tels que la gestion de projets, les relations interpersonnelles et l\'agilité.';
+        echo '<br><a href="https://www.linkedin.com/in/arnaud-lemas%C3%A7on-ness/details/certifications/" target="_blank">Liste exhaustive ici</a></div>';
+    }
+
     private function calculateDuration($start, $end) {
         $startDate = new DateTime($start);
         $endDate = new DateTime($end);
@@ -163,6 +150,10 @@ private function generatePositionCards() {
         if ($months > 0) {
             $duration .= $months . ' mois ';
         }
+        if ($days > 0) {
+            $duration .= $days . ' jour(s)';
+        }
+
         return $duration;
     }
 }
@@ -195,200 +186,131 @@ try {
     <title>Générateur de CV</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-<style>
-        :root {
-        --color-principal: rgb(224, 175, 51);
-        --color-other: rgb(90, 103, 160);
-        --color-tertiary: rgb(61, 70, 122);
-        --color-dark: #1b1f36c4;
-        --color-input: white;
-        --color-font-principal: rgb(0, 0, 0);
-        --color-font-secondary:rgb(189, 147, 40);
-        --color-font-tertiary: rgb(61, 70, 122);
-        --color-gauge-front: rgba(0, 212, 250, 0.2);
-        --color-gauge-back: rgba(0, 212, 250, 0.2);
-        --color-gauge-h_back: rgba(0, 212, 250, 0.5);
-        --color-gauge-h_front: rgb(0, 212, 250);
-
-        --font-vbg: 30px;
-        --font-bg: 20px;
-        --font-md: 15px;
-        --font-sm: 12px;
-
-        --poppins-font: 'Poppins', sans-serif;
-        --arial-font: Arial, sans-serif;
-        }
+    <style>
 
         body {
-        font-family: var(--poppins-font);
-        margin: 0;
-        background-color: lightgray;
-        display: flex;
-        justify-content: center;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: white;
+            color: white;
         }
 
-        .container {
-        display: flex;
-        height: 100vh;
-
+        a {
+          color: white;
+          font-size:small;
+          text-decoration: underline;
         }
 
-        .left,
-        .right {
-        padding: 10px;
-        box-sizing: border-box;
-        overflow: hidden;
+        a:hover{
+          color: steelblue;        
         }
 
-        .left {
-        background-color: var(--color-principal);
-        width: 250px;
-        color: white;
+        li{
+          color: steelblue;
+          margin-bottom: 10px;
         }
 
-        .portrait-container {
-        margin: 0px 35px;
-        height: 180px;
-        width: 150px;
-        overflow: hidden;
-        border: white 5px solid;
-        }
+.logo-container img{
+    height:100px;
+    width:100px;
+    border-radius:50%;
+}
+		
+.cert{
+  font-size: 15px;
+  text-align: center;
+}
 
-        .portrait-container img {
-        position: relative;
-        width: 110%;
-        top: -10px;
-        }
+.col-md-1{
+  background-color: var(--gold);
+  height: 80vh;
+}        
 
-        .informations,
-        .skills,
-        .languages,
-        .hobbies {
-        padding-left: 20px;
-        padding-top: 10px;
-        }
+.col-md-11{
+  background-color: rgb(18, 18, 18);
+}        
+.container{
+  padding: 10px;
+}
+	
+.image-container {
+  position: relative;
+  width: 140px;
+  height: 180px;
+  overflow: hidden;
+  border-radius: 20px;
+}
 
-        .intro{
-        position: relative;
-        left: -50px;
-        border-radius: 25px;
-        height: 35px;
-        width:fit-content;
-        padding-left: 50px;
-        padding-right: 20px;
-        display: flex;
-        align-items: center;
-        font-weight: bold;
-        font-size: var(--font-md);
-        color: white;
-        text-transform: uppercase;
-        }
+.image-container img {
+  position: absolute;
+  top: 55%;
+  left: 55%;
+  width: 120%;
+  transform: translate(-50%, -50%) rotate(3deg); 
+}
 
-        .intro_left {
-        background-color: white;
-        color: black;
-        }
+.certificationsContainer{
+  position: relative;
+  font-size: 10px;
+  margin-top: 20px;
+}
 
-        .intro_right{
-        background-color: var(--color-principal);
-        margin-top:20px;
-        }
+.card {
+  position: relative;
+  padding: 10px;
+  padding-left:30px;
+  border: none;
+  background: linear-gradient(145deg, rgb(18, 18, 18) 5%,rgba(255,255,255,0) 80%);
+  border-radius: 100px 0px 0px 100px;
+  margin-top:10px;
+  width: 100%;
+}
 
-        ul {
-        font-size: var(--font-md);
-        margin:5px;
-        }
+.cardP {
+  position: relative;
+  padding: 10px;
+  border: none;
+  background: linear-gradient(145deg, rgba(61, 70, 122, 0.8) 40%,rgba(255,255,255,0) 80%);
+  border-radius: 100px 0px 0px 100px;
+  margin-top:10px;
+  width: 100%;
+}
 
-        li {
-        position: relative;
-        text-transform: capitalize;
-        }
+.duration{
+	color:rgb(190, 188, 22);
+  font-size: 14px;
+}
 
-        .right {
-        padding: 10px;
-        width: 500px;
-        background-color: white;
-        }
+.infobulle {
+  position: relative;
+  cursor: help;
+}
 
-        .name{
-        font-size: var(--font-vbg);
-        font-weight: bold;
-        text-transform: uppercase;
-        color: var(--color-principal);
-        margin-bottom: 10px;
-        }
+.infobulle:hover::before {
+  content: attr(title);
+  background-color: rgb(18, 18, 18);
+  color: #fff;
+  padding: 5px;
+  border-radius: 15px;
+  position: absolute;
+  z-index: 1;
+  top: 10%;
+  left: 75%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  width: 500px;
+}
 
-        .bio{
-        font-size: var(--font-sm);
-        }
-        .position{
-        font-weight: bold;
-        text-transform: capitalize;
-        }
+.infobulle:hover::before {
+  opacity: 0. ;
+}
 
-    .entreprise{
-        margin-top: 15px;
-        text-transform: uppercase;
-        text-decoration: underline 4px var(--color-principal);
-        font-weight: bold;
-    }
-    .title, .degree{
-        font-size: var(--font-md);
-        font-weight: bold;
-    }
-        
-        .cardP, .card {
-        position: relative;
-        padding-left: 20px;
-        width: 100%;
-        margin-top: 10px;
-        background: linear-gradient(90deg, var(--color-principal) 0%, transparent  2%, transparent 100%);
-        font-size: var(--font-sm);
-        }
-
-        .duration{
-        color: var(--color-font-secondary);
-        font-size: var(--font-sm);
-        font-weight: bold;
-        margin-bottom: 3px;
-        }
-
-        .descP{
-        padding-right: 15px;
-        font-size: var(--font-sd);
-        }
-
-    .separator {
-        color: var(--color-principal);
-        font-weight: 900;
-        margin-left: 10px;
-        margin-right: 10px;
-        }
-    
-        .infobulle {
-        position: relative;
-        cursor: help;
-        }
-
-        .infobulle:hover::before {
-        content: attr(title);
-        background-color: rgb(18, 18, 18);
-        color: #fff;
-        padding: 5px;
-        border-radius: 15px;
-        position: absolute;
-        z-index: 1;
-        top: 10%;
-        left: 35%;
-        transform: translateX(-50%);
-        opacity: 0;
-        transition: opacity 0.3s;
-        width: fit-content;
-        }
-
-        .infobulle:hover::before {
-        opacity: 1;
-        }
+.header{
+  background-color:rgba(61, 70, 122, 0.8);
+  width: 100%;
+  padding: 10px;
+  border-radius: 25px;
+}    
 </style>
 <script>
 var dateAnniversaire = new Date('1989-10-29');
