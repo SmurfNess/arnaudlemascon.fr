@@ -12,7 +12,7 @@ class CVGenerator {
 echo '      <div class="container" > ';
 echo '      <div class="left" >';
 echo '        <div class="portrait-container" >';
-echo '          <img src=".\assets\pictures\cv.webp" alt="Mon portrait par Mélanie Kosowski" >';
+echo '          <img src="./assets/pictures/cv.webp" alt="Mon portrait par Mélanie Kosowski" >';
 echo '        </div>';
 echo '        <div class="informations" >';
 echo '          <div class="calcul" id="resultat" >34 ans</div>';
