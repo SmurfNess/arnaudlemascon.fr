@@ -64,7 +64,11 @@ echo '              <div class="positions" >';
 echo '                <div class="intro intro_right" >expérience professionnelles</div>';
 echo '                <div id="cvContainer" >';
 $this->generatePositionCards();
-echo '      </div>';
+echo '                </div>';
+echo '                <div id="EducationContainer" >';
+$this->generateEducationCards();
+echo '                </div>';
+echo '              </div>';
  }
 
     
