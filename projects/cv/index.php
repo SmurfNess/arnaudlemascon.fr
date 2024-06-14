@@ -245,7 +245,6 @@ try {
         .container {
         display: flex;
         height: 100vh;
-
         }
 
         .left,
@@ -403,7 +402,8 @@ try {
 
         .infobulle:hover::before {
         opacity: 1;
-        }</style>
+        }
+</style>
 <script>
 var dateAnniversaire = new Date('1989-10-29');
 var dateActuelle = new Date();
