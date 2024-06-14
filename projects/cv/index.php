@@ -60,11 +60,15 @@ echo '              <div class="bio" >';
 echo '                Après 8 ans dans le support informatique, j\'ai engagé une évolution dans le management de projet en étoffant notamment dans l\'accompagnement au changement et l\'agilité.';
 echo '                <br>Je souhaite aujourd\'hui m\'orienter davantage vers la culture agile.';
 echo '              </div>';
+
 echo '              <div class="positions" >';
 echo '                <div class="intro intro_right" >expérience professionnelles</div>';
 echo '                <div id="cvContainer" >';
 $this->generatePositionCards();
 echo '                </div>';
+echo '              </div>';
+echo '              <div class="educations" >';
+echo '                <div class="intro intro_right" >Formations</div>';
 echo '                <div id="EducationContainer" >';
 $this->generateEducationCards();
 echo '                </div>';
