@@ -245,10 +245,8 @@ try {
 .container {
     display: flex;
     max-width: 800px; /* Set a max-width to the container */
-    margin: auto; /* Center the container horizontally */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-    background-color:red;
     overflow: hidden;
 }
 
