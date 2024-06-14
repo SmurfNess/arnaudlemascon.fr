@@ -233,19 +233,24 @@ try {
         --poppins-font: 'Poppins', sans-serif;
         --arial-font: Arial, sans-serif;
         }
-
         body {
-        font-family: var(--poppins-font);
-        margin: 0;
-        background-color: lightgray;
-        display: flex;
-        justify-content: center;
-        }
+    font-family: var(--poppins-font);
+    margin: 0;
+    background-color: lightgray;
+    display: flex;
+    justify-content: center;
+    height: 100vh; /* Ensure body takes full viewport height */
+}
 
-        .container {
-        display: flex;
-        height: 100vh;
-        }
+.container {
+    display: flex;
+    max-width: 800px; /* Set a max-width to the container */
+    margin: auto; /* Center the container horizontally */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
 
         .left,
         .right {
