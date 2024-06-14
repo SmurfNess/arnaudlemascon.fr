@@ -73,6 +73,8 @@ echo '                <div id="EducationContainer" >';
 $this->generateEducationCards();
 echo '                </div>';
 echo '              </div>';
+echo '              </div>';
+
  }
 
     
