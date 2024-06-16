@@ -250,6 +250,11 @@ try {
     overflow: hidden;
 }
 
+.education-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
         .left,
         .right {
@@ -369,7 +374,7 @@ try {
         font-size: var(--font-sm);
         font-weight: bold;
         margin-bottom: 3px;
-        display: inline;
+        display: inline-block;
         }
 
         .descP{
