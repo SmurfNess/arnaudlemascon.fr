@@ -128,7 +128,7 @@ echo '              </div>';
             $startDate = new DateTime($education['start']);
             $endDate = new DateTime($education['end']);
             echo '<div style="display:inline-block; white-space: nowrap;">';
-            echo '<div class="degree" style="display:inline-block; vertical-align: top;">' . $education['title'] . '<span class="school"> <span>-</span> ' . $education['school'] . '</div>';
+            echo '<div class="degree" style="display:inline-block; vertical-align: top;">' . $education['title'] . '<span class="school"> <span>-</span> ' . $education['school'] . '</div><span class="separator" >|</span';
             echo '<div class="duration" style="display:inline-block; vertical-align: top;">' . $startDate->format('d-m-Y') . ' - ' . $endDate->format('d-m-Y') . '</div>';
             echo '</div>';
             echo '</div>';
