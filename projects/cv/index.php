@@ -250,12 +250,6 @@ try {
     overflow: hidden;
 }
 
-.education-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
         .left,
         .right {
         padding: 10px;
@@ -368,6 +362,12 @@ try {
         background: linear-gradient(90deg, var(--color-principal) 0%, transparent  2%, transparent 100%);
         font-size: var(--font-sm);
         }
+
+        .EducationContainer, .cvContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
         .duration{
         color: var(--color-font-secondary);
