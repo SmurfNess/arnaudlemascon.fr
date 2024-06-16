@@ -250,6 +250,7 @@ try {
     overflow: hidden;
 }
 
+
         .left,
         .right {
         padding: 10px;
@@ -363,19 +364,17 @@ try {
         font-size: var(--font-sm);
         }
 
-        .EducationContainer, .cvContainer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
         .duration{
         color: var(--color-font-secondary);
         font-size: var(--font-sm);
         font-weight: bold;
         margin-bottom: 3px;
-        display: inline-block;
         }
+
+        .duration, .degree {
+    display: inline-block;
+    vertical-align: top;
+}
 
         .descP{
         padding-right: 15px;
