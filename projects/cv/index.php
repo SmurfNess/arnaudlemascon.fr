@@ -175,10 +175,6 @@ echo '              </div>';
         if ($months > 0) {
             $duration .= $months . ' mois ';
         }
-        if ($days > 0) {
-            $duration .= $days . ' jour(s)';
-        }
-
         return $duration;
     }
 }
