@@ -104,7 +104,7 @@ echo '              </div>';
               $startDate = new DateTime($enterprisePosition['start']);
               $endDate = new DateTime($enterprisePosition['end']);
               echo '<div class="cardP">';
-              echo '<div class="title" style="display:inline-block">' . $enterprisePosition['title'] . '<span class="separator" >|</span></div><div class="duration" style="display:inline-block">' . $startDate->format('m-Y') . ' - ' . $endDate->format('m-Y') . ' (' . $this->calculateDuration($enterprisePosition['start'], $enterprisePosition['end']) . ')</div>';
+              echo '<div class="title" style="display:inline-block">' . $enterprisePosition['title'] . '</div><span class="separator" >|</span><div class="duration" style="display:inline-block">' . $startDate->format('m-Y') . ' - ' . $endDate->format('m-Y') . ' (' . $this->calculateDuration($enterprisePosition['start'], $enterprisePosition['end']) . ')</div>';
               echo '';
               echo '<div class="descP" >' .  $enterprisePosition['description_fr'] . '</div>';
               echo '</div>';
