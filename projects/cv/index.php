@@ -127,8 +127,10 @@ echo '              </div>';
             echo '<div class="card col-md-12">';
             $startDate = new DateTime($education['start']);
             $endDate = new DateTime($education['end']);
-            echo '<div class="degree" style="display:inline-block">' . $education['title'] . '<span class="school"> <span>-</span> ' . $education['school'] . '</div><div class="duration" style="display:inline-block">' . $startDate->format('d-m-Y') . ' - ' . $endDate->format('d-m-Y') . '</div>';
-            echo '<div class="duration" style="display:inline-block">' . $startDate->format('d-m-Y') . ' - ' . $endDate->format('d-m-Y') . '</div>';
+            echo '<div style="display:inline-block; white-space: nowrap;">';
+            echo '<div class="degree" style="display:inline-block; vertical-align: top;">' . $education['title'] . '<span class="school"> <span>-</span> ' . $education['school'] . '</div>';
+            echo '<div class="duration" style="display:inline-block; vertical-align: top;">' . $startDate->format('d-m-Y') . ' - ' . $endDate->format('d-m-Y') . '</div>';
+            echo '</div>';
             echo '</div>';
             echo '</span>';
         }
