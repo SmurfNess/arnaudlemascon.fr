@@ -222,9 +222,9 @@ try {
         --color-gauge-h_back: rgba(0, 212, 250, 0.5);
         --color-gauge-h_front: rgb(0, 212, 250);
 
-        --font-vbg: 30px;
-        --font-bg: 20px;
-        --font-md: 15px;
+        --font-vbg: 28px;
+        --font-bg: 18px;
+        --font-md: 14px;
         --font-sm: 12px;
 
         --poppins-font: 'Poppins', sans-serif;
