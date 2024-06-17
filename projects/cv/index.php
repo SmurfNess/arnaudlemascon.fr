@@ -295,7 +295,7 @@ try {
         }
 
         .calcul, .location, .web, .mail{
-        font-family:var(--poppins-font)
+        font-size:var(--font-sm);
         }
         .intro{
         position: relative;
