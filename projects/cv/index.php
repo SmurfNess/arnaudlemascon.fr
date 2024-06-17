@@ -248,6 +248,7 @@ try {
 
 .container {
     display: flex;
+    align-items:center;
     max-width: 100%; /* Set a max-width to the container */
     border-radius: 8px;
     overflow: hidden;
