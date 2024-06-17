@@ -268,7 +268,7 @@ try {
 
         .left {
         background-color: var(--color-principal);
-        width: 250px;
+        width: 350px;
         color: white;
         }
 
@@ -335,7 +335,7 @@ try {
 
         .right {
         padding: 10px;
-        width: 500px;
+        width: 650px;
         background-color: white;
         }
 
