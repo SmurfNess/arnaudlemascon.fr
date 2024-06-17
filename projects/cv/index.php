@@ -298,7 +298,7 @@ try {
         position: relative;
         left: -50px;
         border-radius: 25px;
-        height: 35px;
+        height: 30px;
         width:fit-content;
         padding-left: 50px;
         padding-right: 20px;
