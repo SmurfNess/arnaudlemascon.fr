@@ -248,7 +248,7 @@ try {
 
 .container {
     display: flex;
-    max-width: 800px; /* Set a max-width to the container */
+    max-width: 100%; /* Set a max-width to the container */
     border-radius: 8px;
     overflow: hidden;
 }
