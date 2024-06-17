@@ -294,6 +294,9 @@ try {
         padding-top: 10px;
         }
 
+        .calcul, .location, .web, .mail{
+            color:red;
+        }
         .intro{
         position: relative;
         left: -50px;
