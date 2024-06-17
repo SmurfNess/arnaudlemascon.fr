@@ -15,8 +15,9 @@ echo '        <div class="portrait-container" >';
 echo '          <img src="https://arnaudlemascon.fr/assets/pictures/cv.webp" alt="Mon portrait par Mélanie Kosowski" >';
 echo '        </div>';
 echo '        <div class="informations" >';
-echo '          <div class="calcul" id="resultat" >34 ans</div>';
+echo '          <div class="calcul" id="resultat" ></div>';
 echo '          <div class="location" >Lyon, France</div>';
+echo '          <div class="web">arnaudlemascon.fr</div>';
 echo '          <div class="mail" >contact@arnaudlemascon.fr</div>';
 echo '        </div>';
 echo '        <div class="skills" >';
@@ -420,7 +421,7 @@ if (dateActuelle.getMonth() < dateAnniversaire.getMonth() || (dateActuelle.getMo
 }
   
     var divResultat = document.getElementById("resultat");
-    divResultat.textContent = "Age : " + age +" ans";
+    divResultat.textContent =  age +" ans";
     </script>
 </body>
 </html>
