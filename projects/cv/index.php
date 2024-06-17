@@ -362,7 +362,7 @@ try {
         position: relative;
         padding-left: 20px;
         width: 100%;
-        margin-top: 10px;
+        margin-top: 5px;
         background: linear-gradient(90deg, var(--color-principal) 0%, transparent  2%, transparent 100%);
         font-size: var(--font-sm);
         }
