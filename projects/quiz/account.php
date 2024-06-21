@@ -91,7 +91,7 @@ if (isset($_SESSION['user_type'])) {
 
                 .card img {
                     width: 100%;
-                    height: 300px;
+                    height: 100%;
                     object-fit: cover;
                 }
 
