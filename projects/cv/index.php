@@ -248,7 +248,7 @@ try {
 .key{
     font-size:var(--font-usm);
     background-color: white;
-    color:var(--color-font-secondary:rgb(189, 147, 40));
+    color:var(--color-font-secondary);
 }
 
 .container {
