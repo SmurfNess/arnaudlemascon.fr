@@ -246,7 +246,7 @@ try {
 }
 
 .key{
-    font-size:var(--font-usm;)
+    font-size:var(--font-usm);
 }
 
 .container {
