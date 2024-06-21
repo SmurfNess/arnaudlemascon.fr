@@ -55,7 +55,7 @@ echo '          </ul>';
 echo '        </div>';
 echo '        <div class="keywords" >';
 echo '        <div class="intro intro_left" >mots-clés</div>';
-echo '        <div class="key">linux ; office365 ; scrum ; design thinking</div>';
+echo '        <div class="key">#linux #office365 #scrum #designthinking #project #</div>';
 echo '        </div>';
 echo '      </div>';
 echo '      <div class="right" >';
@@ -247,6 +247,8 @@ try {
 
 .key{
     font-size:var(--font-usm);
+    background-color: white;
+    color:var(--color-font-secondary:rgb(189, 147, 40));
 }
 
 .container {
