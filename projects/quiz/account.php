@@ -87,6 +87,7 @@ if (isset($_SESSION['user_type'])) {
                     height: 100vh;
                     display: inline-block;
                     position: absolute;
+                    background-color:white;
                 }
 
                 .card img {
