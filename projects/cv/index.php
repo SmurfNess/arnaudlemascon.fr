@@ -246,6 +246,8 @@ try {
 }
 
 .key{
+    margin-top:10px;
+    border-radius:5px;
     font-size:var(--font-usm);
     background-color: white;
     color:var(--color-font-secondary);
