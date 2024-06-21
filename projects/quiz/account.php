@@ -86,7 +86,7 @@ if (isset($_SESSION['user_type'])) {
                     width: 100vw;
                     height:85vh;
                     display: inline-block;
-                    overlay:hidden;
+                    overflow:hidden;
                     position: absolute;
                     background-color:white;
                 }
