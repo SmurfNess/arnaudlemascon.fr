@@ -81,18 +81,17 @@ if (isset($_SESSION['user_type'])) {
                 .card {
                     border: 1px solid #ccc;
                     border-radius: 5px;
+                    padding: 10px;
                     margin: 10px;
-                    width:60vw;
-                    height:50vh;
+                    width: 400px;
+                    height: 400px;
                     display: inline-block;
-                    overflow:hidden;
-                    position: absolute;
-                    background-color:white;
+                    position: relative;
                 }
 
                 .card img {
                     width: 100%;
-                    height: 100%;
+                    height: 300px;
                     object-fit: cover;
                 }
 
