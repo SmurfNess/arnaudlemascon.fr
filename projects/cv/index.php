@@ -55,7 +55,7 @@ echo '          </ul>';
 echo '        </div>';
 echo '        <div class="keywords" >';
 echo '        <div class="intro intro_left" >mots-clés</div>';
-echo '        <div>linux ; office365 ; scrum ; design thinking</div>';
+echo '        <div class="key">linux ; office365 ; scrum ; design thinking</div>';
 echo '        </div>';
 echo '      </div>';
 echo '      <div class="right" >';
@@ -231,6 +231,7 @@ try {
         --font-bg: 18px;
         --font-md: 14px;
         --font-sm: 12px;
+        --font-usm: 10px;
 
         --poppins-font: 'Poppins', sans-serif;
         --arial-font: Arial, sans-serif;
@@ -242,6 +243,10 @@ try {
     display: flex;
     justify-content: center;
     height: 100vh; /* Ensure body takes full viewport height */
+}
+
+.key{
+    font-size:var(--font-usm;)
 }
 
 .container {
