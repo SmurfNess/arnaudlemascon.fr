@@ -83,7 +83,7 @@ if (isset($_SESSION['user_type'])) {
                     border-radius: 5px;
                     padding: 10px;
                     margin: 10px;
-                    width:100%;
+                    width:97vw;
                     height:85vh;
                     display: inline-block;
                     overflow:hidden;
