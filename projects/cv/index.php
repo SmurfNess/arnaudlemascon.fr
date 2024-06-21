@@ -118,8 +118,6 @@ echo '              </div>';
   }
 }
 
-
-
     private function generateEducationCards() {
         // Fetch data from the 'Education' table
         $educationQuery = $this->bdd->prepare("SELECT * FROM Education");
@@ -268,7 +266,7 @@ try {
 
         .left {
         background-color: var(--color-principal);
-        width: 500px;
+        width: 350px;
         color: white;
         }
 
