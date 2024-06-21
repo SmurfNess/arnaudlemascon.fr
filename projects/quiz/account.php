@@ -83,10 +83,10 @@ if (isset($_SESSION['user_type'])) {
                     border-radius: 5px;
                     padding: 10px;
                     margin: 10px;
-                    width: 400px;
-                    height: 400px;
+                    width: 100vw;
+                    height: 100vh;
                     display: inline-block;
-                    position: relative;
+                    position: absolute;
                 }
 
                 .card img {
