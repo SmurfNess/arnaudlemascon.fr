@@ -81,7 +81,6 @@ if (isset($_SESSION['user_type'])) {
                 .card {
                     border: 1px solid #ccc;
                     border-radius: 5px;
-                    padding: 10px;
                     margin: 10px;
                     width:60vw;
                     height:50vh;
