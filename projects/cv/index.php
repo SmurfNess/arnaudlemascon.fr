@@ -266,7 +266,7 @@ try {
 
         .left {
         background-color: var(--color-principal);
-        width: 350px;
+        width: 250px;
         color: white;
         }
 
