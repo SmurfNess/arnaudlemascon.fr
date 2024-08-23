@@ -137,6 +137,10 @@ section{
   width: 35px;
 }
 
+#id{
+  border: black 5px solid;
+}
+
 /* PROJECTS ##################################################### */
 
 .row-projects{
