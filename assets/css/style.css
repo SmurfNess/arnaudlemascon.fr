@@ -48,7 +48,6 @@
   position: absolute;
   fill: var(--color-principal);
   top:150px;
-  width: 100vw;
   height: 25vh;
 }
 
