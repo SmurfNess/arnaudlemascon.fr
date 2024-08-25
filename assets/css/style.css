@@ -15,7 +15,7 @@
 
 :root {
   --color-principal:goldenrod;
-  --color-other:rgb(90, 103, 160);
+  --color-secondary:rgb(90, 103, 160);
   --color-tertiary:rgb(61, 70, 122);
   --color-dark:#1b1f36c4;
   --color-input:white;
@@ -49,7 +49,7 @@
   fill: var(--color-principal);
   top:150px;
   width: 100vw;
-  height: 150vh;
+  height: 170vh;
 }
 
 
@@ -121,155 +121,377 @@ section{
 }
 
 .portrait-container {
-  position: relative;
-  height: 350px;
-  width: 300px;
-  border-radius: 50%;
+  height: 225px; /* 150px * 1.5 */
+  width: 300px; /* 200px * 1.5 */
+  background: radial-gradient(circle, var(--color-secondary) 0%, var(--color-tertiary));
+  border-radius: 37.5px; /* 25px * 1.5 */
   overflow: hidden;
-  }
-
-.portrait-container img {
-  position: absolute;
+  position: relative;
+  display: flex;
+  flex-direction: column; /* Optionnel si vous souhaitez empiler les éléments verticalement */
+  align-items: center; /* Centre horizontalement */
 }
+
+#shirt {
+  position: absolute; /* Utiliser position absolute pour positionner indépendamment */
+  height: 90px; /* 60px * 1.5 */
+  width: 195px; /* 130px * 1.5 */
+  background-color: black;
+  border-radius: 75% 75% 0 0; /* 50% * 1.5 */
+  top: 60%; /* Ajustez selon vos besoins */
+}
+
+#neck {
+  position: absolute; /* Utiliser position absolute pour positionner indépendamment */
+  height: 80px; /* 80px * 1.5 */
+  width: 60px; /* 40px * 1.5 */
+  border-radius: 52.5px; /* 35px * 1.5 */
+  background-color: rgb(252, 197, 172);
+  top: 40%; /* Ajustez selon vos besoins */
+}
+
+.face-container {
+  position: absolute;
+  height: 225px; /* 150px * 1.5 */
+  width: 300px; /* 200px * 1.5 */
+  display: flex;
+  flex-direction: column; /* Optionnel si vous souhaitez empiler les éléments verticalement */
+  align-items: center; /* Centre horizontalement */
+}
+
+#face{
+  position: absolute;
+  height: 150px; /* 100px * 1.5 */
+  width: 112.5px; /* 75px * 1.5 */
+  border-radius: 45px; /* 30px * 1.5 */
+  background-color: rgb(252, 197, 172);
+  left: 95px; /* 60px * 1.5 */
+  top: -15px; /* -10px * 1.5 */
+}
+
+#ears{
+  position: absolute;
+  height: 37.5px; /* 25px * 1.5 */
+  width: 135px; /* 90px * 1.5 */
+  border-radius: 12px; /* 8px * 1.5 */
+  background-color: rgb(252, 197, 172);
+  left: -11.25px; /* -7.5px * 1.5 */
+  top: 60px; /* 40px * 1.5 */
+}
+
+#beard{
+  position: relative;
+  background-color:rgb(56, 21, 21);
+  height: 52.5px; /* 35px * 1.5 */
+  width: 120px; /* 80px * 1.5 */
+  top: 97.5px; /* 65px * 1.5 */
+  left: -3.75px; /* -2.5px * 1.5 */
+  border-radius: 75% 75% 75px 75px; /* 50% * 1.5 */
+}
+
+#nose{
+  position: relative;
+  background-color: rgb(252, 197, 172);
+  height: 37.5px; /* 25px * 1.5 */
+  width: 37.5px; /* 25px * 1.5 */
+  left: 37.5px; /* 25px * 1.5 */
+  top: 7.5px; /* 5px * 1.5 */
+  border-radius: 75%; /* 50% * 1.5 */
+}
+
+#mouth{
+  position: relative;
+  background-color: rgb(56, 21, 21);
+  height: 15px; /* 10px * 1.5 */
+  width: 52.5px; /* 35px * 1.5 */
+  top: 15px; /* 10px * 1.5 */
+  left: 30px; /* 20px * 1.5 */
+  border-radius: 7.5px 7.5px 75px 75px; /* 5px * 1.5 */
+  overflow: hidden;
+}
+
+#tsmile{
+  position: relative;
+  background-color: white;
+  height: 7.5px; /* 5px * 1.5 */
+  width: 52.5px; /* 35px * 1.5 */
+  left: 0px;
+  border-radius: 0 0 7.5px 7.5px; /* 5px * 1.5 */
+  border-top: grey solid 1.5px; /* 1px * 1.5 */
+}
+
+#bsmile{
+  position: relative;
+  background-color: white;
+  height: 7.5px; /* 5px * 1.5 */
+  width: 52.5px; /* 35px * 1.5 */
+  left: 0px;
+  border-radius: 7.5px 7.5px 0 0; /* 5px * 1.5 */
+  border-top: grey solid 1.5px; /* 1px * 1.5 */
+}
+
+#spot{
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.411);
+  height: 6px; /* 4px * 1.5 */
+  width: 6px; /* 4px * 1.5 */
+  top: 52.5px; /* 35px * 1.5 */
+  left: 7.5px; /* 5px * 1.5 */
+  border-radius: 7.5px; /* 5px * 1.5 */
+}
+
+.glasses{
+  position: absolute;
+  background-color: rgba(0, 0, 0);
+  border-radius: 7.5px; /* 5px * 1.5 */
+  top: 52.5px; /* 35px * 1.5 */
+}
+
+#paws{
+  left: -3.75px; /* -2.5px * 1.5 */
+  height: 7.5px; /* 5px * 1.5 */
+  width: 120px; /* 80px * 1.5 */
+}
+
+#cyrano{
+  left: 48.75px; /* 32.5px * 1.5 */
+  top: 60px; /* 40px * 1.5 */
+  border-radius: 75% 75% 0 0; /* 50% * 1.5 */
+  height: 30px; /* 20px * 1.5 */
+  width: 15px; /* 10px * 1.5 */
+  background-color: rgb(252, 197, 172);
+}
+
+.mount{
+  position: absolute;
+  height: 37.5px; /* 25px * 1.5 */
+  width: 49.5px; /* 33px * 1.5 */
+  top: 48.75px; /* 32.5px * 1.5 */
+  border-radius: 7.5px 7.5px 37.5% 37.5%; /* 5px * 1.5 */
+}
+
+#rmount{
+  left: 63px; /* 42px * 1.5 */
+}
+
+.glass{
+  background-color: rgb(233, 233, 233);
+  position: absolute;
+  height: 31.5px; /* 21px * 1.5 */
+  width: 43.5px; /* 29px * 1.5 */
+  top: 3px; /* 2px * 1.5 */
+  left: 3px; /* 2px * 1.5 */
+  border-radius: 3px 3px 37.5% 37.5%; /* 2px * 1.5 */
+}
+
 
 .flag{
   height: 35px;
   width: 35px;
 }
 
-#id{
-  border: black 5px solid;
+.trivia-container {
+  display: flex;
+
 }
+
+.picture-goey{
+  display: flex;
+  min-height: 150px;
+  min-width: 150px;  
+  max-height: 200px;
+  max-width: 200px;
+  overflow: hidden;
+  margin: 10px;
+}
+
+.picture-goey img{
+  position: relative;
+  width: 200px;
+}
+
+.trivia-ness{
+  animation: morph1 1s infinite ;
+}
+
+.trivia-game{
+  animation: morph2 1s infinite;
+}
+
+.trivia-tinkerer{
+  animation: morph3 1s infinite ;
+}
+
+.trivia-linkness{
+  animation: morph4 1s infinite ;
+}
+
+@keyframes morph1 {
+  0%, 100% {
+    border-radius: 62% 58% 70% 65% / 70% 75% 65% 65%;
+  }
+  25% {
+    border-radius: 80% 60% 70% 50% / 60% 65% 75% 60%;
+  }
+  50% {
+    border-radius: 70% 70% 80% 50% / 70% 60% 60% 70%;
+  }
+  75% {
+    border-radius: 75% 65% 65% 75% / 60% 70% 70% 60%;
+  }
+}
+
+@keyframes morph2 {
+  0%, 100% {
+    border-radius: 70% 70% 60% 70% / 70% 60% 70% 60%;
+  }
+  20% {
+    border-radius: 60% 70% 70% 60% / 70% 60% 60% 70%;
+  }
+  50% {
+    border-radius: 60% 60% 70% 80% / 60% 70% 70% 60%;
+  }
+  70% {
+    border-radius: 75% 75% 70% 75% / 70% 60% 70% 60%;
+  }
+}
+
+@keyframes morph3 {
+  0%, 100% {
+    border-radius: 70% 60% 70% 60% / 60% 70% 70% 60%;
+  }
+  30% {
+    border-radius: 70% 80% 70% 60% / 60% 70% 70% 60%;
+  }
+  50% {
+    border-radius: 70% 70% 60% 70% / 70% 60% 70% 60%;
+  }
+  80% {
+    border-radius: 70% 70% 70% 70% / 70% 70% 60% 70%;
+  }
+}
+
+@keyframes morph4 {
+  0%, 100% {
+    border-radius: 70% 70% 70% 60% / 60% 70% 70% 60%;
+  }
+  25% {
+    border-radius: 90% 70% 70% 70% / 70% 70% 60% 80%;
+  }
+  50% {
+    border-radius: 70% 60% 70% 70% / 70% 70% 70% 60%;
+  }
+  75% {
+    border-radius: 70% 70% 80% 70% / 70% 70% 60% 70%;
+  }
+}
+
+
+
 
 /* PROJECTS ##################################################### */
 
-.row-projects{
+.project-container {
   position: relative;
-  width: 308px;
-  top: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 100px 50px;
+  padding: 100px 50px;
 }
-.swiper {
+
+.project-container .cards {
   position: relative;
-  margin-top: 25px;
-  width: 90%;
-  height: 450px;
-  padding: 50px 0;
-  transform: scale(1);
-}
-
-.swiper-slide {
-  position: relative;
-  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
-  background:black;
- }
-
-.swiper-card {
-  position:relative;
-  margin:10px;
-  height:325px;
-  width:230px;
-  border-radius: 1px;
-  color: black;
-}
-
-.container-bande{
-  position:absolute;
-  z-index:2;
-}
-
-.swiper-head, .swiper-type{
-    top:10px;
-    position: relative;
-    width: 225px;
-    height: 25px;
-    background-color: transparent;
-    overflow: hidden;
-}
-
-.swiper-circle {
-    position: absolute;
-    top: 50%;
-    left: 51%;
-    transform: translate(-50%, -50%);
-    background: white;
-    border-radius: 50%;
-    height: 100px;
-    width: 214px;
-  border:2px solid black;
-  color: black;
-}
-
-.swiper-border{
-  position:absolute;
-  border-top: 2px solid black;
-  border-bottom: 2px solid black;
-  width: 206px;
-  height:29px;
-  margin: 0 auto;
-  left:12px;
-  top:8px;
-  background:transparent;
-  padding: 5px 0px 0px 5px;
-  font-size:14px;
-}
-
-.swiper-img{
-  z-index:1;
-  position:relative;
-  top:10px;
-  margin:2px 15px 0px 15px;
-  height:150px;
-  overflow:hidden;
-  text-align: center;
-  border:2px black solid;
-}
-
-.swiper-slide:hover{
- background: linear-gradient(180deg, var(--color-principal) 0%, black 100%);
- transform: perspective(100px) rotateX(5deg);
- top:5px;
-}
-
-.swiper-img img{
-  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 350px;
   max-width: 100%;
+  height: 300px;
+  background: #FFF;
+  border-radius: 20px;
+  transition: 0.5s;
+  box-shadow: 0 35px 80px rgba(0, 0, 0, 0.15);
 }
 
-.swiper-description{
-  z-index:1;
+.project-container .cards .img-box {
+  position: absolute;
+  top: 20px;
+  width: 300px;
+  height: 220px;
+  background: #333;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: 0.5s;
+}
+
+.project-container .cards .img-box img{
+width: 100%;
+}
+
+.project-container .cards .text-box {
+  position: absolute;
+  top: 252px;
+  width: 100%;
+  height: 35px;
+  padding: 0 30px;
+  text-align: center;
+  overflow: hidden;
+  transition: 0.5s;
+  color: black;
+}
+
+.project-container .cards .text-box a {
+  color: var(--color-font-secondary);
+  text-transform: uppercase;
+  font-weight: bolder;
+  font-size: 24px;
+}
+
+
+.project-container .cards .text-box .techno-box  {
   position: relative;
-  background:white;
-  width:auto;
-  top:30px;
-  height:125px;
-  margin:0px 15px 0px 15px;
-  padding:10px;
-  border: solid black 2px;
-  font-size:12px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
-.swiper-legend{
-  position:absolute;
-  color:white;
-  bottom:5px;
-  left:20px;
-  font-weight:bold;
-  font-size:10px;
+.project-container .cards .text-box .techno-box .techno-label {
+  height: 25px;
+  width: 50px;
+  border-radius: 5px;
+  box-shadow: 0 35px 80px rgba(0, 0, 0, 0.15);
+  color: white;
+  font-weight: bold;
 }
 
-.techno{
-  position:absolute;
-  top:14px;
-  right:10px;
-}
-.logo{
-  z-index:5;
-  position:relative;
-  height:20px;
-  top:-5px;
+#JS{
+  background-color: red;
 }
 
+#HTML{
+  background-color: blue;
+}
+
+#CSS{
+  background-color: green;
+}
+
+.project-container .cards:hover {
+  height: 400px;
+}
+
+.project-container .cards:hover .img-box {
+  top: -100px;
+  scale: 0.75;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
+}
+
+.project-container .cards:hover .text-box {
+  top: 100px;
+  height: 290px;
+}
 
 /* VALUES ####################################################### */
 
@@ -339,59 +561,6 @@ section{
   position: relative;
   top: 5px;
   font-size: var(--font-bg);
-}
-
-/* TRIVIA ####################################################### */
-
-.img-fluid-carousel{
-  height: 500px ;
-  width: 1000px;
-  object-fit: cover;
-  object-position: 50% 50%;
-  border-radius: 25px;
-}
-
-.hidden-carousel-button{
-  display: none;
-}
-
-.carousel-inner{
-  border-radius: 25px;
-}
-.carousel-caption{
-  z-index: 0;
-  font-size: var(--font-sm);
-  position: absolute;
-  width: 75%;
-  max-width: 800px;
-  min-width: 200px;
-  padding: 10px 10px 10px 10px;
-  background: rgba(0, 0, 0, 0.6);
-  border-radius: 10px;
-  color: white;
-  font-weight: bolder;
-  transition: background-color 0.5s ease;
-} 
-
-.carousel-caption:hover{
-  background: rgba(0, 0, 0, 0.8);
-} 
-
-.carousel-control-prev,
-.carousel-control-next {
-  z-index: 1;
-  width: 100%; 
-  height: 100%;
-  opacity: 1; 
-  scale: .5;
-  background: var(--color-principal);
-}
-
-.carousel-control-prev{
-  clip-path: polygon(75% 25%, 65% 15%, 25% 50%, 65% 85%, 75% 75%);
-} 
-.carousel-control-next {
-  clip-path: polygon(25% 25%, 35% 15%, 75% 50%, 35% 85%,25% 75%);
 }
 
 /* SKILLS ####################################################### */

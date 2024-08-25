@@ -32,6 +32,11 @@
     background-color: var(--color-principal);
   }
 
+  #PROJECTS{
+    height: 200vh;
+    position: relative;
+    top: 0vh;
+  }
   .project-text{
     display: none;
   }
