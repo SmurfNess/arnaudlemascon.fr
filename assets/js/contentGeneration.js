@@ -94,27 +94,20 @@ function generateSkills() {
     const container = document.querySelector('#SKILLS .skills-container');
     container.innerHTML = ''; // Clear the container
 
-    if (data.skills) {
-        for (const key in data.skills) {
-            if (data.skills.hasOwnProperty(key)) {
-                const skill = data.skills[key];
-                const gaugeHTML = `
-                    <div class="card">
-                        <h3>${skill.name[currentLanguage]}</h3>
-                        <div class="gauge">
-                            <span style="width: ${skill.level}%; background-color: ${skill.type === 'development' ? '#4caf50' : '#2196f3'};"></span>
-                        </div>
-                        <p>${skill.level}%</p>
-                    </div>
-                `;
-                
-                container.insertAdjacentHTML('beforeend', gaugeHTML);
-            }
-        }
-    } else {
-        container.innerHTML = '<p>No skills available.</p>';
+    for (const key in data.skills) {
+        const skill = data.skills[key];
+        const gaugeHTML = `
+            <div class="card">
+                <h3>${skill.name[currentLanguage]}</h3>
+                <div class="gauge">
+                    <span style="width: ${skill.level}%; background-color: ${skill.type === 'development' ? '#4caf50' : '#2196f3'};"></span>
+                </div>
+                <p>${skill.level}%</p>
+            </div>
+        `;
+        
+        container.insertAdjacentHTML('beforeend', gaugeHTML);
     }
 }
-
 
 fetchData();
