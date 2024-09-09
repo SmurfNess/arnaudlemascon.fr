@@ -50,6 +50,7 @@ function generateArticle() {
         'PROJECTS': document.querySelector('#PROJECTS .article-container'),
         'VALUES': document.querySelector('#VALUES .article-container'),
         'SKILLS': document.querySelector('#SKILLS .article-container'),
+        'CONTACT': document.querySelector('#CONTACT .article-container'),
     };
 
     console.log('Sections:', sections);
