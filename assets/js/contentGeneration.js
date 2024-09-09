@@ -27,12 +27,17 @@ function changeLanguage(language) {
 
 function generateArticle() {
     const articleContainer = document.querySelector('#article-container');
-    const article = data.articles[0]; // Assuming you want the first article
-    articleContainer.innerHTML = `
-        <h2>${article.title[currentLanguage]}</h2>
-        <p>${article.description[currentLanguage]}</p>
-    `;
+    if (data.projects && data.projects.length > 0) {
+        const project = data.projects[0]; // Utilisation d'un projet comme exemple
+        articleContainer.innerHTML = `
+            <h2>${project.name[currentLanguage]}</h2>
+            <p>${project.description[currentLanguage]}</p>
+        `;
+    } else {
+        articleContainer.innerHTML = '<p>No articles available.</p>';
+    }
 }
+
 
 function generateProjects() {
     const container = document.querySelector('#PROJECTS .project-container');
