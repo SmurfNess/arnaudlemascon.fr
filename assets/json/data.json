@@ -2,16 +2,16 @@
   "projects": [
     {
       "name": {
-        "en": "Project 1",
-        "fr": "Projet 1",
-        "es": "Proyecto 1"
+        "en": "Norksiege",
+        "fr": "Norksiege",
+        "es": "Norksiege"
       },
       "description": {
         "en": "Description of Project 1 in English.",
         "fr": "Description du projet 1 en français.",
         "es": "Descripción del Proyecto 1 en español."
       },
-      "image": "https://arnaudlemascon.fr/assets/pictures/IMG_1841.webp",
+      "image": "https://arnaudlemascon.fr/assets/pictures/norksiege.webp",
       "techno": ["JS", "HTML"]
     },
     {
@@ -97,6 +97,15 @@
     "french": {
       "type": "language",
       "level": 100,
+      "name": {
+        "en": "French",
+        "fr": "Français",
+        "es": "Francés"
+      }
+    },
+    "español": {
+      "type": "language",
+      "level": 40,
       "name": {
         "en": "French",
         "fr": "Français",
