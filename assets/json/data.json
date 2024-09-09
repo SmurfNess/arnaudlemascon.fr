@@ -1,15 +1,44 @@
-{
+{  "Article": [
+  {
+    "name": {
+      "en": "Home",
+      "fr": "Accueil",
+      "sp": "Accueillo"
+    },
+    "description": {
+      "en": "Welcome",
+      "fr": "Bienvenue",
+      "sp": "Buenvenudo."
+    },
+    "image": "https://arnaudlemascon.fr/assets/pictures/norksiege.webp",
+    "techno": ["JS", "HTML"]
+  },
+  {
+    "name": {
+      "en": "Project 2",
+      "fr": "Projet 2",
+      "sp": "Proyecto 2"
+    },
+    "description": {
+      "en": "Description of Project 2 in English.",
+      "fr": "Description du projet 2 en français.",
+      "sp": "Descripción del Proyecto 2 en español."
+    },
+    "image": "https://arnaudlemascon.fr/assets/pictures/IMG_1873.webp",
+    "techno": ["CSS", "JS"]
+  }
+],
   "projects": [
     {
       "name": {
         "en": "Norksiege",
         "fr": "Norksiege",
-        "es": "Norksiege"
+        "sp": "Norksiege"
       },
       "description": {
         "en": "Description of Project 1 in English.",
         "fr": "Description du projet 1 en français.",
-        "es": "Descripción del Proyecto 1 en español."
+        "sp": "Descripción del Proyecto 1 en español."
       },
       "image": "https://arnaudlemascon.fr/assets/pictures/norksiege.webp",
       "techno": ["JS", "HTML"]
@@ -18,12 +47,12 @@
       "name": {
         "en": "Project 2",
         "fr": "Projet 2",
-        "es": "Proyecto 2"
+        "sp": "Proyecto 2"
       },
       "description": {
         "en": "Description of Project 2 in English.",
         "fr": "Description du projet 2 en français.",
-        "es": "Descripción del Proyecto 2 en español."
+        "sp": "Descripción del Proyecto 2 en español."
       },
       "image": "https://arnaudlemascon.fr/assets/pictures/IMG_1873.webp",
       "techno": ["CSS", "JS"]
@@ -34,26 +63,26 @@
       "name": {
         "en": "Curiosity",
         "fr": "Curiosité",
-        "es": "Curiosidad"
+        "sp": "Curiosidad"
       },
       "image": "https://arnaudlemascon.fr/assets/pictures/IMG_1841.webp",
       "description": {
         "en": "From artist to consultant, from organizing outings to beginner developer.",
         "fr": "D'artiste à consultant, d'organisateurs de sorties à développeur débutant.",
-        "es": "De artista a consultor, de organizar salidas a desarrollador principiante."
+        "sp": "De artista a consultor, de organizar salidas a desarrollador principiante."
       }
     },
     {
       "name": {
         "en": "Creativity",
         "fr": "Créativité",
-        "es": "Creatividad"
+        "sp": "Creatividad"
       },
       "image": "https://arnaudlemascon.fr/assets/pictures/IMG_1873.webp",
       "description": {
         "en": "Making a table, a board game, a website, automating my repetitive actions, making spiced rum.",
         "fr": "Faire une table, un jeu de société, un site web, automatiser mes actions redondantes, faire du rhum arrangé.",
-        "es": "Hacer una mesa, un juego de mesa, un sitio web, automatizar mis acciones repetitivas, hacer ron especiado."
+        "sp": "Hacer una mesa, un juego de mesa, un sitio web, automatizar mis acciones repetitivas, hacer ron especiado."
       }
     }
   ],
@@ -64,7 +93,7 @@
       "name": {
         "en": "JavaScript",
         "fr": "JavaScript",
-        "es": "JavaScript"
+        "sp": "JavaScript"
       }
     },
     "html": {
@@ -73,7 +102,7 @@
       "name": {
         "en": "HTML 5",
         "fr": "HTML 5",
-        "es": "HTML 5"
+        "sp": "HTML 5"
       }
     },
     "css": {
@@ -82,7 +111,7 @@
       "name": {
         "en": "CSS",
         "fr": "CSS",
-        "es": "CSS"
+        "sp": "CSS"
       }
     },
     "english": {
@@ -91,7 +120,7 @@
       "name": {
         "en": "English",
         "fr": "Anglais",
-        "es": "Inglés"
+        "sp": "Inglés"
       }
     },
     "french": {
@@ -100,7 +129,7 @@
       "name": {
         "en": "French",
         "fr": "Français",
-        "es": "Francés"
+        "sp": "Francés"
       }
     },
     "español": {
@@ -109,7 +138,7 @@
       "name": {
         "en": "French",
         "fr": "Français",
-        "es": "Francés"
+        "sp": "Francés"
       }
     }
   }
