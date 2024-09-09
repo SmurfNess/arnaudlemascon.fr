@@ -17,11 +17,18 @@
     top:-10%;
   }
 
+  #HOME .container-fluid{
+    top:0%;
+  }
+
+  #HOME .background-svg{
+position: absolute;
+height: 250vh;
+  }
+
   .home-description{
-    background-color: var(--color-principal);
     height: 300px;
     padding: 50px 20px 50px 20px;
-    clip-path: polygon(0% 0%, 100% 15%, 100% 100%, 0% 85%);
   }
 
 
@@ -62,6 +69,15 @@
     max-height: 15vh;
   }
 
+#PROJECTS{
+    position: relative;
+    background-color: rgba(255, 0, 0, 0.397);
+    height: 150vh;
+
+  }
+
+
+
   .project-text{
     display: none;
   }
@@ -77,6 +93,10 @@
 
   .project-text{
     font-size: 15px;
+  }
+
+  .project-container {
+    padding: 5px 5px;
   }
 
 
@@ -135,7 +155,7 @@
   }
 
   #SKILLS .container-fluid{
-    top:0px
+    top:125px
   }
 
   .card-text-skill{
@@ -150,8 +170,8 @@
   }
 
   .contact-text{
-    bottom: 85px;
-    left:-100px;
+    bottom: 100px;
+    left:-120px;
   }
 
   .language{

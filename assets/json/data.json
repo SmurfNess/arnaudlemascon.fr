@@ -1,0 +1,107 @@
+{
+  "projects": [
+    {
+      "name": {
+        "en": "Project 1",
+        "fr": "Projet 1",
+        "es": "Proyecto 1"
+      },
+      "description": {
+        "en": "Description of Project 1 in English.",
+        "fr": "Description du projet 1 en français.",
+        "es": "Descripción del Proyecto 1 en español."
+      },
+      "image": "https://arnaudlemascon.fr/assets/pictures/IMG_1841.webp",
+      "techno": ["JS", "HTML"]
+    },
+    {
+      "name": {
+        "en": "Project 2",
+        "fr": "Projet 2",
+        "es": "Proyecto 2"
+      },
+      "description": {
+        "en": "Description of Project 2 in English.",
+        "fr": "Description du projet 2 en français.",
+        "es": "Descripción del Proyecto 2 en español."
+      },
+      "image": "https://arnaudlemascon.fr/assets/pictures/IMG_1873.webp",
+      "techno": ["CSS", "JS"]
+    }
+  ],
+  "values": [
+    {
+      "name": {
+        "en": "Curiosity",
+        "fr": "Curiosité",
+        "es": "Curiosidad"
+      },
+      "image": "https://arnaudlemascon.fr/assets/pictures/IMG_1841.webp",
+      "description": {
+        "en": "From artist to consultant, from organizing outings to beginner developer.",
+        "fr": "D'artiste à consultant, d'organisateurs de sorties à développeur débutant.",
+        "es": "De artista a consultor, de organizar salidas a desarrollador principiante."
+      }
+    },
+    {
+      "name": {
+        "en": "Creativity",
+        "fr": "Créativité",
+        "es": "Creatividad"
+      },
+      "image": "https://arnaudlemascon.fr/assets/pictures/IMG_1873.webp",
+      "description": {
+        "en": "Making a table, a board game, a website, automating my repetitive actions, making spiced rum.",
+        "fr": "Faire une table, un jeu de société, un site web, automatiser mes actions redondantes, faire du rhum arrangé.",
+        "es": "Hacer una mesa, un juego de mesa, un sitio web, automatizar mis acciones repetitivas, hacer ron especiado."
+      }
+    }
+  ],
+  "skills": {
+    "js": {
+      "type": "development",
+      "level": 45,
+      "name": {
+        "en": "JavaScript",
+        "fr": "JavaScript",
+        "es": "JavaScript"
+      }
+    },
+    "html": {
+      "type": "development",
+      "level": 80,
+      "name": {
+        "en": "HTML 5",
+        "fr": "HTML 5",
+        "es": "HTML 5"
+      }
+    },
+    "css": {
+      "type": "development",
+      "level": 75,
+      "name": {
+        "en": "CSS",
+        "fr": "CSS",
+        "es": "CSS"
+      }
+    },
+    "english": {
+      "type": "language",
+      "level": 75,
+      "name": {
+        "en": "English",
+        "fr": "Anglais",
+        "es": "Inglés"
+      }
+    },
+    "french": {
+      "type": "language",
+      "level": 100,
+      "name": {
+        "en": "French",
+        "fr": "Français",
+        "es": "Francés"
+      }
+    }
+  }
+}

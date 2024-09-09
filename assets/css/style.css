@@ -105,6 +105,10 @@ section{
 
 /* HOME ######################################################### */
 
+#HOME{
+  background-color: transparent;
+  height: 100vh;
+}
 .home{
   position: relative;
   top: -50px;
@@ -292,7 +296,6 @@ section{
 
 .trivia-container {
   display: flex;
-
 }
 
 .picture-goey{
@@ -398,7 +401,6 @@ section{
   align-items: center;
   flex-wrap: wrap;
   gap: 100px 50px;
-  padding: 100px 50px;
 }
 
 .project-container .cards {
@@ -475,11 +477,11 @@ width: 100%;
 }
 
 #CSS{
-  background-color: green;
+  background-color: transparent;
 }
 
 .project-container .cards:hover {
-  height: 400px;
+  height: 325px;
 }
 
 .project-container .cards:hover .img-box {
@@ -495,15 +497,12 @@ width: 100%;
 
 /* VALUES ####################################################### */
 
-.container-values{
-  background-color: var(--color-principal);
-}
-
 .cartes-container {
   display: flex;
 }
 
 .carte {
+  margin: 15px;
   width: 200px;
   height: 250px;
   perspective: 1000px;

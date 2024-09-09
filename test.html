@@ -3,35 +3,169 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Page avec Bootstrap</title>
+  <title>page de test</title>
   <!-- Inclusion de Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Style -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style_lg.css">
+    <link rel="stylesheet" href="assets/css/style_md.css">
+    <link rel="stylesheet" href="assets/css/style_sm.css">
+    <link rel="stylesheet" href="assets/css/style_xs.css">
+    <link rel="stylesheet" href="assets/css/Banner.css">
 </head>
 <body>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-sm-3 bg-primary">
-        <h2>Colonne 1</h2>
-        <p>Contenu de la colonne 1</p>
+  <!-- Background -->
+  <canvas id="canvas">a</canvas>
+<!-- Banner -->
+<div class="container_banner">
+  <div class="containess">
+    <div class="nessclass">
+      <svg width="400" height="500" xmlns="http://www.w3.org/2000/svg" class="nessrightear">
+        <path d="M 325 125 C 350 10, 320 10, 250 70" stroke="black" fill="pink" stroke-width="12"/>
+        <path d="M 320 27 C 250 60, 320 130, 250 70" stroke="black" fill="black" stroke-width="5"/>
+        <path d="M 75 125 C 50 10, 80 10, 150 70" stroke="black" fill="pink" stroke-width="12"/>
+        <path d="M 80 27 C 150 60, 80 130, 150 70" stroke="black" fill="black" stroke-width="5"/>
+    </svg>
+
+      <svg width="400" height="500" xmlns="http://www.w3.org/2000/svg" class="nessdrawed">
+        <path d="M 0 500 C 0 100, 400 100, 400 500 Z" fill="black"/>
+        <path d="M 100 500 C 100 200, 300 200, 300 500 Z" fill="white"/>
+         <circle cx="200" cy="200" r="150" fill="black"/>
+        <path d="M 300 312 A 150 150 0 0 1 88 300 L 205 200 Z" fill="white" stroke="black" stroke-width="3"/>
+        <circle cx="200" cy="290" r="30" fill="pink"/>
+       
+         <circle cx="220" cy="272" r="35" fill="white"/>
+        <circle cx="180" cy="272" r="35" fill="white"/>
+       
+        <circle cx="130" cy="272" r="50" fill="white"/>
+        <circle cx="270" cy="272" r="50" fill="white"/>
+       
+        <circle cx="200" cy="200" r="30" fill="white"/>
+        <rect x="170" y="200" width="60" height="100" fill="white"/>
+        <ellipse cx="200" cy="250" rx="25" ry="10" fill="pink"/>
+        <path d="M 190 250 C 200 280, 200 280, 210 250" fill="pink" />
+     
+        <line x1="120" y1="260" x2="40" y2="240" stroke="white" stroke-width="15"/>
+        <line x1="120" y1="280" x2="40" y2="280" stroke="white" stroke-width="15"/>
+        <line x1="120" y1="300" x2="50" y2="330" stroke="white" stroke-width="15"/>
+          <line x1="280" y1="260" x2="360" y2="240" stroke="white" stroke-width="15"/>
+        <line x1="280" y1="280" x2="360" y2="280" stroke="white" stroke-width="15"/>
+        <line x1="280" y1="300" x2="350" y2="330" stroke="white" stroke-width="15"/>          
+     </svg>
+
+      <div class="eyes">
+        <div class="eye"></div>
+        <div class="eye"></div>
+        <div id="R-eyelid" class="eyelid"></div>
+        <div id="L-eyelid" class="eyelid"></div>
       </div>
-      <div class="col-sm-3 bg-secondary">
-        <h2>Colonne 2</h2>
-        <p>Contenu de la colonne 2</p>
-      </div>
-      <div class="col-sm-3 bg-success">
-        <h2>Colonne 3</h2>
-        <p>Contenu de la colonne 3</p>
-      </div>
-      <div class="col-sm-3 bg-danger">
-        <h2>Colonne 4</h2>
-        <p>Contenu de la colonne 4</p>
-      </div>
-    </div>
+      <div id="eyebrows"></div>
+    </div>        
   </div>
+  <div class="banner" id="BANNER"></div>
+  <div class="links-container">
+    <a href="https://github.com/SmurfNess" class="link" target="_blank">
+      <img src="assets/pictures/github.webp" alt="Github" class="link-img"><span></span>
+    </a>
+    <a href="https://codepen.io/Greatness-GreatSmurf" class="link" target="_blank">
+      <img src="assets/pictures/codepen.webp" class="link-img" alt="Codepen"><span></span>
+    </a>
+    <a href="https://www.linkedin.com/in/arnaud-lemas%C3%A7on-ness" class="link" target="_blank">
+      <img src="assets/pictures/linkedin.webp" class="link-img" alt="LinkiedIn"><span></span>
+    </a>
+    <a href="https://arnaudlemascon.fr/projects/cv/index.php" class="link" target="_blank">
+      <div class="link-img iconcv" alt="cv">CV</div><span></span>
+    </a>
+  </div>
+</div>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon">
+          <img src="assets/pictures/toggler.webp">
+        </span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+
+          <img src="assets/pictures/logo.webp" class="shake" onclick="chargerImagesAleatoires();">
+        
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#PROJECTS" onclick="closeNavbar()">Projets</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#VALUES" onclick="closeNavbar()">Valeurs</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#SKILLS" onclick="closeNavbar()">Compétences</a>
+            </li>                
+            <li class="nav-item">
+                <a class="nav-link" href="#CONTACT" onclick="closeNavbar()">Contact</a>
+            </li>
+        </ul>
+  
+        <a href="index-en.html"><img src="assets/pictures/uk.webp" class="flag" style="margin-right: 20px;"></a>
+        <a href="index-es.html"><img src="assets/pictures/es.webp"class="flag"></a>
+        <div class="underline"></div>
+    </div>
+  </nav>
+
+  <!--Sections-->
+
+<!-- Buttons to switch language -->
+<button onclick="changeLanguage('en')">English</button>
+<button onclick="changeLanguage('fr')">Français</button>
+<button onclick="changeLanguage('es')">Español</button>
+
+<!-- Home section -->
+<div id="HOME">
+    <h1>Article</h1>
+    <div id="article-container"></div>
+</div>
+
+<!-- Projects section -->
+<div id="PROJECTS">
+    <h1>Projects</h1>
+    <div class="project-container"></div>
+</div>
+
+<!-- Values section -->
+<div id="VALUES">
+    <h1>Values</h1>
+    <div class="container-values">
+        <div class="row"></div>
+    </div>
+</div>
+
+<!-- Skills section -->
+<div id="SKILLS">
+    <h1>Skills</h1>
+    <div class="skills-container"></div>
+</div>
+
+
 
   <!-- Inclusion de jQuery, Popper.js, et Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
+  <!-- Content generator-->
+
+  <!--Background generator-->
+  <script src="assets\js\polyground.js"></script>
+  <script src="assets/js/bandeaualeatoire.js"></script>
+  <script src="assets/js/animationNess.js"></script>
+
+  <!--Banner-->
+  <script src="assets\js\cursor.js"></script>
+
+  <!--Navbar-->
+  <script src="assets\js\activeItem.js"></script>
+
+  <!--Content-->
+  <script src="assets\js\contentGeneration.js"></script>
+
+ </body>
 </html>
