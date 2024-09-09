@@ -3,8 +3,9 @@ let currentLanguage = 'en'; // Default language
 
 async function fetchData() {
     try {
-        const response = await fetch('https://arnaudlemascon.fr/assets/json/data.json'); // Adjust path if needed
+        const response = await fetch('https://arnaudlemascon.fr/assets/json/data.json');
         data = await response.json();
+        console.log('Data loaded:', data); // Ajoutez ce log
         generateContent();
     } catch (error) {
         console.error('Error fetching data:', error);
@@ -24,21 +25,34 @@ function changeLanguage(language) {
 }
 
 function generateArticle() {
-    const articleContainer = document.querySelector('#article-container');
-    articleContainer.innerHTML = '';
+    console.log('Generating articles...'); // Ajoutez ce log
+    const sections = {
+        'HOME': document.querySelector('#HOME #article-container'),
+        'SKILLS': document.querySelector('#SKILLS .skills-container'),
+    };
 
     if (data.Article && Array.isArray(data.Article)) {
+        console.log('Articles:', data.Article); // Ajoutez ce log
+        Object.values(sections).forEach(container => container.innerHTML = '');
+
         data.Article.forEach(article => {
-            const articleHTML = `
-                <div class="article-item">
-                    <h2>${article.name[currentLanguage]}</h2>
-                    <p>${article.description[currentLanguage]}</p>
-                </div>
-            `;
-            articleContainer.insertAdjacentHTML('beforeend', articleHTML);
+            const container = sections[article.section];
+            if (container) {
+                const articleHTML = `
+                    <div class="article-item">
+                        <h2>${article.name[currentLanguage]}</h2>
+                        <p>${article.description[currentLanguage]}</p>
+                    </div>
+                `;
+                container.insertAdjacentHTML('beforeend', articleHTML);
+            } else {
+                console.warn(`Section "${article.section}" not found.`);
+            }
         });
     } else {
-        articleContainer.innerHTML = '<p>No articles available.</p>';
+        Object.values(sections).forEach(container => {
+            container.innerHTML = '<p>No articles available.</p>';
+        });
     }
 }
 
