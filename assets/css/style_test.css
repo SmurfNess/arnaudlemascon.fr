@@ -106,7 +106,7 @@ section{
 
 
 .article-container{
-  position: absolute;
+  position: relative;
   background-color: purple;
   border-radius: 25px;
 }
