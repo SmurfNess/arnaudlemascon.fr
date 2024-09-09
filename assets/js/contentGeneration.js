@@ -94,20 +94,63 @@ function generateSkills() {
     const container = document.querySelector('#SKILLS .skills-container');
     container.innerHTML = ''; // Clear the container
 
+    // Group skills by type
+    const groupedSkills = {
+        'OS': [],
+        'DEV': [],
+        'Langues': []
+    };
+
     for (const key in data.skills) {
-        const skill = data.skills[key];
-        const gaugeHTML = `
-            <div class="card">
-                <h3>${skill.name[currentLanguage]}</h3>
+        if (data.skills.hasOwnProperty(key)) {
+            const skill = data.skills[key];
+            if (skill.type === 'development') {
+                // Assuming you categorize based on a specific set of skill types
+                groupedSkills['DEV'].push(skill);
+            } else if (skill.type === 'language') {
+                groupedSkills['Langues'].push(skill);
+            } else {
+                // You can add more categories here if needed
+                groupedSkills['OS'].push(skill);
+            }
+        }
+    }
+
+    // Function to create HTML for a skill group
+    const createSkillGroupHTML = (type, skills) => {
+        if (skills.length === 0) return '';
+
+        const skillsHTML = skills.map(skill => `
+            <div class="gauge-wrapper">
+                ${skill.name[currentLanguage]}
                 <div class="gauge">
-                    <span style="width: ${skill.level}%; background-color: ${skill.type === 'development' ? '#4caf50' : '#2196f3'};"></span>
+                    <div class="gauge-level" style="width:${skill.level}%"></div>
                 </div>
-                <p>${skill.level}%</p>
+            </div>
+        `).join('<div class="separator"></div>');
+
+        return `
+            <div class="col-2 card_skills">
+                <div class="card_skills-type">${type}</div>
+                ${skillsHTML}
             </div>
         `;
-        
-        container.insertAdjacentHTML('beforeend', gaugeHTML);
-    }
+    };
+
+    // Generate HTML for each skill group
+    const osSkillsHTML = createSkillGroupHTML('OS', groupedSkills['OS']);
+    const devSkillsHTML = createSkillGroupHTML('DEV', groupedSkills['DEV']);
+    const languageSkillsHTML = createSkillGroupHTML('Langues', groupedSkills['Langues']);
+
+    // Combine all skill groups and insert into container
+    container.innerHTML = `
+        <div class="row">
+            ${osSkillsHTML}
+            ${devSkillsHTML}
+            ${languageSkillsHTML}
+        </div>
+    `;
 }
+
 
 fetchData();

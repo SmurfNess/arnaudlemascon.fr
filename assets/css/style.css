@@ -602,7 +602,7 @@ width: 100%;
 
 .gauge {
   position: relative;
-  width: 50%;
+  width: 100%;
   top: 5px;
   height: 10px;
   background-color:var(--color-gauge-back);
