@@ -21,9 +21,11 @@ function generateContent() {
     generateSkills();
 }
 
-// Change language and hide the active language button
+// Change language and regenerate content
 function changeLanguage(language) {
-    // Get all buttons
+    currentLanguage = language;
+    generateContent();
+
     const buttons = {
         'en': document.getElementById('btn-en'),
         'fr': document.getElementById('btn-fr'),
