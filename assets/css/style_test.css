@@ -107,6 +107,8 @@ section{
 
 .article-container{
   position: absolute;
+  background-color: purple;
+  border-radius: 25px;
 }
 
 /* HOME ######################################################### */
