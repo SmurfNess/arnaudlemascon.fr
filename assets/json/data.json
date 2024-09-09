@@ -14,6 +14,32 @@
       }
     },
     {
+      "section": "PROJECTS",
+      "name": {
+        "en": "Projects",
+        "fr": "Projets",
+        "sp": "Proyectos"
+      },
+      "description": {
+        "en": "Description of project in English.",
+        "fr": "Description du projet en français.",
+        "sp": "Descripción del proyectos en español."
+      }
+    },
+    {
+      "section": "VALUES",
+      "name": {
+        "en": "Values",
+        "fr": "Valeurs",
+        "sp": "Valores"
+      },
+      "description": {
+        "en": "Description of article in English.",
+        "fr": "Description du article en français.",
+        "sp": "Descripción del articulo en español."
+      }
+    },
+    {
       "section": "SKILLS",
       "name": {
         "en": "Skills",
