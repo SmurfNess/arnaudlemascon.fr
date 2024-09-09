@@ -30,7 +30,7 @@ function generateArticle() {
 
 function generateProjects() {
     const container = document.querySelector('#PROJECTS .project-container');
-    container.innerHTML = ''; // Clear the container
+    container.innerHTML = '';
 
     data.projects.forEach(project => {
         const technoHTML = project.techno.map(techno => `<div class="techno-label" id="${techno}">${techno}</div>`).join('');
