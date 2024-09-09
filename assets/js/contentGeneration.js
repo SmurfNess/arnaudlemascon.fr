@@ -99,7 +99,7 @@ function generateSkills() {
             if (data.skills.hasOwnProperty(key)) {
                 const skill = data.skills[key];
                 const gaugeHTML = `
-                    <div class="card">
+                    <div class="card_skills">
                         <h3>${skill.name[currentLanguage]}</h3>
                         <div class="gauge">
                             <span style="width: ${skill.level}%; background-color: ${skill.type === 'development' ? '#4caf50' : '#2196f3'};"></span>
