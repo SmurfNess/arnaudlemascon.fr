@@ -105,6 +105,10 @@ section{
 }
 
 
+.article-container{
+  position: absolute;
+}
+
 /* HOME ######################################################### */
 
 #HOME{
