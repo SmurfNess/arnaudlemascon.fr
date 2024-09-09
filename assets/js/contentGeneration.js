@@ -21,10 +21,23 @@ function generateContent() {
     generateSkills();
 }
 
-// Change language and regenerate content
+// Change language and hide the active language button
 function changeLanguage(language) {
-    currentLanguage = language;
-    generateContent();
+    // Get all buttons
+    const buttons = {
+        'en': document.getElementById('btn-en'),
+        'fr': document.getElementById('btn-fr'),
+        'sp': document.getElementById('btn-sp')
+    };
+
+    // Loop through each button, hide the active language button and show others
+    for (let lang in buttons) {
+        if (lang === language) {
+            buttons[lang].style.display = 'none';  // Hide the active language button
+        } else {
+            buttons[lang].style.display = 'inline-block';  // Show other language buttons
+        }
+    }
 }
 
 // Generate articles and place them in their respective sections

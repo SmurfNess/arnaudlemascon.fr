@@ -51,6 +51,19 @@
         "fr": "Description du article en français.",
         "sp": "Descripción del articulo en español."
       }
+    },
+    {
+      "section": "CONTACT",
+      "name": {
+        "en": "Contact",
+        "fr": "Contact",
+        "sp": "Contacto"
+      },
+      "description": {
+        "en": "How to contact me",
+        "fr": "Comment me contacter",
+        "sp": "Como me  contactar"
+      }
     }
   ],
   "projects": [
