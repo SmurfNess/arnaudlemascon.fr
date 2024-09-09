@@ -1,33 +1,32 @@
-{  "Article": [
-  {
-    "name": {
-      "en": "Home",
-      "fr": "Accueil",
-      "sp": "Accueillo"
+{
+  "Article": [
+    {
+      "section": "HOME",
+      "name": {
+        "en": "Home",
+        "fr": "Accueil",
+        "sp": "Accueillo"
+      },
+      "description": {
+        "en": "Welcome",
+        "fr": "Bienvenue",
+        "sp": "Buenvenudo."
+      }
     },
-    "description": {
-      "en": "Welcome",
-      "fr": "Bienvenue",
-      "sp": "Buenvenudo."
-    },
-    "image": "https://arnaudlemascon.fr/assets/pictures/norksiege.webp",
-    "techno": ["JS", "HTML"]
-  },
-  {
-    "name": {
-      "en": "Project 2",
-      "fr": "Projet 2",
-      "sp": "Proyecto 2"
-    },
-    "description": {
-      "en": "Description of Project 2 in English.",
-      "fr": "Description du projet 2 en français.",
-      "sp": "Descripción del Proyecto 2 en español."
-    },
-    "image": "https://arnaudlemascon.fr/assets/pictures/IMG_1873.webp",
-    "techno": ["CSS", "JS"]
-  }
-],
+    {
+      "section": "SKILLS",
+      "name": {
+        "en": "Skills",
+        "fr": "compétences",
+        "sp": "competencia"
+      },
+      "description": {
+        "en": "Description of article in English.",
+        "fr": "Description du article en français.",
+        "sp": "Descripción del articulo en español."
+      }
+    }
+  ],
   "projects": [
     {
       "name": {
@@ -136,9 +135,9 @@
       "type": "language",
       "level": 40,
       "name": {
-        "en": "French",
-        "fr": "Français",
-        "sp": "Francés"
+        "en": "Spanish",
+        "fr": "Espagnol",
+        "sp": "Español"
       }
     }
   }

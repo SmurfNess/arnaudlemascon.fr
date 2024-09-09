@@ -3,15 +3,13 @@ let currentLanguage = 'en'; // Default language
 
 async function fetchData() {
     try {
-        const response = await fetch('https://arnaudlemascon.fr/assets/json/data.json'); // Ajustez le chemin si nécessaire
+        const response = await fetch('https://arnaudlemascon.fr/assets/json/data.json'); // Adjust path if needed
         data = await response.json();
-        console.log('Data fetched:', data); // Ajoutez cette ligne pour déboguer
         generateContent();
     } catch (error) {
         console.error('Error fetching data:', error);
     }
 }
-
 
 function generateContent() {
     generateArticle();
@@ -27,67 +25,80 @@ function changeLanguage(language) {
 
 function generateArticle() {
     const articleContainer = document.querySelector('#article-container');
-    if (data.projects && data.projects.length > 0) {
-        const project = data.projects[0]; // Utilisation d'un projet comme exemple
-        articleContainer.innerHTML = `
-            <h2>${project.name[currentLanguage]}</h2>
-            <p>${project.description[currentLanguage]}</p>
-        `;
+    articleContainer.innerHTML = '';
+
+    if (data.Article && Array.isArray(data.Article)) {
+        data.Article.forEach(article => {
+            const articleHTML = `
+                <div class="article-item">
+                    <h2>${article.name[currentLanguage]}</h2>
+                    <p>${article.description[currentLanguage]}</p>
+                </div>
+            `;
+            articleContainer.insertAdjacentHTML('beforeend', articleHTML);
+        });
     } else {
         articleContainer.innerHTML = '<p>No articles available.</p>';
     }
 }
 
-
 function generateProjects() {
     const container = document.querySelector('#PROJECTS .project-container');
     container.innerHTML = '';
 
-    data.projects.forEach(project => {
-        const technoHTML = project.techno.map(techno => `<div class="techno-label" id="${techno}">${techno}</div>`).join('');
+    if (data.projects && Array.isArray(data.projects)) {
+        data.projects.forEach(project => {
+            const technoHTML = project.techno ? project.techno.map(techno => `<div class="techno-label" id="${techno}">${techno}</div>`).join('') : '';
 
-        const projectHTML = `
-            <div class="cards">
-                <div class="img-box">
-                    <img src="${project.image}" alt="Image">
-                </div>
-                <div class="text-box">
-                    <a href="#">${project.name[currentLanguage]}</a>
-                    <div class="techno-box">
-                        ${technoHTML}
+            const projectHTML = `
+                <div class="cards">
+                    <div class="img-box">
+                        <img src="${project.image}" alt="Image">
                     </div>
-                    <p>${project.description[currentLanguage]}</p>
+                    <div class="text-box">
+                        <a href="#">${project.name[currentLanguage]}</a>
+                        <div class="techno-box">
+                            ${technoHTML}
+                        </div>
+                        <p>${project.description[currentLanguage]}</p>
+                    </div>
                 </div>
-            </div>
-        `;
+            `;
 
-        container.insertAdjacentHTML('beforeend', projectHTML);
-    });
+            container.insertAdjacentHTML('beforeend', projectHTML);
+        });
+    } else {
+        container.innerHTML = '<p>No projects available.</p>';
+    }
 }
 
 function generateValues() {
     const container = document.querySelector('#VALUES .container-values .row');
     container.innerHTML = ''; // Clear the container
 
-    data.values.forEach(value => {
-        const valueHTML = `
-            <div class="col-6 col-md-4 mb-4">
-                <div class="carte">
-                    <div class="carte-inner">
-                        <div class="face face-avant">
-                            <img src="${value.image}" alt="Image">
-                            <div class="value">${value.name[currentLanguage]}</div>
-                        </div>
-                        <div class="face face-arriere">
-                            <p>${value.description[currentLanguage]}</p>
+    if (data.values && Array.isArray(data.values)) {
+        data.values.forEach(value => {
+            const valueHTML = `
+                <div class="col-6 col-md-4 mb-4">
+                    <div class="carte">
+                        <div class="carte-inner">
+                            <div class="face face-avant">
+                                <img src="${value.image}" alt="Image">
+                                <div class="value">${value.name[currentLanguage]}</div>
+                            </div>
+                            <div class="face face-arriere">
+                                <p>${value.description[currentLanguage]}</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        `;
-        
-        container.insertAdjacentHTML('beforeend', valueHTML);
-    });
+            `;
+            
+            container.insertAdjacentHTML('beforeend', valueHTML);
+        });
+    } else {
+        container.innerHTML = '<p>No values available.</p>';
+    }
 }
 
 function generateSkills() {
@@ -151,6 +162,5 @@ function generateSkills() {
         </div>
     `;
 }
-
 
 fetchData();
