@@ -15,10 +15,38 @@ async function fetchData() {
 
 // Generate all content sections
 function generateContent() {
+    generateNavbar();
     generateArticle();
     generateProjects();
     generateValues();
     generateSkills();
+}
+
+// Generate the navbar menu
+function generateNavbar() {
+    const navbarMenu = document.getElementById('navbar-menu');
+
+    if (navbarMenu) {
+        navbarMenu.innerHTML = ''; // Clear existing menu items
+
+        const menuItems = [
+            { id: 'PROJECTS', text: data.Navbar[0].PROJECT },
+            { id: 'VALUES', text: data.Navbar[0].VALUES },
+            { id: 'SKILLS', text: data.Navbar[0].SKILLS },
+            { id: 'CONTACT', text: data.Navbar[0].CONTACT }
+        ];
+
+        menuItems.forEach(item => {
+            const menuItemHTML = `
+                <li class="nav-item">
+                    <a class="nav-link" href="#${item.id}" onclick="closeNavbar()">${item.text[currentLanguage]}</a>
+                </li>
+            `;
+            navbarMenu.insertAdjacentHTML('beforeend', menuItemHTML);
+        });
+    } else {
+        console.warn('Navbar menu container not found.');
+    }
 }
 
 // Change language and regenerate content

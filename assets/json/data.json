@@ -1,4 +1,32 @@
-{
+{ "Navbar" : [
+  {
+  "HOME": {
+    "en": "Home",
+    "fr": "Accueil",
+    "sp": "Accueillo"
+  },
+  "PROJECT":{
+    "en": "Project",
+    "fr": "Projet",
+    "sp": "Proyecto"
+  },
+  "VALUES":{
+    "en": "values",
+    "fr": "valeurs",
+    "sp": "valores"
+  },
+  "SKILLS":{
+    "en": "Skills",
+    "fr": "Compétences",
+    "sp": "Compétencia"
+  },
+  "CONTACT":{
+    "en": "CONTACT",
+    "fr": "CONTACT",
+    "sp": "CONTACTO"
+  }  
+}
+],
   "Article": [
     {
       "section": "HOME",

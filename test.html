@@ -76,39 +76,27 @@
   </div>
 </div>
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg fixed-top">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon">
-          <img src="assets/pictures/toggler.webp">
-        </span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg fixed-top">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon">
+        <img src="assets/pictures/toggler.webp">
+      </span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+      <a href="test.html"><img src="assets/pictures/logo.webp" class="shake" onclick="chargerImagesAleatoires();"></a>
+      
+      <ul class="navbar-nav mx-auto" id="navbar-menu">
+          <!-- Menu items will be dynamically inserted here -->
+      </ul>
 
-          <a href="test.html"><img src="assets/pictures/logo.webp" class="shake" onclick="chargerImagesAleatoires();"></a>
-        
-          <ul class="navbar-nav mx-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="#PROJECTS" onclick="closeNavbar()">Projets</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#VALUES" onclick="closeNavbar()">Valeurs</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#SKILLS" onclick="closeNavbar()">Compétences</a>
-            </li>                
-            <li class="nav-item">
-                <a class="nav-link" href="#CONTACT" onclick="closeNavbar()">Contact</a>
-            </li>
-        </ul>
-  
       <!-- Buttons to switch language -->
-        <button id="btn-en" onclick="changeLanguage('en')">English</button>
-        <button id="btn-fr" onclick="changeLanguage('fr')">Français</button>
-        <button id="btn-sp" onclick="changeLanguage('sp')">Español</button>
-        <div class="underline"></div>
-    </div>
-  </nav>
+      <button id="btn-en" onclick="changeLanguage('en')">English</button>
+      <button id="btn-fr" onclick="changeLanguage('fr')">Français</button>
+      <button id="btn-sp" onclick="changeLanguage('sp')">Español</button>
+      <div class="underline"></div>
+  </div>
+</nav>
 
 <!--Sections-->
 
