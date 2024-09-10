@@ -39,7 +39,7 @@ function generateNavbar() {
         menuItems.forEach(item => {
             const menuItemHTML = `
                 <li class="nav-item">
-                    <a class="nav-link" href="#${item.id}" onclick="closeNavbar()">${item.text[currentLanguage]}</a>
+                    <a class="nav-link" href="#${item.id}" onclick="scrollToSection('${item.id}')">${item.text[currentLanguage]}</a>
                 </li>
             `;
             navbarMenu.insertAdjacentHTML('beforeend', menuItemHTML);
@@ -48,6 +48,19 @@ function generateNavbar() {
         console.warn('Navbar menu container not found.');
     }
 }
+
+function scrollToSection(sectionId) {
+    const section = document.getElementById(sectionId);
+    const offset = 80; // Hauteur de la navbar en pixels
+    const elementPosition = section.getBoundingClientRect().top;
+    const offsetPosition = elementPosition - offset;
+
+    window.scrollBy({
+        top: offsetPosition,
+        behavior: 'smooth'
+    });
+}
+
 
 // Change language and regenerate content
 function changeLanguage(language) {
