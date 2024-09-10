@@ -116,6 +116,7 @@ section {
   display: flex;
   justify-content: center;
   align-items: center; 
+  scroll-margin-top: 80px;
 }
 
 .svg_home {
