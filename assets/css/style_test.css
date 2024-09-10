@@ -112,10 +112,18 @@ section{
 }
 
 section {
-  position: relative; /* Pour que les éléments positionnés absolument se réfèrent à cette section */
+  position: relative; 
   height: calc(100vh - 150px);
 }
 
+.background-svg {
+  position: absolute; 
+  top: 0;               
+  left: 0;             
+  width: 100%;          
+  height: 100px;        
+  z-index: -1;        
+}
 
 
 /* HOME ######################################################### */
