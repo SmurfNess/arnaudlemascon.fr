@@ -101,6 +101,7 @@ function generateProjects() {
             const technoHTML = project.techno.map(techno => `<div class="techno-label" id="${techno}">${techno}</div>`).join('');
 
             const projectHTML = `
+            <div class="col-4">
                 <div class="cards">
                     <div class="img-box">
                         <img src="${project.image}" alt="Image">
@@ -113,6 +114,7 @@ function generateProjects() {
                         <p>${project.description[currentLanguage]}</p>
                     </div>
                 </div>
+            </div>  
             `;
 
             container.insertAdjacentHTML('beforeend', projectHTML);
@@ -130,7 +132,7 @@ function generateValues() {
 
         data.values.forEach(value => {
             const valueHTML = `
-                <div class="col-6 col-md-4 mb-4">
+                <div class="col-4">
                     <div class="carte">
                         <div class="carte-inner">
                             <div class="face face-avant">
