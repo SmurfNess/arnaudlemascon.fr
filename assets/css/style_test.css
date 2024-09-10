@@ -111,6 +111,11 @@ section{
   border-radius: 25px;
 }
 
+.section {
+  height: calc(100vh - 250px);
+}
+
+
 /* HOME ######################################################### */
 
 #HOME{
