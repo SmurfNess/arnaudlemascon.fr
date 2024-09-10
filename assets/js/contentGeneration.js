@@ -30,6 +30,7 @@ function generateNavbar() {
         navbarMenu.innerHTML = ''; // Clear existing menu items
 
         const menuItems = [
+            { id: 'HOME', text: data.Navbar[0].HOME },
             { id: 'PROJECTS', text: data.Navbar[0].PROJECT },
             { id: 'VALUES', text: data.Navbar[0].VALUES },
             { id: 'SKILLS', text: data.Navbar[0].SKILLS },
