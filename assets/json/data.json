@@ -96,6 +96,11 @@
         "en": "Your message :",
         "fr": "Ton message :",
         "sp": "Tu mensaje :"
+      },
+      "btn":{
+        "en": "SEND",
+        "fr": "ENVOYER",
+        "sp": "EXPEDITO"
       }
     }
   ],

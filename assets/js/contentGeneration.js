@@ -264,10 +264,10 @@ function generateContact() {
                     <label class="col-12 name">${data.Article.find(a => a.section === 'CONTACT').name[currentLanguage]} :<br>
                         <input type="name" name="name" style="width: 100%;" required>
                     </label>
-                    <label class="col-12 mail">${data.Article.find(a => a.section === 'CONTACT').description[currentLanguage]} :<br>
+                    <label class="col-12 mail">${data.Article.find(a => a.section === 'CONTACT').expeditor[currentLanguage]} :<br>
                         <input type="email" name="email" style="width: 100%;" required>
                     </label>
-                    <label class="col-10 message">Message :<br>
+                    <label class="col-10 message">${data.Article.find(a => a.section === 'CONTACT').message[currentLanguage]} :<br>
                         <textarea name="message" rows="8" cols="0" style="width: 100%;" required></textarea>
                     </label>
                     <div class="col-2">
