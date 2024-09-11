@@ -648,7 +648,7 @@ textarea, input{
   font-size: var(--font-bg);
   font-weight: bold;
   background: var(--color-tertiary);
-  border: none;
+  border: 2px white solid;
   border-radius: 50%;
 }
 
