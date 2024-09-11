@@ -255,37 +255,54 @@ function generateSkills() {
 function generateContact() {
     const container = document.querySelector('#CONTACT .contact-container');
 
-    if (container) {
-        container.innerHTML = ''; // Vider le contenu précédent
-
-        const contactFormHTML = `
-            <form action="https://formspree.io/f/xdovyzdp" method="POST">
-                <div class="row">
-                    <label class="col-12 name">
-                        ${data.Article.find(a => a.section === 'CONTACT').name[currentLanguage]} :<br>
-                        <input type="text" name="name" style="width: 100%;" required>
-                    </label>
-                    <label class="col-12 email">
-                        ${data.Article.find(a => a.section === 'CONTACT').expeditor[currentLanguage]} :<br>
-                        <input type="email" name="email" style="width: 100%;" required>
-                    </label>
-                    <label class="col-10 message">
-                        ${data.Article.find(a => a.section === 'CONTACT').message[currentLanguage]} :<br>
-                        <textarea name="message" rows="8" cols="0" style="width: 100%;" required></textarea>
-                    </label>
-                    <div class="col-2">
-                        <button type="submit" class="btn-message">
-                            ${data.Article.find(a => a.section === 'CONTACT').btn[currentLanguage]}
-                        </button>
-                    </div>
-                </div>
-            </form>
-        `;
-
-        container.insertAdjacentHTML('beforeend', contactFormHTML);
-    } else {
-        console.warn('Contact container not found.');
+    // Vérification de l'existence de data et de la section CONTACT dans Article
+    if (!data || !data.Article) {
+        console.error('Error: data or data.Article is not defined.');
+        return;
     }
+
+    const contactSection = data.Article.find(a => a.section === 'CONTACT');
+
+    if (!contactSection) {
+        console.error('Error: CONTACT section not found in data.Article.');
+        return;
+    }
+
+    if (!container) {
+        console.warn('Contact container not found.');
+        return;
+    }
+
+    // On vide le contenu précédent du container
+    container.innerHTML = '';
+
+    // Création du formulaire de contact
+    const contactFormHTML = `
+        <form action="https://formspree.io/f/xdovyzdp" method="POST">
+            <div class="row">
+                <label class="col-12 name">
+                    ${contactSection.name[currentLanguage]} :<br>
+                    <input type="text" name="name" style="width: 100%;" required>
+                </label>
+                <label class="col-12 email">
+                    ${contactSection.expeditor[currentLanguage]} :<br>
+                    <input type="email" name="email" style="width: 100%;" required>
+                </label>
+                <label class="col-10 message">
+                    ${contactSection.message[currentLanguage]} :<br>
+                    <textarea name="message" rows="8" cols="0" style="width: 100%;" required></textarea>
+                </label>
+                <div class="col-2">
+                    <button type="submit" class="btn-message">
+                        ${contactSection.btn[currentLanguage]}
+                    </button>
+                </div>
+            </div>
+        </form>
+    `;
+
+    // Insertion du formulaire dans le container
+    container.insertAdjacentHTML('beforeend', contactFormHTML);
 }
 
 
