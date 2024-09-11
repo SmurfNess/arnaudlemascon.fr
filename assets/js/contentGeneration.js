@@ -86,7 +86,7 @@ function changeLanguage(language) {
     }
 }
 
-// Generate articles and place them in their respective sections
+// Générer les articles et les placer dans leurs sections respectives
 function generateArticle() {
     console.log('Generating articles...');
     const sections = {
@@ -99,25 +99,27 @@ function generateArticle() {
 
     console.log('Sections:', sections);
 
-    if (data.Article && Array.isArray(data.Article)) {
+    // Assure-toi que les données des articles existent et sont valides
+    if (data && data.Article && Array.isArray(data.Article)) {
         console.log('Articles:', data.Article);
 
-        // Clear all article containers
+        // Vide tous les containers d'articles
         Object.values(sections).forEach(container => {
             if (container) {
-                container.innerHTML = ''; // Clear the container
+                container.innerHTML = ''; // Vide le container
             } else {
                 console.warn('Container not found.');
             }
         });
 
+        // Génère le contenu des articles
         data.Article.forEach(article => {
             const container = sections[article.section];
             if (container) {
                 const articleHTML = `
                     <div class="article-item">
-                        <h2>${article.name[currentLanguage]}</h2>
-                        <p>${article.description[currentLanguage]}</p>
+                        <h2>${article.name ? article.name[currentLanguage] : 'No name'}</h2>
+                        <p>${article.description ? article.description[currentLanguage] : 'No description'}</p>
                     </div>
                 `;
                 container.insertAdjacentHTML('beforeend', articleHTML);
@@ -126,7 +128,7 @@ function generateArticle() {
             }
         });
     } else {
-        // Handle case where there are no articles
+        // Gère le cas où il n'y a pas d'articles
         Object.values(sections).forEach(container => {
             if (container) {
                 container.innerHTML = '<p>No articles available.</p>';
