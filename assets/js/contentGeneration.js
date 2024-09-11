@@ -252,6 +252,7 @@ function generateSkills() {
 }
 
 // Fonction pour générer le formulaire de contact
+// Fonction pour générer le formulaire de contact
 function generateContactForm() {
     const container = document.querySelector('#CONTACT .contact-container');
     if (!container) {
@@ -304,6 +305,7 @@ function generateContactForm() {
     // Insère le formulaire dans le container
     container.insertAdjacentHTML('beforeend', contactFormHTML);
   }
+  
 
 
 // Fetch data when the script is loaded
