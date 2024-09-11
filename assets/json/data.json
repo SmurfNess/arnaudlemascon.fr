@@ -207,25 +207,14 @@
         "sp": "Español"
       }
     },
-    "OS": [
-      {
-        "type": "Windows",
-        "level": 75,
-        "name": {
-          "en": "Windows",
-          "fr": "Windows",
-          "sp": "Windows"
-        }
-      },
-      {
-        "type": "Linux",
-        "level": 60,
-        "name": {
-          "en": "Linux",
-          "fr": "Linux",
-          "sp": "Linux"
-        }
+    "OS": {
+      "type": "Windows",
+      "level": 75,
+      "name": {
+        "en": "Windows",
+        "fr": "Windows",
+        "sp": "Windows"
       }
-    ]
+    }
   }
 }
