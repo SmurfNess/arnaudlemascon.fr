@@ -251,20 +251,11 @@ function generateSkills() {
     }
 }
 
-// Generate the contact form
 function generateContact() {
     const container = document.querySelector('#CONTACT .contact-container');
 
-    // Vérification de l'existence de data et de la section CONTACT dans Article
-    if (!data || !data.Article) {
-        console.error('Error: data or data.Article is not defined.');
-        return;
-    }
-
-    const contactSection = data.Article.find(a => a.section === 'CONTACT');
-
-    if (!contactSection) {
-        console.error('Error: CONTACT section not found in data.Article.');
+    if (!data || !data.Form) {
+        console.error('Error: data or data.Form is not defined.');
         return;
     }
 
@@ -276,25 +267,25 @@ function generateContact() {
     // On vide le contenu précédent du container
     container.innerHTML = '';
 
-    // Création du formulaire de contact
+    // Création du formulaire de contact en utilisant les données correctes du JSON
     const contactFormHTML = `
         <form action="https://formspree.io/f/xdovyzdp" method="POST">
             <div class="row">
                 <label class="col-12 name">
-                    ${contactSection.name[currentLanguage]} :<br>
+                    ${data.Form.nameLabel[currentLanguage]} :<br>
                     <input type="text" name="name" style="width: 100%;" required>
                 </label>
                 <label class="col-12 email">
-                    ${contactSection.expeditor[currentLanguage]} :<br>
+                    ${data.Form.emailLabel[currentLanguage]} :<br>
                     <input type="email" name="email" style="width: 100%;" required>
                 </label>
                 <label class="col-10 message">
-                    ${contactSection.message[currentLanguage]} :<br>
+                    ${data.Form.messageLabel[currentLanguage]} :<br>
                     <textarea name="message" rows="8" cols="0" style="width: 100%;" required></textarea>
                 </label>
                 <div class="col-2">
                     <button type="submit" class="btn-message">
-                        ${contactSection.btn[currentLanguage]}
+                        ${data.Form.submitButton[currentLanguage]}
                     </button>
                 </div>
             </div>
