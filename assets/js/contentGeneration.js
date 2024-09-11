@@ -20,7 +20,9 @@ function generateContent() {
     generateProjects();
     generateValues();
     generateSkills();
+    generateForm();
 }
+
 
 // Generate the navbar menu
 function generateNavbar() {
@@ -248,6 +250,24 @@ function generateSkills() {
         console.warn('Skills container not found.');
     }
 }
+
+function generateForm() {
+    // Update the labels and button text for the form
+    const nameLabel = document.getElementById('label-name');
+    const emailLabel = document.getElementById('label-email');
+    const messageLabel = document.getElementById('label-message');
+    const sendButton = document.getElementById('btn-send');
+
+    if (nameLabel && emailLabel && messageLabel && sendButton) {
+        nameLabel.innerHTML = `${data.Form.nameLabel[currentLanguage]}<br><input type="text" name="name" style="width: 100%;" required>`;
+        emailLabel.innerHTML = `${data.Form.emailLabel[currentLanguage]}<br><input type="email" name="email" style="width: 100%;" required>`;
+        messageLabel.innerHTML = `${data.Form.messageLabel[currentLanguage]}<br><textarea name="message" rows="8" cols="0" required></textarea>`;
+        sendButton.innerHTML = data.Form.submitButton[currentLanguage];
+    } else {
+        console.warn("Form elements not found.");
+    }
+}
+
 
 // Fetch data when the script is loaded
 fetchData();

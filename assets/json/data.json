@@ -252,5 +252,27 @@
         "sp": "Trabajar sobre Linux"
       }
     }
-  }
+  },
+  "Form": {
+    "nameLabel": {
+      "en": "Your name and pronouns:",
+      "fr": "Ton nom et tes pronoms :",
+      "sp": "Tu nombre y pronombres:"
+    },
+    "emailLabel": {
+      "en": "Your email:",
+      "fr": "Ton email :",
+      "sp": "Tu correo electrónico:"
+    },
+    "messageLabel": {
+      "en": "Your message:",
+      "fr": "Ton message :",
+      "sp": "Tu mensaje:"
+    },
+    "submitButton": {
+      "en": "Send",
+      "fr": "Envoyer",
+      "sp": "Enviar"
+    }
+  }  
 }
