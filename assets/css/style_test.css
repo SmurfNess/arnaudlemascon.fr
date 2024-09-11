@@ -110,6 +110,10 @@ section{
   border-radius: 25px;
 }
 
+.article-item {
+  text-align: center;
+}
+
 section {
   height: calc(100vh - 150px);
   display: flex;
