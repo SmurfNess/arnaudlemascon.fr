@@ -118,6 +118,10 @@ section {
   scroll-margin-top: 150px;
 }
 
+#CONTACT{
+  height: 50vh;
+}
+
 .svg_home, .svg_project {
   position: absolute;
   left: 0%;
