@@ -20,7 +20,7 @@ function generateContent() {
     generateProjects();
     generateValues();
     generateSkills();
-    generateForm();
+    generateContact();
 }
 
 
@@ -251,23 +251,37 @@ function generateSkills() {
     }
 }
 
-function generateForm() {
-    // Update the labels and button text for the form
-    const nameLabel = document.getElementById('label-name');
-    const emailLabel = document.getElementById('label-email');
-    const messageLabel = document.getElementById('label-message');
-    const sendButton = document.getElementById('btn-send');
+// Generate the contact form
+function generateContact() {
+    const container = document.querySelector('#CONTACT .contact-container');
 
-    if (nameLabel && emailLabel && messageLabel && sendButton) {
-        nameLabel.innerHTML = `${data.Form.nameLabel[currentLanguage]}<br><input type="text" name="name" required>`;
-        emailLabel.innerHTML = `${data.Form.emailLabel[currentLanguage]}<br><input type="email" name="email" required>`;
-        messageLabel.innerHTML = `${data.Form.messageLabel[currentLanguage]}<br><textarea name="message" rows="8" cols="0" required></textarea>`;
-        sendButton.innerHTML = data.Form.submitButton[currentLanguage];
+    if (container) {
+        container.innerHTML = ''; // Clear existing form content
+
+        const contactFormHTML = `
+            <form action="https://formspree.io/f/xdovyzdp" method="POST">
+                <div class="row">
+                    <label class="col-12 name">${data.Article.find(a => a.section === 'CONTACT').name[currentLanguage]} :<br>
+                        <input type="name" name="name" style="width: 100%;" required>
+                    </label>
+                    <label class="col-12 mail">${data.Article.find(a => a.section === 'CONTACT').description[currentLanguage]} :<br>
+                        <input type="email" name="email" style="width: 100%;" required>
+                    </label>
+                    <label class="col-10 message">Message :<br>
+                        <textarea name="message" rows="8" cols="0" style="width: 100%;" required></textarea>
+                    </label>
+                    <div class="col-2">
+                        <button type="submit" class="btn-message">SEND</button>
+                    </div>
+                </div>
+            </form>
+        `;
+
+        container.insertAdjacentHTML('beforeend', contactFormHTML);
     } else {
-        console.warn("Form elements not found.");
+        console.warn('Contact container not found.');
     }
 }
-
 
 // Fetch data when the script is loaded
 fetchData();
