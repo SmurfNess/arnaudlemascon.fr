@@ -88,19 +88,19 @@
         "sp": "Contacto"
       },
       "expeditor": {
-        "en": "Your name and pronouns",
-        "fr": "Ton nom et tes pronoms",
-        "sp": "Tu nombre y tu pronombres "
+        "en": "Your email",
+        "fr": "Ton email",
+        "sp": "Tu correo"
       },
-      "message":{
-        "en": "Your message :",
-        "fr": "Ton message :",
-        "sp": "Tu mensaje :"
+      "message": {
+        "en": "Your message",
+        "fr": "Ton message",
+        "sp": "Tu mensaje"
       },
-      "btn":{
+      "btn": {
         "en": "SEND",
         "fr": "ENVOYER",
-        "sp": "EXPEDITO"
+        "sp": "ENVIAR"
       }
     }
   ],
