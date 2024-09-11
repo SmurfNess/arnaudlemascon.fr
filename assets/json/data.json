@@ -216,6 +216,33 @@
         "sp": "Trabajar sobre Windows"
       }
     },
+    "Excel": {
+      "type": "windows",
+      "level": 75,
+      "name": {
+        "en": "Excel",
+        "fr": "Excel",
+        "sp": "Excel"
+      }
+    },
+    "PowerShell": {
+      "type": "windows",
+      "level": 75,
+      "name": {
+        "en": "Powershell",
+        "fr": "Powershell",
+        "sp": "Powershell"
+      }
+    },
+    "Power Automate": {
+      "type": "windows",
+      "level": 75,
+      "name": {
+        "en": "Power Automate",
+        "fr": "Power Automate",
+        "sp": "Power Automate"
+      }
+    },
     "OS Linux": {
       "type": "linux",
       "level": 55,
