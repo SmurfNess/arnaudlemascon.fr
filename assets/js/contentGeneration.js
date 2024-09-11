@@ -196,7 +196,6 @@ function generateValues() {
     }
 }
 
-// Generate skills items
 function generateSkills() {
     const container = document.querySelector('#SKILLS .skills-container');
     if (container) {
@@ -230,7 +229,7 @@ function generateSkills() {
             }
 
             const typeHTML = `
-                <div class="col-4 card_skills">
+                <div class="col-lg-4 col-md-6 col-sm-12 card_skills">
                     <div class="card_skills-type">${typeTitle}</div>
                     ${skills.map(skill => `
                         <div class="gauge-wrapper">
