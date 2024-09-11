@@ -206,6 +206,24 @@
         "fr": "Espagnol",
         "sp": "Español"
       }
+    },
+    "PowerShell": {
+      "type": "Windows",
+      "level": 75,
+      "name": {
+        "en": "Windows",
+        "fr": "Windows",
+        "sp": "Windows"
+      }
+    },
+    "Linux": {
+      "type": "OS",
+      "level": 60,
+      "name": {
+        "en": "Linux",
+        "fr": "Linux",
+        "sp": "Linux"
+      }
     }
   }
 }
