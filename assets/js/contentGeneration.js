@@ -291,11 +291,11 @@ function generateContactForm() {
             ${contactSection.expeditor[currentLanguage]}:<br>
             <input type="email" name="email"  required>
           </label>
-          <label class="col-10 message">
+          <label class="col-12 message">
             ${contactSection.message[currentLanguage]}:<br>
             <textarea name="message" rows="8" cols="0" required></textarea>
           </label>
-          <div class="col-2">
+          <div class="col-12">
             <button type="submit" class="btn-message">
               ${contactSection.btn[currentLanguage]}
             </button>
