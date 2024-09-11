@@ -205,6 +205,8 @@ function generateSkills() {
         // Categorize skills by type
         const skillTypes = {
             'development': [],
+            'Linux': [],
+            'Windows': [],
             'language': []
         };
 
