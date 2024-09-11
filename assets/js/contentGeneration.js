@@ -285,15 +285,15 @@ function generateContactForm() {
         <div class="row">
           <label class="col-12 name">
             ${contactSection.name[currentLanguage]}:<br>
-            <input type="text" name="name" style="width: 100%;" required>
+            <input type="text" name="name" required>
           </label>
           <label class="col-12 email">
             ${contactSection.expeditor[currentLanguage]}:<br>
-            <input type="email" name="email" style="width: 100%;" required>
+            <input type="email" name="email"  required>
           </label>
           <label class="col-10 message">
             ${contactSection.message[currentLanguage]}:<br>
-            <textarea name="message" rows="8" cols="0" style="width: 100%;" required></textarea>
+            <textarea name="message" rows="8" cols="0" required></textarea>
           </label>
           <div class="col-2">
             <button type="submit" class="btn-message">
