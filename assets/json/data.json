@@ -87,10 +87,15 @@
         "fr": "Contact",
         "sp": "Contacto"
       },
-      "description": {
-        "en": "How to contact me",
-        "fr": "Comment me contacter",
-        "sp": "Como me  contactar"
+      "expeditor": {
+        "en": "Your name and pronouns",
+        "fr": "Ton nom et tes pronoms",
+        "sp": "Tu nombre y tu pronombres "
+      },
+      "message":{
+        "en": "Your message :",
+        "fr": "Ton message :",
+        "sp": "Tu mensaje :"
       }
     }
   ],
