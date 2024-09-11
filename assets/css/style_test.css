@@ -517,7 +517,7 @@ width: 100%;
 }
 
 .project-container .cards:hover .text-box {
-  top: 50px;
+  top: 150px;
   height: 290px;
 }
 
