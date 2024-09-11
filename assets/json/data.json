@@ -211,18 +211,18 @@
       "type": "windows",
       "level": 75,
       "name": {
-        "en": "Used to work on Windows",
-        "fr": "Habitué à travaillé sur Windows",
-        "sp": "Habituado a trabajo sobre Windows"
+        "en": "Working on Windows",
+        "fr": "Travailler sur Windows",
+        "sp": "Trabajar sobre Windows"
       }
     },
     "OS Linux": {
       "type": "linux",
-      "level": 75,
+      "level": 55,
       "name": {
-        "en": "Used to work on Linux",
-        "fr": "Habitué à travaillé sur Linux",
-        "sp": "Habituado a trabajo sobre Linux"
+        "en": "Working on Linux",
+        "fr": "Travailler sur Linux",
+        "sp": "Trabajar sobre Linux"
       }
     }
   }
