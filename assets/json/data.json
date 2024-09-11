@@ -87,20 +87,10 @@
         "fr": "Contact",
         "sp": "Contacto"
       },
-      "expeditor": {
-        "en": "Your email",
-        "fr": "Ton email",
-        "sp": "Tu correo"
-      },
-      "message": {
-        "en": "Your message",
-        "fr": "Ton message",
-        "sp": "Tu mensaje"
-      },
-      "btn": {
-        "en": "SEND",
-        "fr": "ENVOYER",
-        "sp": "ENVIAR"
+      "description": {
+        "en": "How to contact me",
+        "fr": "Comment me contacter",
+        "sp": "Como me  contactar"
       }
     }
   ],
@@ -284,5 +274,53 @@
       "fr": "Envoyer",
       "sp": "Enviar"
     }
-  }  
+  },
+  {
+    "contactForm": {
+      "fields": {
+        "name": {
+          "label": {
+            "en": "Your name",
+            "fr": "Ton nom",
+            "sp": "Tu nombre"
+          },
+          "placeholder": {
+            "en": "Enter your name",
+            "fr": "Entrez votre nom",
+            "sp": "Ingrese su nombre"
+          }
+        },
+        "email": {
+          "label": {
+            "en": "Your email",
+            "fr": "Ton email",
+            "sp": "Tu correo electrónico"
+          },
+          "placeholder": {
+            "en": "Enter your email",
+            "fr": "Entrez votre email",
+            "sp": "Ingrese su correo electrónico"
+          }
+        },
+        "message": {
+          "label": {
+            "en": "Your message",
+            "fr": "Ton message",
+            "sp": "Tu mensaje"
+          },
+          "placeholder": {
+            "en": "Enter your message",
+            "fr": "Entrez votre message",
+            "sp": "Ingrese su mensaje"
+          }
+        }
+      },
+      "submitButton": {
+        "en": "Send",
+        "fr": "Envoyer",
+        "sp": "Enviar"
+      }
+    }
+  }
+  
 }

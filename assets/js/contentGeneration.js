@@ -20,7 +20,7 @@ function generateContent() {
     generateProjects();
     generateValues();
     generateSkills();
-    generateContact();
+    generateContactForm();
 }
 
 
@@ -251,48 +251,51 @@ function generateSkills() {
     }
 }
 
-function generateContact() {
+// Nouvelle fonction pour générer le formulaire de contact
+function generateContactForm() {
     const container = document.querySelector('#CONTACT .contact-container');
 
-    if (!data || !data.Form) {
-        console.error('Error: data or data.Form is not defined.');
+    // Vérifier si les données de formulaire sont présentes dans le JSON
+    if (!data || !data.contactForm || !data.contactForm.fields) {
+        console.error('Erreur : données de formulaire non trouvées.');
         return;
     }
+
+    const formFields = data.contactForm.fields;
+    const submitButtonText = data.contactForm.submitButton[currentLanguage];
 
     if (!container) {
-        console.warn('Contact container not found.');
+        console.warn('Container de formulaire de contact non trouvé.');
         return;
     }
 
-    // On vide le contenu précédent du container
+    // Vider le contenu précédent
     container.innerHTML = '';
 
-    // Création du formulaire de contact en utilisant les données correctes du JSON
+    // Créer le formulaire HTML
     const contactFormHTML = `
         <form action="https://formspree.io/f/xdovyzdp" method="POST">
             <div class="row">
-                <label class="col-12 name">
-                    ${data.Form.nameLabel[currentLanguage]} :<br>
-                    <input type="text" name="name" style="width: 100%;" required>
+                <label class="col-12">
+                    ${formFields.name.label[currentLanguage]}:<br>
+                    <input type="text" name="name" placeholder="${formFields.name.placeholder[currentLanguage]}" style="width: 100%;" required>
                 </label>
-                <label class="col-12 email">
-                    ${data.Form.emailLabel[currentLanguage]} :<br>
-                    <input type="email" name="email" style="width: 100%;" required>
+                <label class="col-12">
+                    ${formFields.email.label[currentLanguage]}:<br>
+                    <input type="email" name="email" placeholder="${formFields.email.placeholder[currentLanguage]}" style="width: 100%;" required>
                 </label>
-                <label class="col-10 message">
-                    ${data.Form.messageLabel[currentLanguage]} :<br>
-                    <textarea name="message" rows="8" cols="0" style="width: 100%;" required></textarea>
+                <label class="col-12">
+                    ${formFields.message.label[currentLanguage]}:<br>
+                    <textarea name="message" rows="8" placeholder="${formFields.message.placeholder[currentLanguage]}" style="width: 100%;" required></textarea>
                 </label>
-                <div class="col-2">
-                    <button type="submit" class="btn-message">
-                        ${data.Form.submitButton[currentLanguage]}
-                    </button>
+                <div class="col-12" style="text-align: right; margin-top: 10px;">
+                    <button type="submit" class="btn-message">${submitButtonText}</button>
                 </div>
             </div>
         </form>
     `;
 
-    // Insertion du formulaire dans le container
+    // Insérer le formulaire dans le container
     container.insertAdjacentHTML('beforeend', contactFormHTML);
 }
 
