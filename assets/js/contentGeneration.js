@@ -205,8 +205,8 @@ function generateSkills() {
         // Categorize skills by type
         const skillTypes = {
             'development': [],
-            'Linux': [],
-            'Windows': [],
+            'linux': [],
+            'windows': [],
             'language': []
         };
 
@@ -223,6 +223,10 @@ function generateSkills() {
                 typeTitle = 'DEV';
             } else if (type === 'language') {
                 typeTitle = 'Langues';
+            } else if (type === 'windows') {
+                typeTitle = 'Windows';
+            } else if (type === 'linux') {
+                typeTitle = 'Linux';
             }
 
             const typeHTML = `

@@ -207,13 +207,22 @@
         "sp": "Español"
       }
     },
-    "OS": {
-      "type": "Windows",
+    "OS Windows": {
+      "type": "windows",
       "level": 75,
       "name": {
-        "en": "Windows",
-        "fr": "Windows",
-        "sp": "Windows"
+        "en": "Used to work on Windows",
+        "fr": "Habitué à travaillé sur Windows",
+        "sp": "Habituado a trabajo sobre Windows"
+      }
+    },
+    "OS Linux": {
+      "type": "linux",
+      "level": 75,
+      "name": {
+        "en": "Used to work on Linux",
+        "fr": "Habitué à travaillé sur Linux",
+        "sp": "Habituado a trabajo sobre Linux"
       }
     }
   }
