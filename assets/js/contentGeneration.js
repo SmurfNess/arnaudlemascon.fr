@@ -271,7 +271,7 @@ function generateContact() {
                         <textarea name="message" rows="8" cols="0" style="width: 100%;" required></textarea>
                     </label>
                     <div class="col-2">
-                        <button type="submit" class="btn-message">SEND</button>
+                        <button type="submit" class="btn-message">${data.Article.find(a => a.section === 'CONTACT').btn[currentLanguage]}</button>
                     </div>
                 </div>
             </form>
