@@ -1,32 +1,20 @@
-/*
-.col-1{background-color: rgba(255, 0, 0, 0.2);}
-.col-2{background-color: rgba(0, 0, 255, 0.2);}
-.col-3{background-color: rgba(0, 255, 64, 0.2);}
-.col-4{background-color: rgba(255, 123, 0, 0.2);}
-.col-5{background-color: rgba(255, 0, 255, 0.2);}
-.col-6{background-color: rgba(111, 0, 255, 0.2);}
-.col-7{background-color: rgba(0, 238, 255, 0.2);}
-.col-8{background-color: rgba(166, 255, 0, 0.2);}
-.col-9{background-color: rgba(255, 255, 255, 0.2);}
-.col-10{background-color: rgb(0, 0, 0);}
-.col-11{background-color: rgba(172, 172, 172, 0.2);}
-.col-12{background-color: rgba(77, 77, 77, 0.2);}
-*/
-
+/* ####################### ROOT ####################### */ 
 :root {
-  --color-principal:goldenrod;
+
+  /* Principal set */
+  --color-primary:goldenrod;
   --color-secondary:rgb(90, 103, 160);
   --color-tertiary:rgb(61, 70, 122);
   --color-dark:#1b1f36c4;
   --color-input:white;
-  --color-font-principal:white;
-  --color-font-secondary:goldenrod;
-  --color-font-tertiary:rgb(61, 70, 122);
+
+  /* Gauge set */
   --color-gauge-front: rgba(0, 212, 250, 0.2);
   --color-gauge-back: rgba(0, 212, 250, 0.2);
   --color-gauge-h_back: rgba(0, 212, 250, 0.5);
   --color-gauge-h_front: rgb(0, 212, 250);
-  
+
+  /* Fonts */  
   --font-vbg: 30px;
   --font-bg: 25px;
   --font-md: 18px;
@@ -36,26 +24,16 @@
   --arial-font: Arial, sans-serif;
 }
 
+/* ################### END ROOT ####################### */
+
+/* ##################### NAVBAR ####################### */
 
 
-.title, .atitle{
-  font-size: var(--font-vbg);
-  text-transform: uppercase;
-  font-weight: bold;
-  color: var(--color-font-principal);
-  text-align: center;
-  }
 
-.background-svg{
-  position: absolute;
-  fill: var(--color-principal);
-  top:150px;
-  width: 100vw;
-  height: fit;
-}
+/* ################# END NAVBAR ####################### */
 
 
-/* PAGE */
+/* ####################### PAGE ####################### */
 
 body{
   overflow-x: hidden;
@@ -63,18 +41,19 @@ body{
   color: white;
   background-color: var(--color-tertiary);
 }
+
 section{
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 800px;
   width: 100vw;
+  scroll-margin-top: 150px;
+  height: calc(100vh - 150px);
 }
 
-.container-fluid{
-  position: relative;
-  top:120px;
+#CONTACT{
+  height: 75vh;
 }
 
 #canvas {
@@ -85,45 +64,6 @@ section{
   height: 100%;
   z-index: 0;
   background-color:var(--color-dark);
-}
-
-.fade-out {
-  opacity: 0;
-  transition: opacity 0.3s ease-out;
-}
-.fade-in {
-  opacity: 1;
-  transition: opacity 0.3s ease-in;
-}
-
-.iconcv{
-  background-color: transparent;
-  border-radius: 25px;
-  font-family: var(--arial-font);
-  padding: 2px 0px 0px 1px;
-  font-weight: bolder;
-}
-
-
-.article-container{
-  position: relative;
-  border-radius: 25px;
-}
-
-.article-item {
-  text-align: center;
-}
-
-section {
-  height: calc(100vh - 150px);
-  display: flex;
-  justify-content: center;
-  align-items: center; 
-  scroll-margin-top: 150px;
-}
-
-#CONTACT{
-  height: 75vh;
 }
 
 .svg_home, .svg_project {
@@ -146,296 +86,202 @@ section {
   max-height: 100%;
 }
 
-/* HOME ######################################################### */
+/* ################### END PAGE ####################### */
 
-#HOME{
+/* ##################### NETWORK ###################### */
+
+.iconcv{
   background-color: transparent;
-  height: 100vh;
-}
-.home{
-  position: relative;
-  top: -50px;
-}
-
-.home-desc{
-  font-size: var(--font-md);
+  border-radius: 25px;
+  font-family: var(--arial-font);
+  padding: 2px 0px 0px 1px;
+  font-weight: bolder;
 }
 
-#HOME .img-fluid{
+/* ################ END  NETWORK ###################### */
+
+/* ##################### ARTICLE ###################### */
+
+.article-container{
   position: relative;
-  max-height:400px;
-  top:-10%;
+  border-radius: 25px;
 }
+
+.article-item {
+  text-align: center;
+}
+
+/* ################# END ARTICLE ###################### */
+
+/* #################### PORTRAIT ###################### */
 
 .portrait-container {
-  height: 175px; /* 150px * 1.5 */
-  width: 450px; /* 200px * 1.5 */
+  height: 175px;
+  width: 450px;
   background: radial-gradient(circle, var(--color-secondary) 0%, var(--color-tertiary));
-  border-radius: 37.5px; /* 25px * 1.5 */
+  border-radius: 37.5px;
   overflow: hidden;
   position: relative;
   display: flex;
-  flex-direction: column; /* Optionnel si vous souhaitez empiler les éléments verticalement */
-  align-items: center; /* Centre horizontalement */
+  flex-direction: column;
+  align-items: center; 
 }
 
 #shirt {
-  position: absolute; /* Utiliser position absolute pour positionner indépendamment */
-  height: 90px; /* 60px * 1.5 */
-  width: 195px; /* 130px * 1.5 */
+  position: absolute;
+  height: 90px; 
+  width: 195px; 
   background-color: black;
-  border-radius: 75% 75% 0 0; /* 50% * 1.5 */
-  top: 60%; /* Ajustez selon vos besoins */
+  border-radius: 75% 75% 0 0;
+  top: 60%;
 }
 
 #neck {
-  position: absolute; /* Utiliser position absolute pour positionner indépendamment */
-  height: 80px; /* 80px * 1.5 */
-  width: 60px; /* 40px * 1.5 */
-  border-radius: 52.5px; /* 35px * 1.5 */
+  position: absolute;
+  height: 80px;
+  width: 60px;
+  border-radius: 52.5px;
   background-color: rgb(252, 197, 172);
-  top: 40%; /* Ajustez selon vos besoins */
+  top: 40%;
 }
 
 .face-container {
   position: absolute;
-  height: 225px; /* 150px * 1.5 */
-  width: 300px; /* 200px * 1.5 */
+  height: 225px; 
+  width: 300px; 
   display: flex;
-  flex-direction: column; /* Optionnel si vous souhaitez empiler les éléments verticalement */
-  align-items: center; /* Centre horizontalement */
+  flex-direction: column; 
+  align-items: center; 
 }
 
 #face{
   position: absolute;
-  height: 150px; /* 100px * 1.5 */
-  width: 112.5px; /* 75px * 1.5 */
-  border-radius: 45px; /* 30px * 1.5 */
+  height: 150px;
+  width: 112.5px; 
+  border-radius: 45px; 
   background-color: rgb(252, 197, 172);
-  left: 95px; /* 60px * 1.5 */
-  top: -15px; /* -10px * 1.5 */
+  left: 95px; 
+  top: -15px; 
 }
 
 #ears{
   position: absolute;
-  height: 37.5px; /* 25px * 1.5 */
-  width: 135px; /* 90px * 1.5 */
-  border-radius: 12px; /* 8px * 1.5 */
+  height: 37.5px; 
+  width: 135px; 
+  border-radius: 12px; 
   background-color: rgb(252, 197, 172);
-  left: -11.25px; /* -7.5px * 1.5 */
-  top: 60px; /* 40px * 1.5 */
+  left: -11.25px;
+  top: 60px; 
 }
 
 #beard{
   position: relative;
   background-color:rgb(56, 21, 21);
-  height: 52.5px; /* 35px * 1.5 */
-  width: 120px; /* 80px * 1.5 */
-  top: 97.5px; /* 65px * 1.5 */
-  left: -3.75px; /* -2.5px * 1.5 */
-  border-radius: 75% 75% 75px 75px; /* 50% * 1.5 */
+  height: 52.5px; 
+  width: 120px; 
+  top: 97.5px; 
+  left: -3.75px; 
+  border-radius: 75% 75% 75px 75px; 
 }
 
 #nose{
   position: relative;
   background-color: rgb(252, 197, 172);
-  height: 37.5px; /* 25px * 1.5 */
-  width: 37.5px; /* 25px * 1.5 */
-  left: 37.5px; /* 25px * 1.5 */
-  top: 7.5px; /* 5px * 1.5 */
-  border-radius: 75%; /* 50% * 1.5 */
+  height: 37.5px; 
+  width: 37.5px; 
+  left: 37.5px; 
+  top: 7.5px; 
+  border-radius: 75%; 
 }
 
 #mouth{
   position: relative;
   background-color: rgb(56, 21, 21);
-  height: 15px; /* 10px * 1.5 */
-  width: 52.5px; /* 35px * 1.5 */
-  top: 15px; /* 10px * 1.5 */
-  left: 30px; /* 20px * 1.5 */
-  border-radius: 7.5px 7.5px 75px 75px; /* 5px * 1.5 */
+  height: 15px; 
+  width: 52.5px; 
+  top: 15px; 
+  left: 30px; 
+  border-radius: 7.5px 7.5px 75px 75px; 
   overflow: hidden;
 }
 
 #tsmile{
   position: relative;
   background-color: white;
-  height: 7.5px; /* 5px * 1.5 */
-  width: 52.5px; /* 35px * 1.5 */
+  height: 7.5px; 
+  width: 52.5px; 
   left: 0px;
-  border-radius: 0 0 7.5px 7.5px; /* 5px * 1.5 */
-  border-top: grey solid 1.5px; /* 1px * 1.5 */
+  border-radius: 0 0 7.5px 7.5px; 
+  border-top: grey solid 1.5px; 
 }
 
 #bsmile{
   position: relative;
   background-color: white;
-  height: 7.5px; /* 5px * 1.5 */
-  width: 52.5px; /* 35px * 1.5 */
+  height: 7.5px; 
+  width: 52.5px; 
   left: 0px;
-  border-radius: 7.5px 7.5px 0 0; /* 5px * 1.5 */
-  border-top: grey solid 1.5px; /* 1px * 1.5 */
+  border-radius: 7.5px 7.5px 0 0; 
+  border-top: grey solid 1.5px; 
 }
 
 #spot{
   position: relative;
   background-color: rgba(0, 0, 0, 0.411);
-  height: 6px; /* 4px * 1.5 */
-  width: 6px; /* 4px * 1.5 */
-  top: 52.5px; /* 35px * 1.5 */
-  left: 7.5px; /* 5px * 1.5 */
-  border-radius: 7.5px; /* 5px * 1.5 */
+  height: 6px; 
+  width: 6px; 
+  top: 52.5px; 
+  left: 7.5px; 
+  border-radius: 7.5px; 
 }
 
 .glasses{
   position: absolute;
   background-color: rgba(0, 0, 0);
-  border-radius: 7.5px; /* 5px * 1.5 */
-  top: 52.5px; /* 35px * 1.5 */
+  border-radius: 7.5px; 
+  top: 52.5px; 
 }
 
 #paws{
-  left: -3.75px; /* -2.5px * 1.5 */
-  height: 7.5px; /* 5px * 1.5 */
-  width: 120px; /* 80px * 1.5 */
+  left: -3.75px; 
+  height: 7.5px; 
+  width: 120px; 
 }
 
 #cyrano{
-  left: 48.75px; /* 32.5px * 1.5 */
-  top: 60px; /* 40px * 1.5 */
-  border-radius: 75% 75% 0 0; /* 50% * 1.5 */
-  height: 30px; /* 20px * 1.5 */
-  width: 15px; /* 10px * 1.5 */
+  left: 48.75px; 
+  top: 60px; 
+  border-radius: 75% 75% 0 0;
+  height: 30px;
+  width: 15px; 
   background-color: rgb(252, 197, 172);
 }
 
 .mount{
   position: absolute;
-  height: 37.5px; /* 25px * 1.5 */
-  width: 49.5px; /* 33px * 1.5 */
-  top: 48.75px; /* 32.5px * 1.5 */
-  border-radius: 7.5px 7.5px 37.5% 37.5%; /* 5px * 1.5 */
+  height: 37.5px; 
+  width: 49.5px; 
+  top: 48.75px; 
+  border-radius: 7.5px 7.5px 37.5% 37.5%; /
 }
 
 #rmount{
-  left: 63px; /* 42px * 1.5 */
+  left: 63px; 
 }
 
 .glass{
   background-color: rgb(233, 233, 233);
   position: absolute;
-  height: 31.5px; /* 21px * 1.5 */
-  width: 43.5px; /* 29px * 1.5 */
-  top: 3px; /* 2px * 1.5 */
-  left: 3px; /* 2px * 1.5 */
-  border-radius: 3px 3px 37.5% 37.5%; /* 2px * 1.5 */
+  height: 31.5px; 
+  width: 43.5px; 
+  top: 3px; 
+  left: 3px; 
+  border-radius: 3px 3px 37.5% 37.5%; 
 }
 
+/* ################ END PORTRAIT ###################### */
 
-.flag{
-  height: 35px;
-  width: 35px;
-}
-
-.trivia-container {
-  display: flex;
-}
-
-.picture-goey{
-  display: flex;
-  min-height: 150px;
-  min-width: 150px;  
-  max-height: 200px;
-  max-width: 200px;
-  overflow: hidden;
-  margin: 10px;
-}
-
-.picture-goey img{
-  position: relative;
-  width: 200px;
-}
-
-.trivia-ness{
-  animation: morph1 1s infinite ;
-}
-
-.trivia-game{
-  animation: morph2 1s infinite;
-}
-
-.trivia-tinkerer{
-  animation: morph3 1s infinite ;
-}
-
-.trivia-linkness{
-  animation: morph4 1s infinite ;
-}
-
-@keyframes morph1 {
-  0%, 100% {
-    border-radius: 62% 58% 70% 65% / 70% 75% 65% 65%;
-  }
-  25% {
-    border-radius: 80% 60% 70% 50% / 60% 65% 75% 60%;
-  }
-  50% {
-    border-radius: 70% 70% 80% 50% / 70% 60% 60% 70%;
-  }
-  75% {
-    border-radius: 75% 65% 65% 75% / 60% 70% 70% 60%;
-  }
-}
-
-@keyframes morph2 {
-  0%, 100% {
-    border-radius: 70% 70% 60% 70% / 70% 60% 70% 60%;
-  }
-  20% {
-    border-radius: 60% 70% 70% 60% / 70% 60% 60% 70%;
-  }
-  50% {
-    border-radius: 60% 60% 70% 80% / 60% 70% 70% 60%;
-  }
-  70% {
-    border-radius: 75% 75% 70% 75% / 70% 60% 70% 60%;
-  }
-}
-
-@keyframes morph3 {
-  0%, 100% {
-    border-radius: 70% 60% 70% 60% / 60% 70% 70% 60%;
-  }
-  30% {
-    border-radius: 70% 80% 70% 60% / 60% 70% 70% 60%;
-  }
-  50% {
-    border-radius: 70% 70% 60% 70% / 70% 60% 70% 60%;
-  }
-  80% {
-    border-radius: 70% 70% 70% 70% / 70% 70% 60% 70%;
-  }
-}
-
-@keyframes morph4 {
-  0%, 100% {
-    border-radius: 70% 70% 70% 60% / 60% 70% 70% 60%;
-  }
-  25% {
-    border-radius: 90% 70% 70% 70% / 70% 70% 60% 80%;
-  }
-  50% {
-    border-radius: 70% 60% 70% 70% / 70% 70% 70% 60%;
-  }
-  75% {
-    border-radius: 70% 70% 80% 70% / 70% 70% 60% 70%;
-  }
-}
-
-
-
-
-/* PROJECTS ##################################################### */
+/* #################### PROJECTS ###################### */
 
 .project-container {
   position: relative;
@@ -494,7 +340,6 @@ width: 100%;
   font-size: 24px;
 }
 
-
 .project-container .cards .text-box .techno-box  {
   position: relative;
   display: flex;
@@ -509,18 +354,6 @@ width: 100%;
   box-shadow: 0 35px 80px rgba(0, 0, 0, 0.15);
   color: white;
   font-weight: bold;
-}
-
-#JS{
-  background-color: red;
-}
-
-#HTML{
-  background-color: blue;
-}
-
-#CSS{
-  background-color: transparent;
 }
 
 .project-container .cards:hover {
@@ -538,7 +371,15 @@ width: 100%;
   height: 290px;
 }
 
-/* VALUES ####################################################### */
+#JS{  background-color: red; }
+
+#HTML{  background-color: blue; }
+
+#CSS{  background-color: green; }
+
+/* ################ END PROJECTS ###################### */
+
+/* ##################### VALUES ####################### */
 
 .cartes-container {
   display: flex;
@@ -605,7 +446,9 @@ width: 100%;
   font-size: var(--font-bg);
 }
 
-/* SKILLS ####################################################### */
+/* ################# END VALUES ####################### */
+
+/* ##################### SKILLS ####################### */
 
 .card_skills {
   position: relative;
@@ -629,14 +472,6 @@ width: 100%;
   color: white;
   transform: scale(1.01);
   box-shadow: 0 0 0 3px var(--color-font-principal);
-}
-
-.separator{
-  position: relative;
-  background-color: rgba(255, 255, 255, 0.25);
-  height: 1px;
-  width: 100%;
-  margin: 10px 0px 10px 0px;
 }
 
 .gauge-wrapper{
@@ -709,30 +544,6 @@ width: 100%;
   opacity: 0.5;
 }
 
-:root {
-  --color-principal:goldenrod;
-  --color-secondary:rgb(90, 103, 160);
-  --color-tertiary:rgb(61, 70, 122);
-  --color-dark:#1b1f36c4;
-  --color-input:white;
-  --color-font-principal:white;
-  --color-font-secondary:goldenrod;
-  --color-font-tertiary:rgb(61, 70, 122);
-  --color-gauge-front: rgba(0, 212, 250, 0.2);
-  --color-gauge-back: rgba(0, 212, 250, 0.2);
-  --color-gauge-h_back: rgba(0, 212, 250, 0.5);
-  --color-gauge-h_front: rgb(0, 212, 250);
-  
-  --font-vbg: 30px;
-  --font-bg: 25px;
-  --font-md: 18px;
-  --font-sm: 15px;
-
-  --poppins-font: 'Poppins', sans-serif;
-  --arial-font: Arial, sans-serif;
-}
-
-
 .row{
   color:white;
   position:relative;
@@ -754,7 +565,7 @@ width: 100%;
 
 .card_skills:hover {
   background-color: var(--color-secondary);
-  border : var(--color-principal) 5px solid;
+  border : var(--color-primary) 5px solid;
 }
 
 .gauge-wrapper:hover .gauge-level{
@@ -778,7 +589,7 @@ width: 100%;
 
 .separator{
   position: relative;
-  background-color: var(--color-principal);
+  background-color: var(--color-primary);
   height: .5px;
   width: 100%;
   margin: 20px 0px 10px 0px;
@@ -810,17 +621,10 @@ width: 100%;
   transition: color 0.3s;
 }
 
-/* CONTACT ###################################################### */
+/* ################# END SKILLS ####################### */
 
-#CONTACT .background-polygon{
-  position: absolute;
-  bottom: -5px;
-  background-color: var(--color-principal);
-  height: 700px;
-  width: 100%;
-  clip-path: polygon(0% 0%, 100% 10%, 100% 100%, 0% 100%);
-  padding-top: 100px;
-}
+/* #################### CONTACT ####################### */
+
 .name,.message,.mail{
   color:var(--color-font-principal);
   font-size: var(--font-md);
@@ -834,25 +638,12 @@ textarea, input{
   border: none;
 }
 
-
-.contact-text{
-  position: absolute;
-  bottom: 100px;
-  left:-125px;
-  height: 50px;
-  font-size: var(--font-vbg);
-  font-weight: bold;
-  color: var(--color-font-principal);
-  transform: rotate(-90deg);
-  white-space: nowrap;
-}
-
-.btn-message{
+#btn-send{
   position: relative;
   width: 150px; 
   height: 150px;
   top: 25%;
-  left:0%;
+  right:20%;
   color: var(--color-font-principal);
   font-size: var(--font-bg);
   font-weight: bold;
@@ -861,7 +652,9 @@ textarea, input{
   border-radius: 50%;
 }
 
-/* FOOTER ###################################################### */
+/* ################ END CONTACT ####################### */
+
+/* ##################### FOOTER ####################### */
 footer{
   text-align: center;
   justify-content: center;
@@ -871,8 +664,10 @@ footer{
   color: var(--color-font-tertiary);
   font-size: 15px;
   padding: 15px;
-  background-color:var(--color-principal) ;
+  background-color:var(--color-primary) ;
 }
+
+/* ################# END FOOTER ####################### */
 
 /* POP-UP ###################################################### */
 
