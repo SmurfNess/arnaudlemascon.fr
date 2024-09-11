@@ -88,6 +88,11 @@
         "fr": "Contact",
         "sp": "Contacto"
       },
+      "description": {
+        "en": "Description of contact in English.",
+        "fr": "Description du contact en français.",
+        "sp": "Descripción del contacto en español."
+      },
       "expeditor": {
         "en": "Your Email",
         "fr": "Votre Email",
