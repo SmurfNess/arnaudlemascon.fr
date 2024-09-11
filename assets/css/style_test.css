@@ -153,7 +153,7 @@ section {
 
 .portrait-container {
   height: 225px; /* 150px * 1.5 */
-  width: 300px; /* 200px * 1.5 */
+  width: 350px; /* 200px * 1.5 */
   background: radial-gradient(circle, var(--color-secondary) 0%, var(--color-tertiary));
   border-radius: 37.5px; /* 25px * 1.5 */
   overflow: hidden;
