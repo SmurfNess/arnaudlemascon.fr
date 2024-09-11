@@ -1,32 +1,33 @@
-{ "Navbar" : [
-  {
-  "HOME": {
-    "en": "Home",
-    "fr": "Accueil",
-    "sp": "Accueillo"
-  },
-  "PROJECT":{
-    "en": "Project",
-    "fr": "Projet",
-    "sp": "Proyecto"
-  },
-  "VALUES":{
-    "en": "values",
-    "fr": "valeurs",
-    "sp": "valores"
-  },
-  "SKILLS":{
-    "en": "Skills",
-    "fr": "Compétences",
-    "sp": "Compétencia"
-  },
-  "CONTACT":{
-    "en": "CONTACT",
-    "fr": "CONTACT",
-    "sp": "CONTACTO"
-  }  
-}
-],
+{
+  "Navbar": [
+    {
+      "HOME": {
+        "en": "Home",
+        "fr": "Accueil",
+        "sp": "Accueillo"
+      },
+      "PROJECT": {
+        "en": "Project",
+        "fr": "Projet",
+        "sp": "Proyecto"
+      },
+      "VALUES": {
+        "en": "Values",
+        "fr": "Valeurs",
+        "sp": "Valores"
+      },
+      "SKILLS": {
+        "en": "Skills",
+        "fr": "Compétences",
+        "sp": "Competencia"
+      },
+      "CONTACT": {
+        "en": "Contact",
+        "fr": "Contact",
+        "sp": "Contacto"
+      }
+    }
+  ],
   "Article": [
     {
       "section": "HOME",
@@ -71,8 +72,8 @@
       "section": "SKILLS",
       "name": {
         "en": "Skills",
-        "fr": "compétences",
-        "sp": "competencia"
+        "fr": "Compétences",
+        "sp": "Competencia"
       },
       "description": {
         "en": "Description of article in English.",
@@ -87,10 +88,20 @@
         "fr": "Contact",
         "sp": "Contacto"
       },
-      "description": {
-        "en": "How to contact me",
-        "fr": "Comment me contacter",
-        "sp": "Como me  contactar"
+      "expeditor": {
+        "en": "Your Email",
+        "fr": "Votre Email",
+        "sp": "Tu Correo Electrónico"
+      },
+      "message": {
+        "en": "Your Message",
+        "fr": "Votre Message",
+        "sp": "Tu Mensaje"
+      },
+      "btn": {
+        "en": "Send",
+        "fr": "Envoyer",
+        "sp": "Enviar"
       }
     }
   ],
@@ -252,75 +263,5 @@
         "sp": "Trabajar sobre Linux"
       }
     }
-  },
-  "Form": {
-    "nameLabel": {
-      "en": "Your name and pronouns:",
-      "fr": "Ton nom et tes pronoms :",
-      "sp": "Tu nombre y pronombres:"
-    },
-    "emailLabel": {
-      "en": "Your email:",
-      "fr": "Ton email :",
-      "sp": "Tu correo electrónico:"
-    },
-    "messageLabel": {
-      "en": "Your message:",
-      "fr": "Ton message :",
-      "sp": "Tu mensaje:"
-    },
-    "submitButton": {
-      "en": "Send",
-      "fr": "Envoyer",
-      "sp": "Enviar"
-    }
-  },
-  {
-    "contactForm": {
-      "fields": {
-        "name": {
-          "label": {
-            "en": "Your name",
-            "fr": "Ton nom",
-            "sp": "Tu nombre"
-          },
-          "placeholder": {
-            "en": "Enter your name",
-            "fr": "Entrez votre nom",
-            "sp": "Ingrese su nombre"
-          }
-        },
-        "email": {
-          "label": {
-            "en": "Your email",
-            "fr": "Ton email",
-            "sp": "Tu correo electrónico"
-          },
-          "placeholder": {
-            "en": "Enter your email",
-            "fr": "Entrez votre email",
-            "sp": "Ingrese su correo electrónico"
-          }
-        },
-        "message": {
-          "label": {
-            "en": "Your message",
-            "fr": "Ton message",
-            "sp": "Tu mensaje"
-          },
-          "placeholder": {
-            "en": "Enter your message",
-            "fr": "Entrez votre message",
-            "sp": "Ingrese su mensaje"
-          }
-        }
-      },
-      "submitButton": {
-        "en": "Send",
-        "fr": "Envoyer",
-        "sp": "Enviar"
-      }
-    }
   }
-  
 }
