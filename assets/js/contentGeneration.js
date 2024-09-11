@@ -201,7 +201,7 @@ function generateValues() {
 function generateSkills() {
     const container = document.querySelector('#SKILLS .skills-container');
     if (container) {
-        container.innerHTML = ''; // Clear the container
+        container.innerHTML = '';
 
         // Categorize skills by type
         const skillTypes = {
@@ -259,8 +259,8 @@ function generateForm() {
     const sendButton = document.getElementById('btn-send');
 
     if (nameLabel && emailLabel && messageLabel && sendButton) {
-        nameLabel.innerHTML = `${data.Form.nameLabel[currentLanguage]}<br><input type="text" name="name" style="width: 100%;" required>`;
-        emailLabel.innerHTML = `${data.Form.emailLabel[currentLanguage]}<br><input type="email" name="email" style="width: 100%;" required>`;
+        nameLabel.innerHTML = `${data.Form.nameLabel[currentLanguage]}<br><input type="text" name="name" style="width: 50%;" required>`;
+        emailLabel.innerHTML = `${data.Form.emailLabel[currentLanguage]}<br><input type="email" name="email" style="width: 50%;" required>`;
         messageLabel.innerHTML = `${data.Form.messageLabel[currentLanguage]}<br><textarea name="message" rows="8" cols="0" required></textarea>`;
         sendButton.innerHTML = data.Form.submitButton[currentLanguage];
     } else {
