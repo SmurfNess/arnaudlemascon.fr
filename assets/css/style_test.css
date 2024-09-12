@@ -631,6 +631,11 @@ width: 100%;
   text-transform: uppercase;
 }
 
+.contact-container {
+  display: flex;
+  justify-content: center;
+}
+
 textarea, input{
   width: 50vw;
   background-color: var(--color-input);
