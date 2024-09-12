@@ -652,6 +652,12 @@ textarea, input{
   border-radius: 50%;
 }
 
+.contact-container{
+  position: relative;
+  align-items: center;
+  justify-content: center;
+}
+
 /* ################ END CONTACT ####################### */
 
 /* ##################### FOOTER ####################### */
