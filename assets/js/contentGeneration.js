@@ -282,37 +282,37 @@ function generateContactForm() {
     }
 
     if (!data || !data.Article) {
-      console.error('Data or data.Article is not defined.', data);
+      console.error('Data or data.Article is not defined.');
       return;
     }
 
+    // Trouver la section CONTACT dans les articles
     const contactSection = data.Article.find(article => article.section === 'CONTACT');
     if (!contactSection) {
       console.warn('Contact section data not found.');
       return;
     }
 
+    // Générer le HTML du formulaire
     const contactHTML = `
-      <h2>${contactSection.name[currentLanguage] || 'Contact'}</h2>
+      <h2>${contactSection.name[currentLanguage]}</h2>
       <form>
         <div class="form-group">
-          <label for="name">${data.Form.name[currentLanguage] || 'Name'}</label>
-          <input type="text" class="form-control" id="name" placeholder="${data.Form.placeholderName[currentLanguage] || 'Enter your name'}" required>
+          <label for="email">${contactSection.expeditor[currentLanguage]}</label>
+          <input type="email" class="form-control" id="email" placeholder="${contactSection.expeditor[currentLanguage]}" required>
         </div>
         <div class="form-group">
-          <label for="email">${data.Form.email[currentLanguage] || 'Email'}</label>
-          <input type="email" class="form-control" id="email" placeholder="${data.Form.placeholderEmail[currentLanguage] || 'Enter your email'}" required>
+          <label for="message">${contactSection.message[currentLanguage]}</label>
+          <textarea class="form-control" id="message" rows="5" placeholder="${contactSection.message[currentLanguage]}" required></textarea>
         </div>
-        <div class="form-group">
-          <label for="message">${data.Form.message[currentLanguage] || 'Message'}</label>
-          <textarea class="form-control" id="message" rows="5" placeholder="${data.Form.placeholderMessage[currentLanguage] || 'Enter your message'}" required></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">${data.Form.submit[currentLanguage] || 'Submit'}</button>
+        <button type="submit" class="btn btn-primary">${contactSection.btn[currentLanguage]}</button>
       </form>
     `;
 
+    // Insérer le formulaire dans le conteneur
     container.innerHTML = contactHTML;
 }
+
 
 
 // Fetch data when the script is loaded
