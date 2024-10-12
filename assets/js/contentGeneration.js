@@ -23,7 +23,6 @@ function generateContent() {
     generateContactForm();
 }
 
-
 // Generate the navbar menu
 function generateNavbar() {
     const navbarMenu = document.getElementById('navbar-menu');
@@ -47,11 +46,35 @@ function generateNavbar() {
             `;
             navbarMenu.insertAdjacentHTML('beforeend', menuItemHTML);
         });
+
+        // After generating the navbar, add event listeners to handle link clicks
+        addNavbarLinkEventListeners(); // Add event listeners for nav-links
+
     } else {
         console.warn('Navbar menu container not found.');
     }
 }
 
+// Function to add event listeners to the nav-links
+function addNavbarLinkEventListeners() {
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    function setActiveLink(event) {
+        navLinks.forEach(link => {
+            link.classList.remove('active'); // Remove 'active' class from all links
+        });
+        event.target.classList.add('active'); // Add 'active' class to the clicked link
+    }
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(event) {
+            setActiveLink(event);
+            closeNavbar(); // Call the function to close the navbar
+        });
+    });
+}
+
+// Scroll smoothly to a section when a link is clicked
 function scrollToSection(sectionId) {
     const section = document.getElementById(sectionId);
     const offset = 80; // Hauteur de la navbar en pixels
@@ -64,6 +87,12 @@ function scrollToSection(sectionId) {
     });
 }
 
+// Close the navbar if the toggler is visible (for responsive behavior)
+function closeNavbar() {
+    if ($('.navbar-toggler').is(':visible')) {
+        $('.navbar-toggler').click(); // Simulate a click on the toggler to close the navbar
+    }
+}
 
 // Change language and regenerate content
 function changeLanguage(language) {
@@ -86,7 +115,7 @@ function changeLanguage(language) {
     }
 }
 
-// Générer les articles et les placer dans leurs sections respectives
+// Generate the articles in their respective sections
 function generateArticle() {
     console.log('Generating articles...');
     const sections = {
@@ -97,22 +126,13 @@ function generateArticle() {
         'CONTACT': document.querySelector('#CONTACT .article-container'),
     };
 
-    console.log('Sections:', sections);
-
-    // Assure-toi que les données des articles existent et sont valides
     if (data && data.Article && Array.isArray(data.Article)) {
-        console.log('Articles:', data.Article);
-
-        // Vide tous les containers d'articles
         Object.values(sections).forEach(container => {
             if (container) {
-                container.innerHTML = ''; // Vide le container
-            } else {
-                console.warn('Container not found.');
+                container.innerHTML = ''; // Clear container
             }
         });
 
-        // Génère le contenu des articles
         data.Article.forEach(article => {
             const container = sections[article.section];
             if (container) {
@@ -128,7 +148,6 @@ function generateArticle() {
             }
         });
     } else {
-        // Gère le cas où il n'y a pas d'articles
         Object.values(sections).forEach(container => {
             if (container) {
                 container.innerHTML = '<p>No articles available.</p>';
@@ -200,12 +219,12 @@ function generateValues() {
     }
 }
 
+// Generate skills
 function generateSkills() {
     const container = document.querySelector('#SKILLS .skills-container');
     if (container) {
         container.innerHTML = '';
 
-        // Categorize skills by type
         const skillTypes = {
             'development': [],
             'linux': [],
@@ -213,13 +232,11 @@ function generateSkills() {
             'language': []
         };
 
-        // Sort skills into categories
         for (const key in data.skills) {
             const skill = data.skills[key];
             skillTypes[skill.type].push(skill);
         }
 
-        // Generate HTML for each skill type
         for (const [type, skills] of Object.entries(skillTypes)) {
             let typeTitle;
             if (type === 'development') {
@@ -253,62 +270,46 @@ function generateSkills() {
     }
 }
 
-// Fonction pour générer le formulaire de contact
-// Fonction pour générer le formulaire de contact
+// Generate the contact form
 function generateContactForm() {
     const container = document.querySelector('#CONTACT .contact-container');
     if (!container) {
       console.warn('Contact container not found.');
       return;
     }
-  
-    // Vérifie que les données nécessaires sont disponibles
+
     if (!data || !data.Article) {
       console.error('Data or data.Article is not defined.');
       return;
     }
-  
-    // Trouve la section CONTACT dans les données
-    const contactSection = data.Article.find(a => a.section === 'CONTACT');
-  
+
+    const contactSection = data.Article.find(article => article.section === 'CONTACT');
     if (!contactSection) {
-      console.error('CONTACT section not found in data.Article.');
+      console.warn('Contact section data not found.');
       return;
     }
-  
-    // Vide le contenu précédent du container
-    container.innerHTML = '';
-  
-    // Crée le formulaire de contact
-    const contactFormHTML = `
-      <form action="https://formspree.io/f/xdovyzdp" method="POST">
-        <div class="row">
-          <label class="col-12 name">
-            ${contactSection.name[currentLanguage]}:<br>
-            <input type="text" name="name" required>
-          </label>
-          <label class="col-12 email">
-            ${contactSection.expeditor[currentLanguage]}:<br>
-            <input type="email" name="email"  required>
-          </label>
-          <label class="col-12 message">
-            ${contactSection.message[currentLanguage]}:<br>
-            <textarea name="message" rows="8" cols="0" required></textarea>
-          </label>
-          <div class="col-12">
-            <button type="submit" class="btn-message">
-              ${contactSection.btn[currentLanguage]}
-            </button>
-          </div>
+
+    const contactHTML = `
+      <h2>${contactSection.name[currentLanguage]}</h2>
+      <form>
+        <div class="form-group">
+          <label for="name">${data.Form.name[currentLanguage]}</label>
+          <input type="text" class="form-control" id="name" placeholder="${data.Form.placeholderName[currentLanguage]}" required>
         </div>
+        <div class="form-group">
+          <label for="email">${data.Form.email[currentLanguage]}</label>
+          <input type="email" class="form-control" id="email" placeholder="${data.Form.placeholderEmail[currentLanguage]}" required>
+        </div>
+        <div class="form-group">
+          <label for="message">${data.Form.message[currentLanguage]}</label>
+          <textarea class="form-control" id="message" rows="5" placeholder="${data.Form.placeholderMessage[currentLanguage]}" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">${data.Form.submit[currentLanguage]}</button>
       </form>
     `;
-  
-    // Insère le formulaire dans le container
-    container.insertAdjacentHTML('beforeend', contactFormHTML);
-  }
-  
 
+    container.innerHTML = contactHTML;
+}
 
 // Fetch data when the script is loaded
 fetchData();
