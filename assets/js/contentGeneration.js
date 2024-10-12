@@ -5,13 +5,16 @@ let currentLanguage = 'en'; // Default language
 async function fetchData() {
     try {
         const response = await fetch('https://arnaudlemascon.fr/assets/json/data.json');
-        data = await response.json();
-        console.log('Data loaded:', data); // Debugging
-        generateContent();
+        const jsonData = await response.json();
+        console.log('JSON fetched:', JSON.stringify(jsonData, null, 2)); // Pretty-print JSON in the console
+        
+        data = jsonData;
+        generateContent(); // Call the function to generate content based on the data
     } catch (error) {
         console.error('Error fetching data:', error);
     }
 }
+
 
 // Generate all content sections
 function generateContent() {
