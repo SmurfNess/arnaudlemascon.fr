@@ -89,9 +89,9 @@
         "sp": "Contacto"
       },
       "description": {
-        "en": "Description of contact in English.",
-        "fr": "Description du contact en français.",
-        "sp": "Descripción del contacto en español."
+        "en": "Contact me",
+        "fr": "Contacte moi",
+        "sp": "Contáctame"
       },
       "expeditor": {
         "en": "Your Email",
