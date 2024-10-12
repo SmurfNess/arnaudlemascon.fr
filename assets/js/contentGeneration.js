@@ -295,7 +295,6 @@ function generateContactForm() {
 
     // Générer le HTML du formulaire
     const contactHTML = `
-      <h2>${contactSection.name[currentLanguage]}</h2>
       <form>
         <div class="form-group">
           <label for="email">${contactSection.expeditor[currentLanguage]}</label>
