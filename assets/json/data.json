@@ -119,17 +119,18 @@
       },
       "description": {
         "en": "Description of Project 1 in English.",
-        "fr": "Description du projet 1 en français.",
+        "fr": "[projet en cours] Création d'un jeu type zork reprenant des élément de gameplay de dungeon siege et faisant référence à d'autres jeux",
         "sp": "Descripción del Proyecto 1 en español."
       },
       "image": "https://arnaudlemascon.fr/assets/pictures/norksiege.webp",
-      "techno": ["JS", "HTML"]
+      "techno": ["JS", "HTML"],
+      "spotlight": "yes"
     },
     {
       "name": {
-        "en": "Project 2",
-        "fr": "Projet 2",
-        "sp": "Proyecto 2"
+        "en": "Chimptest Hooman Benchmark",
+        "fr": "Chimptest Hooman Benchmark",
+        "sp": "Chimptest Hooman Benchmark"
       },
       "description": {
         "en": "Description of Project 2 in English.",
@@ -137,7 +138,38 @@
         "sp": "Descripción del Proyecto 2 en español."
       },
       "image": "https://arnaudlemascon.fr/assets/pictures/IMG_1873.webp",
-      "techno": ["CSS", "JS"]
+      "techno": ["CSS", "JS"],
+      "spotlight": "yes"
+    },
+    {
+      "name": {
+        "en": "Team Up",
+        "fr": "Team Up",
+        "sp": "Team Up"
+      },
+      "description": {
+        "en": "Description of Project 2 in English.",
+        "fr": "application de génération aléatoire d'équipe avec gestion de classe.",
+        "sp": "Descripción del Proyecto 2 en español."
+      },
+      "image": "https://arnaudlemascon.fr/assets/pictures/IMG_1873.webp",
+      "techno": ["CSS", "JS"],
+      "spotlight": "no"
+    },
+    {
+      "name": {
+        "en": "Quiz",
+        "fr": "Quiz",
+        "sp": "Quiz"
+      },
+      "description": {
+        "en": "Description of Project 2 in English.",
+        "fr": "Description du projet 2 en français.",
+        "sp": "Descripción del Proyecto 2 en español."
+      },
+      "image": "https://arnaudlemascon.fr/assets/pictures/IMG_1873.webp",
+      "techno": ["CSS", "JS"],
+      "spotlight": "yes"
     }
   ],
   "values": [
