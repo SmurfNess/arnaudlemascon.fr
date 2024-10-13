@@ -295,8 +295,9 @@ function generateContactForm() {
 
     // Générer le HTML du formulaire
     const contactHTML = `
+        <div class="contact-container">
             <form action="https://formspree.io/f/xdovyzdp" method="POST">
-                <label class="col-12" style="justify-content: center;">Ton nom et tes pronoms :<br>
+                <label class="col-12">Ton nom et tes pronoms :<br>
                     <input type="name" name="name" required>
                 </label>
                 <label class="col-12" for="email">${contactSection.expeditor[currentLanguage]}<br>
@@ -307,6 +308,7 @@ function generateContactForm() {
                 </label>
                 <button type="submit" class="btn-message">${contactSection.btn[currentLanguage]}</button>
             </form>
+        </div>    
     `;
 
 
