@@ -105,7 +105,6 @@ section{
 .article-container{
   position: relative;
   border-radius: 25px;
-  justify-content: center;
 }
 
 .article-item {
