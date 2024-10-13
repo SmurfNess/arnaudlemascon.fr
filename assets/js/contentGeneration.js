@@ -300,7 +300,7 @@ function generateContactForm() {
             <label class="col-12 name">Ton nom et tes pronoms :<br>
                 <input type="name" name="name" style="width: 100%;" required>
             </label>
-            <label for="email">${contactSection.expeditor[currentLanguage]}</label>
+            <label for="email" class="mail">${contactSection.expeditor[currentLanguage]}</label>
                 <input type="email" name="email" class="form-control" id="email" placeholder="${contactSection.expeditor[currentLanguage]}" required>
             </div>
         <div class="form-group">
