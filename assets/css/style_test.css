@@ -108,6 +108,7 @@ section{
 .article-container{
   position: relative;
   border-radius: var(--radius-gen);
+  background-color: red;
 }
 
 .article-item {
@@ -293,7 +294,6 @@ section{
   align-items: center;
   flex-wrap: wrap;
   gap: 100px 50px;
-  background-color: red;
 }
 
 .project-container .cards {
