@@ -108,7 +108,6 @@ section{
 .article-container{
   position: relative;
   border-radius: var(--radius-gen);
-  background-color: red;
 }
 
 .article-item {
