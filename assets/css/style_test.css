@@ -78,7 +78,6 @@ section{
   max-width: 100%; 
 }
 
-
 .svg_contact {
   position: absolute;
   left: 0%;
@@ -87,7 +86,24 @@ section{
   height: 100%;
   max-width: 100%; 
   max-height: 100%;
+}
 
+.svg_project{
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100"><path fill="dodgerblue" d="M 0 39 C 525 -4 702 44 1000 19 L 1000 46 C 770 88 487 38 0 61 Z"/></svg>') no-repeat;
+  background-size: cover;
+  background-position:center;
+}
+
+.svg_skills{
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100"><path fill="red" d="M 0 39 C 525 -4 702 44 1000 19 L 1000 46 C 770 88 487 38 0 61 Z"/></svg>') no-repeat;
+  background-size: cover;
+  background-position:center;
+}
+
+.svg_values{
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100"><path fill="green" d="M 0 39 C 525 -4 702 44 1000 19 L 1000 46 C 770 88 487 38 0 61 Z"/></svg>') no-repeat;
+  background-size: cover;
+  background-position:center;
 }
 
 /* ################### END PAGE ####################### */
@@ -110,10 +126,7 @@ section{
   position: relative;
   height: 200px;
   background-color: rgba(0, 0, 0, 0.495);
-  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100"><path fill="lightblue" d="M 0 39 C 525 -4 702 44 1000 19 L 1000 46 C 770 88 487 38 0 61 Z"/></svg>') no-repeat;
-  background-size: cover;
-  background-position:center; /* Positionne le SVG en bas du conteneur */
-  }
+}
 
 .article-item {
   text-align: center;
