@@ -6,7 +6,7 @@ async function fetchData() {
     try {
         const response = await fetch('https://arnaudlemascon.fr/assets/json/data.json');
         const jsonData = await response.json();
-        console.log('JSON fetched:'/*, JSON.stringify(jsonData, null, 2)*/); // Pretty-print JSON in the console
+        console.log('JSON fetched:'/*, JSON.stringify(jsonData, null, 2)*/);
         
         data = jsonData;
         generateContent(); // Call the function to generate content based on the data
@@ -133,6 +133,8 @@ function generateArticle() {
     Object.entries(sections).forEach(([sectionName, section]) => {
         if (section) {
             console.log(`Height of ${sectionName}: ${section.offsetHeight}px`);
+
+            // Position of article-container
             const articleContainer = section.querySelector('.article-container');
             if (articleContainer) {
                 const rect = articleContainer.getBoundingClientRect();
@@ -142,6 +144,15 @@ function generateArticle() {
             } else {
                 console.warn(`Article container not found in section "${sectionName}".`);
             }
+
+            // Position of SVG elements
+            const svgElements = section.querySelectorAll('svg'); // Select all SVG elements in the section
+            svgElements.forEach((svg, index) => {
+                const rect = svg.getBoundingClientRect();
+                const sectionRect = section.getBoundingClientRect();
+                const positionFromTop = rect.top - sectionRect.top; // Position relative to the section
+                console.log(`Position of SVG ${index + 1} in ${sectionName} from top: ${positionFromTop}px`);
+            });
         } else {
             console.warn(`Section "${sectionName}" not found.`);
         }
@@ -190,6 +201,7 @@ function generateArticle() {
         }
     });
 }
+
 
 
 // Generate project items
