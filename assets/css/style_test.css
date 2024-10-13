@@ -79,6 +79,10 @@ section{
   max-height: 100%;
 }
 
+.svg_project{
+  top: calc(100vh - 150px);
+}
+
 .svg_contact {
   position: absolute;
   left: 0%;
