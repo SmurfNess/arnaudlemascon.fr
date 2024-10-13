@@ -110,7 +110,7 @@ section{
 /* ##################### ARTICLE ###################### */
 
 .article-container{
-  position: absolute;
+  position: relative;
   overflow: visible;
   }
 
