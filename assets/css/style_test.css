@@ -108,7 +108,10 @@ section{
 .article-container{
   position: relative;
   border-radius: var(--radius-gen);
-}
+
+  display: flex;
+  align-items: flex-start;
+  }
 
 .article-item {
   text-align: center;
