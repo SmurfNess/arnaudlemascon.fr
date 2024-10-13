@@ -641,6 +641,7 @@ width: 100%;
   align-items: center;
   flex-wrap: wrap;
   gap: 100px 50px;
+  background-color: red;
 }
 
 .name,.message,.mail{
