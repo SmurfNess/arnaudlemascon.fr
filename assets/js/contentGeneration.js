@@ -148,7 +148,7 @@ function generateArticle() {
                     svgElements.forEach(svg => {
                         // Set the vertical position of the SVG to match the article-container minus 250px
                         svg.style.position = 'absolute'; // Ensure SVGs can be positioned absolutely
-                        svg.style.top = `${positionFromTop - 250}px`; // Align the top of SVG with article-container minus 250px
+                        svg.style.top = `${positionFromTop - 500}px`; // Align the top of SVG with article-container minus 250px
                         svg.style.left = '0'; // Set left position to avoid horizontal shift
                         console.log(`Adjusted position of SVG in ${sectionName} to top: ${positionFromTop - 250}px`);
                     });
