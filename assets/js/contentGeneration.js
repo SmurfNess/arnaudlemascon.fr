@@ -309,23 +309,20 @@ function generateContactForm() {
             </form>
     `;
 
-
     /*
-              <form action="https://formspree.io/f/xdovyzdp" method="POST">
-
-            <label class="name">Ton nom et tes pronoms :<br>
-              <input type="name" name="name" style="width: 100%;" required>
+            <form action="https://formspree.io/f/xdovyzdp" method="POST">
+            <label>Ton nom et tes pronoms :<br>
+              <input type="name" name="name" required>
             </label>
-            <label class="mail">Ton email :<br>
-              <input type="email" name="email" style="width: 100%;" required>
+            <label>Ton email :<br>
+              <input type="email" name="email" required>
             </label>
             <label class=" message">Ton message :<br>
               <textarea name="message" rows="8" cols="0"></textarea required>
             </label>
             <div>
-              <button type="submit" class="btn-message">SEND</button>
+              <button type="submit">SEND</button>
             </div>
-
           </form>
     */
 
