@@ -408,7 +408,7 @@ width: 100%;
   width: 100%;
   height: 100%;
   position: absolute;
-  border-radius: 10px; 
+  border-radius: 25px; 
   border: 5px solid white;
   backface-visibility: hidden;
   display: flex;
