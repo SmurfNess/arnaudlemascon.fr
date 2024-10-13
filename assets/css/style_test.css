@@ -79,14 +79,6 @@ section{
 }
 
 
-
-.svg_project{
-  position: absolute;
-  transform:translateY(-150%);
-  width: 100%;
-}
-
-
 .svg_contact {
   position: absolute;
   left: 0%;
