@@ -102,7 +102,7 @@ section{
 }
 
 .svg_values{
-  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100"><path fill="goldenrod" d="M 0 39 C 525 -4 702 44 1000 19 L 1000 46 C 770 88 487 38 0 61 Z"/></svg>') no-repeat;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100"><path fill="goldenrod" d="M 0 220 C 284 -116 649 216 1000 0 L 1000 10 C 757 294 256 21 0 250 Z"/></svg>') no-repeat;
   background-size: cover;
   background-position:center;
 }
