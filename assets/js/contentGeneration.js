@@ -122,55 +122,62 @@ function changeLanguage(language) {
 function generateArticle() {
     console.log('Generating articles...');
     const sections = {
-        'HOME': document.querySelector('#HOME .article-container'),
-        'PROJECTS': document.querySelector('#PROJECTS .article-container'),
-        'VALUES': document.querySelector('#VALUES .article-container'),
-        'SKILLS': document.querySelector('#SKILLS .article-container'),
-        'CONTACT': document.querySelector('#CONTACT .article-container'),
+        'HOME': document.querySelector('#HOME'),
+        'PROJECTS': document.querySelector('#PROJECTS'),
+        'VALUES': document.querySelector('#VALUES'),
+        'SKILLS': document.querySelector('#SKILLS'),
+        'CONTACT': document.querySelector('#CONTACT'),
     };
 
-    // Log the height of each section in pixels
-    Object.entries(sections).forEach(([sectionName, container]) => {
-        if (container) {
-            console.log(`Height of ${sectionName}: ${container.offsetHeight}px`);
+    // Log the height of each main section in pixels
+    Object.entries(sections).forEach(([sectionName, section]) => {
+        if (section) {
+            console.log(`Height of ${sectionName}: ${section.offsetHeight}px`);
         } else {
             console.warn(`Section "${sectionName}" not found.`);
         }
     });
 
     if (data && data.Article && Array.isArray(data.Article)) {
-        Object.values(sections).forEach(container => {
+        Object.values(sections).forEach(section => {
+            const container = section.querySelector('.article-container');
             if (container) {
                 container.innerHTML = ''; // Clear container
             }
         });
 
         data.Article.forEach(article => {
-            const container = sections[article.section];
-            if (container) {
-                const articleHTML = `
-                <div class="article-item">
-                    <h2>${article.name ? article.name[currentLanguage] : 'No name'}</h2>
-                    <p>${article.description ? article.description[currentLanguage] : 'No description'}</p>
-                </div>
-                `;
-                container.insertAdjacentHTML('beforeend', articleHTML);
+            const section = sections[article.section];
+            if (section) {
+                const container = section.querySelector('.article-container');
+                if (container) {
+                    const articleHTML = `
+                    <div class="article-item">
+                        <h2>${article.name ? article.name[currentLanguage] : 'No name'}</h2>
+                        <p>${article.description ? article.description[currentLanguage] : 'No description'}</p>
+                    </div>
+                    `;
+                    container.insertAdjacentHTML('beforeend', articleHTML);
+                } else {
+                    console.warn(`Article container not found for section "${article.section}".`);
+                }
             } else {
                 console.warn(`Section "${article.section}" not found.`);
             }
         });
     } else {
-        Object.values(sections).forEach(container => {
+        Object.values(sections).forEach(section => {
+            const container = section.querySelector('.article-container');
             if (container) {
                 container.innerHTML = '<p>No articles available.</p>';
             }
         });
     }
 
-    // Log the new height of each section after articles have been inserted
-    Object.entries(sections).forEach(([sectionName, container]) => {
-        if (container) {
-            console.log(`Updated height of ${sectionName}: ${container.offsetHeight}px`);
+    // Log the updated height of each main section after articles have been inserted
+    Object.entries(sections).forEach(([sectionName, section]) => {
+        if (section) {
+            console.log(`Updated height of ${sectionName}: ${section.offsetHeight}px`);
         }
     });
 }
