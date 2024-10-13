@@ -107,9 +107,9 @@ section{
   background-position:center;
 }
 
-.svg_contact_article{
+.svg_contact_article{ 
   width: 100vw;
-  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100"><path fill="green" d="M 0 39 C 525 -4 702 44 1000 19 L 1000 46 C 770 88 487 38 0 61 Z"/></svg>') no-repeat;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100"><path fill="goldenrod" d="M 0 39 C 313 38 85 51 505 25 C 755 16 848 100 1000 19 L 1000 47 C 738 81 683 41 503 50 C 344 62 179 24 0 61 Z"/></svg>') no-repeat;
   background-size: cover;
   background-position:center;
 }
