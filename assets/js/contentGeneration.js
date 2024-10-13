@@ -6,7 +6,7 @@ async function fetchData() {
     try {
         const response = await fetch('https://arnaudlemascon.fr/assets/json/data.json');
         const jsonData = await response.json();
-        console.log('JSON fetched:', JSON.stringify(jsonData, null, 2)); // Pretty-print JSON in the console
+        console.log('JSON fetched:'/*, JSON.stringify(jsonData, null, 2)*/); // Pretty-print JSON in the console
         
         data = jsonData;
         generateContent(); // Call the function to generate content based on the data
