@@ -88,7 +88,7 @@ section{
   max-height: 100%;
 }
 
-.svg_project{
+.svg_projects{
   background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100"><path fill="dodgerblue" d="M 0 39 C 525 -4 702 44 1000 19 L 1000 46 C 770 88 487 38 0 61 Z"/></svg>') no-repeat;
   background-size: cover;
   background-position:center;
@@ -125,7 +125,7 @@ section{
 .article-container{
   position: relative;
   height: 200px;
-  background-color: rgba(0, 0, 0, 0.495);
+  background-color: rgba(0, 0, 0, 0.15);
 }
 
 .article-item {
