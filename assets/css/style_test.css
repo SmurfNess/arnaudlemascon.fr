@@ -106,7 +106,7 @@ section{
 
 .article-container{
   position: relative;
-  top: 100px;
+  height: 150px;
   }
 
 .article-item {
