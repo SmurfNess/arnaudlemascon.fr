@@ -632,7 +632,7 @@ width: 100%;
 }
 
 textarea, input{
-  width: 50vw;
+  width: 25vw;
   background-color: var(--color-input);
   border-radius: 15px;
   border: none;
