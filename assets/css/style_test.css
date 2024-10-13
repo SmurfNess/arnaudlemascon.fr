@@ -103,8 +103,8 @@ section{
 
 .svg_values{
   background:
-  url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 250"><path fill="rgb(90, 103, 160)" d="M 0 125 C 690 15 825 187 1000 100 L 1000 138 C 528 170 471 209 0 147 Z"/></svg>') no-repeat,
-  url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 250"><path fill="goldenrod" d="M 0 125 C 215 1 904 231 1000 100 L 1000 100 C 918 250 241 70 0 147 Z"/></svg>') no-repeat;
+  url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 250"><path fill="goldenrod" d="M 0 125 C 215 1 904 231 1000 100 L 1000 100 C 918 250 241 70 0 147 Z"/></svg>') no-repeat,
+  url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 250"><path fill="rgb(90, 103, 160)" d="M 0 125 C 690 15 825 187 1000 100 L 1000 138 C 528 170 471 209 0 147 Z"/></svg>') no-repeat;
   background-size: cover;
   background-position:center;
 }
@@ -128,7 +128,6 @@ section{
 .article-container{
   position: relative;
   height: 250px;
-  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .article-item {
