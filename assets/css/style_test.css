@@ -637,6 +637,7 @@ width: 100%;
 .contact-container {
   position: relative;
   display: flex;
+  width: 25vw;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
