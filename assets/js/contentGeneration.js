@@ -146,10 +146,11 @@ function generateArticle() {
                 if (sectionName === 'PROJECTS' || sectionName === 'VALUES' || sectionName === 'SKILLS') {
                     const svgElements = section.querySelectorAll('svg'); // Select all SVG elements in the section
                     svgElements.forEach(svg => {
-                        // Set the vertical position of the SVG to match the article-container
+                        // Set the vertical position of the SVG to match the top of the section
                         svg.style.position = 'absolute'; // Ensure SVGs can be positioned absolutely
-                        svg.style.top = `${positionFromTop}px`; // Align the top of SVG with article-container
-                        console.log(`Adjusted position of SVG in ${sectionName} to top: ${positionFromTop}px`);
+                        svg.style.top = '0px'; // Align the top of SVG with the top of the section
+                        svg.style.left = `${positionFromTop}px`; // Align horizontally if needed
+                        console.log(`Adjusted position of SVG in ${sectionName} to top: 0px`);
                     });
                 }
             } else {
