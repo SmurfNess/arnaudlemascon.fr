@@ -295,7 +295,7 @@ function generateContactForm() {
 
     // Générer le HTML du formulaire
     const contactHTML = `
-            <form  class="row" action="https://formspree.io/f/xdovyzdp" method="POST">
+            <form action="https://formspree.io/f/xdovyzdp" method="POST">
                 <label class="col-12" >Ton nom et tes pronoms :<br>
                     <input type="name" name="name" required>
                 </label>
