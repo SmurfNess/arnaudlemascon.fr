@@ -79,10 +79,6 @@ section{
   max-height: 100%;
 }
 
-.svg_project{
-  top: 5%;
-}
-
 .svg_contact {
   position: absolute;
   left: 0%;
@@ -111,7 +107,6 @@ section{
 
 .article-container{
   position: relative;
-  overflow: visible;
   }
 
 .article-item {
