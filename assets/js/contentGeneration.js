@@ -141,6 +141,17 @@ function generateArticle() {
                 const sectionRect = section.getBoundingClientRect();
                 const positionFromTop = rect.top - sectionRect.top; // Position relative to the section
                 console.log(`Position of article-container in ${sectionName} from top: ${positionFromTop}px`);
+
+                // Adjust the position of SVGs in specific sections
+                if (sectionName === 'PROJECTS' || sectionName === 'VALUES' || sectionName === 'SKILLS') {
+                    const svgElements = section.querySelectorAll('svg'); // Select all SVG elements in the section
+                    svgElements.forEach(svg => {
+                        // Set the vertical position of the SVG to match the article-container
+                        svg.style.position = 'absolute'; // Ensure SVGs can be positioned absolutely
+                        svg.style.top = `${positionFromTop}px`; // Align the top of SVG with article-container
+                        console.log(`Adjusted position of SVG in ${sectionName} to top: ${positionFromTop}px`);
+                    });
+                }
             } else {
                 console.warn(`Article container not found in section "${sectionName}".`);
             }
