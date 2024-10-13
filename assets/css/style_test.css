@@ -82,8 +82,6 @@ section{
 
 .svg_project{
   position: absolute;
-  transform:translateY(-100%);
-
   width: 100%;
 }
 
