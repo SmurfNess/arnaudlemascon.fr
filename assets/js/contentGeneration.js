@@ -133,38 +133,15 @@ function generateArticle() {
     Object.entries(sections).forEach(([sectionName, section]) => {
         if (section) {
             console.log(`Height of ${sectionName}: ${section.offsetHeight}px`);
-
-            // Position of article-container
             const articleContainer = section.querySelector('.article-container');
             if (articleContainer) {
                 const rect = articleContainer.getBoundingClientRect();
                 const sectionRect = section.getBoundingClientRect();
                 const positionFromTop = rect.top - sectionRect.top; // Position relative to the section
                 console.log(`Position of article-container in ${sectionName} from top: ${positionFromTop}px`);
-
-                // Adjust the position of SVGs in specific sections
-                if (sectionName === 'PROJECTS' || sectionName === 'VALUES' || sectionName === 'SKILLS') {
-                    const svgElements = section.querySelectorAll('svg'); // Select all SVG elements in the section
-                    svgElements.forEach(svg => {
-                        // Set the vertical position of the SVG to match the article-container minus 250px
-                        svg.style.position = 'absolute'; // Ensure SVGs can be positioned absolutely
-                        svg.style.top = `${positionFromTop - 500}px`; // Align the top of SVG with article-container minus 250px
-                        svg.style.left = '0'; // Set left position to avoid horizontal shift
-                        console.log(`Adjusted position of SVG in ${sectionName} to top: ${positionFromTop - 250}px`);
-                    });
-                }
             } else {
                 console.warn(`Article container not found in section "${sectionName}".`);
             }
-
-            // Position of SVG elements
-            const svgElements = section.querySelectorAll('svg'); // Select all SVG elements in the section
-            svgElements.forEach((svg, index) => {
-                const rect = svg.getBoundingClientRect();
-                const sectionRect = section.getBoundingClientRect();
-                const positionFromTop = rect.top - sectionRect.top; // Position relative to the section
-                console.log(`Position of SVG ${index + 1} in ${sectionName} from top: ${positionFromTop}px`);
-            });
         } else {
             console.warn(`Section "${sectionName}" not found.`);
         }
@@ -213,7 +190,6 @@ function generateArticle() {
         }
     });
 }
-
 
 
 // Generate project items
