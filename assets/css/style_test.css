@@ -296,7 +296,7 @@ section{
 }
 
 .project-container .cards {
-  position: absolute;
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: flex-start;
