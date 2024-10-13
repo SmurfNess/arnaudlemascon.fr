@@ -116,6 +116,7 @@ section{
 
 .article-item {
   text-align: center;
+  width: 100vw;
 }
 
 /* ################# END ARTICLE ###################### */
