@@ -126,7 +126,6 @@ section{
 .article-container{
   position: relative;
   height: 200px;
-  background-color: rgba(0, 0, 0, 0.15);
 }
 
 .article-item {
