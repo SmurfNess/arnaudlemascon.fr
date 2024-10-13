@@ -296,13 +296,13 @@ function generateContactForm() {
     // Générer le HTML du formulaire
     const contactHTML = `
             <form  class="row" action="https://formspree.io/f/xdovyzdp" method="POST">
-                <label class="col-3" >Ton nom et tes pronoms :<br>
+                <label class="col-12" >Ton nom et tes pronoms :<br>
                     <input type="name" name="name" style="width: 100%;" required>
                 </label>
-                <label class="col-3" for="email">${contactSection.expeditor[currentLanguage]}
+                <label class="col-12" for="email">${contactSection.expeditor[currentLanguage]}
                     <input type="email" name="email"id="email" placeholder="${contactSection.expeditor[currentLanguage]}" required>
                 </label>
-                <label class="col-3" for="message">${contactSection.message[currentLanguage]}
+                <label class="col-12" for="message">${contactSection.message[currentLanguage]}
                     <textarea name="message"id="message" rows="5" placeholder="${contactSection.message[currentLanguage]}" required></textarea>
                 </label>
                 <button type="submit">${contactSection.btn[currentLanguage]}</button>
