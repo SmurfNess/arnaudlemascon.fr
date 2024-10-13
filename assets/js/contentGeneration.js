@@ -140,13 +140,13 @@ function generateArticle() {
             const container = sections[article.section];
             if (container) {
                 const articleHTML = `
-                <svg class="svg_project" viewBox="0 0 168 100" preserveAspectRatio="none">
-                    <path fill="goldenrod" d="M 0 68 C 83 -60 123 108 168 54 L 168 56 C 131 127 97 -52 0 70 Z" />
-                </svg>
-                <svg class="svg_project" viewBox="0 0 168 100" preserveAspectRatio="none">
-                    <path fill="rgb(90, 103, 160)" d="M 0 39 C 102 9 119 42 168 24 L 168 47 C 119 65 102 32 0 61 Z" />
-                </svg>
                 <div class="article-item">
+                    <svg class="svg_project" viewBox="0 0 168 100" preserveAspectRatio="none">
+                        <path fill="goldenrod" d="M 0 68 C 83 -60 123 108 168 54 L 168 56 C 131 127 97 -52 0 70 Z" />
+                    </svg>
+                    <svg class="svg_project" viewBox="0 0 168 100" preserveAspectRatio="none">
+                        <path fill="rgb(90, 103, 160)" d="M 0 39 C 102 9 119 42 168 24 L 168 47 C 119 65 102 32 0 61 Z" />
+                    </svg>
                     <h2>${article.name ? article.name[currentLanguage] : 'No name'}</h2>
                     <p>${article.description ? article.description[currentLanguage] : 'No description'}</p>
                 </div>
