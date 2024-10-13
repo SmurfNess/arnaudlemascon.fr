@@ -133,6 +133,15 @@ function generateArticle() {
     Object.entries(sections).forEach(([sectionName, section]) => {
         if (section) {
             console.log(`Height of ${sectionName}: ${section.offsetHeight}px`);
+            const articleContainer = section.querySelector('.article-container');
+            if (articleContainer) {
+                const rect = articleContainer.getBoundingClientRect();
+                const sectionRect = section.getBoundingClientRect();
+                const positionFromTop = rect.top - sectionRect.top; // Position relative to the section
+                console.log(`Position of article-container in ${sectionName} from top: ${positionFromTop}px`);
+            } else {
+                console.warn(`Article container not found in section "${sectionName}".`);
+            }
         } else {
             console.warn(`Section "${sectionName}" not found.`);
         }
