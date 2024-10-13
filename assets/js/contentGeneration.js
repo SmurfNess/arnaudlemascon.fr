@@ -133,6 +133,10 @@ function generateArticle() {
         if (section) {
             console.log(`Height of ${sectionName}: ${section.offsetHeight}px`);
 
+            // Log the height of each section
+            const sectionHeight = section.offsetHeight;  // Get the height of the section
+            console.log(`Height of section "${sectionName}": ${sectionHeight}px`);
+
             // Position of article-container
             const articleContainer = section.querySelector('.article-container');
             if (articleContainer) {
