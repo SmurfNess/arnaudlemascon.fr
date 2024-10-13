@@ -295,20 +295,18 @@ function generateContactForm() {
 
     // Générer le HTML du formulaire
     const contactHTML = `
-      <form action="https://formspree.io/f/xdovyzdp" method="POST">
-        <div class="form-group">
-            <label class="col-12 name">Ton nom et tes pronoms :<br>
+        <form action="https://formspree.io/f/xdovyzdp" method="POST">
+            <label Ton nom et tes pronoms :<br>
                 <input type="name" name="name" style="width: 100%;" required>
             </label>
-            <label for="email" class="mail">${contactSection.expeditor[currentLanguage]}</label>
-                <input type="email" name="email" class="form-control" id="email" placeholder="${contactSection.expeditor[currentLanguage]}" required>
-            </div>
-        <div class="form-group">
-            <label for="message">${contactSection.message[currentLanguage]}</label>
-            <textarea name="message" class="form-control" id="message" rows="5" placeholder="${contactSection.message[currentLanguage]}" required></textarea>
-        </div>
-        <button type="submit" class="btn-message">${contactSection.btn[currentLanguage]}</button>
-      </form>
+            <label for="email">${contactSection.expeditor[currentLanguage]}
+                <input type="email" name="email"id="email" placeholder="${contactSection.expeditor[currentLanguage]}" required>
+            </label>
+            <label for="message">${contactSection.message[currentLanguage]}
+                <textarea name="message"id="message" rows="5" placeholder="${contactSection.message[currentLanguage]}" required></textarea>
+            </label>
+            <button type="submit">${contactSection.btn[currentLanguage]}</button>
+        </form>
     `;
 
 
