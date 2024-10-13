@@ -111,7 +111,7 @@ section{
 
 .article-container{
   position: relative;
-  border-radius: var(--radius-gen);
+  overflow: visible;
   }
 
 .article-item {
