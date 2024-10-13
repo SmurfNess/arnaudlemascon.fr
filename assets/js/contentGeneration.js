@@ -129,6 +129,15 @@ function generateArticle() {
         'CONTACT': document.querySelector('#CONTACT .article-container'),
     };
 
+    // Log the height of each section in pixels
+    Object.entries(sections).forEach(([sectionName, container]) => {
+        if (container) {
+            console.log(`Height of ${sectionName}: ${container.offsetHeight}px`);
+        } else {
+            console.warn(`Section "${sectionName}" not found.`);
+        }
+    });
+
     if (data && data.Article && Array.isArray(data.Article)) {
         Object.values(sections).forEach(container => {
             if (container) {
@@ -157,7 +166,15 @@ function generateArticle() {
             }
         });
     }
+
+    // Log the new height of each section after articles have been inserted
+    Object.entries(sections).forEach(([sectionName, container]) => {
+        if (container) {
+            console.log(`Updated height of ${sectionName}: ${container.offsetHeight}px`);
+        }
+    });
 }
+
 
 // Generate project items
 function generateProjects() {
