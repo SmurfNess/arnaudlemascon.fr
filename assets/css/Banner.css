@@ -34,6 +34,10 @@
     width: 100vw;
   }
 
+  .container_banner{
+    background-color: var(--color-tertiary);
+  }
+
 
   
   .navbar{
