@@ -96,7 +96,10 @@ section{
 
 .svg_skills{
   width: 100vw;
-  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100"><path fill="red" d="M 0 39 C 525 -4 702 44 1000 19 L 1000 46 C 770 88 487 38 0 61 Z"/></svg>') no-repeat;
+  padding: 50px;
+  background:
+  url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 250"><path fill="goldenrod" d="M 0 125 C 215 1 904 231 1000 100 L 1000 100 C 918 250 241 70 0 147 Z"/></svg>') no-repeat,
+  url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 250"><path fill="rgb(90, 103, 160)" d="M 0 125 C 131 174 291 119 326 108 C 399 83 859 88 1000 162 L 1000 162 C 839 95 484 119 366 138 C 111 175 10 169 0 147 Z"/></svg>') no-repeat;
   background-size: cover;
   background-position:center;
 }
