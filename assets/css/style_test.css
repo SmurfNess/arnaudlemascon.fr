@@ -287,7 +287,7 @@ section{
 /* #################### PROJECTS ###################### */
 
 .project-container {
-  position: absolute;
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -296,7 +296,7 @@ section{
 }
 
 .project-container .cards {
-  position: relative;
+  position: absolute;
   display: flex;
   justify-content: center;
   align-items: flex-start;
