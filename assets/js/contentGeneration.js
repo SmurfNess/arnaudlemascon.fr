@@ -295,18 +295,41 @@ function generateContactForm() {
 
     // Générer le HTML du formulaire
     const contactHTML = `
-      <form>
+      <form action="https://formspree.io/f/xdovyzdp" method="POST">
         <div class="form-group">
-          <label for="email">${contactSection.expeditor[currentLanguage]}</label>
-          <input type="email" class="form-control" id="email" placeholder="${contactSection.expeditor[currentLanguage]}" required>
-        </div>
+            <label class="col-12 name">Ton nom et tes pronoms :<br>
+                <input type="name" name="name" style="width: 100%;" required>
+            </label>
+            <label for="email">${contactSection.expeditor[currentLanguage]}</label>
+                <input type="email" name="email" class="form-control" id="email" placeholder="${contactSection.expeditor[currentLanguage]}" required>
+            </div>
         <div class="form-group">
-          <label for="message">${contactSection.message[currentLanguage]}</label>
-          <textarea class="form-control" id="message" rows="5" placeholder="${contactSection.message[currentLanguage]}" required></textarea>
+            <label for="message">${contactSection.message[currentLanguage]}</label>
+            <textarea name="message" class="form-control" id="message" rows="5" placeholder="${contactSection.message[currentLanguage]}" required></textarea>
         </div>
-        <button type="submit" class="btn btn-primary">${contactSection.btn[currentLanguage]}</button>
+        <button type="submit" class="btn-message">${contactSection.btn[currentLanguage]}</button>
       </form>
     `;
+
+
+    /*
+              <form action="https://formspree.io/f/xdovyzdp" method="POST">
+            <div class="row">
+            <label class="col-12 name">Ton nom et tes pronoms :<br>
+              <input type="name" name="name" style="width: 100%;" required>
+            </label>
+            <label class="col-12 mail">Ton email :<br>
+              <input type="email" name="email" style="width: 100%;" required>
+            </label>
+            <label class="col-10 message">Ton message :<br>
+              <textarea name="message" rows="8" cols="0"></textarea required>
+            </label>
+            <div class="col-2">
+              <button type="submit" class="btn-message">SEND</button>
+            </div>
+          </div>
+          </form>
+    */
 
     // Insérer le formulaire dans le conteneur
     container.innerHTML = contactHTML;
