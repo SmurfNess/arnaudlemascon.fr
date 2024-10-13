@@ -450,6 +450,15 @@ width: 100%;
 
 /* ##################### SKILLS ####################### */
 
+.skills-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 100px 50px;
+}
+
 .card_skills {
   position: relative;
   background-color: var(--color-dark);
@@ -624,6 +633,15 @@ width: 100%;
 /* ################# END SKILLS ####################### */
 
 /* #################### CONTACT ####################### */
+
+.contact-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 100px 50px;
+}
 
 .name,.message,.mail{
   color:var(--color-font-principal);
