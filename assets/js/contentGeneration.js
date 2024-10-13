@@ -299,13 +299,13 @@ function generateContactForm() {
                 <label class="col-12" >Ton nom et tes pronoms :<br>
                     <input type="name" name="name" style="width: 100%;" required>
                 </label>
-                <label class="col-12" for="email">${contactSection.expeditor[currentLanguage]}
+                <label class="col-12" for="email">${contactSection.expeditor[currentLanguage]}<br>
                     <input type="email" name="email"id="email" placeholder="${contactSection.expeditor[currentLanguage]}" required>
                 </label>
-                <label class="col-12" for="message">${contactSection.message[currentLanguage]}
+                <label class="col-12" for="message">${contactSection.message[currentLanguage]}<br>
                     <textarea name="message"id="message" rows="5" placeholder="${contactSection.message[currentLanguage]}" required></textarea>
                 </label>
-                <button type="submit">${contactSection.btn[currentLanguage]}</button>
+                <button type="submit" class="btn-message">${contactSection.btn[currentLanguage]}</button>
             </form>
     `;
 
