@@ -110,7 +110,7 @@ section{
   position: relative;
   height: 200px;
   background-color: rgba(0, 0, 0, 0.495);
-  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 150"><path fill="lightblue" d="M 0 39 C 525 -4 702 44 1000 19 L 1000 46 C 770 88 487 38 0 61 Z"/></svg>') no-repeat;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100"><path fill="lightblue" d="M 0 39 C 525 -4 702 44 1000 19 L 1000 46 C 770 88 487 38 0 61 Z"/></svg>') no-repeat;
   background-size: cover; /* Ajuste le fond pour couvrir le conteneur */
   background-position: bottom; /* Positionne le SVG en bas du conteneur */
   }
