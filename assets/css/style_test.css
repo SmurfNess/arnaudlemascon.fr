@@ -104,7 +104,7 @@ section{
   width: 100vw;
   padding: 50px;
   background:
-  url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 250"><path fill="goldenrod" d="M 428 350 C 721 323 870 130 1076 93 C 1375 51 1306 230 1838 117 C 1361 310 1168 118 1025 191 C 793 337 655 363 432 350"/></svg>'),
+  url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 250"><path fill="goldenrod" d="M 575 181 C 721 323 873 28 1081 18 C 1419 20 1306 230 1838 117 C 1361 310 1168 118 1025 191 C 1018 207 655 363 574 181"/></svg>'),
   url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 250"><path fill="rgb(90, 103, 160)" d="M 0 125 C 131 174 291 119 326 108 C 399 83 859 88 1000 162 L 1000 162 C 839 95 484 119 366 138 C 111 175 10 169 0 147 Z"/></svg>') no-repeat;
   background-position: center center; /* Centre le SVG dans la fenêtre */
   background-size: auto 250px;
