@@ -332,7 +332,7 @@ section{
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  min-width: 200px;
+  min-width: 250px;
   width: 100%;
   max-width: 350px;
   height: 300px;
@@ -345,10 +345,10 @@ section{
 .project-container .cards .img-box {
   position: absolute;
   top: 20px;
-  min-width: 125px;
+  min-width: 200px;
   width: 100%;
   max-width: 300px;
-  height: auto;
+  height: 220px;
   background: #333;
   border-radius: var(--radius-gen);
   overflow: hidden;
@@ -357,7 +357,6 @@ section{
 
 .project-container .cards .img-box img{
   width: 100%;
-  height: auto;
 }
 
 .project-container .cards .text-box {
