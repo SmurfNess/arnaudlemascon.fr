@@ -237,20 +237,27 @@ function generateProjects() {
             const technoHTML = project.techno.map(techno => `<div class="techno-label" id="${techno}">${techno}</div>`).join('');
 
             const projectHTML = `
-            <div class="col-4">
+            
+                <div class="col-4">
                 <div class="cards">
+                    <div class="img-container-box">
                     <div class="img-box">
                         <img src="${project.image}" alt="Image">
                     </div>
+                    </div>
+                    <!-- Nouveau wrapper pour gérer l'overflow du texte -->
+                    <div class="text-box-wrapper">
                     <div class="text-box">
                         <a href="${project.link}">${project.name[currentLanguage]}</a>
                         <div class="techno-box">
-                            ${technoHTML}
+                        ${technoHTML}
                         </div>
                         <p>${project.description[currentLanguage]}</p>
                     </div>
+                    </div>
                 </div>
-            </div>  
+                </div>
+                
             `;
 
             container.insertAdjacentHTML('beforeend', projectHTML);
