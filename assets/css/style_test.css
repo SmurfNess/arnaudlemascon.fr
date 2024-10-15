@@ -317,6 +317,14 @@ section{
 /* ################ END PORTRAIT ###################### */
 
 /* #################### PROJECTS ###################### */
+.project-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 100px 50px;
+}
 
 .project-container .cards {
   position: relative;
@@ -330,18 +338,22 @@ section{
   border-radius: var(--radius-gen);
   transition: 0.5s;
   box-shadow: 0 35px 80px rgba(0, 0, 0, 0.15);
-  overflow: visible; /* Permet à l'image de dépasser */
+  overflow: hidden; /* Conserve overflow: hidden pour le texte */
 }
 
 .project-container .cards .img-container-box {
-  overflow: visible !important; /* Permet à l'image de dépasser */
+  position: relative;
+  width: 100%;
+  height: 220px; /* Ajustement de la hauteur */
 }
 
 .project-container .cards .img-box {
   position: absolute;
-  top: 20px;
-  width: 300px;
-  height: 220px;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 100%;
   background: #333;
   border-radius: var(--radius-gen);
   overflow: hidden;
@@ -350,21 +362,16 @@ section{
 
 .project-container .cards .img-box img {
   width: 100%;
-}
-
-.project-container .cards .text-box-wrapper {
-  position: absolute;
-  top: 252px;
-  width: 100%;
-  height: 35px;
-  overflow: hidden; /* Masque le texte en dehors du conteneur */
-  transition: 0.5s;
+  height: auto;
 }
 
 .project-container .cards .text-box {
-  padding: 0 30px;
+  position: relative;
+  padding: 10px 30px;
   text-align: center;
+  transition: 0.5s;
   color: black;
+  overflow: hidden; /* Overflow pour cacher le texte */
 }
 
 .project-container .cards .text-box a {
@@ -378,6 +385,7 @@ section{
   display: flex;
   justify-content: center;
   align-items: flex-start;
+  margin-top: 10px;
 }
 
 .project-container .cards .text-box .techno-box .techno-label {
@@ -395,13 +403,16 @@ section{
 }
 
 .project-container .cards:hover .img-box {
-  top: -50px;
-  scale: 0.75;
+  top: -50px; /* L'image dépasse de 50px */
+  width: 120%; /* Agrandit l'image pour dépasser visuellement */
+  left: 50%;
+  transform: translateX(-50%) scale(0.9); /* Centré, avec une échelle réduite */
   box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
 }
 
-.project-container .cards:hover .text-box-wrapper {
-  height: 290px; /* On agrandit le conteneur pour montrer plus de texte */
+.project-container .cards:hover .text-box {
+  height: auto;
+  padding-bottom: 20px; /* Ajoute plus d'espace pour afficher le texte */
 }
 
 #JS {
