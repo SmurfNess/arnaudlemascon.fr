@@ -269,7 +269,7 @@ function generateValues() {
 
         data.values.forEach(value => {
             const valueHTML = `
-                <div class="col-2">
+                <div class="col-4">
                     <div class="carte">
                         <div class="carte-inner">
                             <div class="face face-avant">
