@@ -421,7 +421,7 @@ width: 100%;
 
 /* ##################### VALUES ####################### */
 
-.values-container {
+.container-values {
   position: relative;
   display: flex;
   justify-content: center;
