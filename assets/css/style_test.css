@@ -356,7 +356,7 @@ section{
 }
 
 .project-container .cards .img-box img{
-  height: 100%;
+  width: 100%;
 }
 
 .project-container .cards .text-box {
