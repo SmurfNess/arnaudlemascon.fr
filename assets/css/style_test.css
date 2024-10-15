@@ -93,7 +93,7 @@ section{
   height: 250px; /* Hauteur fixe correspondant à la hauteur du viewBox du SVG */
   padding: 50px;
   background:
-    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 250"><path fill="goldenrod" d="M 0 0 L 0 250 L 1000 125 L 2000 250 L 2000 0 L 0 0" preserveAspectRatio="none"/></svg>') no-repeat,
+    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 250"><path fill="goldenrod" d="M 0 0 L 0 250 L 1000 125 L 2000 250 L 2000 0 L 0 0" preserveAspectRatio="none"/></svg>'),
     url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 250"><path fill="rgb(90, 103, 160)" d="M 0 125 C 131 174 291 119 326 108 C 399 83 859 88 1000 162 L 1000 162 C 839 95 484 119 366 138 C 111 175 10 169 0 147 Z" preserveAspectRatio="none"/></svg>') no-repeat;
   background-position: center center; /* Centre le SVG dans la fenêtre */
 }
