@@ -138,7 +138,7 @@
         "fr": "Description du projet 2 en français.",
         "sp": "Descripción del Proyecto 2 en español."
       },
-      "image": "https://arnaudlemascon.fr/assets/pictures/IMG_1873.webp",
+      "image": "https://arnaudlemascon.fr/assets/pictures/p_hooman.webp",
       "techno": ["CSS", "JS"],
       "spotlight": "yes",
       "link": "https://arnaudlemascon.fr/projects/hoomanbenchmark/hoomanbenchmark.html"
@@ -154,7 +154,7 @@
         "fr": "application de génération aléatoire d'équipe avec gestion de classe.",
         "sp": "Descripción del Proyecto 2 en español."
       },
-      "image": "https://arnaudlemascon.fr/assets/pictures/IMG_1873.webp",
+      "image": "https://arnaudlemascon.fr/assets/pictures/teamup.webp",
       "techno": ["CSS", "JS"],
       "spotlight": "no",
       "link": "https://arnaudlemascon.fr/projects/TeamUp/teamup.html"
@@ -170,7 +170,7 @@
         "fr": "Description du projet 2 en français.",
         "sp": "Descripción del Proyecto 2 en español."
       },
-      "image": "https://arnaudlemascon.fr/assets/pictures/IMG_1873.webp",
+      "image": "https://arnaudlemascon.fr/assets/pictures/quiz.webp",
       "techno": ["CSS", "JS"],
       "spotlight": "yes",
       "link": "https://arnaudlemascon.fr/projects/quiz/acces.html"
