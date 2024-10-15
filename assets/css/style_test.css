@@ -94,7 +94,7 @@ section{
   padding: 50px;
   background:
     url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 250"><path fill="goldenrod" d="M 1000 50 C 750 50 750 200 1000 200 C 1250 200 1250 50 1000 50"/></svg>'),
-    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 250"><path fill="rgb(90, 103, 160)" d="M 1000 50 C 712 3 704 201 1000 200 C 1290 253 1189 75 1000 50"/></svg>') no-repeat;
+    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 250"><path fill="rgb(90, 103, 160)" d="M 1000 50 C 712 3 704 201 1000 200 C 1290 253 1189 75 1000 50"/></svg>') no-repeat;
   background-position: center center; /* Centre le SVG dans la fenêtre */
   background-size: auto 250px;
 }
