@@ -343,7 +343,7 @@ section{
 }
 
 .project-container .cards .img-container-box {
-  overflow: visible;
+  overflow: visible !important;
 }
 
 .project-container .cards .img-box {
