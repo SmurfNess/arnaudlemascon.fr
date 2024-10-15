@@ -385,7 +385,7 @@ width: 100%;
 .project-container .cards .text-box .techno-box .techno-label {
   height: 25px;
   width: 50px;
-  border-radius: var(--radius-gen);
+  border-radius: 5px;
   box-shadow: 0 35px 80px rgba(0, 0, 0, 0.15);
   color: white;
   font-weight: bold;
