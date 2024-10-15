@@ -339,7 +339,6 @@ section{
   border-radius: var(--radius-gen);
   transition: 0.5s;
   box-shadow: 0 35px 80px rgba(0, 0, 0, 0.15);
-  overflow: hidden;
 }
 
 .project-container .cards .img-box {
@@ -351,6 +350,7 @@ section{
   border-radius: var(--radius-gen);
   overflow: hidden;
   transition: 0.5s;
+  overflow: visible;
 }
 
 .project-container .cards .img-box img{
