@@ -262,7 +262,8 @@ function generateProjects() {
 
 // Generate value items
 function generateValues() {
-    const container = document.querySelector('#VALUES .container-values .row');
+    const container = document.querySelector('#VALUES .container-values');
+
     if (container) {
         container.innerHTML = ''; // Clear the container
 
