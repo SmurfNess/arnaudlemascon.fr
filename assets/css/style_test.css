@@ -333,7 +333,7 @@ section{
   justify-content: center;
   align-items: flex-start;
   min-width: 350px;
-  min-width: 100%;
+  width: 100%;
   max-width: 450px;
   height: 300px;
   background: #FFF;
