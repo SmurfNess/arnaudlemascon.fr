@@ -124,7 +124,8 @@
       },
       "image": "https://arnaudlemascon.fr/assets/pictures/norksiege.webp",
       "techno": ["JS", "HTML"],
-      "spotlight": "yes"
+      "spotlight": "yes",
+      "link": "https://norksiege.fr"
     },
     {
       "name": {
@@ -139,7 +140,8 @@
       },
       "image": "https://arnaudlemascon.fr/assets/pictures/IMG_1873.webp",
       "techno": ["CSS", "JS"],
-      "spotlight": "yes"
+      "spotlight": "yes",
+      "link": "https://norksiege.fr"
     },
     {
       "name": {
@@ -154,7 +156,8 @@
       },
       "image": "https://arnaudlemascon.fr/assets/pictures/IMG_1873.webp",
       "techno": ["CSS", "JS"],
-      "spotlight": "no"
+      "spotlight": "no",
+      "link": "https://norksiege.fr"
     },
     {
       "name": {
@@ -169,7 +172,8 @@
       },
       "image": "https://arnaudlemascon.fr/assets/pictures/IMG_1873.webp",
       "techno": ["CSS", "JS"],
-      "spotlight": "yes"
+      "spotlight": "yes",
+      "link": "https://norksiege.fr"
     }
   ],
   "values": [

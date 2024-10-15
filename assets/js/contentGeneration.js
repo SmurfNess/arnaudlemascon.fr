@@ -243,7 +243,7 @@ function generateProjects() {
                         <img src="${project.image}" alt="Image">
                     </div>
                     <div class="text-box">
-                        <a href="#">${project.name[currentLanguage]}</a>
+                        <a href="${project.link}">${project.name[currentLanguage]}</a>
                         <div class="techno-box">
                             ${technoHTML}
                         </div>
