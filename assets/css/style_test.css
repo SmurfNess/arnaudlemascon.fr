@@ -345,7 +345,6 @@ section{
 .project-container .cards .img-box {
   position: absolute;
   top: 20px;
-  width: 300px;
   min-width: 125px;
   width: 100%;
   max-width: 300px;
