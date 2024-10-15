@@ -421,6 +421,15 @@ width: 100%;
 
 /* ##################### VALUES ####################### */
 
+.values-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 100px 50px;
+}
+
 .cartes-container {
   display: flex;
 }
