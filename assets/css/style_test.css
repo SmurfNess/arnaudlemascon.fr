@@ -341,6 +341,10 @@ section{
   box-shadow: 0 35px 80px rgba(0, 0, 0, 0.15);
 }
 
+.project-container .cards .img-container-box {
+  overflow: visible;
+}
+
 .project-container .cards .img-box {
   position: absolute;
   top: 20px;
@@ -350,7 +354,6 @@ section{
   border-radius: var(--radius-gen);
   overflow: hidden;
   transition: 0.5s;
-  overflow: visible;
 }
 
 .project-container .cards .img-box img{
