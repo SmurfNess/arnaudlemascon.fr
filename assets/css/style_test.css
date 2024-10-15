@@ -408,7 +408,8 @@ width: 100%;
 
 .project-container .cards:hover .text-box {
   top: 150px;
-  height: 290px;
+  height: 190px;
+  background-color: red;
 }
 
 #JS{  background-color: red; }
