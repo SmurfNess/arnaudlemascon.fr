@@ -32,27 +32,22 @@
     {
       "section": "HOME",
       "name": {
-        "en": "Home",
-        "fr": "Accueil",
-        "sp": "Accueillo"
+        "en": "Hey, I'm Arnaud, welcome here",
+        "fr": "Hey, je suis Arnaud, bienvenue ici",
+        "sp": "Hola, soy Arnaud, bienvenido aquí."
       },
       "description": {
-        "en": "Welcome",
-        "fr": "Bienvenue",
-        "sp": "Buenvenudo."
+        "en": "A former art student, I love to create, both with my hands and with a computer. I created this site to challenge myself.",
+        "fr": "Ancien étudiant en art, j'aime créer, autant avec mes mains qu'avec un ordinateur. J'ai créé ce site pour me challenger.",
+        "sp": "Ex estudiante de arte, me encanta crear, tanto con las manos como con el ordenador. Creé este sitio para desafiarme a mí mismo."
       }
     },
     {
       "section": "PROJECTS",
       "name": {
-        "en": "Projects",
-        "fr": "Projets",
-        "sp": "Proyectos"
-      },
-      "description": {
-        "en": "Description of project in English.",
-        "fr": "Description du projet en français.",
-        "sp": "Descripción del proyectos en español."
+        "en": "Some projects",
+        "fr": "Quelques projets",
+        "sp": "Algunos proyectos"
       }
     },
     {
@@ -185,9 +180,9 @@
       },
       "image": "https://arnaudlemascon.fr/assets/pictures/IMG_1841.webp",
       "description": {
-        "en": "From artist to consultant, from organizing outings to beginner developer.",
-        "fr": "D'artiste à consultant, d'organisateurs de sorties à développeur débutant.",
-        "sp": "De artista a consultor, de organizar salidas a desarrollador principiante."
+        "en": "From artist to consultant, from organizing outings to beginner developer",
+        "fr": "D'artiste à consultant, d'organisateurs de sorties à développeur débutant",
+        "sp": "De artista a consultor, de organizar salidas a desarrollador principiante"
       }
     },
     {
@@ -198,7 +193,7 @@
       },
       "image": "https://arnaudlemascon.fr/assets/pictures/creativity_pic.webp",
       "description": {
-        "en": "Making a table, a board game, a website, automating my repetitive actions, making spiced rum.",
+        "en": "Making a table, a board game, a website, automating my repetitive actions, making spiced rum",
         "fr": "Faire une table, un jeu de société, un site web, automatiser mes actions redondantes, faire du rhum arrangé.",
         "sp": "Hacer una mesa, un juego de mesa, un sitio web, automatizar mis acciones repetitivas, hacer ron especiado."
       }
@@ -212,8 +207,8 @@
       "image": "https://arnaudlemascon.fr/assets/pictures/commitment.webp",
       "description": {
         "en": "Donor and former volunteer (animal, feminist, LGBTQUIA+)",
-        "fr": "Faire une table, un jeu de société, un site web, automatiser mes actions redondantes, faire du rhum arrangé.",
-        "sp": "Hacer una mesa, un juego de mesa, un sitio web, automatizar mis acciones repetitivas, hacer ron especiado."
+        "fr": "Donateur et ancien bénévole (cause animale, féministe, LGBTQUIA+)",
+        "sp": "Donante y ex voluntario (causa animal, feminista, LGBTQIA+)"
       }
     },
     {
@@ -224,9 +219,9 @@
       },
       "image": "https://arnaudlemascon.fr/assets/pictures/camaraderie.webp",
       "description": {
-        "en": "I like to find good humor and mutual aid between people and at work.",
-        "fr": "Faire une table, un jeu de société, un site web, automatiser mes actions redondantes, faire du rhum arrangé.",
-        "sp": "Hacer una mesa, un juego de mesa, un sitio web, automatizar mis acciones repetitivas, hacer ron especiado."
+        "en": "I like to find good humor and mutual aid between people and at work",
+        "fr": "J'aime retrouver de la bonne humeur et de l'entraide entre les personnes et au travail",
+        "sp": "Me gusta encontrar buen humor y ayuda mutua entre las personas y en el trabajo"
       }
     },
     {
@@ -237,9 +232,9 @@
       },
       "image": "https://arnaudlemascon.fr/assets/pictures/performance.webp",
       "description": {
-        "en": "A proponent of continuous evolution and a form of positive laziness (doing as much with less action).",
-        "fr": "Faire une table, un jeu de société, un site web, automatiser mes actions redondantes, faire du rhum arrangé.",
-        "sp": "Hacer una mesa, un juego de mesa, un sitio web, automatizar mis acciones repetitivas, hacer ron especiado."
+        "en": "A proponent of continuous evolution and a form of positive laziness (doing as much with less action)",
+        "fr": "Partisan de l'évolution continue et d'une forme de fainéantise positive (faire autant avec moins d'action)",
+        "sp": "Partidario de la evolución continua y de una forma de pereza positiva (lograr lo mismo con menos acción)"
       }
     },
     {
@@ -251,8 +246,8 @@
       "image": "https://arnaudlemascon.fr/assets/pictures/evolution.webp",
       "description": {
         "en": "Always keen to learn, discover and improve",
-        "fr": "Faire une table, un jeu de société, un site web, automatiser mes actions redondantes, faire du rhum arrangé.",
-        "sp": "Hacer una mesa, un juego de mesa, un sitio web, automatizar mis acciones repetitivas, hacer ron especiado."
+        "fr": "Toujours envie d'apprendre, de découvrir et de m'améliorer",
+        "sp": "Siempre con ganas de aprender, descubrir y mejorar"
       }
     }
   ],
