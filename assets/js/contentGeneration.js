@@ -196,7 +196,7 @@ function generateArticle() {
                     const articleHTML = `
                     <div class="article-item">
                         <h2>${article.name ? article.name[currentLanguage] : 'No name'}</h2>
-                        ${article.description ? `<p>${article.description[currentLanguage]}</p>` : ''}
+                        ${article.description ? `<h6>${article.description[currentLanguage]}</h6>` : ''}
                     </div>
                     `;
                     container.insertAdjacentHTML('beforeend', articleHTML);

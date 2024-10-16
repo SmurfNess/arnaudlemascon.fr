@@ -58,9 +58,9 @@
         "sp": "Valores"
       },
       "description": {
-        "en": "Description of article in English.",
-        "fr": "Description du article en français.",
-        "sp": "Descripción del articulo en español."
+        "en": "What drives me",
+        "fr": "Ce qui m'anime",
+        "sp": "Lo que me impulsa"
       }
     },
     {
@@ -71,9 +71,9 @@
         "sp": "Competencia"
       },
       "description": {
-        "en": "Description of article in English.",
-        "fr": "Description du article en français.",
-        "sp": "Descripción del articulo en español."
+        "en": "Some of my skills",
+        "fr": "Certaines de mes compétences",
+        "sp": "Algunas de mis habilidades"
       }
     },
     {
@@ -113,9 +113,9 @@
         "sp": "Norksiege"
       },
       "description": {
-        "en": "Description of Project 1 in English.",
+        "en": "[ongoing project] Creation of a zork-type game using gameplay elements from dungeon siege and making reference to other games",
         "fr": "[projet en cours] Création d'un jeu type zork reprenant des élément de gameplay de dungeon siege et faisant référence à d'autres jeux",
-        "sp": "Descripción del Proyecto 1 en español."
+        "sp": "[proyecto en curso] Creación de un juego tipo zork usando elementos de juego de dungeon siege y haciendo referencias a otros juegos"
       },
       "image": "https://arnaudlemascon.fr/assets/pictures/norksiege.webp",
       "techno": ["JS", "HTML"],
@@ -129,9 +129,9 @@
         "sp": "Chimptest Hooman Benchmark"
       },
       "description": {
-        "en": "Description of Project 2 in English.",
-        "fr": "Description du projet 2 en français.",
-        "sp": "Descripción del Proyecto 2 en español."
+        "en": "A project to remake one of the Human Benchmark site tests: the chimptest.<br>I added the possibility to play it from a smartphone.",
+        "fr": "Un projet pour refaire un des tests du site Human Benchmark : le chimptest.<br> J'ai ajouté la possibilité d'y jouer depuis un smartphone.",
+        "sp": "Un proyecto para rehacer una de las pruebas del sitio Human Benchmark: el chimptest.<br> Agregué la posibilidad de jugarlo desde un teléfono inteligente."
       },
       "image": "https://arnaudlemascon.fr/assets/pictures/p_hooman.webp",
       "techno": ["CSS", "JS"],
@@ -145,9 +145,9 @@
         "sp": "Team Up"
       },
       "description": {
-        "en": "Description of Project 2 in English.",
-        "fr": "application de génération aléatoire d'équipe avec gestion de classe.",
-        "sp": "Descripción del Proyecto 2 en español."
+        "en": "Random team generation application with class management.",
+        "fr": "Application de génération aléatoire d'équipe avec gestion de classe.",
+        "sp": "Aplicación de generación aleatoria de equipos con gestión de clases."
       },
       "image": "https://arnaudlemascon.fr/assets/pictures/teamup.webp",
       "techno": ["CSS", "JS"],
@@ -158,12 +158,12 @@
       "name": {
         "en": "Quiz",
         "fr": "Quiz",
-        "sp": "Quiz"
+        "sp": "Prueba"
       },
       "description": {
-        "en": "Description of Project 2 in English.",
-        "fr": "Description du projet 2 en français.",
-        "sp": "Descripción del Proyecto 2 en español."
+        "en": "Another small project for generating questionnaires with information storage in a mysql database.",
+        "fr": "Un autre petit projet de génération de questionnaire avec stockage d'informations dans une base de données mysql.",
+        "sp": "Otro pequeño proyecto de generación de cuestionarios con almacenamiento de información en una base de datos mysql."
       },
       "image": "https://arnaudlemascon.fr/assets/pictures/quiz.webp",
       "techno": ["CSS", "JS"],
