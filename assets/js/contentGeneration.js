@@ -311,15 +311,7 @@ function generateSkills() {
 
         for (const [type, skills] of Object.entries(skillTypes)) {
             let typeTitle;
-            if (type === 'development') {
-                typeTitle = 'DEV';
-            } else if (type === 'language') {
-                typeTitle = 'Langues';
-            } else if (type === 'windows') {
-                typeTitle = 'Windows';
-            } else if (type === 'linux') {
-                typeTitle = 'Linux';
-            }
+            typeTitle = type;
 
             const typeHTML = `
                 <div class="col-lg-2 col-md-4 col-sm-12 card_skills">
