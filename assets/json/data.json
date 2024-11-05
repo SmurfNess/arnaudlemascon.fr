@@ -317,11 +317,11 @@
     },
     "AWS": {
       "type": "IT",
-      "level": 35,
+      "level": 25,
       "name": {
-        "en": "Power Automate",
-        "fr": "Power Automate",
-        "sp": "Power Automate"
+        "en": "AWS",
+        "fr": "AWS",
+        "sp": "AWS"
       }
     },
     "Linux": {
