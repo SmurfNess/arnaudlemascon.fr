@@ -841,8 +841,8 @@ footer{
     }
 
     .project-container {
-      align-items: left;
-      gap: 50px 20px;
+      align-items: center;
+      gap: 60px;
     }
 
     .project-container .cards {
