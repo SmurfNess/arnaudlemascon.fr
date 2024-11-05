@@ -121,22 +121,12 @@ section{
 }
 
 #btn-en {
-  border-radius: var(--radius-gen);
-  border: none;
-  width: 100px;
-  height: 50px;
-  position: relative; /* Nécessaire pour positionner le pseudo-élément */
-}
-
-#btn-en::before {
-  content: ''; /* L'élément pseudo doit avoir un contenu vide */
   background: url('https://arnaudlemascon.fr/assets/pictures/en.webp') no-repeat center center;
-  background-size: cover;
-  position: absolute; /* L'image se positionne par rapport au bouton */
-  top: 0;
-  left: 0;
-  width: 100%; /* L'image occupe toute la surface du bouton */
-  height: 100%; /* L'image occupe toute la surface du bouton */
+  background-size: cover; /* Cela permet de couvrir toute la surface du bouton */
+  border-radius: var(--radius-gen); /* Assurez-vous que cette variable est définie */
+  border: none;
+  width: 100px; /* Largeur explicite */
+  height: 50px; /* Hauteur explicite */
 }
 
 
