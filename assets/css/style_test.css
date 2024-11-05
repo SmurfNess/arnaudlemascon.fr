@@ -168,6 +168,8 @@ section{
 
 .article-item {
   text-align: center;
+  font-size: var(--font-sm);
+  color: purple;
 }
 
 /* ################# END ARTICLE ###################### */
