@@ -234,8 +234,8 @@ function generateProjects() {
             const technoHTML = project.techno.map(techno => `<div class="techno-label" id="${techno}">${techno}</div>`).join('');
 
             const projectHTML = `
-            <div class="col-4" style="background-color:green;height:350px;">
-                <div class="cards" style="background-color:red;">
+            <div class="col-4" style="height:350px;">
+                <div class="cards">
                     <div class="img-box">
                         <img src="${project.image}" alt="Image">
                     </div>
@@ -266,7 +266,7 @@ function generateValues() {
 
         data.values.forEach(value => {
             const valueHTML = `
-                <div class="col-5 col-md-3 d-flex justify-content-center align-items-center" style="background-color:red;border:black solid 2px;">
+                <div class="col-5 col-md-3 d-flex justify-content-center align-items-center">
                     <div class="carte">
                         <div class="carte-inner">
                             <div class="face face-avant">
