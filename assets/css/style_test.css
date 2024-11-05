@@ -842,7 +842,7 @@ footer{
 
     .project-container {
       align-items: left;
-      gap: 60px 60px;
+      gap: 50px 20px;
     }
 
     .project-container .cards {
