@@ -813,6 +813,6 @@ footer{
     align-items: center;
     width: 100vw;
     scroll-margin-top: 150px;
-    height: calc(200vh - 150px);
+    height: calc(150vh - 150px);
   }
   
