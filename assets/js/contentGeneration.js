@@ -311,7 +311,7 @@ function generateSkills() {
 
         for (const [type, skills] of Object.entries(skillTypes)) {
             let typeTitle;
-            typeTitle = type;
+            typeTitle = ${type};
 
             const typeHTML = `
                 <div class="col-lg-2 col-md-4 col-sm-12 card_skills">
