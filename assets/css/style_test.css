@@ -53,6 +53,7 @@ section{
   width: 100vw;
   scroll-margin-top: 150px;
   height: calc(100vh - 150px);
+  overflow: hidden;
 }
 
 #CONTACT{
