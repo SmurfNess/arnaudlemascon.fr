@@ -307,7 +307,7 @@
       }
     },
     "OS Windows": {
-      "type": "windows",
+      "type": "truc",
       "level": 75,
       "name": {
         "en": "Working on Windows",
