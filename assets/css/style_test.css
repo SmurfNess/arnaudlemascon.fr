@@ -122,13 +122,12 @@ section{
 
 #btn-en {
   background: url('https://arnaudlemascon.fr/assets/pictures/en.webp') no-repeat center center;
-  background-size: cover; /* Cela permet de couvrir toute la surface du bouton */
-  border-radius: var(--radius-gen); /* Assurez-vous que cette variable est définie */
+  background-size: cover; /* Assurez-vous que l'image couvre toute la surface */
+  border-radius: var(--radius-gen);
   border: none;
-  width: 100px; /* Largeur explicite */
-  height: 50px; /* Hauteur explicite */
+  width: 100px;  /* Exemple de largeur */
+  height: 50px;  /* Exemple de hauteur */
 }
-
 
 
 /* ################### END PAGE ####################### */
