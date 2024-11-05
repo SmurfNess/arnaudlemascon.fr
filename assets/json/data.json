@@ -307,7 +307,7 @@
       }
     },
     "OS Windows": {
-      "type": "windows",
+      "type": "it",
       "level": 75,
       "name": {
         "en": " Windows",
