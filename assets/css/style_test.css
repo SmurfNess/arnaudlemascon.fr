@@ -681,7 +681,6 @@ section{
   margin-bottom: 2px;
   text-transform: uppercase;
   width: 100%;
-  background-color: grey;
   transition: letter-spacing 0.3s ease;
 }
 
