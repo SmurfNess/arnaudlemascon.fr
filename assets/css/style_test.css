@@ -121,6 +121,7 @@ section{
 }
 
 #btn-en {
+  content: " ";
   background: url('https://arnaudlemascon.fr/assets/pictures/en.webp') no-repeat center center;
   background-size: cover; /* Assurez-vous que l'image couvre toute la surface */
   border-radius: var(--radius-gen);
