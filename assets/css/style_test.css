@@ -851,6 +851,10 @@ footer{
       left: -20%;
     }
 
+    .values-container {
+      left: 20%;
+    }
+
     .carte {
       margin: -25px;
       background-color: yellow;
