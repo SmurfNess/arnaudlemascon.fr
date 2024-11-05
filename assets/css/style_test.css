@@ -803,3 +803,16 @@ footer{
     border-radius: var(--radius-gen);
     cursor: pointer;
   }
+
+  /* ######################################### Responsive ################################################ */
+
+  section{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    scroll-margin-top: 150px;
+    height: calc(200vh - 150px);
+  }
+  
