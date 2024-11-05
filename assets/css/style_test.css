@@ -849,6 +849,6 @@ footer{
     .project-container .cards {
       transform: scale(0.8);
       transition: 0.2s;
-      left: -10%;
+      left: -20%;
     }
   }
