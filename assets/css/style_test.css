@@ -857,8 +857,6 @@ footer{
 
     .carte {
       margin: -25px;
-
-      background-color: yellow;
       transform: scale(0.8);
     }
   }
