@@ -841,7 +841,6 @@ footer{
     }
 
     .project-container {
-      background-color: red;
       align-items: left;
       gap: 40px 20px;
     }
@@ -850,5 +849,14 @@ footer{
       transform: scale(0.8);
       transition: 0.2s;
       left: -20%;
+    }
+
+    .carte {
+      margin: 15px;
+      width: 200px;
+      height: 250px;
+      perspective: 1000px;
+      color: #000000;
+      background-color: yellow;
     }
   }
