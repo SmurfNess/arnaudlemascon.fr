@@ -121,8 +121,9 @@ section{
 }
 
 #btn-en{
-  background-color: red;
+  background:url('https://arnaudlemascon.fr/assets/pictures/flag.webp');
   border-radius: var(--radius-gen);
+  border: none;
 }
 
 /* ################### END PAGE ####################### */
