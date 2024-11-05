@@ -846,8 +846,6 @@ footer{
 
     .project-container .cards {
       transform: scale(0.8);
-      justify-content:left;
       transition: 0.2s;
-      box-shadow: 0 35px 80px rgba(0, 0, 0, 0.15);
     }
   }
