@@ -655,7 +655,7 @@ section{
   background-color :var(--color-gauge-h_back);
 }
 .gauge-wrapper:hover {
- font-weight:bold;
+  text-align: justify;
 }
 
 .card_skills-type{
