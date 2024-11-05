@@ -122,6 +122,7 @@ section{
 
 #btn-en{
   background-color: red;
+  border-radius: var(--radius-gen);
 }
 
 /* ################### END PAGE ####################### */
