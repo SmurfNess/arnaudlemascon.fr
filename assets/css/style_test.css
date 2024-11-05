@@ -678,6 +678,8 @@ section{
 .gauge-wrapper{
   margin-bottom: 2px;
   text-transform: uppercase;
+  width: 100%;
+  background-color: grey;
 }
 
 .gauge {
