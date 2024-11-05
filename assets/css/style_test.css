@@ -841,18 +841,13 @@ footer{
     }
 
     .project-container {
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 50px 50px;
-      width: 100%;
-      left: 0%;
       background-color: red;
     }
 
     .project-container .cards {
       transform: scale(0.8);
+      justify-content:left;
+      transition: 0.2s;
+      box-shadow: 0 35px 80px rgba(0, 0, 0, 0.15);
     }
   }
