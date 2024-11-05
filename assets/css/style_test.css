@@ -849,6 +849,7 @@ footer{
       gap: 100px 50px;
       width: 100%;
       left: 0%;
+      background-color: red;
     }
 
     .project-container .cards {
