@@ -120,13 +120,21 @@ section{
   background-size: auto 250px;
 }
 
-#btn-en {
-  background: url('https://arnaudlemascon.fr/assets/pictures/uk.webp') no-repeat center center;
+.btn-language{
   background-size: cover;
   border: none;
   width: 40px;  /* Exemple de largeur */
   height: 40px;  /* Exemple de hauteur */
+}
 
+#btn-en {
+  background: url('https://arnaudlemascon.fr/assets/pictures/uk.webp') no-repeat center center;
+}
+#btn-sp {
+  background: url('https://arnaudlemascon.fr/assets/pictures/sp.webp') no-repeat center center;
+}
+#btn-fr {
+  background: url('https://arnaudlemascon.fr/assets/pictures/fr.webp') no-repeat center center;
 }
 
 
