@@ -121,12 +121,12 @@ section{
 }
 
 #btn-en {
-  background: url('https://arnaudlemascon.fr/assets/pictures/flag.webp') no-repeat center center;
+  background: url('https://arnaudlemascon.fr/assets/pictures/en.webp') no-repeat center center;
   background-size: cover; /* Assurez-vous que l'image couvre toute la surface */
   border-radius: var(--radius-gen);
   border: none;
   width: 100px;  /* Exemple de largeur */
-  height: 60px;  /* Exemple de hauteur */
+  height: 50px;  /* Exemple de hauteur */
 }
 
 
