@@ -307,48 +307,30 @@
       }
     },
     "OS Windows": {
-      "type": "windows",
+      "type": "IT",
       "level": 75,
       "name": {
-        "en": "Working on Windows",
-        "fr": "Travailler sur Windows",
-        "sp": "Trabajar sobre Windows"
+        "en": "Windows",
+        "fr": "Windows",
+        "sp": "Windows"
       }
     },
     "Excel": {
-      "type": "windows",
-      "level": 75,
+      "type": "IT",
+      "level": 60,
       "name": {
-        "en": "Excel",
-        "fr": "Excel",
-        "sp": "Excel"
+        "en": "Linux",
+        "fr": "Linux",
+        "sp": "Linux"
       }
     },
     "PowerShell": {
-      "type": "windows",
-      "level": 75,
+      "type": "IT",
+      "level": 25,
       "name": {
-        "en": "Powershell",
-        "fr": "Powershell",
-        "sp": "Powershell"
-      }
-    },
-    "Power Automate": {
-      "type": "windows",
-      "level": 75,
-      "name": {
-        "en": "Power Automate",
-        "fr": "Power Automate",
-        "sp": "Power Automate"
-      }
-    },
-    "OS Linux": {
-      "type": "linux",
-      "level": 55,
-      "name": {
-        "en": "Working on Linux",
-        "fr": "Travailler sur Linux",
-        "sp": "Trabajar sobre Linux"
+        "en": "AWS",
+        "fr": "AWS",
+        "sp": "AWS"
       }
     }
   }
