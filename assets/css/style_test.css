@@ -122,19 +122,23 @@ section{
 
 .btn-language{
   border: none;
-  width: 40px;  /* Exemple de largeur */
-  height: 40px;  /* Exemple de hauteur */
-  background-size: cover;
+  width: 40px;
+  height: 40px;
+  margin-left: 2px;
+  margin-right: 2px;
 }
 
 #btn-en {
   background: url('https://arnaudlemascon.fr/assets/pictures/uk.webp') no-repeat center center;
+
 }
 #btn-sp {
   background: url('https://arnaudlemascon.fr/assets/pictures/sp.webp') no-repeat center center;
+  background-size: cover;
 }
 #btn-fr {
   background: url('https://arnaudlemascon.fr/assets/pictures/fr.webp') no-repeat center center;
+  background-size: cover;
 }
 
 
