@@ -121,7 +121,6 @@ section{
 }
 
 .btn-language{
-  background-size: cover;
   border: none;
   width: 40px;  /* Exemple de largeur */
   height: 40px;  /* Exemple de hauteur */
@@ -129,12 +128,15 @@ section{
 
 #btn-en {
   background: url('https://arnaudlemascon.fr/assets/pictures/uk.webp') no-repeat center center;
+  background-size: cover;
 }
 #btn-sp {
   background: url('https://arnaudlemascon.fr/assets/pictures/sp.webp') no-repeat center center;
+  background-size: cover;
 }
 #btn-fr {
   background: url('https://arnaudlemascon.fr/assets/pictures/fr.webp') no-repeat center center;
+  background-size: cover;
 }
 
 
