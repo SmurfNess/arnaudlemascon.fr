@@ -162,14 +162,18 @@ section{
 .article-container{
   position: relative;
   height: 250px;
-  font-size: var(--font-bg);
-  color:red;
 }
 
 .article-item {
   text-align: center;
   font-size: var(--font-sm);
   color: purple;
+}
+
+.article-item h2 {
+  text-align: center;
+  font-size: var(--font-sm);
+  color: red;
 }
 
 /* ################# END ARTICLE ###################### */
