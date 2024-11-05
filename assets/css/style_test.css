@@ -162,6 +162,7 @@ section{
 .article-container{
   position: relative;
   height: 250px;
+  font-size: var(--font-bg);
 }
 
 .article-item {
