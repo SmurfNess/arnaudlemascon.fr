@@ -295,32 +295,26 @@ function generateValues() {
 function generateSkills() {
     const container = document.querySelector('#SKILLS .skills-container');
     if (container) {
-        container.innerHTML = '';
+        container.innerHTML = ''; // Clear existing content
 
-        const skillTypes = {
-            'development': [],
-            'linux': [],
-            'windows': [],
-            'language': []
-        };
+        // Object to collect skills by their type
+        const skillTypes = {};
 
+        // Organize skills into skillTypes object
         for (const key in data.skills) {
             const skill = data.skills[key];
+            if (!skillTypes[skill.type]) {
+                skillTypes[skill.type] = [];
+            }
             skillTypes[skill.type].push(skill);
         }
 
+        // Generate a card for each unique type
         for (const [type, skills] of Object.entries(skillTypes)) {
-            let typeTitle;
-            if (type === 'development') {
-                typeTitle = 'DEV';
-            } else if (type === 'language') {
-                typeTitle = 'Langues';
-            } else if (type === 'windows') {
-                typeTitle = 'Windows';
-            } else if (type === 'linux') {
-                typeTitle = 'Linux';
-            }
+            // Use the type name as the card title (you can customize this logic if needed)
+            const typeTitle = type.charAt(0).toUpperCase() + type.slice(1);
 
+            // Create the HTML structure for this type
             const typeHTML = `
                 <div class="col-lg-2 col-md-4 col-sm-12 card_skills">
                     <div class="card_skills-type">${typeTitle}</div>
@@ -335,12 +329,14 @@ function generateSkills() {
                 </div>
             `;
 
+            // Add the card to the container
             container.insertAdjacentHTML('beforeend', typeHTML);
         }
     } else {
         console.warn('Skills container not found.');
     }
 }
+
 
 // Generate the contact form
 function generateContactForm() {
