@@ -122,12 +122,9 @@ section{
 
 #btn-en {
   background: url('https://arnaudlemascon.fr/assets/pictures/uk.webp') no-repeat center center;
-  background-size: cover; /* Assurez-vous que l'image couvre toute la surface */
-  border-radius: var(--radius-gen);
   border: none;
   width: 50px;  /* Exemple de largeur */
-  height: 40px;  /* Exemple de hauteur */
-  overflow: hidden;
+  height: 50px;  /* Exemple de hauteur */
 }
 
 
