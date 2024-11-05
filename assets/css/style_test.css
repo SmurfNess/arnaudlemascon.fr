@@ -811,7 +811,7 @@ footer{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100vw;
+    width: 80vw;
     scroll-margin-top: 150px;
     height: calc(150vh - 150px);
   }
