@@ -125,8 +125,8 @@ section{
   background-size: cover; /* Assurez-vous que l'image couvre toute la surface */
   border-radius: var(--radius-gen);
   border: none;
-  width: 100px;  /* Exemple de largeur */
-  height: 60px;  /* Exemple de hauteur */
+  width: 80px;  /* Exemple de largeur */
+  height: 50px;  /* Exemple de hauteur */
 }
 
 
