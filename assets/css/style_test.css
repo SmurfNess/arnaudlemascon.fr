@@ -130,7 +130,7 @@ section{
 
 #btn-en {
   background: url('https://arnaudlemascon.fr/assets/pictures/uk.webp') no-repeat center center;
-
+  background-size: cover;
 }
 #btn-sp {
   background: url('https://arnaudlemascon.fr/assets/pictures/sp.webp') no-repeat center center;
