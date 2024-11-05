@@ -852,11 +852,12 @@ footer{
     }
 
     .values-container {
-      left: 10%;
+      left: 5%;
     }
 
     .carte {
       margin: -25px;
+
       background-color: yellow;
       transform: scale(0.8);
     }
