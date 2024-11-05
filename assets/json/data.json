@@ -307,12 +307,12 @@
       }
     },
     "OS Windows": {
-      "type": "IT",
+      "type": "windows",
       "level": 75,
       "name": {
-        "en": "Windows",
-        "fr": "Windows",
-        "sp": "Windows"
+        "en": " Windows",
+        "fr": " Windows",
+        "sp": " Windows"
       }
     },
     "Excel": {
