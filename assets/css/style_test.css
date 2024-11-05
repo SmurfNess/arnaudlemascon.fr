@@ -121,14 +121,24 @@ section{
 }
 
 #btn-en {
-  content: '';
-  background: url('https://arnaudlemascon.fr/assets/pictures/en.webp') no-repeat center center;
-  background-size: cover; /* Assurez-vous que l'image couvre toute la surface */
   border-radius: var(--radius-gen);
   border: none;
-  width: 100px;  /* Exemple de largeur */
-  height: 50px;  /* Exemple de hauteur */
+  width: 100px;
+  height: 50px;
+  position: relative; /* Nécessaire pour positionner le pseudo-élément */
 }
+
+#btn-en::before {
+  content: ''; /* L'élément pseudo doit avoir un contenu vide */
+  background: url('https://arnaudlemascon.fr/assets/pictures/en.webp') no-repeat center center;
+  background-size: cover;
+  position: absolute; /* L'image se positionne par rapport au bouton */
+  top: 0;
+  left: 0;
+  width: 100%; /* L'image occupe toute la surface du bouton */
+  height: 100%; /* L'image occupe toute la surface du bouton */
+}
+
 
 
 /* ################### END PAGE ####################### */
