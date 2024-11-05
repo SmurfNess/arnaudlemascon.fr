@@ -852,7 +852,8 @@ footer{
     }
 
     .carte {
-      margin: 5px;
+      margin: 0px;
+
       background-color: yellow;
     }
   }
