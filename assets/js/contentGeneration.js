@@ -235,7 +235,7 @@ function generateProjects() {
 
             const projectHTML = `
             <div class="col-4" style="height:350px;">
-                <div class="cards" style="left:50%;">
+                <div class="cards">
                     <div class="img-box">
                         <img src="${project.image}" alt="Image">
                     </div>
