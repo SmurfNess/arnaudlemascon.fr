@@ -168,6 +168,7 @@ section{
   text-align: center;
   font-size: var(--font-md);
   color: purple;
+  padding: 2px;
 }
 
 .article-item h2 {
