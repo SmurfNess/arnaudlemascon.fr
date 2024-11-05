@@ -167,14 +167,12 @@ section{
 .article-item {
   text-align: center;
   font-size: var(--font-md);
-  color: purple;
   padding: 22px;
 }
 
 .article-item h2 {
   text-align: center;
   font-size: var(--font-bg);
-  color: red;
 }
 
 /* ################# END ARTICLE ###################### */
