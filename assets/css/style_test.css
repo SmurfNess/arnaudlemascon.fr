@@ -808,12 +808,11 @@ footer{
   /* ######################################### Responsive ################################################ */
 
   section{
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: 100vw;
     scroll-margin-top: 150px;
     height: calc(150vh - 150px);
   }
   
+  .svg_home{
+    height: 50%;
+  }
