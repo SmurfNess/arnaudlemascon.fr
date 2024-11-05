@@ -295,8 +295,9 @@ function generateValues() {
 function generateSkills() {
     const container = document.querySelector('#SKILLS .skills-container');
     if (container) {
-        container.innerHTML = '';
+        container.innerHTML = ''; // Clear existing content
 
+        // Object to hold all the types separately
         const skillTypes = {
             'development': [],
             'linux': [],
@@ -304,35 +305,49 @@ function generateSkills() {
             'language': []
         };
 
+        // Organize skills based on type
         for (const key in data.skills) {
             const skill = data.skills[key];
             skillTypes[skill.type].push(skill);
         }
 
+        // Generate a separate card for each type
         for (const [type, skills] of Object.entries(skillTypes)) {
-            let typeTitle;
-            typeTitle = ${type};
+            if (skills.length > 0) { // Only create cards for types with skills
+                let typeTitle;
+                if (type === 'development') {
+                    typeTitle = 'DEV';
+                } else if (type === 'language') {
+                    typeTitle = 'Langues';
+                } else if (type === 'windows') {
+                    typeTitle = 'Windows';
+                } else if (type === 'linux') {
+                    typeTitle = 'Linux';
+                }
 
-            const typeHTML = `
-                <div class="col-lg-2 col-md-4 col-sm-12 card_skills">
-                    <div class="card_skills-type">${typeTitle}</div>
-                    ${skills.map(skill => `
-                        <div class="gauge-wrapper">
-                            ${skill.name[currentLanguage]}
-                            <div class="gauge">
-                                <div class="gauge-level" style="width:${skill.level}%"></div>
+                // Create the card for the current type
+                const typeHTML = `
+                    <div class="col-lg-2 col-md-4 col-sm-12 card_skills">
+                        <div class="card_skills-type">${typeTitle}</div>
+                        ${skills.map(skill => `
+                            <div class="gauge-wrapper">
+                                ${skill.name[currentLanguage]}
+                                <div class="gauge">
+                                    <div class="gauge-level" style="width:${skill.level}%"></div>
+                                </div>
                             </div>
-                        </div>
-                    `).join('<div class="separator"></div>')}
-                </div>
-            `;
+                        `).join('<div class="separator"></div>')}
+                    </div>
+                `;
 
-            container.insertAdjacentHTML('beforeend', typeHTML);
+                container.insertAdjacentHTML('beforeend', typeHTML);
+            }
         }
     } else {
         console.warn('Skills container not found.');
     }
 }
+
 
 // Generate the contact form
 function generateContactForm() {
