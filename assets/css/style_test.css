@@ -655,7 +655,7 @@ section{
   background-color :var(--color-gauge-h_back);
 }
 .gauge-wrapper:hover {
-  letter-spacing: 5px;
+  letter-spacing: 3px;
 }
 
 .card_skills-type{
