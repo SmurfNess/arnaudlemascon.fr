@@ -809,9 +809,9 @@ footer{
   @media (max-width: 576px) {
     :root { 
       /* Fonts */  
-      --font-vbg: 25px;
-      --font-bg: 20px;
-      --font-md: 13px;
+      --font-vbg: 20px;
+      --font-bg: 15px;
+      --font-md: 15px;
       --font-sm: 10px;
        
       /*border-radius*/
