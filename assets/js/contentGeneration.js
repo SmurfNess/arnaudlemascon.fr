@@ -224,9 +224,6 @@ function generateArticle() {
     });
 }
 
-
-
-
 // Generate project items
 function generateProjects() {
     const container = document.querySelector('#PROJECTS .project-container');
@@ -238,7 +235,7 @@ function generateProjects() {
 
             const projectHTML = `
             <div class="col-4">
-                <div class="cards">
+                <div class="cards" style="background-color:red;">
                     <div class="img-box">
                         <img src="${project.image}" alt="Image">
                     </div>
@@ -394,8 +391,6 @@ function generateContactForm() {
     // Insérer le formulaire dans le conteneur
     container.innerHTML = contactHTML;
 }
-
-
 
 // Fetch data when the script is loaded
 fetchData();
