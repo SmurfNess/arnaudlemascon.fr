@@ -839,4 +839,8 @@ footer{
       height: 90%;
       max-width: 100%; 
     }
+
+    .project-container .cards {
+      transform: scale(0.5);
+    }
   }
