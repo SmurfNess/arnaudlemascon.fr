@@ -843,6 +843,7 @@ footer{
     .project-container {
       background-color: red;
       align-items: left;
+      gap: 20px 30px;
     }
 
     .project-container .cards {
