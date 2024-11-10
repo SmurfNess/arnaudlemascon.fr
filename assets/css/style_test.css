@@ -60,7 +60,7 @@ section{
   height: calc(100vh - 150px);
   overflow: hidden;
   border: greenyellow 2px solid;
-  left: 5%;
+  left: 25%;
 }
 
 .generated-font{
