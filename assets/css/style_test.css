@@ -84,8 +84,8 @@ section{
   height: 250px;
   padding: 50px;
   background:
-  url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 250"><path fill="rgb(234, 188, 70)" d="M 0 110 C 50 110 196 247 288 88 C 330 12 427 40 435 121 C 442 164 492 230 745 73 C 863 9 1237 11 1254 36 C 1272 69 1142 120 1196 151 C 1237 177 1261 0 1370 28 C 1425 40 1757 43 1804 105 C 1857 163 1950 110 2000 110 L 2000 200 C 1950 200 1793 214 1747 125 C 1713 60 1378 15 1300 129 C 1276 173 1068 222 1039 197 C 947 106 793 150 751 175 C 696 207 670 211 443 222 C 336 226 352 94 301 145 C 197 246 50 200 0 200"/></svg>'),
-  url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 250"><path fill="goldenrod" d="M 0 110 C 75 192 422 182 388 123 C 341 34 528 5 606 37 C 670 65 882 137 1123 54 C 1232 14 1391 21 1596 45 C 1739 65 1916 11 2000 110 L 2000 200 C 1893 135 1786 110 1660 140 C 1299 237 1287 216 1209 193 C 1056 143 775 215 717 138 C 622 23 511 47 518 90 C 533 242 110 249 0 200"/></svg>');
+  url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 1000"><path fill="rgb(234, 188, 70)" d="M 0 110 C 50 110 196 247 288 88 C 330 12 427 40 435 121 C 442 164 492 230 745 73 C 863 9 1237 11 1254 36 C 1272 69 1142 120 1196 151 C 1237 177 1261 0 1370 28 C 1425 40 1757 43 1804 105 C 1857 163 1950 110 2000 110 L 2000 200 C 1950 200 1793 214 1747 125 C 1713 60 1378 15 1300 129 C 1276 173 1068 222 1039 197 C 947 106 793 150 751 175 C 696 207 670 211 443 222 C 336 226 352 94 301 145 C 197 246 50 200 0 200"/></svg>'),
+  url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 1000"><path fill="goldenrod" d="M 0 110 C 75 192 422 182 388 123 C 341 34 528 5 606 37 C 670 65 882 137 1123 54 C 1232 14 1391 21 1596 45 C 1739 65 1916 11 2000 110 L 2000 200 C 1893 135 1786 110 1660 140 C 1299 237 1287 216 1209 193 C 1056 143 775 215 717 138 C 622 23 511 47 518 90 C 533 242 110 249 0 200"/></svg>');
   background-position: 0 0, 0 0; 
   background-size: auto 250px;
   background-repeat: repeat-x;
@@ -103,6 +103,7 @@ section{
   background-size: auto 250px;
   background-repeat: repeat-x;
   animation: moveBackground 240s linear infinite;
+  background-color: red;
 }
 
 
@@ -147,6 +148,7 @@ background-position: center center;
   background-size: auto 250px;
   background-repeat: repeat-x;
   animation: moveBackground 240s linear infinite;
+  background-color: red;
 }
 
 @keyframes moveBackground {
