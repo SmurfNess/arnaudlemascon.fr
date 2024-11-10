@@ -41,11 +41,11 @@
   }
 
   .line{
-    height: 2px;
+    height: 5px;
     position: absolute;
     bottom: 10px;
     margin: 10px 0 0 0;
-    background-color: green;
+    background-color: var(--color-font-secondary);
   }
 
   .navbar{
