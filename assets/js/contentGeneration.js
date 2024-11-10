@@ -194,7 +194,7 @@ function generateArticle() {
                 const container = section.querySelector('.article-container');
                 if (container) {
                     const articleHTML = `
-                    <div class="article-item">
+                    <div class="article-item generated-font">
                         <h2>${article.name ? article.name[currentLanguage] : 'No name'}</h2>
                         ${article.description ? `<h6>${article.description[currentLanguage]}</h6>` : ''}
                     </div>
@@ -234,7 +234,7 @@ function generateProjects() {
             const technoHTML = project.techno.map(techno => `<div class="techno-label" id="${techno}">${techno}</div>`).join('');
 
             const projectHTML = `
-            <div class="col-4 col-sm-" style="height:350px;">
+            <div class="col-4 col-sm-2 generated-font" style="height:350px;">
                 <div class="cards">
                     <div class="img-box">
                         <img src="${project.image}" alt="Image">
@@ -266,7 +266,7 @@ function generateValues() {
 
         data.values.forEach(value => {
             const valueHTML = `
-                <div class="col-5 col-md-3 d-flex justify-content-center align-items-center">
+                <div class="col-5 col-md-3 d-flex justify-content-center align-items-center generated-font">
                     <div class="carte generated-font">
                         <div class="carte-inner">
                             <div class="face face-avant">
