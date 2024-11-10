@@ -194,42 +194,6 @@
       transform: rotate(360deg);
     }
   
-    /* ############################################################### */
-
-    nav .line {
-      height: 2px;
-      position: absolute;
-      bottom: 0;
-      margin: 10px 0 0 0;
-      background: #FF1847;
-      transition: all 0.3s ease;
-    }
-    
-    .navbar-nav {
-      display: flex;
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    
-    .navbar-nav .nav-item {
-      margin-right: 40px;
-      opacity: 0.4;
-      transition: opacity 0.4s ease;
-    }
-    
-    .navbar-nav .nav-item:hover {
-      opacity: 0.7;
-    }
-    
-    .navbar-nav .nav-item.active {
-      opacity: 1;
-    }
-    
-    .navbar-nav .nav-item:last-child {
-      margin-right: 0;
-    }
-
   
   /************************************************* ness ****************************************/
   .containess{
