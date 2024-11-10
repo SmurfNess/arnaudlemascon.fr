@@ -49,7 +49,6 @@ function addNavbarLinkEventListeners() {
 }
 
 
-
 // Scroll smoothly to a section when a link is clicked
 function scrollToSection(sectionId) {
     const section = document.getElementById(sectionId);
