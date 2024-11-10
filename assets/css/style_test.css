@@ -434,7 +434,6 @@ section{
 .project-container .cards:hover .img-box {
   top: -50px;
   scale: 0.75;
-  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
 }
 
 .project-container .cards:hover .text-box {
