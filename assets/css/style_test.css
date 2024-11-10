@@ -893,10 +893,6 @@ footer{
       min-width: 250px;
     }
 
-    .values-container {
-      left: 5%;
-    }
-
     .carte {
       margin: -25px;
       transform: scale(0.8);
