@@ -27,47 +27,112 @@ function generateContent() {
 }
 
 // Generate the navbar menu
+document.addEventListener("DOMContentLoaded", function () {
+    generateNavbar();
+});
+function addNavbarLineAnimation() {
+    const nav = document.querySelector("#navbar-menu");
+    const line = document.createElement("div");
+    line.classList.add("line");
+    nav.appendChild(line);
+
+    let active = nav.querySelector(".active");
+    let pos = 0;
+    let wid = 0;
+
+    // Initialiser la ligne sous l'élément actif si trouvé
+    if (active) {
+        pos = active.offsetLeft;
+        wid = active.offsetWidth;
+        line.style.left = pos + "px";
+        line.style.width = wid + "px";
+    }
+
+    nav.querySelectorAll("li a").forEach(function (link) {
+        link.addEventListener("click", function (e) {
+            e.preventDefault();
+
+            const parent = link.parentElement;
+            if (!parent.classList.contains("active") && !nav.classList.contains("animate")) {
+                nav.classList.add("animate");
+
+                // Enlever la classe active de tous les éléments
+                nav.querySelectorAll("li").forEach(function (li) {
+                    li.classList.remove("active");
+                });
+
+                const newPosition = parent.offsetLeft;
+                const newWidth = parent.offsetWidth;
+
+                // Calculer la position de départ et la largeur pour l'extension de la ligne
+                const startLeft = Math.min(pos, newPosition);
+                const endWidth = Math.abs(newPosition - pos) + newWidth;
+
+                // Etape 1 : Étendre la ligne pour couvrir la distance entre les deux éléments
+                line.style.transition = "none";
+                line.style.left = pos + "px";
+                line.style.width = wid + "px";
+                setTimeout(function () {
+                    line.style.transition = "all 300ms";
+                    line.style.left = startLeft + "px";
+                    line.style.width = endWidth + "px";
+
+                    // Etape 2 : Rétracter la ligne pour ne couvrir que le nouvel élément actif
+                    setTimeout(function () {
+                        line.style.transition = "width 150ms, left 150ms";
+                        line.style.left = newPosition + "px";
+                        line.style.width = newWidth + "px";
+
+                        setTimeout(function () {
+                            nav.classList.remove("animate");
+                            parent.classList.add("active");
+                        }, 150);
+                    }, 300);
+                }, 10);
+
+                // Mettre à jour les positions
+                pos = newPosition;
+                wid = newWidth;
+            }
+        });
+    });
+}
+
 function generateNavbar() {
-    const navbarMenu = document.getElementById('navbar-menu');
+    const navbarMenu = document.getElementById('navbar-menu');  // Conteneur pour les éléments <li>
 
     if (navbarMenu) {
         navbarMenu.innerHTML = ''; // Clear existing menu items
 
         const menuItems = [
-            { id: 'HOME', text: data.Navbar[0].HOME },
-            { id: 'PROJECTS', text: data.Navbar[0].PROJECT },
-            { id: 'VALUES', text: data.Navbar[0].VALUES },
-            { id: 'SKILLS', text: data.Navbar[0].SKILLS },
-            { id: 'CONTACT', text: data.Navbar[0].CONTACT }
+            { id: 'HOME', text: 'Home' },
+            { id: 'PROJECTS', text: 'Projects' },
+            { id: 'VALUES', text: 'Values' },
+            { id: 'SKILLS', text: 'Skills' },
+            { id: 'CONTACT', text: 'Contact' }
         ];
 
-        menuItems.forEach(item => {
+        menuItems.forEach((item, index) => {
+            const isActive = item.id === 'HOME'; // Set 'HOME' as active by default
             const menuItemHTML = `
-                <li class="nav-item">
-                    <a class="nav-link" href="#${item.id}" onclick="scrollToSection('${item.id}')">${item.text[currentLanguage]}</a>
+                <li class="nav-item${isActive ? ' active' : ''}">
+                    <a class="nav-link" href="#${item.id}" onclick="scrollToSection('${item.id}')">${item.text}</a>
                 </li>
             `;
-            navbarMenu.insertAdjacentHTML('beforeend', menuItemHTML);
+            navbarMenu.insertAdjacentHTML('beforeend', menuItemHTML);  // Insert items into the <ul>
         });
 
-        // After generating the navbar, add event listeners to handle link clicks
-        addNavbarLinkEventListeners(); // Add event listeners for nav-links
-
+        // Initialize underline animation after generating the menu
+        addNavbarLineAnimation();  // Assuming this function exists in your JS
     } else {
         console.warn('Navbar menu container not found.');
     }
 }
 
+
 // Function to add event listeners to the nav-links
 function addNavbarLinkEventListeners() {
     const navLinks = document.querySelectorAll('.nav-link');
-
-    function setActiveLink(event) {
-        navLinks.forEach(link => {
-            link.classList.remove('active'); // Remove 'active' class from all links
-        });
-        event.target.classList.add('active'); // Add 'active' class to the clicked link
-    }
 
     navLinks.forEach(link => {
         link.addEventListener('click', function(event) {
