@@ -58,7 +58,7 @@ section{
   width: 100vw;
   scroll-margin-top: 150px;
   height: calc(150vh - 150px);
-
+  overflow: hidden;
 }
 
 .generated-font{
@@ -66,9 +66,7 @@ section{
 }
 
 #CONTACT{
-  width: 100vw;
   height: 75vh;
-  overflow: hidden;
 }
 
 #canvas {
