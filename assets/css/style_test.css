@@ -758,7 +758,7 @@ background-position: center center;
 
 .contact-container {
   position: relative;
-  background-color: var(--color-primary);
+  background-color: var(--color-primary-b);
   display: flex;
   width: 25vw;
   justify-content: center;
