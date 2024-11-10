@@ -26,7 +26,7 @@
 
   --color-font-principal:rgb(61, 70, 122);
   --color-font-secondary:goldenrod;
-  --color-font-secon--color-secondary-b:rgb(61, 70, 122);
+  --color-font-secon:rgb(61, 70, 122);
 
   /*border-radius*/
   --radius-gen: 15px;
@@ -47,7 +47,7 @@ body{
   overflow-x: hidden;
   font-family: var(--poppins-font);
   color: red;
-  background-color: var(--color-secondary-b);
+  background-color: var(--color-secon);
 }
 
 section{
@@ -62,7 +62,7 @@ section{
 }
 
 .generated-font{
-  color:var(--color-secondary-b);
+  color:var(--color-secon);
 }
 
 #CONTACT{
@@ -103,25 +103,13 @@ section{
   height: 250px;
   padding: 50px;
   background:
-    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 250"><path fill="goldenrod" d="M0 120 C 250 100, 450 160, 600 120 C 750 80, 950 100, 1100 120 C 1250 140, 1450 110, 1600 120 C 1750 130, 1950 160, 2000 120 L2000 200 C 1950 190, 1750 180, 1600 160 C 1450 140, 1250 150, 1100 180 C 950 200, 750 180, 600 170 C 450 160, 250 140, 0 150 Z" /></svg>'),
-    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 250"><path fill="red" d="M0 110 C 250 90, 450 150, 600 110 C 750 70, 950 90, 1100 110 C 1250 130, 1450 100, 1600 110 C 1750 120, 1950 150, 2000 110 L2000 200 C 1950 190, 1750 180, 1600 160 C 1450 140, 1250 150, 1100 180 C 950 200, 750 180, 600 170 C 450 150, 250 130, 0 140 Z" /></svg>'),
-    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 250"><path fill="blue" d="M0 100 C 250 80, 450 140, 600 100 C 750 60, 950 80, 1100 100 C 1250 120, 1450 90, 1600 100 C 1750 110, 1950 140, 2000 100 L2000 200 C 1950 190, 1750 180, 1600 160 C 1450 140, 1250 150, 1100 180 C 950 200, 750 180, 600 170 C 450 140, 250 120, 0 130 Z" /></svg>'),
-    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 250"><path fill="orange" d="M0 90 C 250 70, 450 130, 600 90 C 750 50, 950 70, 1100 90 C 1250 110, 1450 80, 1600 90 C 1750 100, 1950 130, 2000 90 L2000 200 C 1950 190, 1750 180, 1600 160 C 1450 140, 1250 150, 1100 180 C 950 200, 750 180, 600 170 C 450 130, 250 110, 0 120 Z" /></svg>');
-  background-position: 0 0, 0 0, 0 0, 0 0; /* Position initiale des SVG */
+  url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 250"><path fill="goldenrod" d="M0 120 C 250 100, 450 160, 600 120 C 750 80, 950 100, 1100 120 C 1250 140, 1450 110, 1600 120 C 1750 130, 1950 160, 2000 120 L2000 200 C 1950 190, 1750 180, 1600 160 C 1450 140, 1250 150, 1100 180 C 950 200, 750 180, 600 170 C 450 160, 250 140, 0 150 Z" /></svg>'),
+  url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 250"><path fill="rgb(234, 188, 70)" d="M0 110 C 250 90, 450 150, 600 110 C 750 70, 950 90, 1100 110 C 1250 130, 1450 100, 1600 110 C 1750 120, 1950 150, 2000 110 L2000 200 C 1950 190, 1750 180, 1600 160 C 1450 140, 1250 150, 1100 180 C 950 200, 750 180, 600 170 C 450 150, 250 130, 0 140 Z" /></svg>'),
+  url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 250"><path fill="goldenrod" d="M0 100 C 250 80, 450 140, 600 100 C 750 60, 950 80, 1100 100 C 1250 120, 1450 90, 1600 100 C 1750 110, 1950 140, 2000 100 L2000 200 C 1950 190, 1750 180, 1600 160 C 1450 140, 1250 150, 1100 180 C 950 200, 750 180, 600 170 C 450 140, 250 120, 0 130 Z" /></svg>'),
+  url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 250"><path fill="rgb(234, 188, 70)" d="M0 90 C 250 70, 450 130, 600 90 C 750 50, 950 70, 1100 90 C 1250 110, 1450 80, 1600 90 C 1750 100, 1950 130, 2000 90 L2000 200 C 1950 190, 1750 180, 1600 160 C 1450 140, 1250 150, 1100 180 C 950 200, 750 180, 600 170 C 450 130, 250 110, 0 120 Z" /></svg>');
+ background-position: center center; /* Centre le SVG dans la fenêtre */
   background-size: auto 250px;
-  background-repeat: repeat-x;
-  animation: moveBackground 80s linear infinite;
 }
-
-@keyframes moveBackground {
-  0% {
-    background-position: 0 0, 0 0, 0 0, 0 0;
-  }
-  100% {
-    background-position: 2000px 0, 1500px 0, 1000px 0, 500px 0;
-  }
-}
-
 
 
 .svg_skills{
@@ -205,7 +193,7 @@ background-position: center center; /* Centre le SVG dans la fenêtre */
 .portrait-container {
   height: 175px;
   width: 450px;
-  background: radial-gradient(circle, var(--color-secondary) 0%, var(--color-secondary-b));
+  background: radial-gradient(circle, var(--color-secondary) 0%, var(--color-secon));
   border-radius: var(--radius-gen);
   overflow: hidden;
   position: relative;
@@ -581,7 +569,7 @@ background-position: center center; /* Centre le SVG dans la fenêtre */
 }
 
 .S1:hover, .S2:hover,.S3:hover{
-  background-image: linear-gradient(65deg, var(--color-secondary-b) 0%, var(--color-dark) 60%);
+  background-image: linear-gradient(65deg, var(--color-secon) 0%, var(--color-dark) 60%);
   color: var(--color-font-principal);
   transform: scale(1.01);
   box-shadow: 0 0 0 3px var(--color-font-principal);
@@ -617,7 +605,7 @@ background-position: center center; /* Centre le SVG dans la fenêtre */
 }
 .card_skills.S1:hover .gauge-level, .card_skills.S2:hover .gauge-level {
   background-color: var(--color-gauge-h_front);
-  color: var(--color-font-secon--color-secondary-b);
+  color: var(--color-font-secon);
 }
 .card_skills.S3:hover .img-card-softskill {
   opacity: 1;
@@ -776,7 +764,7 @@ textarea, input{
   color: var(--color-font-principal);
   font-size: var(--font-bg);
   font-weight: bold;
-  background: var(--color-secondary-b);
+  background: var(--color-secon);
   border: 2px white solid;
   border-radius: var(--radius-gen);
 }
@@ -789,7 +777,7 @@ footer{
   justify-content: center;
   position: relative;
   height: 60px;
-  color: var(--color-font-secon--color-secondary-b);
+  color: var(--color-font-secon);
   font-size: 15px;
   padding: 15px;
   background-color:var(--color-primary) ;
