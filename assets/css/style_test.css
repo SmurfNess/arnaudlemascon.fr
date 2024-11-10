@@ -675,9 +675,8 @@ background-position: center center;
 .row{
   color:var(--color-font-principal);
   position:relative;
-  left:0px;
-  top:5px;
 }
+
 .card_skills {
   position: relative;
   background-color: var(--color-secondary);

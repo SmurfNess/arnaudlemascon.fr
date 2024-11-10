@@ -301,7 +301,7 @@ function generateProjects() {
             const technoHTML = project.techno.map(techno => `<div class="techno-label" id="${techno}">${techno}</div>`).join('');
 
             const projectHTML = `
-            <div class="col-4" style="height:350px;">
+            <div class="col-4">
                 <div class="cards generated-font">
                     <div class="img-box">
                         <img src="${project.image}" alt="Image">
