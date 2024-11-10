@@ -737,6 +737,7 @@ background-position: center center; /* Centre le SVG dans la fenêtre */
 
 textarea, input{
   width: 25vw;
+  min-width: 300px;
   background-color: var(--color-input);
   border-radius: var(--radius-gen);
   border: none;
