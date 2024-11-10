@@ -108,7 +108,7 @@ section{
   background-position: 0 0, 0 0; /* Position initiale des SVG */
   background-size: auto 250px;
   background-repeat: repeat-x;
-  animation: moveBackground 8s linear infinite;
+  animation: moveBackground 80s linear infinite;
 }
 
 /* Animation pour faire défiler les SVG */
