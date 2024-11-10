@@ -29,7 +29,9 @@ function generateContent() {
 // Generate the navbar menu
 document.addEventListener("DOMContentLoaded", function () {
     generateNavbar();
+    addNavbarLineAnimation();
 });
+
 function addNavbarLineAnimation() {
     const nav = document.querySelector("#navbar-menu");
     const line = document.createElement("div");
