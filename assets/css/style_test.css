@@ -878,9 +878,4 @@ footer{
       min-width: 200px;
     }
 
-    footer{
-      position: fixed;
-      height: 3vh;
-      bottom: 0;
-    }
   }
