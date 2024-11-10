@@ -860,9 +860,9 @@ footer{
     }
 
     .project-container .cards {
-      transform: scale(0.6);
+      transform: scale(0.8);
       transition: 0.2s;
-      left: -20%;
+      left: -40%;
       min-width: 250px;
     }
 
