@@ -874,4 +874,8 @@ footer{
       margin: -25px;
       transform: scale(0.8);
     }
+
+    textarea, input{
+      min-width: 200px;
+    }
   }
