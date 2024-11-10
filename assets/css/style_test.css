@@ -876,7 +876,6 @@ footer{
     }
 
     textarea, input{
-      top: -25%;
       min-width: 200px;
     }
 
