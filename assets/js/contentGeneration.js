@@ -239,7 +239,7 @@ function generateProjects() {
                     <div class="img-box">
                         <img src="${project.image}" alt="Image">
                     </div>
-                    <div class="text-box">
+                    <div class="text-box generated-font">
                         <a href="${project.link}" target="_blank" >${project.name[currentLanguage]}</a>
                         <div class="techno-box">
                             ${technoHTML}
@@ -269,7 +269,7 @@ function generateValues() {
                 <div class="col-5 col-md-3 d-flex justify-content-center align-items-center generated-font">
                     <div class="carte generated-font">
                         <div class="carte-inner">
-                            <div class="face face-avant">
+                            <div class="face face-avant generated-font">
                                 <img src="${value.image}" alt="Image">
                                 <div class="value">${value.name[currentLanguage]}</div>
                             </div>
@@ -314,7 +314,7 @@ function generateSkills() {
             // Create the HTML structure for this type
             const typeHTML = `
                 <div class="col-lg-2 col-md-4 col-sm-12 card_skills">
-                    <div class="card_skills-type generated-font">${typeTitle}</div>
+                    <div class="card_skills-type">${typeTitle}</div>
                     ${skills.map(skill => `
                         <div class="gauge-wrapper">
                             ${skill.name[currentLanguage]}
