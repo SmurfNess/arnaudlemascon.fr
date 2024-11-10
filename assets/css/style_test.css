@@ -124,6 +124,7 @@ background-position: center center;
   background-size: auto 250px;
   background-repeat: repeat-x;
   animation: moveBackground 240s linear infinite;
+  left: 50px;
 }
 
 .svg_values{
