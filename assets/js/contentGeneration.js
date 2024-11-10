@@ -234,17 +234,17 @@ function generateProjects() {
             const technoHTML = project.techno.map(techno => `<div class="techno-label" id="${techno}">${techno}</div>`).join('');
 
             const projectHTML = `
-            <div class="col-4 col-sm-2 generated-font" style="height:350px;">
-                <div class="cards">
+            <div class="col-4 col-sm-2" style="height:350px;">
+                <div class="cards generated-font">
                     <div class="img-box">
                         <img src="${project.image}" alt="Image">
                     </div>
-                    <div class="text-box generated-font">
+                    <div class="text-box">
                         <a href="${project.link}" target="_blank" >${project.name[currentLanguage]}</a>
                         <div class="techno-box">
                             ${technoHTML}
                         </div>
-                        <p>${project.description[currentLanguage]}</p>
+                        <p class="generated-font">${project.description[currentLanguage]}</p>
                     </div>
                 </div>
             </div>  
