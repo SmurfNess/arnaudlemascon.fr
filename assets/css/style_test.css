@@ -433,7 +433,7 @@ section{
 .project-container .cards:hover .img-box {
   top: -50px;
   scale: 0.8;
-  box-shadow: 0px 0px 0px 2px white;
+  box-shadow: inset 0 0 0 5px white;
 }
 
 .project-container .cards:hover .text-box {
