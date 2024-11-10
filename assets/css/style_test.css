@@ -780,7 +780,6 @@ footer{
   font-size: 15px;
   padding: 15px;
   background-color:var(--color-primary) ;
-  overflow: hidden;
 }
 
 /* ################# END FOOTER ####################### */
@@ -879,7 +878,7 @@ footer{
       min-width: 200px;
     }
 
-    #CONTACT{
-      height: 100vh;
+    footer{
+      position: fixed;
     }
   }
