@@ -129,9 +129,9 @@
         "sp": "C.H.B."
       },
       "description": {
-        "en": "Chimptest Human Benchmark>br>A project to remake one of the Human Benchmark site tests: the chimptest.<br>I added the possibility to play it from a smartphone.",
-        "fr": "Chimptest Human Benchmark>br>Un projet pour refaire un des tests du site Human Benchmark : le chimptest.<br> J'ai ajouté la possibilité d'y jouer depuis un smartphone.",
-        "sp": "Chimptest Human Benchmark>br>Un proyecto para rehacer una de las pruebas del sitio Human Benchmark: el chimptest.<br> Agregué la posibilidad de jugarlo desde un teléfono inteligente."
+        "en": "Chimptest Human Benchmark<br>A project to remake one of the Human Benchmark site tests: the chimptest.<br>I added the possibility to play it from a smartphone.",
+        "fr": "Chimptest Human Benchmark<br>Un projet pour refaire un des tests du site Human Benchmark : le chimptest.<br> J'ai ajouté la possibilité d'y jouer depuis un smartphone.",
+        "sp": "Chimptest Human Benchmark<br>Un proyecto para rehacer una de las pruebas del sitio Human Benchmark: el chimptest.<br> Agregué la posibilidad de jugarlo desde un teléfono inteligente."
       },
       "image": "https://arnaudlemascon.fr/assets/pictures/p_hooman.webp",
       "techno": ["CSS", "JS"],
