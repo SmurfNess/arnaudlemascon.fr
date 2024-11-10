@@ -766,7 +766,7 @@ background-position: center center;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  overflow: hidden;
+  gap: 100px 50px;
 }
 
 .name,.message,.mail{
@@ -809,7 +809,6 @@ footer{
   font-size: 15px;
   padding: 15px;
   background-color:var(--color-primary) ;
-  border: 100px red solid;
 }
 
 /* ################# END FOOTER ####################### */
