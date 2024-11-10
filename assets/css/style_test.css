@@ -142,7 +142,7 @@ background-position: center center;
   url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 250"><path fill="rgb(234, 188, 70)" d="M0 50C251 50 188 104 368 108 514 24 1074 42 1301 103 1612 189 1950 50 2000 50L2000 450C1108 436 1497 565 880 559 231 583 246 451 0 450Z"/></svg>'),
   url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 250"><path fill="goldenrod" d="M 0 110 C 75 192 422 182 388 123 C 341 34 528 5 606 37 C 670 65 882 137 1123 54 C 1232 14 1391 21 1596 45 C 1739 65 1916 11 2000 110 L 2000 200 C 1893 135 1786 110 1660 140 C 1299 237 1287 216 1209 193 C 1056 143 775 215 717 138 C 622 23 511 47 518 90 C 533 242 110 249 0 200"/></svg>');
 background-position: center center; 
-  background-size: auto 250px;
+  background-size: auto auto;
   background-position: 0 0, 0 0; 
   background-size: auto 250px;
   background-repeat: repeat-x;
