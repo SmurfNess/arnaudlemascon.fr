@@ -46,7 +46,7 @@
 body{
   overflow-x: hidden;
   font-family: var(--poppins-font);
-  color: var(--color-dark);
+  color: var(--color-font-principal);
   background-color: var(--color-tertiary);
 }
 
@@ -62,7 +62,7 @@ section{
 }
 
 .generated-font{
-  color:rgb(90, 103, 160);
+  color:var(--color-dark);
 }
 
 #CONTACT{
