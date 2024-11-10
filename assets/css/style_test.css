@@ -738,7 +738,7 @@ background-position: center center;
   position: relative;
   width: 100%;
   top: 5px;
-  height: 10px;
+  height: 5px;
   background-color:var(--color-gauge-back);
   border-radius: var(--radius-gen);
 }
