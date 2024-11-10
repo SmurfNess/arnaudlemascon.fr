@@ -200,7 +200,7 @@ background-position: center center;
 
 .article-container{
   position: relative;
-  height: 250px;
+  height: 100%;
 }
 
 .article-item {
