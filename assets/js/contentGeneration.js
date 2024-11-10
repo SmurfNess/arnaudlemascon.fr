@@ -273,7 +273,7 @@ function generateValues() {
                                 <img src="${value.image}" alt="Image">
                                 <div class="value">${value.name[currentLanguage]}</div>
                             </div>
-                            <div class="face face-arriere">
+                            <div class="face face-arriere generated-font">
                                 <p>${value.description[currentLanguage]}</p>
                             </div>
                         </div>
@@ -314,7 +314,7 @@ function generateSkills() {
             // Create the HTML structure for this type
             const typeHTML = `
                 <div class="col-lg-2 col-md-4 col-sm-12 card_skills">
-                    <div class="card_skills-type">${typeTitle}</div>
+                    <div class="card_skills-type generated-font">${typeTitle}</div>
                     ${skills.map(skill => `
                         <div class="gauge-wrapper">
                             ${skill.name[currentLanguage]}
