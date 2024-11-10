@@ -90,6 +90,8 @@ section{
   background-size: auto 250px;
   background-repeat: repeat-x;
   animation: moveBackground 240s linear infinite;
+  background-color: red;
+
 }
 
 .svg_projects {
@@ -103,7 +105,6 @@ section{
   background-size: auto 250px;
   background-repeat: repeat-x;
   animation: moveBackground 240s linear infinite;
-  background-color: red;
 }
 
 
@@ -148,7 +149,6 @@ background-position: center center;
   background-size: auto 250px;
   background-repeat: repeat-x;
   animation: moveBackground 240s linear infinite;
-  background-color: red;
 }
 
 @keyframes moveBackground {
