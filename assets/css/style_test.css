@@ -226,6 +226,7 @@ background-position: center center; /* Centre le SVG dans la fenêtre */
   display: flex;
   flex-direction: column; 
   align-items: center; 
+  background-color: var(--color-secondary);
 }
 
 #face{
