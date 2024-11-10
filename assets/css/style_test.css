@@ -42,7 +42,7 @@
 body{
   overflow-x: hidden;
   font-family: var(--poppins-font);
-  color: white;
+  color: var(--color-font-secondary);
   background-color: var(--color-tertiary);
 }
 
