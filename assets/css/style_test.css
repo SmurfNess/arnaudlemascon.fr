@@ -46,7 +46,7 @@
 body{
   overflow-x: hidden;
   font-family: var(--poppins-font);
-  color: var(--color-font-principal);
+  color: red;
   background-color: var(--color-tertiary);
 }
 
@@ -62,7 +62,7 @@ section{
 }
 
 .generated-font{
-  color:var(--color-font-principal);
+  color:var(--color-tertiary);
 }
 
 #CONTACT{
