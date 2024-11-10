@@ -46,7 +46,7 @@
 body{
   overflow-x: hidden;
   font-family: var(--poppins-font);
-  color: red;
+  color: var(--color-font-principal);
   background-color: var(--color-secon);
 }
 
