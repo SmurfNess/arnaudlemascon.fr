@@ -3,9 +3,9 @@
 
   /* Principal set */
   --color-primary:goldenrod;
-  --color-primary-bis:rgb(234, 188, 70);
+  --color-primary-b:rgb(234, 188, 70);
   --color-secondary:rgb(90, 103, 160);
-  --color-tertiary:rgb(61, 70, 122);
+  --color-secondary-b:rgb(61, 70, 122);
   --color-dark:#1b1f36c4;
   --color-input:white;
 
@@ -26,7 +26,7 @@
 
   --color-font-principal:rgb(61, 70, 122);
   --color-font-secondary:goldenrod;
-  --color-font-tertiary:rgb(61, 70, 122);
+  --color-font-secon--color-secondary-b:rgb(61, 70, 122);
 
   /*border-radius*/
   --radius-gen: 15px;
@@ -47,7 +47,7 @@ body{
   overflow-x: hidden;
   font-family: var(--poppins-font);
   color: red;
-  background-color: var(--color-tertiary);
+  background-color: var(--color-secondary-b);
 }
 
 section{
@@ -62,7 +62,7 @@ section{
 }
 
 .generated-font{
-  color:var(--color-tertiary);
+  color:var(--color-secondary-b);
 }
 
 #CONTACT{
@@ -191,7 +191,7 @@ background-position: center center; /* Centre le SVG dans la fenêtre */
 .portrait-container {
   height: 175px;
   width: 450px;
-  background: radial-gradient(circle, var(--color-secondary) 0%, var(--color-tertiary));
+  background: radial-gradient(circle, var(--color-secondary) 0%, var(--color-secondary-b));
   border-radius: var(--radius-gen);
   overflow: hidden;
   position: relative;
@@ -567,7 +567,7 @@ background-position: center center; /* Centre le SVG dans la fenêtre */
 }
 
 .S1:hover, .S2:hover,.S3:hover{
-  background-image: linear-gradient(65deg, var(--color-tertiary) 0%, var(--color-dark) 60%);
+  background-image: linear-gradient(65deg, var(--color-secondary-b) 0%, var(--color-dark) 60%);
   color: var(--color-font-principal);
   transform: scale(1.01);
   box-shadow: 0 0 0 3px var(--color-font-principal);
@@ -603,7 +603,7 @@ background-position: center center; /* Centre le SVG dans la fenêtre */
 }
 .card_skills.S1:hover .gauge-level, .card_skills.S2:hover .gauge-level {
   background-color: var(--color-gauge-h_front);
-  color: var(--color-font-tertiary);
+  color: var(--color-font-secon--color-secondary-b);
 }
 .card_skills.S3:hover .img-card-softskill {
   opacity: 1;
@@ -762,7 +762,7 @@ textarea, input{
   color: var(--color-font-principal);
   font-size: var(--font-bg);
   font-weight: bold;
-  background: var(--color-tertiary);
+  background: var(--color-secondary-b);
   border: 2px white solid;
   border-radius: var(--radius-gen);
 }
@@ -775,7 +775,7 @@ footer{
   justify-content: center;
   position: relative;
   height: 60px;
-  color: var(--color-font-tertiary);
+  color: var(--color-font-secon--color-secondary-b);
   font-size: 15px;
   padding: 15px;
   background-color:var(--color-primary) ;
