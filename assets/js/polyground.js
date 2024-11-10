@@ -46,16 +46,6 @@ function draw() {
   }
 }
 
-function transition() {
-  canvas.classList.remove('fade-in');
-  canvas.classList.add('fade-out');
-  setTimeout(() => {
-    setCanvasSize();
-    canvas.classList.remove('fade-out');
-    canvas.classList.add('fade-in');
-  }, 300);
-}
-
 // Call the setCanvasSize function initially and whenever the window is resized
 setCanvasSize();
 //window.addEventListener('resize', transition);
