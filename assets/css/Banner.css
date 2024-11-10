@@ -40,8 +40,13 @@
     background-color: var(--color-tertiary);
   }
 
-
-  
+  .line{
+    height: 2px;
+    position: absolute;
+    bottom: 0;
+    margin: 10px 0 0 0;
+    background: black;
+  }
   .navbar{
     z-index: 99;
     top: 120px;
