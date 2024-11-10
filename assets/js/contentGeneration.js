@@ -365,7 +365,7 @@ function generateContactForm() {
                     <input type="email" name="email"id="email" placeholder="${contactSection.expeditor[currentLanguage]}" required>
                 </label>
                 <label class="col-12" for="message">${contactSection.message[currentLanguage]}<br>
-                    <textarea name="message"id="message" rows="5" placeholder="${contactSection.message[currentLanguage]}" required></textarea>
+                    <textarea name="message"id="message" rows="3" placeholder="${contactSection.message[currentLanguage]}" required></textarea>
                 </label>
                 <button type="submit" class="btn-message">${contactSection.btn[currentLanguage]}</button>
             </form>
