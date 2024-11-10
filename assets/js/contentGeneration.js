@@ -267,7 +267,7 @@ function generateValues() {
         data.values.forEach(value => {
             const valueHTML = `
                 <div class="col-5 col-md-3 d-flex justify-content-center align-items-center">
-                    <div class="carte">
+                    <div class="carte generated-font">
                         <div class="carte-inner">
                             <div class="face face-avant">
                                 <img src="${value.image}" alt="Image">
@@ -358,13 +358,13 @@ function generateContactForm() {
     // Générer le HTML du formulaire
     const contactHTML = `
             <form action="https://formspree.io/f/xdovyzdp" method="POST">
-                <label class="col-12">Ton nom et tes pronoms :<br>
+                <label class="col-12 generated-font">Ton nom et tes pronoms :<br>
                     <input type="name" name="name" required>
                 </label>
-                <label class="col-12" for="email">${contactSection.expeditor[currentLanguage]}<br>
+                <label class="col-12 generated-font" for="email">${contactSection.expeditor[currentLanguage]}<br>
                     <input type="email" name="email"id="email" placeholder="${contactSection.expeditor[currentLanguage]}" required>
                 </label>
-                <label class="col-12" for="message">${contactSection.message[currentLanguage]}<br>
+                <label class="col-12 generated-font" for="message">${contactSection.message[currentLanguage]}<br>
                     <textarea name="message"id="message" rows="3" placeholder="${contactSection.message[currentLanguage]}" required></textarea>
                 </label>
                 <button type="submit" class="btn-message">${contactSection.btn[currentLanguage]}</button>
