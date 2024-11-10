@@ -27,27 +27,55 @@ function generateContent() {
 }
 
 // Generate the navbar menu
+function generateNavbar() {
+    const navbarMenu = document.getElementById('navbar-menu');
+
+    if (navbarMenu) {
+        navbarMenu.innerHTML = ''; // Clear existing menu items
+
+        const menuItems = [
+            { id: 'HOME', text: data.Navbar[0].HOME },
+            { id: 'PROJECTS', text: data.Navbar[0].PROJECT },
+            { id: 'VALUES', text: data.Navbar[0].VALUES },
+            { id: 'SKILLS', text: data.Navbar[0].SKILLS },
+            { id: 'CONTACT', text: data.Navbar[0].CONTACT }
+        ];
+
+        menuItems.forEach(item => {
+            const menuItemHTML = `
+                <li class="nav-item">
+                    <a class="nav-link" href="#${item.id}" onclick="scrollToSection('${item.id}')">${item.text[currentLanguage]}</a>
+                </li>
+            `;
+            navbarMenu.insertAdjacentHTML('beforeend', menuItemHTML);
+        });
+
+        // After generating the navbar, add event listeners to handle link clicks
+        addNavbarLinkEventListeners(); // Add event listeners for nav-links
+
+    } else {
+        console.warn('Navbar menu container not found.');
+    }
+}
+
+// Function to add event listeners to the nav-links
 function addNavbarLinkEventListeners() {
     const navLinks = document.querySelectorAll('.nav-link');
-    const line = document.querySelector('.line');
 
     function setActiveLink(event) {
-        navLinks.forEach(link => link.classList.remove('active'));
-        event.target.classList.add('active');
-
-        // Mise à jour de la position de la ligne
-        updateLinePosition(line, event.target);
+        navLinks.forEach(link => {
+            link.classList.remove('active'); // Remove 'active' class from all links
+        });
+        event.target.classList.add('active'); // Add 'active' class to the clicked link
     }
 
     navLinks.forEach(link => {
         link.addEventListener('click', function(event) {
-            event.preventDefault(); // Prévenir le comportement par défaut
             setActiveLink(event);
             closeNavbar();
         });
     });
 }
-
 
 // Scroll smoothly to a section when a link is clicked
 function scrollToSection(sectionId) {
