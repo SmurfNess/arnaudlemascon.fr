@@ -880,5 +880,7 @@ footer{
 
     footer{
       position: fixed;
+      height: 3vh;
+      bottom: 0;
     }
   }
