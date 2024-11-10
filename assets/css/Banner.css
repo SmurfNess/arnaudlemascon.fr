@@ -45,7 +45,7 @@
     position: absolute;
     bottom: 10px;
     margin: 10px 0 0 0;
-    background-color: var(--color-font-secondary);
+    background-color: var(--color-secondary);
   }
 
   .navbar{
