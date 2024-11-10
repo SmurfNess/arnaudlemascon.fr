@@ -24,7 +24,7 @@
   --poppins-font: 'Poppins', sans-serif;
   --arial-font: Arial, sans-serif;
 
-  --color-font-principal:red;
+  --color-font-principal:rgb(61, 70, 122);
   --color-font-secondary:goldenrod;
   --color-font-tertiary:rgb(61, 70, 122);
 
@@ -62,7 +62,7 @@ section{
 }
 
 .generated-font{
-  color:red;
+  color:var(--color-font-principal);
 }
 
 #CONTACT{
