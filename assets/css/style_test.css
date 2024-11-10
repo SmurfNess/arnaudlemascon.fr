@@ -432,8 +432,7 @@ section{
 
 .project-container .cards:hover .img-box {
   top: -50px;
-  scale: 0.75;
-  border: white 1px solid;
+  scale: 0.8;
 }
 
 .project-container .cards:hover .text-box {
