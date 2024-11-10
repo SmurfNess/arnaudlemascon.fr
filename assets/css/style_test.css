@@ -435,6 +435,7 @@ section{
   scale: 0.8;
   border: 5px solid white;
   padding: 5px; /* pour créer de l'espace entre la bordure et le contenu */
+  background-color: white;
   
 }
 
