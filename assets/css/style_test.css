@@ -197,6 +197,7 @@ background-position: center center;
 .article-container{
   position: relative;
   height: 250px;
+  background-color: orange;
 }
 
 .article-item {
