@@ -83,6 +83,7 @@ section{
 .svg_home {
   position: relative; 
   background:
+  url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 1000"><path fill="goldenrod" d="M0 0 2000 0 2000 200C1800 200 1477 259 1320 155 1116 32 909 172 612 281 220 424 200 200 0 200"/></svg>'), 
   url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 1000"><path fill="rgb(234, 188, 70)" d="M0 0 2000 0 2000 500C1761 621 1793 214 1305 629 1176 730 950 325 573 626 311 816 282 516 0 500"/></svg>'),
   url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 1000"><path fill="goldenrod" d="M0 550C148 468 123 745 493 795 781 839 607 496 1194 598 1465 690 1731.3333 532.6667 2000 550L2000 600C1761 621 1756 698 1306 630 682 552 725 950 315 772 88 639 95 516 0 600"/></svg>');
   background-position: 0 0, 0 0; 
