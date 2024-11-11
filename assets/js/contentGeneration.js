@@ -424,7 +424,7 @@ function generateContactForm() {
     const contactHTML = `
             <form action="https://formspree.io/f/xdovyzdp" method="POST">
                 <label class="col-12 generated-font">Ton nom et tes pronoms :<br>
-                    <input type="name" name="name" required>
+                    <input type="name" name="name" placeholder="${contactSection.expeditor[currentLanguage]}" required>
                 </label>
                 <label class="col-12 generated-font" for="email">${contactSection.expeditor[currentLanguage]}<br>
                     <input type="email" name="email"id="email" placeholder="${contactSection.expeditor[currentLanguage]}" required>
