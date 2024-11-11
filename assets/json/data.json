@@ -88,6 +88,11 @@
         "fr": "Contacte moi",
         "sp": "Contáctame"
       },
+      "identity": {
+        "en": "Your name and pronouns",
+        "fr": "Votre nom et vos pronoms",
+        "sp": "Tu nombre y tu pronombres"
+      },
       "expeditor": {
         "en": "Your Email",
         "fr": "Votre Email",
