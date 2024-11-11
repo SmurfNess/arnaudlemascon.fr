@@ -145,7 +145,7 @@ background-position: center center;
     background-position: 0 0, 0 0, 0 0;
   }
   100% {
-    background-position: 2000px 0, 4000px 0, 8000px 0;
+    background-position: 12000px 0, 4000px 0, 2000px 0;
   }
 }
 
