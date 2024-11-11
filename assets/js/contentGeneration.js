@@ -327,56 +327,32 @@ function generateProjects() {
 function generateValues() {
     const container = document.querySelector('#VALUES .values-container');
 
-    // Vérifie si le conteneur existe
-    if (!container) {
-        console.warn('Values container not found.');
-        return;
-    }
+    if (container) {
+        container.innerHTML = ''; // Clear the container
 
-    // Vérifie si les données et la langue sont bien définies
-    if (!data || !data.values || !Array.isArray(data.values)) {
-        console.warn('Data or data.values is undefined or not an array.');
-        return;
-    }
-
-    if (!currentLanguage) {
-        console.warn('currentLanguage is not defined.');
-        return;
-    }
-
-    // Efface le conteneur pour ajouter les nouvelles valeurs
-    container.innerHTML = '';
-
-    // Parcourt chaque valeur et génère le HTML
-    data.values.forEach(value => {
-        if (!value.name || !value.description || !value.image) {
-            console.warn('Value object is missing required properties:', value);
-            return;
-        }
-
-        const nameText = value.name[currentLanguage] || 'No name available';
-        const descriptionText = value.description[currentLanguage] || 'No description available';
-
-        const valueHTML = `
-            <div class="col-5 col-md-3 d-flex justify-content-center align-items-center generated-font">
-                <div class="carte generated-font">
-                    <div class="carte-inner">
-                        <div class="face face-avant generated-font">
-                            <img src="${value.image}" alt="Image">
-                            <div class="value">${nameText}</div>
-                        </div>
-                        <div class="face face-arriere generated-font">
-                            <p>${descriptionText}</p>
+        data.values.forEach(value => {
+            const valueHTML = `
+                <div class="col-5 col-md-3 d-flex justify-content-center align-items-center generated-font">
+                    <div class="carte generated-font">
+                        <div class="carte-inner">
+                            <div class="face face-avant generated-font">
+                                <img src="${value.image}" alt="Image">
+                                <div class="value">${value.name[currentLanguage]}</div>
+                            </div>
+                            <div class="face face-arriere generated-font">
+                                <p>${value.description[currentLanguage]}</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        `;
+            `;
 
-        container.insertAdjacentHTML('beforeend', valueHTML);
-    });
+            container.insertAdjacentHTML('beforeend', valueHTML);
+        });
+    } else {
+        console.warn('Values container not found.');
+    }
 }
-
 
 // Generate skills
 function generateSkills() {
