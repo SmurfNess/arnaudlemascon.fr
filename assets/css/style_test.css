@@ -258,12 +258,12 @@ background-position: center center;
 }
 
 #face{
-  position: absolute;
+  position: relative;
   height: 150px;
   width: 112.5px; 
   border-radius: 45px; 
   background-color: rgb(252, 197, 172);
-  left: 125px; 
+  left: 25%; 
   top: -15px; 
 }
 
