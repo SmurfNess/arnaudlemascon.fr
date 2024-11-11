@@ -749,11 +749,13 @@ background-position: center center;
 
 .contact-container {
   position: relative;
+  background-color: var(--color-primary-b);
   display: flex;
   width: 100%;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  gap: 100px 50px;
 }
 
 .name,.message,.mail{
