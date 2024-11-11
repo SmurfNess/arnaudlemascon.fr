@@ -55,7 +55,7 @@ section{
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100vw;
+  width: 90vw;
   scroll-margin-top: 150px;
   height: calc(100vh - 150px);
   overflow: hidden;
