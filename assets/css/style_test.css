@@ -110,7 +110,6 @@ section{
   background:
   url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 1000"><path fill="goldenrod" d="M 0 110 C 75 192 422 182 388 123 C 341 34 528 5 606 37 C 670 65 882 137 1123 54 C 1232 14 1391 21 1596 45 C 1739 65 1916 11 2000 110 L 2000 200 C 1893 135 1786 110 1660 140 C 1299 237 1287 216 1209 193 C 1056 143 775 215 717 138 C 622 23 511 47 518 90 C 533 242 110 249 0 200"/></svg>'),
   url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 1000"><path fill="rgb(234, 188, 70)" d="M0 0 2000 0 2000 1000 0 1000"/></svg>');
-  background-size: auto 1000px;
   background-position: 0 0, 0 0;
   background-repeat: repeat-x;
   animation: moveBackground 240s linear infinite;
@@ -125,7 +124,6 @@ section{
 background-position: center center; 
   background-size: auto 250px;
   background-position: 0 0, 0 0; 
-  background-size: auto 250px;
   background-repeat: repeat-x;
   animation: moveBackground 240s linear infinite;
 }
@@ -139,7 +137,6 @@ background-position: center center;
 background-position: center center; 
   background-size: auto auto;
   background-position: 0 0, 0 0; 
-  background-size: auto 250px;
   background-repeat: repeat-x;
   animation: moveBackground 240s linear infinite;
 }
