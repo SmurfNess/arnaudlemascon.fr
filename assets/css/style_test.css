@@ -59,7 +59,6 @@ section{
   scroll-margin-top: 150px;
   height: calc(100vh - 150px);
   overflow: hidden;
-  border: rgba(172, 255, 47, 0.473) 2px solid;
 }
 
 .generated-font{
