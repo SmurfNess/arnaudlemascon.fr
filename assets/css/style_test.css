@@ -55,13 +55,12 @@ section{
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 95vw;
-  left: 2.5vw;
+  width: 85vw;
+  left: 10vw;
   scroll-margin-top: 150px;
   height: calc(100vh - 150px);
   overflow: hidden;
   border: rgba(172, 255, 47, 0.473) 2px solid;
-  left: 1%;
 }
 
 .generated-font{
