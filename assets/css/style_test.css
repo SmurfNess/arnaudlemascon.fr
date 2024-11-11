@@ -59,7 +59,7 @@ section{
   scroll-margin-top: 150px;
   height: calc(100vh - 150px);
   overflow: hidden;
-  border: greenyellow 2px solid;
+  border: rgba(172, 255, 47, 0.473) 2px solid;
   left: 1%;
 }
 
