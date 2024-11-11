@@ -257,7 +257,7 @@ background-position: center center;
 }
 
 #face{
-  position: relative;
+  position: absolute;
   height: 150px;
   width: 112.5px; 
   border-radius: 45px; 
