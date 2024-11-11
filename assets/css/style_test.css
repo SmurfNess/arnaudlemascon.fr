@@ -204,6 +204,15 @@ background-position: center center;
   font-size: var(--font-bg);
 }
 
+.sub-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 100px 50px;
+}
+
 /* ################# END ARTICLE ###################### */
 
 /* #################### PORTRAIT ###################### */
@@ -376,15 +385,6 @@ background-position: center center;
 
 /* #################### PROJECTS ###################### */
 
-.project-container {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 100px 50px;
-}
-
 .project-container .cards {
   position: relative;
   display: flex;
@@ -482,15 +482,6 @@ background-position: center center;
 
 /* ##################### VALUES ####################### */
 
-.values-container {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 100px 50px;
-}
-
 .cartes-container {
   display: flex;
 }
@@ -559,15 +550,6 @@ background-position: center center;
 /* ################# END VALUES ####################### */
 
 /* ##################### SKILLS ####################### */
-
-.skills-container {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 100px 50px;
-}
 
 .card_skills {
   position: relative;
@@ -746,17 +728,6 @@ background-position: center center;
 /* ################# END SKILLS ####################### */
 
 /* #################### CONTACT ####################### */
-
-.contact-container {
-  position: relative;
-  background-color: var(--color-primary-b);
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 100px 50px;
-}
 
 .name,.message,.mail{
   color:var(--color-font-principal);
