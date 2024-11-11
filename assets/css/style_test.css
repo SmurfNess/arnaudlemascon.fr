@@ -88,7 +88,7 @@ section{
   background-position: 0 0, 0 0, 0 0; 
   background-size: auto 1000px;
   background-repeat: repeat-x;
-  animation: moveBackground 600s linear infinite;
+  animation: moveBackground 6s linear infinite;
 }
 
 .svg_projects {
