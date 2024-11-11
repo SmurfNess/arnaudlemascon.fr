@@ -229,6 +229,15 @@ background-position: center center;
   align-items: center; 
 }
 
+.face-container {
+  position: absolute;
+  height: 225px; 
+  width: 300px; 
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+}
+
 #shirt {
   position: absolute;
   height: 90px; 
@@ -247,22 +256,13 @@ background-position: center center;
   top: 40%;
 }
 
-.face-container {
-  position: absolute;
-  height: 225px; 
-  width: 300px; 
-  display: flex;
-  flex-direction: column; 
-  align-items: center; 
-}
-
 #face{
-  position: absolute;
+  position: relative;
   height: 150px;
   width: 112.5px; 
   border-radius: 45px; 
   background-color: rgb(252, 197, 172);
-  left: 95px; 
+
   top: -15px; 
 }
 
