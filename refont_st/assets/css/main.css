@@ -2,6 +2,9 @@
     /* color */
     --color-bkg-t1:rgba(0, 0, 0, 0.15);
     --color-bkg-t2:rgba(0, 0, 0, 0.25);
+    --color-bkg-t3-white:rgba(45, 108, 186, 0.3);
+    --color-bkg-t1-prim:rgba(45, 108, 186, 0.1);
+    --color-bkg-t2-prim:rgba(45, 108, 186, 0.2);
     --color-bkg-primary: rgba(45,108,186,1);
     --color-bkg-black:black;
     --color-bkg-tooltip: rgb(182, 175, 145);
@@ -13,9 +16,9 @@
 
 
     /* form */
-    --rds-sm :5px;
-    --rds-md :10px;
-    --rds-lg :25px;
+    --rds-sm :4px;
+    --rds-md :8px;
+    --rds-lg :16px;
 
     /*fonts*/
     --ft-xs:10px;
@@ -80,10 +83,14 @@ video {
     color: var(--color-ft-light);
 }
 
-.container-location, .container-age, .container-service{
+.container-location, .container-age, .container-service, .menu-certification{
     display: flex; 
     align-items: center; 
     gap: 10px; 
+}
+
+.menu-certification{
+ margin-top: 25px; 
 }
 
 .container-information{
@@ -91,6 +98,28 @@ video {
     text-transform: none;
 }
 
+.container-contact{
+    padding: 10px;
+}
+
+.container-contact input{
+    background-color: var(--color-bkg-t3-white);
+    color: var(--color-ft-white);
+    border-radius: var(--rds-sm);
+    border: 0.5px var(--color-bkg-primary) solid;
+    width: 100%;
+    padding: 2px 10px;
+}
+
+
+input:focus {
+    outline: none;
+  }
+
+.second{
+    transform: scale(0.75);
+}
+  
 
 .profile-picture {
     position: relative;
@@ -170,7 +199,7 @@ video {
 }
 
 .cards{
-    background-color: var(--color-bkg-t1) !important;
+    background-color: var(--color-bkg-t2) !important;
     border-radius: var(--rds-sm);
     overflow: hidden;
 }
@@ -187,13 +216,31 @@ padding: 10px;
 
 .card-grid {
     position: relative;
-    background-color: var(--color-bkg-t2) !important;
+    background-color: var(--color-bkg-t2);
     padding: 10px;
     border-radius: var(--rds-sm);
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     gap: 10px;
 }
+
+.card-enterprise-grid {
+    margin: 10px 0px;
+    position: relative;
+    background-color: var(--color-bkg-t2-prim);
+    padding: 10px;
+    border-radius: var(--rds-sm);
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* 7 colonnes fixes */
+    gap: 5px; /* Espacement réduit */
+    justify-content: start; /* Aligne les colonnes à gauche */
+}
+
+.card-enterprise-asset{
+    background-color: var(--color-bkg-t1);
+    padding: 5px;
+}
+
 
 .card-img-achievement{
     height: 64px;
