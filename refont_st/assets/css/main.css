@@ -7,7 +7,7 @@
     --color-bkg-t2-prim:rgba(45, 108, 186, 0.2);
     --color-bkg-primary: rgba(45,108,186,1);
     --color-bkg-black:black;
-    --color-bkg-tooltip: rgb(182, 175, 145);
+    --color-bkg-tooltip: rgb(122, 166, 219);
 
     --color-ft-white:white;
     --color-ft-light:darkgrey;
@@ -87,6 +87,60 @@ video {
     display: flex; 
     align-items: center; 
     gap: 10px; 
+}
+
+.container-carriere{
+    display: flex;
+}
+
+.container-carriere-img{
+    display: flex;
+    background-color: var(--color-bkg-t2);
+}
+
+.carriere-text{
+    padding: 20px;
+}
+
+.carriere-number{
+    margin-top: 17px ;
+    border: 2px solid var(--color-bkg-primary);
+    width: 26px;
+    height: 26px;
+    border-radius: var(--rds-lg);
+    text-align: center;
+}
+
+.container-carriere-img {
+    text-align: center; /* Centre tout le contenu de la carte */
+    margin: 20px; /* Espacement autour de la carte */
+}
+
+.carriere-img {
+    margin: 5px 10px;
+    position: relative; /* Permet de positionner le numéro par rapport à l'image */
+    display: inline-block; /* Maintient une taille compacte */
+    width: 50px; /* Taille de l'image */
+    height: 50px; /* Taille de l'image */
+}
+
+.carriere-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Assure que l'image remplit bien le conteneur */
+    border-radius: 10px; /* Ajoute des bords arrondis pour un style plus agréable */
+}
+
+.carriere-number-ent {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centre parfaitement le numéro */
+    font-size: 1.2rem; /* Taille du texte */
+    color: white;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 50%; /* Cercle autour du numéro */
 }
 
 .menu-certification{
@@ -220,7 +274,7 @@ padding: 10px;
     padding: 10px;
     border-radius: var(--rds-sm);
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: repeat(10, 1fr);
     gap: 10px;
 }
 
@@ -234,6 +288,16 @@ padding: 10px;
     grid-template-columns: repeat(7, 1fr); /* 7 colonnes fixes */
     gap: 5px; /* Espacement réduit */
     justify-content: start; /* Aligne les colonnes à gauche */
+}
+
+.card-enterprise-name {
+    font-weight: bold;
+}
+
+.card-enterprise-mission{
+    padding: 10px;
+    font-size: var(--ft-sm);
+    color: var(--color-ft-light);
 }
 
 .card-enterprise-asset{
