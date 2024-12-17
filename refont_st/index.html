@@ -8,15 +8,64 @@
 
 <link href="./assets/css/main.css" rel="stylesheet" type="text/css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="./assets/logo.svg">
 
 <body class="body">
     <video autoplay muted loop>
         <source src="./assets/movie/22391502df439c7bcc2aa9635aa5673ce0c7d846.webm" type="video/mp4">
         Votre navigateur ne supporte pas la balise vidéo.
     </video>
-    <!-- Overlay avec colonne centrale -->
-    <div class="overlay row">
-        <div class="col-6 blur-background justify-content-center c-profile row">
+
+<div class="menu row">
+    <div class="col-6 mx-auto row">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand menulogo" href="#">
+                    <svg width="100" height="100" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M25 0C-8 0-8 50 25 50 58 50 58 0 25 0L25 1C56 1 56 49 25 49-6 49-6 1 25 1L25 19C17 19 16 26 24 33 5 26 3 33 8 41 14 50 18 41 23 36 19 42 13 48 25 48 37 48 31 42 27 36 32 41 35 50 42 41 47 33 42 27 26 33 34 26 33 19 25 19L25 33C36 33 26 35 25 39 24 35 15 33 25 33" 
+                              fill="grey" stroke="none" stroke-width="1"/>
+                    </svg>
+                    <div class="textlogo">NESS</div>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-between" id="navbarContent">
+                    <ul class="navbar-nav w-100 d-flex justify-content-around">
+                        <li class="nav-item">
+                            <a class="nav-link text-center" href="#">Network</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-center" href="#">Biography</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-center" href="#">Curriculum Vitae</a>
+                        </li>
+                    </ul>
+                    <div class="d-flex gap-2 justify-content-center">
+                        <label class="image-radio">
+                            <input type="radio" name="language" value="fr">
+                            <img src="assets/picture/icons/fr.gif" alt="Français">
+                        </label>
+                        <label class="image-radio">
+                            <input type="radio" name="language" value="es">
+                            <img src="assets/picture/icons/es.gif" alt="Espagnol">
+                        </label>
+                        <label class="image-radio">
+                            <input type="radio" name="language" value="gb">
+                            <img src="assets/picture/icons/gb.gif" alt="Anglais">
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div> 
+</div>
+
+<div class="row">
+    <div class="col-6 mx-auto">
+        <div class="blur-background row">
             <div class="col-3 case">
                 <div class="profile-picture">
                     <img src="./assets/picture/gallery/cv.png" alt="portrait" class="img-profile-picture ">
@@ -26,7 +75,7 @@
                 <div class="container-character">
                     <div class="name">arnaud lemasçon</div>
                     <div class="container-location">
-                        <img src="./assets/picture/fr.gif" alt="france">
+                        <img src="./assets/picture/icons/fr.gif" alt="france">
                         <div class="location">lyon,rhone-alpes,france</div>
                     </div>
                     <div class="container-information">no information available</div>
@@ -43,13 +92,15 @@
                         <img src="./assets/picture/ent/LOGO_CAP.webp" alt="Entreprise">
                     </div>
                     <div class="carriere-text">Entreprise actuelle</div>
-                </div>
-                
+                </div>   
             </div>
         </div>
-    </div>  
-    <div class="overlay row">
-        <div class="col-6 blur-background justify-content-center d-profile row">
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-6 mx-auto">
+        <div class="blur-background row">
             <div class="col-8 case">
                 <div class="row">
                     <div class="col-12 case">
@@ -89,7 +140,7 @@
                                         <img src="./assets/picture/achievement/ness.png" alt="achievement" class="card-img-achievement">
                                         <div class="tooltip-text"><div class="tooltip-title">Dad cat</div><div class="tooltip-description">Détenteur d'un chat depuis 2017</div></div>
                                     </div>
-                                    <div class="container-achievement"  data-image="./assets/picture/gallery/cv.png">
+                                    <div class="container-achievement"  data-image="./assets/picture/gallery/nerd.png">
                                         <img src="./assets/picture/achievement/nerd.PNG" alt="achievement" class="card-img-achievement">
                                         <div class="tooltip-text"><div class="tooltip-title">Nerd</div><div class="tooltip-description">10 ans dans l'IT - depuis 2013</div></div>
                                     </div>
@@ -114,27 +165,34 @@
                             <div class="card-title">Activités professionnelles</div>
                             <div class="card-content">
                                 <div class="card-enterprise-asset row">
-                                    <img src="./assets/picture/ent/ent_sogeti.png" alt=""  class="card-enterprise col-4">
-                                    <div class="col-4">
+                                    <div class="col-4 card-enterprise first">
+                                        <img src="./assets/picture/ent/ent_sogeti.png" alt="">
+                                    </div>                                      <div class="col-4">
                                         <div class="card-enterprise-name">Sogeti part of Capgemini</div>
                                         <div class="card-enterprise-filiale">e.SNCF Solutions</div>
                                         <div class="card-enterprise-position">Pilote de la demande</div>
                                         <div class="card-enterprise-duration">01/01/2024</div>
                                     </div>
-                                    <img src="./assets/picture/ent/ent_sncf.png" alt=""  class="card-enterprise second col-4">
+                                    <div class="col-4 card-enterprise second">
+                                        <img src="./assets/picture/ent/ent_sncf.png" alt="">
+                                    </div>
                                     <div class="col-6">
                                         <div class="card-enterprise-grid">
-                                            <div class="container-achievement">
-                                                <img src="./assets/picture/techno/excel.png" alt="achievement" class="card-img-skill-cert">
+                                            <div class="container-tools">
+                                                <img src="./assets/picture/techno/excel.png" alt="tools" class="card-img-tools">
                                                 <div class="tooltip-text"><div class="tooltip-title">Excel</div><div class="tooltip-description"></div><div class="tooltip-year"></div></div>
                                             </div>
-                                            <div class="container-achievement">
-                                                <img src="./assets/picture/techno/snow.png" alt="achievement" class="card-img-skill-cert">
+                                            <div class="container-tools">
+                                                <img src="./assets/picture/techno/snow.png" alt="tools" class="card-img-tools">
                                                 <div class="tooltip-text"><div class="tooltip-title">Service<br>Now</div><div class="tooltip-description"></div><div class="tooltip-year"></div></div>
                                             </div>
-                                            <div class="container-achievement">
-                                                <img src="./assets/picture/techno/itil.png" alt="achievement" class="card-img-skill-cert">
+                                            <div class="container-tools">
+                                                <img src="./assets/picture/techno/itil.png" alt="tools" class="card-img-tools">
                                                 <div class="tooltip-text"><div class="tooltip-title">ITIL4</div><div class="tooltip-description"></div><div class="tooltip-year"></div></div>
+                                            </div>
+                                            <div class="container-tools">
+                                                <img src="./assets/picture/techno/365.png" alt="tools" class="card-img-tools">
+                                                <div class="tooltip-text"><div class="tooltip-title">Micorsoft 365</div><div class="tooltip-description"></div><div class="tooltip-year"></div></div>
                                             </div>
                                         </div>
                                     </div>  
@@ -145,27 +203,33 @@
                             </div>
                             <div class="card-content">
                                 <div class="card-enterprise-asset row">
-                                    <img src="./assets/picture/ent/ent_sb.png" alt=""  class="card-enterprise col-4">
-                                    <div class="col-4">
+                                    <div class="col-4 card-enterprise first">
+                                        <img src="./assets/picture/ent/ent_sb.png" alt="">
+                                    </div>                                     <div class="col-4">
                                         <div class="card-enterprise-name">Spie batignolles</div>
                                         <div class="card-enterprise-filiale">Spie batignolles amitec</div>
                                         <div class="card-enterprise-position">Chargé de projet</div>
                                         <div class="card-enterprise-duration">01/01/2024</div>
                                     </div>
-                                    <img src="./assets/picture/ent/ent_sba.png" alt=""  class="card-enterprise second col-4">
-                                    <div class="col-6">
+                                    <div class="col-4 card-enterprise second">
+                                        <img src="./assets/picture/ent/ent_sb.png" alt="">
+                                    </div>                                    <div class="col-6">
                                         <div class="card-enterprise-grid">
-                                            <div class="container-achievement">
-                                                <img src="./assets/picture/techno/excel.png" alt="achievement" class="card-img-skill-cert">
+                                            <div class="container-tools">
+                                                <img src="./assets/picture/techno/excel.png" alt="tools" class="card-img-tools">
                                                 <div class="tooltip-text"><div class="tooltip-title">Excel</div><div class="tooltip-description"></div><div class="tooltip-year"></div></div>
                                             </div>
-                                            <div class="container-achievement">
-                                                <img src="./assets/picture/techno/snow.png" alt="achievement" class="card-img-skill-cert">
+                                            <div class="container-tools">
+                                                <img src="./assets/picture/techno/snow.png" alt="tools" class="card-img-tools">
                                                 <div class="tooltip-text"><div class="tooltip-title">Service<br>Now</div><div class="tooltip-description"></div><div class="tooltip-year"></div></div>
                                             </div>
-                                            <div class="container-achievement">
-                                                <img src="./assets/picture/techno/powershell.png" alt="achievement" class="card-img-skill-cert">
+                                            <div class="container-tools">
+                                                <img src="./assets/picture/techno/powershell.png" alt="tools" class="card-img-tools">
                                                 <div class="tooltip-text"><div class="tooltip-title">PowerShell</div><div class="tooltip-description"></div><div class="tooltip-year"></div></div>
+                                            </div>
+                                            <div class="container-tools">
+                                                <img src="./assets/picture/techno/365.png" alt="tools" class="card-img-tools">
+                                                <div class="tooltip-text"><div class="tooltip-title">Micorsoft 365</div><div class="tooltip-description"></div><div class="tooltip-year"></div></div>
                                             </div>
                                         </div>
                                     </div>  
@@ -176,31 +240,38 @@
                             </div>
                             <div class="card-content">
                                 <div class="card-enterprise-asset row">
-                                    <img src="./assets/picture/ent/ent_sb.png" alt=""  class="card-enterprise col-4">
+                                    <div class="col-4 card-enterprise first">
+                                        <img src="./assets/picture/ent/ent_sb.png" alt="">
+                                    </div> 
                                     <div class="col-4">
                                         <div class="card-enterprise-name">Spie batignolles</div>
                                         <div class="card-enterprise-filiale">Spie batignolles amitec</div>
                                         <div class="card-enterprise-position">Technicien informatique et réseau N2</div>
                                         <div class="card-enterprise-duration">01/01/2024</div>
                                     </div>
-                                    <img src="./assets/picture/ent/ent_sba.png" alt=""  class="card-enterprise second col-4">
-                                    <div class="col-6">
+                                    <div class="col-4 card-enterprise second">
+                                        <img src="./assets/picture/ent/ent_sb.png" alt="">
+                                    </div>                                    <div class="col-6">
                                         <div class="card-enterprise-grid">
-                                            <div class="container-achievement">
-                                                <img src="./assets/picture/techno/excel.png" alt="achievement" class="card-img-skill-cert">
+                                            <div class="container-tools">
+                                                <img src="./assets/picture/techno/excel.png" alt="tools" class="card-img-tools">
                                                 <div class="tooltip-text"><div class="tooltip-title">Excel</div><div class="tooltip-description"></div><div class="tooltip-year"></div></div>
                                             </div>
-                                            <div class="container-achievement">
-                                                <img src="./assets/picture/techno/snow.png" alt="achievement" class="card-img-skill-cert">
+                                            <div class="container-tools">
+                                                <img src="./assets/picture/techno/snow.png" alt="tools" class="card-img-tools">
                                                 <div class="tooltip-text"><div class="tooltip-title">Service<br>Now</div><div class="tooltip-description"></div><div class="tooltip-year"></div></div>
                                             </div>
-                                            <div class="container-achievement">
-                                                <img src="./assets/picture/techno/powershell.png" alt="achievement" class="card-img-skill-cert">
+                                            <div class="container-tools">
+                                                <img src="./assets/picture/techno/powershell.png" alt="tools" class="card-img-tools">
                                                 <div class="tooltip-text"><div class="tooltip-title">PowerShell</div><div class="tooltip-description"></div><div class="tooltip-year"></div></div>
                                             </div>
-                                            <div class="container-achievement">
-                                                <img src="./assets/picture/techno/ad.png" alt="achievement" class="card-img-skill-cert">
+                                            <div class="container-tools">
+                                                <img src="./assets/picture/techno/ad.png" alt="tools" class="card-img-tools">
                                                 <div class="tooltip-text"><div class="tooltip-title">Active directory</div><div class="tooltip-description"></div><div class="tooltip-year"></div></div>
+                                            </div>
+                                            <div class="container-tools">
+                                                <img src="./assets/picture/techno/365.png" alt="tools" class="card-img-tools">
+                                                <div class="tooltip-text"><div class="tooltip-title">Micorsoft 365</div><div class="tooltip-description"></div><div class="tooltip-year"></div></div>
                                             </div>
                                         </div>
                                     </div>
@@ -211,30 +282,33 @@
                             </div>
                             <div class="card-content">
                                 <div class="card-enterprise-asset row">
-                                    <img src="./assets/picture/ent/ent_sb.png" alt=""  class="card-enterprise col-4">
+                                    <div class="col-4 card-enterprise first">
+                                        <img src="./assets/picture/ent/ent_sb.png" alt="">
+                                    </div>
                                     <div class="col-4">
                                         <div class="card-enterprise-name">Spie batignolles</div>
                                         <div class="card-enterprise-filiale">Spie batignolles amitec</div>
                                         <div class="card-enterprise-position">Technicien informatique et réseau N1</div>
                                         <div class="card-enterprise-duration">01/01/2024</div>
                                     </div>
-                                    <img src="./assets/picture/ent/ent_sba.png" alt=""  class="card-enterprise second col-4">
-                                    <div class="col-6">
+                                    <div class="col-4 card-enterprise second">
+                                        <img src="./assets/picture/ent/ent_sb.png" alt="">
+                                    </div>                                    <div class="col-6">
                                         <div class="card-enterprise-grid">
-                                            <div class="container-achievement">
-                                                <img src="./assets/picture/techno/excel.png" alt="achievement" class="card-img-skill-cert">
+                                            <div class="container-tools">
+                                                <img src="./assets/picture/techno/excel.png" alt="tools" class="card-img-tools">
                                                 <div class="tooltip-text"><div class="tooltip-title">Excel</div><div class="tooltip-description"></div><div class="tooltip-year"></div></div>
                                             </div>
-                                            <div class="container-achievement">
-                                                <img src="./assets/picture/techno/snow.png" alt="achievement" class="card-img-skill-cert">
+                                            <div class="container-tools">
+                                                <img src="./assets/picture/techno/snow.png" alt="tools" class="card-img-tools">
                                                 <div class="tooltip-text"><div class="tooltip-title">Service<br>Now</div><div class="tooltip-description"></div><div class="tooltip-year"></div></div>
                                             </div>
-                                            <div class="container-achievement">
-                                                <img src="./assets/picture/techno/powershell.png" alt="achievement" class="card-img-skill-cert">
+                                            <div class="container-tools">
+                                                <img src="./assets/picture/techno/powershell.png" alt="tools" class="card-img-tools">
                                                 <div class="tooltip-text"><div class="tooltip-title">PowerShell</div><div class="tooltip-description"></div><div class="tooltip-year"></div></div>
                                             </div>
-                                            <div class="container-achievement">
-                                                <img src="./assets/picture/techno/ad.png" alt="achievement" class="card-img-skill-cert">
+                                            <div class="container-tools">
+                                                <img src="./assets/picture/techno/ad.png" alt="tools" class="card-img-tools">
                                                 <div class="tooltip-text"><div class="tooltip-title">Active directory</div><div class="tooltip-description"></div><div class="tooltip-year"></div></div>
                                             </div>
                                         </div>
@@ -243,18 +317,22 @@
                             </div>
                             <div class="card-content">
                                 <div class="card-enterprise-asset row">
-                                    <img src="./assets/picture/ent/ent_helpline.png" alt=""  class="card-enterprise col-4">
+                                    <div class="col-4 card-enterprise first">
+                                        <img src="./assets/picture/ent/ent_helpline.png" alt="">
+                                    </div>  
+                                    
                                     <div class="col-4">
                                         <div class="card-enterprise-name">Helpline</div>
                                         <div class="card-enterprise-filiale">Assystem</div>
                                         <div class="card-enterprise-position">Agent helpdesk</div>
                                         <div class="card-enterprise-duration">01/01/2024</div>
                                     </div>
-                                    <img src="./assets/picture/ent/ent_assystem.png" alt=""  class="card-enterprise second col-4">
-                                    <div class="col-6">
+                                    <div class="col-4 card-enterprise second">
+                                        <img src="./assets/picture/ent/ent_assystem.png" alt="">
+                                    </div>                                    <div class="col-6">
                                         <div class="card-enterprise-grid">
-                                            <div class="container-achievement">
-                                                <img src="./assets/picture/techno/excel.png" alt="achievement" class="card-img-skill-cert">
+                                            <div class="container-tools">
+                                                <img src="./assets/picture/techno/excel.png" alt="tools" class="card-img-tools">
                                                 <div class="tooltip-text"><div class="tooltip-title">Excel</div><div class="tooltip-description"></div><div class="tooltip-year"></div></div>
                                             </div>
                                         </div>
@@ -272,15 +350,15 @@
                                     <div class="col-8">
                                         <div class="card-skill-name">Hooman</div>
                                         <div class="card-grid">
-                                            <div class="container-achievement">
+                                            <div class="container-techno">
                                                 <img src="./assets/picture/techno/html.png" alt="achievement" class="card-img-skill-cert">
                                                 <div class="tooltip-text"><div class="tooltip-title">HTML5</div><div class="tooltip-description"></div><div class="tooltip-year">2024</div></div>
                                             </div>
-                                            <div class="container-achievement">
+                                            <div class="container-techno">
                                                 <img src="./assets/picture/techno/css.png" alt="achievement" class="card-img-skill-cert">
                                                 <div class="tooltip-text"><div class="tooltip-title">CSS3</div><div class="tooltip-description"></div><div class="tooltip-year">2024</div></div>
                                             </div>
-                                            <div class="container-achievement">
+                                            <div class="container-techno">
                                                 <img src="./assets/picture/techno/js.png" alt="achievement" class="card-img-skill-cert">
                                                 <div class="tooltip-text"><div class="tooltip-title">JS</div><div class="tooltip-description"></div><div class="tooltip-year">2024</div></div>
                                             </div>
@@ -294,23 +372,23 @@
                                     <div class="col-8">
                                         <div class="card-skill-name">Norksiege</div>
                                         <div class="card-grid">
-                                            <div class="container-achievement">
+                                            <div class="container-techno">
                                                 <img src="./assets/picture/techno/html.png" alt="achievement" class="card-img-skill-cert">
                                                 <div class="tooltip-text"><div class="tooltip-title">HTML5</div><div class="tooltip-description"></div><div class="tooltip-year">2024</div></div>
                                             </div>
-                                            <div class="container-achievement">
+                                            <div class="container-techno">
                                                 <img src="./assets/picture/techno/css.png" alt="achievement" class="card-img-skill-cert">
                                                 <div class="tooltip-text"><div class="tooltip-title">CSS3</div><div class="tooltip-description"></div><div class="tooltip-year">2024</div></div>
                                             </div>
-                                            <div class="container-achievement">
+                                            <div class="container-techno">
                                                 <img src="./assets/picture/techno/js.png" alt="achievement" class="card-img-skill-cert">
                                                 <div class="tooltip-text"><div class="tooltip-title">JS</div><div class="tooltip-description"></div><div class="tooltip-year">2024</div></div>
                                             </div>
-                                            <div class="container-achievement">
+                                            <div class="container-techno">
                                                 <img src="./assets/picture/techno/json.png" alt="achievement" class="card-img-skill-cert">
                                                 <div class="tooltip-text"><div class="tooltip-title">JSON</div><div class="tooltip-description"></div><div class="tooltip-year">2024</div></div>
                                             </div>
-                                            <div class="container-achievement">
+                                            <div class="container-techno">
                                                 <img src="./assets/picture/techno/github.png" alt="achievement" class="card-img-skill-cert">
                                                 <div class="tooltip-text"><div class="tooltip-title">Github</div><div class="tooltip-description"></div><div class="tooltip-year">2024</div></div>
                                             </div>
@@ -335,7 +413,7 @@
                     <div class="menu-title">En ligne</div>
                     <div class="container-menu">
                         <div class="menu-certification"><div class="menu-certification-title">Certification</div><div class="menu-certification-number">5</div></div>
-                        <div class="card-grid">
+                        <div class="card-grid-cert">
                             <div class="container-achievement">
                                 <img src="./assets/picture/cert/cert-CUCP.png" alt="achievement" class="card-img-skill-cert">
                                 <div class="tooltip-text"><div class="tooltip-title">Conduire un changement professionnel</div><div class="tooltip-description"></div><div class="tooltip-year">2020</div></div>
@@ -366,7 +444,7 @@
                             </div>
                         </div>
                         <div class="menu-certification"><div class="menu-certification-title">Langues</div><div class="menu-certification-number">3</div></div>
-                        <div class="card-grid">
+                        <div class="card-grid-lang">
                             <div class="container-achievement">
                                 <img src="./assets/picture/lang/fr.png" alt="achievement" class="card-img-skill-cert">
                                 <div class="tooltip-text"><div class="tooltip-title">Français</div><div class="tooltip-description"></div><div class="tooltip-year"></div></div>
@@ -380,8 +458,9 @@
                                 <div class="tooltip-text"><div class="tooltip-title">Espagnol</div><div class="tooltip-description"></div><div class="tooltip-year"></div></div>
                             </div>
                         </div>
+
                         <div class="menu-certification"><div class="menu-certification-title">Diplome</div><div class="menu-certification-number">4</div></div>
-                        <div class="card-grid-">
+                        <div class="card-grid-dip">
                             <div class="container-achievement">
                                 <img src="./assets/picture/cert/diploma.png" alt="achievement" class="card-img-skill-cert">TSMIR 
                                 <div class="tooltip-text"><div class="tooltip-title">IPI école informatique</div><div class="tooltip-description"></div><div class="tooltip-year">2016</div></div>
@@ -399,22 +478,28 @@
                                 <div class="tooltip-text"><div class="tooltip-title">École Supérieure d'Arts de Dunkerque</div><div class="tooltip-description"></div><div class="tooltip-year">2011</div></div>
                             </div>
                         </div>
-                        <div class="menu-certification"><div class="menu-certification-title">Networking</div>
-                            <div class="container-achievement">
-                                <img src="./assets/picture/network/linekdin.png" alt="achievement" class="card-img-skill-cert"> Linkedin
-                                <div class="tooltip-text"><div class="tooltip-title">LinkedIn</div><div class="tooltip-description"></div><div class="tooltip-year">2024</div></div>
+                        <div class="container-menu">
+                            <div class="menu-certification"><div class="menu-certification-title">Networking</div></div>
+                            <div class="card-grid-cert">
+                                <div class="container-achievement">
+                                    <img src="./assets/picture/network/linekdin.png" alt="achievement" class="card-img-skill-cert"> Linkedin
+                                    <div class="tooltip-text"><div class="tooltip-title">LinkedIn</div><div class="tooltip-description"></div><div class="tooltip-year">2024</div></div>
+                                </div>
+                                <div class="container-achievement">
+                                    <img src="./assets/picture/network/codepen.png" alt="achievement" class="card-img-skill-cert"> Codepen
+                                    <div class="tooltip-text"><div class="tooltip-title">Codepen</div><div class="tooltip-description"></div><div class="tooltip-year">2024</div></div>
+                                </div>
                             </div>
-                            <div class="container-achievement">
-                                <img src="./assets/picture/network/codepen.png" alt="achievement" class="card-img-skill-cert"> Codepen
-                                <div class="tooltip-text"><div class="tooltip-title">Codepen</div><div class="tooltip-description"></div><div class="tooltip-year">2024</div></div>
-                            </div>
+    
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>    
-    
+    </div>
+</div>
+
 
     <!-- Lien Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
