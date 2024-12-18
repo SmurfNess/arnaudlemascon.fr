@@ -1,31 +1,24 @@
-let data = {};
-let currentLanguage = 'en';
+let data = {}; // This will hold your JSON data
+let currentLanguage = 'en'; // Default language
 
 // Fetch JSON data from the server
 async function fetchData() {
     try {
-        console.log("Attempting to fetch JSON...");
-        const response = await fetch('/refont_st/assets/json/data.json');
-
-
-        if (!response.ok) {
-            console.error(`Failed to fetch JSON. Status: ${response.status} - ${response.statusText}`);
-            return;
-        }
-
+        const response = await fetch('https://arnaudlemascon.fr/refont_st/assets/json/data.json');
         const jsonData = await response.json();
-        console.log("JSON fetched successfully:", jsonData);
-
-        data = jsonData; // Assigner les données JSON
-        generateContent(); // Générer le contenu
+        console.log(jsonData);
+        
+        data = jsonData;
+        console.log(data);
+        generateContent();
+        
     } catch (error) {
-        console.error("Error during fetch:", error);
+        console.error('Error fetching data:', error);
     }
 }
 
-
 function generateContent() {
-    generateMenu();
+    //generateMenu();
     //generateAchievements();
     //generatePositions();
     //generateProjects();
