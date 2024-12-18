@@ -20,11 +20,49 @@
     ],
     "INFO": [
         {
-            "INTRO":{
+            "INTRO": {
                 "en": "English",
                 "fr": "Français",
                 "sp": "Colombiano"
             }
+        }
+    ],
+    "ACHIEVEMENTS": [
+        {
+            "mariage": [
+                {
+                    "title": {
+                        "en": "just married",
+                        "fr": "just married",
+                        "sp": "just married"
+                    },
+                    "gallery": "mariage.png",
+                    "icon": "mariage.png",
+                    "alt": "mariage",
+                    "description": {
+                        "en": "married in 2024",
+                        "fr": "marié en 2024",
+                        "sp": "casado en 2024"
+                    }
+                }
+            ],
+            "colombie": [
+                {
+                    "title": {
+                        "en": "Colombia",
+                        "fr": "Colombie",
+                        "sp": "Colombia"
+                    },
+                    "gallery": "travel-co.png",
+                    "icon": "travel-co.png",
+                    "alt": "colombie",
+                    "description": {
+                        "en": "travel to colombia in 2024",
+                        "fr": "voyage en colombie en 2024",
+                        "sp": "viaje a colombia en 2024"
+                    }
+                }
+            ]
         }
     ]
 }

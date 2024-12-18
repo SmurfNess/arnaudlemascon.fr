@@ -1,15 +1,9 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Récupérer les éléments par ID
-    const valuesElement = document.getElementById('VALUES');
-    const storyElement = document.getElementById('STORY');
-    const cvElement = document.getElementById('CV');
-    const introElement = document.getElementById('INTRO');
-
-    
+    const achievementContainer = document.getElementById('ACHIEVEMENT');
     const jsonUrl = 'https://arnaudlemascon.fr/refont_st/assets/json/data.json';
 
-    // Fonction pour charger les données JSON
-    function loadMenuData(language = 'en') {
+    // Fonction pour charger les données JSON et générer les éléments d'achievement
+    function loadAchievements(language = 'en') {
         fetch(jsonUrl)
             .then(response => {
                 if (!response.ok) {
@@ -18,26 +12,42 @@ document.addEventListener('DOMContentLoaded', function () {
                 return response.json();
             })
             .then(data => {
-                const menuItems = data.MENU[0]; // Accéder à l'objet MENU
+                const achievements = data.ACHIEVEMENTS[0]; // Accéder à l'objet ACHIEVEMENTS
+                
+                // Vider le conteneur avant de générer les nouveaux éléments
+                achievementContainer.innerHTML = '';
 
-                // Mettre à jour les éléments HTML avec les bonnes valeurs dans la langue choisie
-                valuesElement.textContent = menuItems['VALUES'][language] || menuItems['VALUES']['en'];
-                storyElement.textContent = menuItems['STORY'][language] || menuItems['STORY']['en'];
-                cvElement.textContent = menuItems['CV'][language] || menuItems['CV']['en'];
+                // Parcourir chaque type d'achievement (mariage, colombie, etc.)
+                for (const key in achievements) {
+                    if (achievements.hasOwnProperty(key)) {
+                        achievements[key].forEach(item => {
+                            // Générer les éléments HTML pour chaque achievement
+                            const achievementElement = document.createElement('div');
+                            achievementElement.classList.add('container-achievement');
+                            achievementElement.setAttribute('data-image', `./assets/picture/gallery/${item.gallery}`);
 
-                const infoItems = data.INFO[0]; // Accéder à l'objet INFO
-                introElement.textContent = infoItems['INTRO'][language] || menuItems['INTRO']['en'];
+                            achievementElement.innerHTML = `
+                                <img src="./assets/picture/achievement/${item.icon}" alt="${item.alt}" class="card-img-achievement">
+                                <div class="tooltip-text">
+                                    <div class="tooltip-title">${item.title[language] || item.title['en']}</div>
+                                    <div class="tooltip-description">${item.description[language] || item.description['en']}</div>
+                                </div>
+                            `;
+
+                            // Ajouter l'élément au conteneur
+                            achievementContainer.appendChild(achievementElement);
+                        });
+                    }
+                }
             })
             .catch(error => {
                 console.error('Erreur:', error);
-                valuesElement.textContent = 'Erreur lors du chargement des valeurs.';
-                storyElement.textContent = 'Erreur lors du chargement de l\'histoire.';
-                cvElement.textContent = 'Erreur lors du chargement du CV.';
+                achievementContainer.textContent = 'Erreur lors du chargement des réalisations.';
             });
     }
 
-    // Charger les données en anglais par défaut
-    loadMenuData('en');
+    // Charger les achievements en anglais par défaut
+    loadAchievements('en');
 
     // Gestion du changement de langue via les boutons radio
     const languageRadios = document.querySelectorAll('input[name="language"]');
@@ -57,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 default:
                     selectedLanguage = 'en';
             }
-            loadMenuData(selectedLanguage); // Charger le contenu dans la langue sélectionnée
+            loadAchievements(selectedLanguage); // Recharger les achievements dans la langue sélectionnée
         });
     });
 });
