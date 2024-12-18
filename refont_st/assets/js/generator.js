@@ -6,10 +6,10 @@ async function fetchData() {
     try {
         const response = await fetch('https://arnaudlemascon.fr/refont_st/assets/json/data.json');
         const jsonData = await response.json();
-        console.log(jsonData);
+
         
         data = jsonData;
-        console.log(data);
+
         generateContent();
         
     } catch (error) {
@@ -28,6 +28,8 @@ function generateContent() {
     //generateLanguages();
     //generateDiploma();
     //generateNetwork();
+    console.log(jsonData);
+    console.log(data);
     console.log(`Contenu généré pour la langue : ${currentLanguage}`);
 }
 
