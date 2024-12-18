@@ -4,46 +4,55 @@ let currentLanguage = 'en';
 // Fetch JSON data from the server
 async function fetchData() {
     try {
-        const response = await fetch('https://arnaudlemascon.fr/refont_st/assets/json/data.json');
+        console.log("Attempting to fetch JSON...");
+        const response = await fetch('/refont_st/assets/json/data.json');
+
+
+        if (!response.ok) {
+            console.error(`Failed to fetch JSON. Status: ${response.status} - ${response.statusText}`);
+            return;
+        }
+
         const jsonData = await response.json();
-        console.log('JSON fetched:'/*, JSON.stringify(jsonData, null, 2)*/);
-        
-        data = jsonData;
-        generateContent(); // Call the function to generate content based on the data
+        console.log("JSON fetched successfully:", jsonData);
+
+        data = jsonData; // Assigner les données JSON
+        generateContent(); // Générer le contenu
     } catch (error) {
-        console.error('Error fetching data:', error);
+        console.error("Error during fetch:", error);
     }
 }
 
+
 function generateContent() {
     generateMenu();
-    generateAchievements();
-    generatePositions();
-    generateProjects();
-    generateContact();
-    generateService();
-    generateCertifications();
-    generateLanguages();
-    generateDiploma();
-    generateNetwork();
+    //generateAchievements();
+    //generatePositions();
+    //generateProjects();
+    //generateContact();
+    //generateService();
+    //generateCertifications();
+    //generateLanguages();
+    //generateDiploma();
+    //generateNetwork();
     console.log(`Contenu généré pour la langue : ${currentLanguage}`);
 }
 
 // Fonction pour changer la langue et mettre à jour le contenu
 function changeLanguage(language) {
-    currentLanguage = language; // Met à jour la langue actuelle
-    generateContent(); // Regénère le contenu en fonction de la langue
+    currentLanguage = language; 
+    generateContent(); 
 
     // Récupérer tous les boutons radio
     const radios = document.querySelectorAll('input[name="language"]');
 
     // Boucle sur chaque radio pour appliquer la logique de style
     radios.forEach(radio => {
-        const parentLabel = radio.closest('.image-radio'); // Trouve le label parent
+        const parentLabel = radio.closest('.image-radio');
         if (radio.value === language) {
-            parentLabel.classList.add('active'); // Ajoute la classe active
+            parentLabel.classList.add('active'); 
         } else {
-            parentLabel.classList.remove('active'); // Supprime la classe active
+            parentLabel.classList.remove('active'); 
         }
     });
 }
@@ -55,6 +64,27 @@ document.querySelectorAll('input[name="language"]').forEach(radio => {
     });
 });
 
-generateMenu(){ 
-
+function generateMenu() {
+    // Vérifier si le JSON contient les données du menu
+    if (data.MENU && data.MENU.length > 0) {
+        const menuData = data.MENU[0]; // Récupérer le premier objet du tableau MENU
+        
+        // Sélectionner chaque élément `nav-link` par son id
+        const valuesElement = document.getElementById('VALUES');
+        const storyElement = document.getElementById('STORY');
+        const cvElement = document.getElementById('CV');
+        
+        // Mettre à jour le texte des éléments en fonction de la langue actuelle
+        if (valuesElement && menuData.VALUES) {
+            valuesElement.textContent = menuData.VALUES[currentLanguage] || "Missing Text";
+        }
+        if (storyElement && menuData.STORY) {
+            storyElement.textContent = menuData.STORY[currentLanguage] || "Missing Text";
+        }
+        if (cvElement && menuData.CV) {
+            cvElement.textContent = menuData.CV[currentLanguage] || "Missing Text";
+        }
+    } else {
+        console.error("Menu data is missing in JSON.");
+    }
 }
