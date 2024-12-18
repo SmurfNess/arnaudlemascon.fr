@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
     
     const jsonUrl = 'https://arnaudlemascon.fr/refont_st/assets/json/data.json';
 
-    // Fonction pour charger les données JSON
+    // Fonction pour charger les données JSON en fonction de la langue
     function loadMenuData(language) {
         fetch(jsonUrl)
             .then(response => {
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
             });
     }
 
-    // Charger les données en français par défaut
+    // Fonction pour définir la langue par défaut (français)
     loadMenuData('fr');
 
     // Gestion du changement de langue via les boutons radio
