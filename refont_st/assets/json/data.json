@@ -1,0 +1,21 @@
+{
+    "MENU": [
+        {
+            "VALUES": {
+                "en": "Values",
+                "fr": "Valeurs",
+                "sp": "Valores"
+            },
+            "STORY": {
+                "en": "About",
+                "fr": "À propos de",
+                "sp": "Acerca de"
+            },
+            "CV": {
+                "en": "Resume",
+                "fr": "curriculum vitae",
+                "sp": "curriculum vitae"
+            }
+        }
+    ]
+}

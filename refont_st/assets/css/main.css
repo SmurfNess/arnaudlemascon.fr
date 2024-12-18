@@ -62,7 +62,7 @@ video {
     top: 0%;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    padding: 30px;
+    padding: 5px;
     color: var(--color-ft-white);
     background-color: var(--color-bkg-t1);
 }
@@ -83,15 +83,25 @@ video {
     gap: 10px;
 }
 
+
 .textlogo{
     position: relative;
     color:grey;
     left: -25px;
     font-size: var(--ft-md);
     font-weight: bolder;
+    transition: color 0.2s ease;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .menulogo svg{
     height: 40px;
+    fill:grey;
+    transition: fill 0.2s ease;
+}
+.menulogo:hover svg, .menulogo:hover .textlogo{
+    fill: white;
+    color: darkgrey;
+    transition: 0,5s;
 }
 
 .image-radio {

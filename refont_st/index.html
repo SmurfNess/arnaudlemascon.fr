@@ -23,8 +23,8 @@
             <div class="container-fluid">
                 <a class="navbar-brand menulogo" href="#">
                     <svg width="100" height="100" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M25 0C-8 0-8 50 25 50 58 50 58 0 25 0L25 1C56 1 56 49 25 49-6 49-6 1 25 1L25 19C17 19 16 26 24 33 5 26 3 33 8 41 14 50 18 41 23 36 19 42 13 48 25 48 37 48 31 42 27 36 32 41 35 50 42 41 47 33 42 27 26 33 34 26 33 19 25 19L25 33C36 33 26 35 25 39 24 35 15 33 25 33" 
-                              fill="grey" stroke="none" stroke-width="1"/>
+                        <path d="M25 0C-8 0-8 50 25 50 58 50 58 0 25 0L25 1C56 1 56 49 25 49-6 49-6 1 25 1L25 17C16 17 16 30 23 33L22 33C17 29 8 31 9 39 10 48 20 46 25 39 24 44 15 45 21 48 24 49 26 49 29 48 36 45 26 44 25 39 30 46 40 48 41 39 42 31 34 29 28 33L27 33C35 30 35 17 25 17L25 33C36 33 26 35 25 39 24 35 15 33 25 33" 
+                              stroke="none" stroke-width="1"/>
                     </svg>
                     <div class="textlogo">NESS</div>
                 </a>
@@ -34,13 +34,13 @@
                 <div class="collapse navbar-collapse justify-content-between" id="navbarContent">
                     <ul class="navbar-nav w-100 d-flex justify-content-around">
                         <li class="nav-item">
-                            <a class="nav-link text-center" href="#">Network</a>
+                            <a class="nav-link text-center" id="VALUES"></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-center" href="#">Biography</a>
+                            <a class="nav-link text-center" id="STORY"></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-center" href="#">Curriculum Vitae</a>
+                            <a class="nav-link text-center" id="CV"></a>
                         </li>
                     </ul>
                     <div class="d-flex gap-2 justify-content-center">
@@ -503,43 +503,9 @@
 
     <!-- Lien Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/gallery.js"></script>
+    <script src="assets/js/generator.js"></script>
 
-    <script>
-
-document.addEventListener('DOMContentLoaded', () => {
-    console.log('DOM complètement chargé.');
-
-    // Sélectionnez tous les achievements
-    const achievements = document.querySelectorAll('.container-achievement');
-    const profilePicture = document.querySelector('.img-profile-picture');
-
-    if (!profilePicture) {
-        console.error('Image de profil introuvable. Vérifiez la classe .img-profile-picture');
-        return;
-    }
-
-    // Stockez la source originale de l'image de profil
-    const originalSrc = profilePicture.src;
-
-    // Ajoutez les événements de survol à chaque achievement
-    achievements.forEach((achievement) => {
-        achievement.addEventListener('mouseover', () => {
-            const newSrc = achievement.getAttribute('data-image');
-            if (newSrc) {
-                profilePicture.src = newSrc;
-            } else {
-                console.error('L\'achievement ne contient pas d\'attribut data-image.');
-            }
-        });
-
-        achievement.addEventListener('mouseout', () => {
-            profilePicture.src = originalSrc;
-        });
-    });
-});
-
-
-    </script>
 </body>
 </body>
 </html>
