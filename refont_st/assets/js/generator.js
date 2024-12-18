@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const valuesElement = document.getElementById('VALUES');
     const storyElement = document.getElementById('STORY');
     const cvElement = document.getElementById('CV');
+    const introElement = document.getElementById('INTRO');
+
     
     const jsonUrl = 'https://arnaudlemascon.fr/refont_st/assets/json/data.json';
 
@@ -22,6 +24,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 valuesElement.textContent = menuItems['VALUES'][language] || menuItems['VALUES']['en'];
                 storyElement.textContent = menuItems['STORY'][language] || menuItems['STORY']['en'];
                 cvElement.textContent = menuItems['CV'][language] || menuItems['CV']['en'];
+
+                const infoItems = data.INFO[0]; // Accéder à l'objet INFO
+                infoElement.textContent = menuItems['INTRO'][language] || menuItems['INTRO']['en'];
             })
             .catch(error => {
                 console.error('Erreur:', error);
