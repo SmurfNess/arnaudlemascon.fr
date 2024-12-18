@@ -6,9 +6,11 @@ document.addEventListener('DOMContentLoaded', function () {
     };
     const achievementContainer = document.getElementById('ACHIEVEMENT');
     const introElement = document.getElementById('INTRO');
+    const profilePicture = document.querySelector('.img-profile-picture');
     const jsonUrl = 'https://arnaudlemascon.fr/refont_st/assets/json/data.json';
 
     let currentLanguage = 'en'; // Langue par défaut
+    let originalProfilePictureSrc = profilePicture ? profilePicture.src : '';
 
     // Fonction pour charger les données JSON
     function loadData() {
@@ -42,6 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Fonction pour générer les réalisations
     function updateAchievements(achievementsData) {
         achievementContainer.innerHTML = ''; // Réinitialiser le conteneur
+
         for (const key in achievementsData) {
             if (achievementsData.hasOwnProperty(key)) {
                 achievementsData[key].forEach(item => {
@@ -63,9 +66,42 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
             }
         }
+
+        // Configure les événements après avoir ajouté les éléments
+        setupAchievementHover();
     }
 
-    // Fonction pour mettre à jour tous les éléments en fonction de la langue
+    // Fonction pour configurer les événements de survol sur les réalisations
+    function setupAchievementHover() {
+        if (!profilePicture) {
+            console.error('Image de profil introuvable. Vérifiez la classe .img-profile-picture');
+            return;
+        }
+
+        const achievements = document.querySelectorAll('.container-achievement');
+
+        // Stockez la source originale si elle n'a pas encore été sauvegardée
+        if (!originalProfilePictureSrc) {
+            originalProfilePictureSrc = profilePicture.src;
+        }
+
+        achievements.forEach((achievement) => {
+            achievement.addEventListener('mouseover', () => {
+                const newSrc = achievement.getAttribute('data-image');
+                if (newSrc) {
+                    profilePicture.src = newSrc;
+                } else {
+                    console.error('L\'achievement ne contient pas d\'attribut data-image.');
+                }
+            });
+
+            achievement.addEventListener('mouseout', () => {
+                profilePicture.src = originalProfilePictureSrc;
+            });
+        });
+    }
+
+    // Fonction pour mettre à jour tout le contenu
     function updateContent(data) {
         const menuData = data.MENU[0];
         const infoData = data.INFO[0];
