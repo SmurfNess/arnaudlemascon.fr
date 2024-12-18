@@ -6,8 +6,8 @@ document.addEventListener('DOMContentLoaded', function () {
     
     const jsonUrl = 'https://arnaudlemascon.fr/refont_st/assets/json/data.json';
 
-    // Fonction pour charger les données JSON en fonction de la langue
-    function loadMenuData(language) {
+    // Fonction pour charger les données JSON
+    function loadMenuData(language = 'en') {
         fetch(jsonUrl)
             .then(response => {
                 if (!response.ok) {
@@ -18,15 +18,10 @@ document.addEventListener('DOMContentLoaded', function () {
             .then(data => {
                 const menuItems = data.MENU[0]; // Accéder à l'objet MENU
 
-                // Fonction pour obtenir le texte dans la langue demandée
-                const getText = (key) => {
-                    return menuItems[key] && menuItems[key][language] ? menuItems[key][language] : menuItems[key]['fr'];
-                };
-
-                // Mettre à jour les éléments HTML avec les bonnes valeurs
-                valuesElement.textContent = getText('VALUES');
-                storyElement.textContent = getText('STORY');
-                cvElement.textContent = getText('CV');
+                // Mettre à jour les éléments HTML avec les bonnes valeurs dans la langue choisie
+                valuesElement.textContent = menuItems['VALUES'][language] || menuItems['VALUES']['en'];
+                storyElement.textContent = menuItems['STORY'][language] || menuItems['STORY']['en'];
+                cvElement.textContent = menuItems['CV'][language] || menuItems['CV']['en'];
             })
             .catch(error => {
                 console.error('Erreur:', error);
@@ -36,14 +31,14 @@ document.addEventListener('DOMContentLoaded', function () {
             });
     }
 
-    // Fonction pour définir la langue par défaut (français)
-    loadMenuData('fr');
+    // Charger les données en anglais par défaut
+    loadMenuData('en');
 
     // Gestion du changement de langue via les boutons radio
     const languageRadios = document.querySelectorAll('input[name="language"]');
     languageRadios.forEach(radio => {
         radio.addEventListener('change', function () {
-            const selectedLanguage = this.value; // La langue sélectionnée
+            const selectedLanguage = this.value; // La langue sélectionnée (fr, es, gb)
             loadMenuData(selectedLanguage); // Charger le contenu dans la langue sélectionnée
         });
     });
