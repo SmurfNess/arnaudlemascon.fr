@@ -1,10 +1,10 @@
-let data = {}; // This will hold your JSON data
-let currentLanguage = 'en'; // Default language
+let data = {};
+let currentLanguage = 'en';
 
 // Fetch JSON data from the server
 async function fetchData() {
     try {
-        const response = await fetch('https://arnaudlemascon.fr/assets/json/data.json');
+        const response = await fetch('https://arnaudlemascon.fr/refont_st/assets/json/data.json');
         const jsonData = await response.json();
         console.log('JSON fetched:'/*, JSON.stringify(jsonData, null, 2)*/);
         
@@ -54,3 +54,7 @@ document.querySelectorAll('input[name="language"]').forEach(radio => {
         changeLanguage(event.target.value); 
     });
 });
+
+generateMenu(){ 
+
+}
