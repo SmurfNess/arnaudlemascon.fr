@@ -38,7 +38,20 @@ document.addEventListener('DOMContentLoaded', function () {
     const languageRadios = document.querySelectorAll('input[name="language"]');
     languageRadios.forEach(radio => {
         radio.addEventListener('change', function () {
-            const selectedLanguage = this.value; // La langue sélectionnée (fr, es, gb)
+            let selectedLanguage;
+            switch (this.value) {
+                case 'fr':
+                    selectedLanguage = 'fr';
+                    break;
+                case 'es':
+                    selectedLanguage = 'sp';
+                    break;
+                case 'gb':
+                    selectedLanguage = 'en';
+                    break;
+                default:
+                    selectedLanguage = 'en';
+            }
             loadMenuData(selectedLanguage); // Charger le contenu dans la langue sélectionnée
         });
     });
