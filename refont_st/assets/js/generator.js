@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 cvElement.textContent = menuItems['CV'][language] || menuItems['CV']['en'];
 
                 const infoItems = data.INFO[0]; // Accéder à l'objet INFO
-                infoElement.textContent = menuItems['INTRO'][language] || menuItems['INTRO']['en'];
+                introElement.textContent = menuItems['INTRO'][language] || menuItems['INTRO']['en'];
             })
             .catch(error => {
                 console.error('Erreur:', error);
