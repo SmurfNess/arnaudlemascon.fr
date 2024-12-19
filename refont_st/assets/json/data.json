@@ -199,105 +199,37 @@
                     }
                 }
             ],
-            "Nerd": [
+            "Gamer": [
                 {
                     "title": {
-                        "en": "Nerd",
-                        "fr": "Nerd",
-                        "sp": "Nerd"
+                        "en": "Gamer",
+                        "fr": "Joueur",
+                        "sp": "Jugador"
                     },
-                    "gallery": "nerd.png",
-                    "icon": "nerd.png",
-                    "alt": "nerd",
+                    "gallery": "game.png",
+                    "icon": "game.png",
+                    "alt": "gamer",
                     "description": {
-                        "en": "10 years in IT",
-                        "fr": "10 ans dans l'IT",
-                        "sp": "10 años en TI"
+                        "en": "Inveterate gamer, whether video games, board games or quizzes",
+                        "fr": "Joueur invétéré que ce soit jeux vidéo, jeux de société ou quizz",
+                        "sp": ""
                     }
                 }
             ],
-            "Nerd": [
+            "tinkerer": [
                 {
                     "title": {
-                        "en": "Nerd",
-                        "fr": "Nerd",
-                        "sp": "Nerd"
+                        "en": "tinkerer",
+                        "fr": "Bricoleur",
+                        "sp": "calderero"
                     },
-                    "gallery": "nerd.png",
-                    "icon": "nerd.png",
-                    "alt": "nerd",
+                    "gallery": "tinkerer.png",
+                    "icon": "tinkerer.png",
+                    "alt": "tinkerer",
                     "description": {
-                        "en": "10 years in IT",
-                        "fr": "10 ans dans l'IT",
-                        "sp": "10 años en TI"
-                    }
-                }
-            ],
-            "Nerd": [
-                {
-                    "title": {
-                        "en": "Nerd",
-                        "fr": "Nerd",
-                        "sp": "Nerd"
-                    },
-                    "gallery": "nerd.png",
-                    "icon": "nerd.png",
-                    "alt": "nerd",
-                    "description": {
-                        "en": "10 years in IT",
-                        "fr": "10 ans dans l'IT",
-                        "sp": "10 años en TI"
-                    }
-                }
-            ],
-            "Nerd": [
-                {
-                    "title": {
-                        "en": "Nerd",
-                        "fr": "Nerd",
-                        "sp": "Nerd"
-                    },
-                    "gallery": "nerd.png",
-                    "icon": "nerd.png",
-                    "alt": "nerd",
-                    "description": {
-                        "en": "10 years in IT",
-                        "fr": "10 ans dans l'IT",
-                        "sp": "10 años en TI"
-                    }
-                }
-            ],
-            "Nerd": [
-                {
-                    "title": {
-                        "en": "Nerd",
-                        "fr": "Nerd",
-                        "sp": "Nerd"
-                    },
-                    "gallery": "nerd.png",
-                    "icon": "nerd.png",
-                    "alt": "nerd",
-                    "description": {
-                        "en": "10 years in IT",
-                        "fr": "10 ans dans l'IT",
-                        "sp": "10 años en TI"
-                    }
-                }
-            ],
-            "Nerd": [
-                {
-                    "title": {
-                        "en": "Nerd",
-                        "fr": "Nerd",
-                        "sp": "Nerd"
-                    },
-                    "gallery": "nerd.png",
-                    "icon": "nerd.png",
-                    "alt": "nerd",
-                    "description": {
-                        "en": "10 years in IT",
-                        "fr": "10 ans dans l'IT",
-                        "sp": "10 años en TI"
+                        "en": "Creative: web, board games, wood, CAD",
+                        "fr": "Créatif : web, jeux de société, bois, CAO",
+                        "sp": "Creatividad: web, juegos de mesa, madera, CAD"
                     }
                 }
             ]
