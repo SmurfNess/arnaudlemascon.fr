@@ -1,3 +1,48 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0.25 0 49.5 50">
-	<path d="M25 0C-8 0-8 50 25 50 58 50 58 0 25 0L25 1C56 1 56 49 25 49-6 49-6 1 25 1L25 17C16 17 16 30 23 33L22 33C17 29 8 31 9 39 10 48 20 46 25 39 24 44 15 45 21 48 24 49 26 49 29 48 36 45 26 44 25 39 30 46 40 48 41 39 42 31 34 29 28 33L27 33C35 30 35 17 25 17L25 33C36 33 26 35 25 39 24 35 15 33 25 33" fill="#ffffff"/>
-</svg>
+                                    <div class="container-achievement"  data-image="./assets/picture/gallery/mariage.png">
+                                        <img src="./assets/picture/achievement/mariage.png" alt="achievement" class="card-img-achievement">
+                                        <div class="tooltip-text"><div class="tooltip-title">Just married</div><div class="tooltip-description">Marié depuis 2024</div></div>
+                                    </div>
+                                    <div class="container-achievement"  data-image="./assets/picture/gallery/travel-co.png">
+                                        <img src="./assets/picture/achievement/travel-co.png" alt="achievement" class="card-img-achievement">
+                                        <div class="tooltip-text"><div class="tooltip-title">Colombia</div><div class="tooltip-description">Voyage en Colombie</div></div>
+                                    </div>
+                                    <div class="container-achievement"  data-image="./assets/picture/gallery/duo.png">
+                                        <img src="./assets/picture/achievement/duo.png" alt="achievement" class="card-img-achievement">
+                                        <div class="tooltip-text"><div class="tooltip-title">Duolingo</div><div class="tooltip-description">aprender español - 228 dias </div></div>
+                                    </div>
+                                    <div class="container-achievement"  data-image="./assets/picture/gallery/travel-it.png">
+                                        <img src="./assets/picture/achievement/travel-it.png" alt="achievement" class="card-img-achievement">
+                                        <div class="tooltip-text"><div class="tooltip-title">Italie</div><div class="tooltip-description">Roadtrip en Italie</div></div>
+                                    </div>
+                                    <div class="container-achievement"  data-image="./assets/picture/gallery/linkness.png">
+                                        <img src="./assets/picture/achievement/linkness.png" alt="achievement" class="card-img-achievement">
+                                        <div class="tooltip-text"><div class="tooltip-title">Guildmaster</div><div class="tooltip-description">Fondateur et ancien animateur de groupe Meetup entre 2018 et 2023</div></div>
+                                    </div>
+                                    <div class="container-achievement"  data-image="./assets/picture/gallery/commit.png">
+                                        <img src="./assets/picture/achievement/commit.png" alt="achievement" class="card-img-achievement">
+                                        <div class="tooltip-text"><div class="tooltip-title">Engagé</div><div class="tooltip-description">Engagé pour l'égalité homme-femme et les droits des animaux</div></div>
+                                    </div>
+                                    <div class="container-achievement"  data-image="./assets/picture/gallery/tattoo.png">
+                                        <img src="./assets/picture/achievement/tattoo.png" alt="achievement" class="card-img-achievement">
+                                        <div class="tooltip-text"><div class="tooltip-title">Tatoué</div><div class="tooltip-description">10 tatouages</div></div>
+                                    </div>
+                                    <div class="container-achievement"  data-image="./assets/picture/gallery/ness.png">
+                                        <img src="./assets/picture/achievement/ness.png" alt="achievement" class="card-img-achievement">
+                                        <div class="tooltip-text"><div class="tooltip-title">Dad cat</div><div class="tooltip-description">Détenteur d'un chat depuis 2017</div></div>
+                                    </div>
+                                    <div class="container-achievement"  data-image="./assets/picture/gallery/nerd.png">
+                                        <img src="./assets/picture/achievement/nerd.PNG" alt="achievement" class="card-img-achievement">
+                                        <div class="tooltip-text"><div class="tooltip-title">Nerd</div><div class="tooltip-description">10 ans dans l'IT - depuis 2013</div></div>
+                                    </div>
+                                    <div class="container-achievement"  data-image="./assets/picture/gallery/art.png">
+                                        <img src="./assets/picture/achievement/artist.png" alt="achievement" class="card-img-achievement">
+                                        <div class="tooltip-text"><div class="tooltip-title">The Artist</div><div class="tooltip-description">Diplômé des Beaux Arts en 2013</div></div>
+                                    </div>
+                                    <div class="container-achievement"  data-image="./assets/picture/gallery/game.png">
+                                        <img src="./assets/picture/achievement/gamer.png" alt="achievement" class="card-img-achievement">
+                                        <div class="tooltip-text"><div class="tooltip-title">The Gamer</div><div class="tooltip-description">Joueur invétéré que ce soit jeux vidéo, jeux de société ou quizz</div></div>
+                                    </div>
+                                    <div class="container-achievement"  data-image="./assets/picture/gallery/tinkerer.png">
+                                        <img src="./assets/picture/achievement/tinkerer.png" alt="achievement" class="card-img-achievement">
+                                        <div class="tooltip-text"><div class="tooltip-title">Tinkerer</div><div class="tooltip-description">Créatif : web, jeux de société, bois, CAO</div></div>
+                                    </div>
