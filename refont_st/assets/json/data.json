@@ -100,68 +100,204 @@
             "Guildmaster": [
                 {
                     "title": {
-                        "en": "Colombia",
-                        "fr": "Colombie",
-                        "sp": "Colombia"
+                        "en": "Guildmaster",
+                        "fr": "Guildmaster",
+                        "sp": "Guildmaster"
                     },
-                    "gallery": "travel-co.png",
-                    "icon": "travel-co.png",
-                    "alt": "colombie",
+                    "gallery": "linkness.png",
+                    "icon": "linkness.png",
+                    "alt": "Linkness",
                     "description": {
-                        "en": "travel to colombia in 2024",
-                        "fr": "voyage en colombie en 2024",
-                        "sp": "viaje a colombia en 2024"
+                        "en": "Founder and former animator of meetup's group between 2018 and 2023",
+                        "fr": "Fondateur et ancien animateur de groupe Meetup entre 2018 et 2023",
+                        "sp": "Fondator et ancien animateur de groupe Meetup entre 2018 et 2023"
                     }
                 }
             ],
-            "Engagé": [
+            "Commit": [
                 {
                     "title": {
-                        "en": "Colombia",
-                        "fr": "Colombie",
-                        "sp": "Colombia"
+                        "en": "Commited",
+                        "fr": "Engagé",
+                        "sp": "Cometido"
                     },
-                    "gallery": "travel-co.png",
-                    "icon": "travel-co.png",
+                    "gallery": "commit.png",
+                    "icon": "commit.png",
                     "alt": "colombie",
                     "description": {
-                        "en": "travel to colombia in 2024",
-                        "fr": "voyage en colombie en 2024",
-                        "sp": "viaje a colombia en 2024"
+                        "en": "Committed to gender equality and animal rights",
+                        "fr": "Engagé pour l'égalité homme-femme et les droits des animaux",
+                        "sp": "Comprometidos con la igualdad de género y los derechos de los animales"
                     }
                 }
             ],
-            "Dad cat": [
+            "Tattoo": [
                 {
                     "title": {
-                        "en": "Colombia",
-                        "fr": "Colombie",
-                        "sp": "Colombia"
+                        "en": "tattooed",
+                        "fr": "Tatoué",
+                        "sp": "tatuado"
                     },
-                    "gallery": "travel-co.png",
-                    "icon": "travel-co.png",
-                    "alt": "colombie",
+                    "gallery": "tattoo.png",
+                    "icon": "tattoo.png",
+                    "alt": "tattoo",
                     "description": {
-                        "en": "travel to colombia in 2024",
-                        "fr": "voyage en colombie en 2024",
-                        "sp": "viaje a colombia en 2024"
+                        "en": "10 tattoos",
+                        "fr": "10 tatouages",
+                        "sp": "10 tatuajes"
+                    }
+                }
+            ],
+            "Dadcat": [
+                {
+                    "title": {
+                        "en": "Dad cat",
+                        "fr": "Dad cat",
+                        "sp": "Dad cat"
+                    },
+                    "gallery": "ness.png",
+                    "icon": "ness.png",
+                    "alt": "ness",
+                    "description": {
+                        "en": "Cat owner",
+                        "fr": "Détenteur d'un chat",
+                        "sp": "Dueño de un gato"
                     }
                 }
             ],
             "Nerd": [
                 {
                     "title": {
-                        "en": "Colombia",
-                        "fr": "Colombie",
-                        "sp": "Colombia"
+                        "en": "Nerd",
+                        "fr": "Nerd",
+                        "sp": "Nerd"
                     },
-                    "gallery": "travel-co.png",
-                    "icon": "travel-co.png",
-                    "alt": "colombie",
+                    "gallery": "nerd.png",
+                    "icon": "nerd.png",
+                    "alt": "nerd",
                     "description": {
-                        "en": "travel to colombia in 2024",
-                        "fr": "voyage en colombie en 2024",
-                        "sp": "viaje a colombia en 2024"
+                        "en": "10 years in IT",
+                        "fr": "10 ans dans l'IT",
+                        "sp": "10 años en TI"
+                    }
+                }
+            ],
+            "art": [
+                {
+                    "title": {
+                        "en": "The Artist",
+                        "fr": "L'Artiste",
+                        "sp": "El Artisto"
+                    },
+                    "gallery": "art.png",
+                    "icon": "art.png",
+                    "alt": "art",
+                    "description": {
+                        "en": "Fine Arts graduate",
+                        "fr": "Diplômé des Beaux Arts",
+                        "sp": "Diplomado en Bellas Artes"
+                    }
+                }
+            ],
+            "Nerd": [
+                {
+                    "title": {
+                        "en": "Nerd",
+                        "fr": "Nerd",
+                        "sp": "Nerd"
+                    },
+                    "gallery": "nerd.png",
+                    "icon": "nerd.png",
+                    "alt": "nerd",
+                    "description": {
+                        "en": "10 years in IT",
+                        "fr": "10 ans dans l'IT",
+                        "sp": "10 años en TI"
+                    }
+                }
+            ],
+            "Nerd": [
+                {
+                    "title": {
+                        "en": "Nerd",
+                        "fr": "Nerd",
+                        "sp": "Nerd"
+                    },
+                    "gallery": "nerd.png",
+                    "icon": "nerd.png",
+                    "alt": "nerd",
+                    "description": {
+                        "en": "10 years in IT",
+                        "fr": "10 ans dans l'IT",
+                        "sp": "10 años en TI"
+                    }
+                }
+            ],
+            "Nerd": [
+                {
+                    "title": {
+                        "en": "Nerd",
+                        "fr": "Nerd",
+                        "sp": "Nerd"
+                    },
+                    "gallery": "nerd.png",
+                    "icon": "nerd.png",
+                    "alt": "nerd",
+                    "description": {
+                        "en": "10 years in IT",
+                        "fr": "10 ans dans l'IT",
+                        "sp": "10 años en TI"
+                    }
+                }
+            ],
+            "Nerd": [
+                {
+                    "title": {
+                        "en": "Nerd",
+                        "fr": "Nerd",
+                        "sp": "Nerd"
+                    },
+                    "gallery": "nerd.png",
+                    "icon": "nerd.png",
+                    "alt": "nerd",
+                    "description": {
+                        "en": "10 years in IT",
+                        "fr": "10 ans dans l'IT",
+                        "sp": "10 años en TI"
+                    }
+                }
+            ],
+            "Nerd": [
+                {
+                    "title": {
+                        "en": "Nerd",
+                        "fr": "Nerd",
+                        "sp": "Nerd"
+                    },
+                    "gallery": "nerd.png",
+                    "icon": "nerd.png",
+                    "alt": "nerd",
+                    "description": {
+                        "en": "10 years in IT",
+                        "fr": "10 ans dans l'IT",
+                        "sp": "10 años en TI"
+                    }
+                }
+            ],
+            "Nerd": [
+                {
+                    "title": {
+                        "en": "Nerd",
+                        "fr": "Nerd",
+                        "sp": "Nerd"
+                    },
+                    "gallery": "nerd.png",
+                    "icon": "nerd.png",
+                    "alt": "nerd",
+                    "description": {
+                        "en": "10 years in IT",
+                        "fr": "10 ans dans l'IT",
+                        "sp": "10 años en TI"
                     }
                 }
             ]
