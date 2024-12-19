@@ -45,6 +45,23 @@
                         "sp": "casado en 2024"
                     }
                 }
+            ]
+            "colombie": [
+                {
+                    "title": {
+                        "en": "Colombia",
+                        "fr": "Colombie",
+                        "sp": "Colombia"
+                    },
+                    "gallery": "travel-co.png",
+                    "icon": "travel-co.png",
+                    "alt": "colombie",
+                    "description": {
+                        "en": "travel to colombia in 2024",
+                        "fr": "voyage en colombie en 2024",
+                        "sp": "viaje a colombia en 2024"
+                    }
+                }
             ],
             "Duolingo": [
                 {
@@ -80,7 +97,7 @@
                     }
                 }
             ],
-            "colombie": [
+            "Guildmaster": [
                 {
                     "title": {
                         "en": "Colombia",
@@ -97,7 +114,7 @@
                     }
                 }
             ],
-            "colombie": [
+            "Engagé": [
                 {
                     "title": {
                         "en": "Colombia",
@@ -114,7 +131,7 @@
                     }
                 }
             ],
-            "colombie": [
+            "Dad cat": [
                 {
                     "title": {
                         "en": "Colombia",
@@ -131,41 +148,7 @@
                     }
                 }
             ],
-            "colombie": [
-                {
-                    "title": {
-                        "en": "Colombia",
-                        "fr": "Colombie",
-                        "sp": "Colombia"
-                    },
-                    "gallery": "travel-co.png",
-                    "icon": "travel-co.png",
-                    "alt": "colombie",
-                    "description": {
-                        "en": "travel to colombia in 2024",
-                        "fr": "voyage en colombie en 2024",
-                        "sp": "viaje a colombia en 2024"
-                    }
-                }
-            ],
-            "colombie": [
-                {
-                    "title": {
-                        "en": "Colombia",
-                        "fr": "Colombie",
-                        "sp": "Colombia"
-                    },
-                    "gallery": "travel-co.png",
-                    "icon": "travel-co.png",
-                    "alt": "colombie",
-                    "description": {
-                        "en": "travel to colombia in 2024",
-                        "fr": "voyage en colombie en 2024",
-                        "sp": "viaje a colombia en 2024"
-                    }
-                }
-            ],
-            "colombie": [
+            "Nerd": [
                 {
                     "title": {
                         "en": "Colombia",
