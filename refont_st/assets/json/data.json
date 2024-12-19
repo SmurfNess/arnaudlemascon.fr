@@ -189,8 +189,8 @@
                         "fr": "L'Artiste",
                         "sp": "El Artisto"
                     },
-                    "gallery": "art.png",
-                    "icon": "art.png",
+                    "gallery": "artist.png",
+                    "icon": "artist.png",
                     "alt": "art",
                     "description": {
                         "en": "Fine Arts graduate",
