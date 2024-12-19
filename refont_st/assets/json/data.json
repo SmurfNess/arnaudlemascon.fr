@@ -49,34 +49,34 @@
             "colombie": [
                 {
                     "title": {
-                        "en": "Colombia",
-                        "fr": "Colombie",
-                        "sp": "Colombia"
+                        "en": "Duolingo",
+                        "fr": "Duolingo",
+                        "sp": "Duolingo"
                     },
-                    "gallery": "travel-co.png",
-                    "icon": "travel-co.png",
-                    "alt": "colombie",
+                    "gallery": "duo.png",
+                    "icon": "duo.png",
+                    "alt": "Duolingo",
                     "description": {
-                        "en": "travel to colombia in 2024",
-                        "fr": "voyage en colombie en 2024",
-                        "sp": "viaje a colombia en 2024"
+                        "en": "learning spanish since 2024",
+                        "fr": "apprentissage de l'espagnol depuis 2024",
+                        "sp": "aprender español despuè 2024"
                     }
                 }
             ],
-            "colombie": [
+            "italie": [
                 {
                     "title": {
-                        "en": "Colombia",
-                        "fr": "Colombie",
-                        "sp": "Colombia"
+                        "en": "Italia",
+                        "fr": "Italie",
+                        "sp": "Italia"
                     },
-                    "gallery": "travel-co.png",
-                    "icon": "travel-co.png",
+                    "gallery": "travel-it.png",
+                    "icon": "travel-it.png",
                     "alt": "colombie",
                     "description": {
-                        "en": "travel to colombia in 2024",
-                        "fr": "voyage en colombie en 2024",
-                        "sp": "viaje a colombia en 2024"
+                        "en": "Roadtrip in Italia in 2022 (Sicilia, Roma, Florencia, Pisa and Venice)",
+                        "fr": "Roadtrip en Italie en 2022 (Sicile, Rome Florence, Pise et Venise",
+                        "sp": "Roadtrip en Italia en 2022 (Sicilia, Roma, Florencia, Pisa y Venezia"
                     }
                 }
             ],
