@@ -361,20 +361,26 @@
                             ],
                             "2":[
                                 {
-                                    "title":"Service Now",
-                                    "logo":"snow.png"
+                                    "title":"Easy Vista",
+                                    "logo":"ev.png"
                                 }
                             ],
                             "3":[
                                 {
-                                    "title":"ITIL4",
-                                    "logo":"itil.png"
+                                    "title":"Powershell",
+                                    "logo":"powershell.png"
                                 }
                             ],
                             "4":[
                                 {
                                     "title":"Microsoft 365",
                                     "logo":"365.png"
+                                }
+                            ],
+                            "5":[
+                                {
+                                    "title":"Power automate",
+                                    "logo":"pa.png"
                                 }
                             ]
                         }
@@ -409,8 +415,8 @@
                             ],
                             "2":[
                                 {
-                                    "title":"Service Now",
-                                    "logo":"snow.png"
+                                    "title":"Easy Vista",
+                                    "logo":"ev.png"
                                 }
                             ],
                             "3":[
