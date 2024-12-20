@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
         CV: document.getElementById('CV'),
     };
     const achievementContainer = document.getElementById('ACHIEVEMENT');
+    const positionContainer = document.getElementById('POSITIONS');
     const introElement = document.getElementById('INTRO');
     const profilePicture = document.querySelector('.img-profile-picture');
     const jsonUrl = 'https://arnaudlemascon.fr/refont_st/assets/json/data.json';
@@ -101,15 +102,75 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    function updatePositions(positionsData) {
+        positionContainer.innerHTML = ''; // Réinitialiser le conteneur
+
+        for (const key in positionsData) {
+            if (positionsData.hasOwnProperty(key)) {
+                positionsData[key].forEach(item => {
+                    const positionElement = document.createElement('div');
+                    positionElement.classList.add('container-achievement');
+
+                    positionElement.innerHTML = `
+                            <div class="card-content">
+                                <div class="card-enterprise-asset row">
+                                    <div class="col-4 card-enterprise first">
+                                        <img src="./assets/picture/ent/${item.enterprise-logo}" alt="">
+                                    </div>                                      <div class="col-4">
+                                        <div class="card-enterprise-name">${item.enterprise}</div>
+                                        <div class="card-enterprise-filiale">${item.client}</div>
+                                        <div class="card-enterprise-position">${item.position[currentLanguage] || item.title['en']}</div>
+                                        <div class="card-enterprise-duration">01/01/2024</div>
+                                    </div>
+                                    <div class="col-4 card-enterprise second">
+                                        <img src="./assets/picture/ent/${item.client-logo}" alt="">
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="card-enterprise-grid">
+                                            <div class="container-tools">
+                                                <img src="./assets/picture/techno/excel.png" alt="tools" class="card-img-tools">
+                                                <div class="tooltip-text"><div class="tooltip-title">Excel</div><div class="tooltip-description"></div><div class="tooltip-year"></div></div>
+                                            </div>
+                                            <div class="container-tools">
+                                                <img src="./assets/picture/techno/snow.png" alt="tools" class="card-img-tools">
+                                                <div class="tooltip-text"><div class="tooltip-title">Service<br>Now</div><div class="tooltip-description"></div><div class="tooltip-year"></div></div>
+                                            </div>
+                                            <div class="container-tools">
+                                                <img src="./assets/picture/techno/itil.png" alt="tools" class="card-img-tools">
+                                                <div class="tooltip-text"><div class="tooltip-title">ITIL4</div><div class="tooltip-description"></div><div class="tooltip-year"></div></div>
+                                            </div>
+                                            <div class="container-tools">
+                                                <img src="./assets/picture/techno/365.png" alt="tools" class="card-img-tools">
+                                                <div class="tooltip-text"><div class="tooltip-title">Micorsoft 365</div><div class="tooltip-description"></div><div class="tooltip-year"></div></div>
+                                            </div>
+                                        </div>
+                                    </div>  
+                                    <div class="col-6">
+                                        <div class="card-enterprise-mission">${item.description[currentLanguage] || item.title['en']}</div>
+                                    </div>             
+                                </div>
+                            </div>
+                            `;
+                    achievementContainer.appendChild(achievementElement);
+                });
+            }
+        }
+
+        // Configure les événements après avoir ajouté les éléments
+        setupAchievementHover();
+    }
+
     // Fonction pour mettre à jour tout le contenu
     function updateContent(data) {
         const menuData = data.MENU[0];
         const infoData = data.INFO[0];
         const achievementsData = data.ACHIEVEMENTS[0];
-
+        const positionsData = data.POSITIONS[0];
+        
         updateMenu(menuData);
         updateIntro(infoData);
         updateAchievements(achievementsData);
+        updatePositions(positionsData);
     }
 
     // Gestion du changement de langue via les boutons radio
