@@ -299,9 +299,9 @@
                     "beginning":"01/04/2022",
                     "ending":"31/08/2023",
                     "description":{
-                        "en":"",
-                        "fr":"",
-                        "sp":""
+                        "en":"anglais",
+                        "fr":"francais",
+                        "sp":"espanol"
                     },
                     "techno":[
                         {
