@@ -104,59 +104,68 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function updatePositions(positionsData) {
         positionContainer.innerHTML = ''; // Réinitialiser le conteneur
-
-        for (const key in positionsData) {
-            if (positionsData.hasOwnProperty(key)) {
-                positionsData[key].forEach(item => {
+    
+        for (const year in positionsData) {
+            if (positionsData.hasOwnProperty(year)) {
+                positionsData[year].forEach(item => {
                     const positionElement = document.createElement('div');
-                    positionElement.classList.add('container-achievement');
-
-                    positionElement.innerHTML = `
-                            <div class="card-content">
-                                <div class="card-enterprise-asset row">
-                                    <div class="col-4 card-enterprise first">
-                                        <img src="./assets/picture/ent/${item.enterprise-logo}" alt="">
-                                    </div>
-                                    <div class="col-4">
-                                        <div class="card-enterprise-name">${item.enterprise}</div>
-                                        <div class="card-enterprise-filiale">${item.client}</div>
-                                        <div class="card-enterprise-position">${item.position[currentLanguage] || item.title['en']}</div>
-                                        <div class="card-enterprise-duration">01/01/2024</div>
-                                    </div>
-                                    <div class="col-4 card-enterprise second">
-                                        <img src="./assets/picture/ent/${item.client-logo}" alt="">
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="card-enterprise-grid">
-                                            <div class="container-tools">
-                                                <img src="./assets/picture/techno/excel.png" alt="tools" class="card-img-tools">
-                                                <div class="tooltip-text"><div class="tooltip-title">Excel</div><div class="tooltip-description"></div><div class="tooltip-year"></div></div>
-                                            </div>
-                                            <div class="container-tools">
-                                                <img src="./assets/picture/techno/snow.png" alt="tools" class="card-img-tools">
-                                                <div class="tooltip-text"><div class="tooltip-title">Service<br>Now</div><div class="tooltip-description"></div><div class="tooltip-year"></div></div>
-                                            </div>
-                                            <div class="container-tools">
-                                                <img src="./assets/picture/techno/itil.png" alt="tools" class="card-img-tools">
-                                                <div class="tooltip-text"><div class="tooltip-title">ITIL4</div><div class="tooltip-description"></div><div class="tooltip-year"></div></div>
-                                            </div>
-                                            <div class="container-tools">
-                                                <img src="./assets/picture/techno/365.png" alt="tools" class="card-img-tools">
-                                                <div class="tooltip-text"><div class="tooltip-title">Micorsoft 365</div><div class="tooltip-description"></div><div class="tooltip-year"></div></div>
-                                            </div>
-                                        </div>
-                                    </div>  
-                                    <div class="col-6">
-                                        <div class="card-enterprise-mission">${item.description[currentLanguage] || item.title['en']}</div>
-                                    </div>             
+                    positionElement.classList.add('position-card');
+    
+                    // Rendu des technologies
+                    const technologies = Object.values(item.techno[0]).flatMap(techArray =>
+                        techArray.map(tech => `
+                            <div class="container-tools">
+                                <img src="./assets/picture/techno/${tech.logo}" alt="${tech.title}" class="card-img-tools">
+                                <div class="tooltip-text">
+                                    <div class="tooltip-title">${tech.title}</div>
+                                    <div class="tooltip-description"></div>
                                 </div>
                             </div>
-                            `;
-                    achievementContainer.appendChild(positionElement);
+                        `)
+                    ).join('');
+    
+                    // Format de la durée
+                    const beginningDate = item.beginning || 'N/A';
+                    const endingDate = item.ending || 'Present';
+                    const duration = `${beginningDate} - ${endingDate}`;
+    
+                    // Construction de la carte
+                    positionElement.innerHTML = `
+                        <div class="card-content">
+                            <div class="card-enterprise-asset row">
+                                <div class="col-4 card-enterprise first">
+                                    <img src="./assets/picture/ent/${item['enterprise-logo']}" alt="${item.enterprise}">
+                                </div>
+                                <div class="col-4">
+                                    <div class="card-enterprise-name">${item.enterprise}</div>
+                                    <div class="card-enterprise-filiale">${item.client}</div>
+                                    <div class="card-enterprise-position">
+                                        ${item.position[currentLanguage] || item.position['en']}
+                                    </div>
+                                    <div class="card-enterprise-duration">${duration}</div>
+                                </div>
+                                <div class="col-4 card-enterprise second">
+                                    <img src="./assets/picture/ent/${item['client-logo']}" alt="${item.client}">
+                                </div>
+                                <div class="col-6">
+                                    <div class="card-enterprise-grid">
+                                        ${technologies}
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="card-enterprise-mission">
+                                        ${item.description[currentLanguage] || item.description['en']}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    positionContainer.appendChild(positionElement);
                 });
             }
         }
     }
+    
 
     // Fonction pour mettre à jour tout le contenu
     function updateContent(data) {
