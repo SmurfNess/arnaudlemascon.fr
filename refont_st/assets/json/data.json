@@ -328,6 +328,12 @@
                                     "title":"Microsoft 365",
                                     "logo":"365.png"
                                 }
+                            ],
+                            "5":[
+                                {
+                                    "title":"Power automate",
+                                    "logo":"pa.png"
+                                }
                             ]
                         }
                     ]
