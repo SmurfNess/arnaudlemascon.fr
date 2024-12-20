@@ -280,24 +280,6 @@
                                     "title":"Microsoft 365",
                                     "logo":"365.png"
                                 }
-                            ],
-                            "5":[
-                                {
-                                    "title":"",
-                                    "logo":""
-                                }
-                            ],
-                            "6":[
-                                {
-                                    "title":"",
-                                    "logo":""
-                                }
-                            ],
-                            "7":[
-                                {
-                                    "title":"",
-                                    "logo":""
-                                }
                             ]
                         }
                     ]
@@ -475,20 +457,14 @@
                             ],
                             "2":[
                                 {
-                                    "title":"Service Now",
-                                    "logo":"snow.png"
+                                    "title":"Active Directory",
+                                    "logo":"ad.png"
                                 }
                             ],
                             "3":[
                                 {
-                                    "title":"ITIL4",
-                                    "logo":"itil.png"
-                                }
-                            ],
-                            "4":[
-                                {
-                                    "title":"Microsoft 365",
-                                    "logo":"365.png"
+                                    "title":"Powershell",
+                                    "logo":"powershell.png"
                                 }
                             ]
                         }
@@ -519,24 +495,6 @@
                                 {
                                     "title":"Excel",
                                     "logo":"excel.png"
-                                }
-                            ],
-                            "2":[
-                                {
-                                    "title":"Service Now",
-                                    "logo":"snow.png"
-                                }
-                            ],
-                            "3":[
-                                {
-                                    "title":"ITIL4",
-                                    "logo":"itil.png"
-                                }
-                            ],
-                            "4":[
-                                {
-                                    "title":"Microsoft 365",
-                                    "logo":"365.png"
                                 }
                             ]
                         }
