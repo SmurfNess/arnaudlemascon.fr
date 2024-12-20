@@ -402,9 +402,9 @@
             "201608":[
                 {
                     "enterprise":"Spie batignolles amitec",
-                    "enterprise-logo":"ent-sb.png",
+                    "enterpriselogo":"ent-sb.png",
                     "client":"Spie batignolles",
-                    "client-logo":"ent-sb.png",
+                    "clientlogo":"ent-sb.png",
                     "position":{
                         "en":"Computer and Network Technician",
                         "fr":"Technicien informatique et Réseau",

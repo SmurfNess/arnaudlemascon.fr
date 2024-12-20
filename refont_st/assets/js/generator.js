@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     <div class="card-content">
                         <div class="card-enterprise-asset row">
                             <div class="col-4 card-enterprise first">
-                                <img src="./assets/picture/ent/${item.enterprise-logo}" alt="${item.enterprise}">
+                                <img src="./assets/picture/ent/${item.enterpriselogo}" alt="${item.enterprise}">
                             </div>
                             <div class="col-4">
                                 <div class="card-enterprise-name">${item.enterprise}</div>
@@ -149,7 +149,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                 <div class="card-enterprise-duration">${duration}</div>
                             </div>
                             <div class="col-4 card-enterprise second">
-                                <img src="./assets/picture/ent/${item.client-logo}" alt="${item.client}">
+                                <img src="./assets/picture/ent/${item.clientlogo}" alt="${item.client}">
                             </div>
                             <div class="col-6">
                                 <div class="card-enterprise-grid">
