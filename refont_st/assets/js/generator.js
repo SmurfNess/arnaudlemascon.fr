@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     <div class="card-content">
                         <div class="card-enterprise-asset row">
                             <div class="col-4 card-enterprise first">
-                                <img src="/assets/picture/ent/${item.enterpriseLogo}" alt="${item.enterprise}">
+                                <img src="./assets/picture/ent/${item.enterpriseLogo}" alt="${item.enterprise}">
                             </div>
                             <div class="col-4">
                                 <div class="card-enterprise-name">${item.enterprise}</div>
