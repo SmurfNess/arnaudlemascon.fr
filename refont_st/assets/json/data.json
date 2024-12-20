@@ -346,24 +346,6 @@
                                     "title":"Microsoft 365",
                                     "logo":"365.png"
                                 }
-                            ],
-                            "5":[
-                                {
-                                    "title":"",
-                                    "logo":""
-                                }
-                            ],
-                            "6":[
-                                {
-                                    "title":"",
-                                    "logo":""
-                                }
-                            ],
-                            "7":[
-                                {
-                                    "title":"",
-                                    "logo":""
-                                }
                             ]
                         }
                     ]
@@ -404,31 +386,13 @@
                             "3":[
                                 {
                                     "title":"ITIL4",
-                                    "logo":"ITIL.png"
+                                    "logo":"itil.png"
                                 }
                             ],
                             "4":[
                                 {
                                     "title":"Microsoft 365",
                                     "logo":"365.png"
-                                }
-                            ],
-                            "5":[
-                                {
-                                    "title":"",
-                                    "logo":""
-                                }
-                            ],
-                            "6":[
-                                {
-                                    "title":"",
-                                    "logo":""
-                                }
-                            ],
-                            "7":[
-                                {
-                                    "title":"",
-                                    "logo":""
                                 }
                             ]
                         }
@@ -470,31 +434,13 @@
                             "3":[
                                 {
                                     "title":"ITIL4",
-                                    "logo":"ITIL.png"
+                                    "logo":"itil.png"
                                 }
                             ],
                             "4":[
                                 {
                                     "title":"Microsoft 365",
                                     "logo":"365.png"
-                                }
-                            ],
-                            "5":[
-                                {
-                                    "title":"",
-                                    "logo":""
-                                }
-                            ],
-                            "6":[
-                                {
-                                    "title":"",
-                                    "logo":""
-                                }
-                            ],
-                            "7":[
-                                {
-                                    "title":"",
-                                    "logo":""
                                 }
                             ]
                         }
@@ -536,31 +482,13 @@
                             "3":[
                                 {
                                     "title":"ITIL4",
-                                    "logo":"ITIL.png"
+                                    "logo":"itil.png"
                                 }
                             ],
                             "4":[
                                 {
                                     "title":"Microsoft 365",
                                     "logo":"365.png"
-                                }
-                            ],
-                            "5":[
-                                {
-                                    "title":"",
-                                    "logo":""
-                                }
-                            ],
-                            "6":[
-                                {
-                                    "title":"",
-                                    "logo":""
-                                }
-                            ],
-                            "7":[
-                                {
-                                    "title":"",
-                                    "logo":""
                                 }
                             ]
                         }
@@ -602,31 +530,13 @@
                             "3":[
                                 {
                                     "title":"ITIL4",
-                                    "logo":"ITIL.png"
+                                    "logo":"itil.png"
                                 }
                             ],
                             "4":[
                                 {
                                     "title":"Microsoft 365",
                                     "logo":"365.png"
-                                }
-                            ],
-                            "5":[
-                                {
-                                    "title":"",
-                                    "logo":""
-                                }
-                            ],
-                            "6":[
-                                {
-                                    "title":"",
-                                    "logo":""
-                                }
-                            ],
-                            "7":[
-                                {
-                                    "title":"",
-                                    "logo":""
                                 }
                             ]
                         }
