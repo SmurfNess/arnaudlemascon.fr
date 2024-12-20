@@ -404,7 +404,7 @@
                     "enterprise":"Spie batignolles amitec",
                     "enterpriselogo":"ent-sb.png",
                     "client":"Spie batignolles",
-                    "clientlogo":"ent-sb.png",
+                    "client-logo":"ent-sb.png",
                     "position":{
                         "en":"Computer and Network Technician",
                         "fr":"Technicien informatique et Réseau",
