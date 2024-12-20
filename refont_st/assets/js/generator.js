@@ -138,11 +138,11 @@ document.addEventListener('DOMContentLoaded', function () {
                     <div class="card-content">
                         <div class="card-enterprise-asset row">
                             <div class="col-4 card-enterprise first">
-                                <img src="./assets/picture/ent/${item.enterpriselogo}" alt="${item.enterprise}">
+                                <img src="./assets/picture/ent/${item.enterpriselogo}.png" alt="${item.enterprise}">
                             </div>
                             <div class="col-4">
                                 <div class="card-enterprise-name">${item.enterprise}</div>
-                                <div class="card-enterprise-filiale">${item.client}</div>
+                                <div class="card-enterprise-filiale">${item.client}.png</div>
                                 <div class="card-enterprise-position">
                                     ${item.position[currentLanguage] || item.position['en']}
                                 </div>
