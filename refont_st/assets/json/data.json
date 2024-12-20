@@ -240,9 +240,9 @@
             "202309":[
                 {
                     "enterprise":"sogeti part of capgemini",
-                    "enterpriseLogo":"ent-sogeti.png",
+                    "enterpriseLogo":"ent_sogeti.png",
                     "client":"e.SNCF",
-                    "clientLogo":"ent-sncf.png",
+                    "clientLogo":"ent_sncf.png",
                     "position":{
                         "en":"application driver",
                         "fr":"pilote de la demande",
@@ -306,9 +306,9 @@
             "202204":[
                 {
                     "enterprise":"Spie batignolles amitec",
-                    "enterpriseLogo":"ent-sb.png",
+                    "enterpriseLogo":"ent_sb.png",
                     "client":"Spie batignolles",
-                    "clientLogo":"ent-sb.png",
+                    "clientLogo":"ent_sb.png",
                     "position":{
                         "en":"Project manager",
                         "fr":"Chargé de projet",
@@ -354,9 +354,9 @@
             "201808":[
                 {
                     "enterprise":"Spie batignolles amitec",
-                    "enterpriseLogo":"ent-sb.png",
+                    "enterpriseLogo":"ent_sb.png",
                     "client":"Spie batignolles",
-                    "clientLogo":"ent-sb.png",
+                    "clientLogo":"ent_sb.png",
                     "position":{
                         "en":"IT and Network Technician - Technical Department",
                         "fr":"Technicien informatique et réseau N2",
@@ -402,9 +402,9 @@
             "201608":[
                 {
                     "enterprise":"Spie batignolles amitec",
-                    "enterpriseLogo":"ent-sb.png",
+                    "enterpriseLogo":"ent_sb.png",
                     "client":"Spie batignolles",
-                    "clientLogo":"ent-sb.png",
+                    "clientLogo":"ent_sb.png",
                     "position":{
                         "en":"Computer and Network Technician",
                         "fr":"Technicien informatique et Réseau",
@@ -450,9 +450,9 @@
             "201408":[
                 {
                     "enterprise":"Spie batignolles amitec",
-                    "enterpriseLogo":"ent-sb.png",
+                    "enterpriseLogo":"ent_sb.png",
                     "client":"Spie batignolles",
-                    "clientLogo":"ent-sb.png",
+                    "clientLogo":"ent_sb.png",
                     "position":{
                         "en":"Apprentice computer technician",
                         "fr":"Apprenti technicien informatique",
@@ -498,9 +498,9 @@
             "201311":[
                 {
                     "enterprise":"Helpline",
-                    "enterpriseLogo":"ent-helpline.png",
+                    "enterpriseLogo":"ent_helpline.png",
                     "client":"assystem",
-                    "clientLogo":"ent-assystem.png",
+                    "clientLogo":"ent_assystem.png",
                     "position":{
                         "en":"Apprentice Helpdesk Agent",
                         "fr":"Apprenti Helpdesk Agent",
