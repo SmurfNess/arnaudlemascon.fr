@@ -116,7 +116,8 @@ document.addEventListener('DOMContentLoaded', function () {
                                 <div class="card-enterprise-asset row">
                                     <div class="col-4 card-enterprise first">
                                         <img src="./assets/picture/ent/${item.enterprise-logo}" alt="">
-                                    </div>                                      <div class="col-4">
+                                    </div>
+                                    <div class="col-4">
                                         <div class="card-enterprise-name">${item.enterprise}</div>
                                         <div class="card-enterprise-filiale">${item.client}</div>
                                         <div class="card-enterprise-position">${item.position[currentLanguage] || item.title['en']}</div>
@@ -151,13 +152,10 @@ document.addEventListener('DOMContentLoaded', function () {
                                 </div>
                             </div>
                             `;
-                    achievementContainer.appendChild(achievementElement);
+                    achievementContainer.appendChild(positionElement);
                 });
             }
         }
-
-        // Configure les événements après avoir ajouté les éléments
-        setupAchievementHover();
     }
 
     // Fonction pour mettre à jour tout le contenu
