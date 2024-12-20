@@ -334,6 +334,12 @@
                                     "title":"Power automate",
                                     "logo":"pa.png"
                                 }
+                            ],
+                            "6":[
+                                {
+                                    "title":"Service Now",
+                                    "logo":"snow.png"
+                                }
                             ]
                         }
                     ]
