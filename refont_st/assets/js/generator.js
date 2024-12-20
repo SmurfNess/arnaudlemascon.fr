@@ -153,7 +153,6 @@ document.addEventListener('DOMContentLoaded', function () {
                             </div>
                             <div class="col-6">
                                 <div class="card-enterprise-grid">
-                                    ${technologies}
                                 </div>
                             </div>
                             <div class="col-6">
