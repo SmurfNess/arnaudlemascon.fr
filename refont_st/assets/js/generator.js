@@ -55,20 +55,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
    
     function updateCurrent(positionsData) {
-        const currentElement = document.getElementById("currentElement");
-
-        positionsData.forEach(positionGroup => {
-            Object.values(positionGroup).forEach(positionArray => {
-                positionArray.forEach(position => {
-                    if (!position.ending) { // Si pas de date de fin
-                        const duration = calculateDuration(position.beginning);
-                        console.log(`Position: ${position.position.en}, Duration: ${duration} months`);
-                    }
-                });
-            });
-        });
-    
-        currentElement.textContent = "noob";
+        if (positionsData['CURRENT']) {
+            currentElement.textContent ="noob";
+        }
     }
 
     // Fonction pour générer les réalisations
