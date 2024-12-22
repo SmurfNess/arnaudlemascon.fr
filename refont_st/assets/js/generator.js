@@ -198,7 +198,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                     <div class="card-enterprise-position">
                                         ${item.position[currentLanguage] || item.position['en']}
                                     </div>
-                                    <div class="card-enterprise-duration">${duration}</div>
+                                    <div class="card-enterprise-duration">${item.beginning}</div>
                                 </div>
                                 <div class="col-4 card-enterprise second">
                                     <img src="./assets/picture/ent/${item.clientLogo}" alt="${item.client}">
