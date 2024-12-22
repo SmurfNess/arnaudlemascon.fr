@@ -240,6 +240,7 @@ form {
 
 .carriere-text {
     padding: 20px;
+    text-transform: capitalize;
 }
 
 .carriere-number {
