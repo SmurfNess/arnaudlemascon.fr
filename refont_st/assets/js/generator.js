@@ -55,9 +55,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
    
     function updateCurrent(positionsData) {
-        if (positionsData['POSITIONS']) {
+
             currentElement.textContent ="noob";
-        }
+        
     }
 
     // Fonction pour générer les réalisations
