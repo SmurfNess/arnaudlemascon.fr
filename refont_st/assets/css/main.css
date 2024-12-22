@@ -43,6 +43,9 @@ form {
     padding-left: 10px;
 }
 
+.custom-col {
+    min-width: 300px; 
+  }
 
 .background {
     position: absolute;

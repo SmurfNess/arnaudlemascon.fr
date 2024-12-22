@@ -192,7 +192,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                 <div class="col-4 card-enterprise first">
                                     <img src="./assets/picture/ent/${item.enterpriseLogo}" alt="${item.enterprise}">
                                 </div>
-                                <div class="col-4">
+                                <div class="col-4 custom-col">
                                     <div class="card-enterprise-name">${item.enterprise}</div>
                                     <div class="card-enterprise-filiale">${item.client}</div>
                                     <div class="card-enterprise-position">
@@ -200,7 +200,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                     </div>
                                     <div class="card-enterprise-duration">${item.beginning} - ${item.ending}</div>
                                 </div>
-                                <div class="col-4 card-enterprise second">
+                                <div class="col-4 custom-col card-enterprise second">
                                     <img src="./assets/picture/ent/${item.clientLogo}" alt="${item.client}">
                                 </div>
                                 <div class="col-6">
