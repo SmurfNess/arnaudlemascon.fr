@@ -252,6 +252,12 @@ document.addEventListener('DOMContentLoaded', function () {
             currentDiv.innerHTML = `
                 ${currentDuration}
             `;
+
+            const currentEntDiv = document.getElementById('CURRENTENT');
+            const CurrentEnt = mostRecentPosition.enterprise
+            currentEntDiv.innerHTML = `
+                ${CurrentEnt}
+            `;
         }
     }
     
