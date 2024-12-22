@@ -110,6 +110,23 @@ document.addEventListener('DOMContentLoaded', function () {
         const sortedYears = Object.keys(positionsData).sort().reverse();
         let displayedCount = 0; // Compteur pour les cartes complètes
     
+        // Fonction pour calculer la durée en mois, et en années si nécessaire
+        function calculateDuration(beginningDate, endingDate) {
+            const start = new Date(beginningDate);
+            const end = new Date(endingDate);
+    
+            // Calcul de la différence en mois
+            const monthsDifference = (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth());
+            const years = Math.floor(monthsDifference / 12);
+            const months = monthsDifference % 12;
+    
+            if (years > 0) {
+                return `${years} an(s) ${months} mois`;
+            } else {
+                return `${months} mois`;
+            }
+        }
+    
         // Parcourir les années triées
         sortedYears.forEach(year => {
             positionsData[year].slice().reverse().forEach(item => {
@@ -119,7 +136,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 // Format de la durée
                 const beginningDate = item.beginning || 'N/A';
                 const endingDate = item.ending || 'Present';
-                const duration = `${beginningDate} - ${endingDate}`;
+                const duration = calculateDuration(beginningDate, endingDate);
     
                 if (displayedCount < 3) {
                     // Carte complète pour les 3 entreprises les plus récentes
@@ -176,7 +193,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                 <p class="position-text">
                                     <strong>${item.position[currentLanguage] || item.position['en']}</strong> chez 
                                     <strong>${item.enterprise}</strong> pour <strong>${item.client}</strong><br>
-                                    De <strong>${beginningDate}</strong> à <strong>${endingDate}</strong>
+                                    Durée : <strong>${duration}</strong>
                                 </p>
                             </div>
                             <div class="logos">
@@ -191,6 +208,7 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
     }
+    
     
     
     
