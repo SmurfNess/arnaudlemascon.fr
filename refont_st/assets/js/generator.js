@@ -115,46 +115,54 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function updatePositions(positionsData) {
         positionContainer.innerHTML = ''; // Réinitialiser le conteneur
-
+    
         // Trier les années dans l'ordre décroissant
         const sortedYears = Object.keys(positionsData).sort().reverse();
         let displayedCount = 0; // Compteur pour les cartes complètes
-
+    
         // Fonction pour calculer la durée en mois, et en années si nécessaire
-        function calculateDuration(beginningDate, endingDate) {
+        function calculateDuration(beginningDate, endingDate = new Date()) {
             const start = new Date(beginningDate);
             const end = new Date(endingDate);
-
+    
             // Calcul de la différence en mois
             const monthsDifference = (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth());
-
+    
             // Si la différence de mois est négative (ce qui arrive si on compare une date de fin avant la date de début)
             const daysInStartMonth = new Date(start.getFullYear(), start.getMonth() + 1, 0).getDate();
             const extraMonths = end.getDate() >= start.getDate() ? 0 : -1;
-
+    
             const totalMonths = monthsDifference + extraMonths;
-
+    
             const years = Math.floor(totalMonths / 12); // Nombre d'années
             const months = totalMonths % 12; // Nombre de mois restants
-
+    
             if (years > 0) {
                 return `${years} an(s) ${months} mois`;
             } else {
                 return `${months} mois`;
             }
         }
-
+    
+        // Variable pour stocker la position la plus récente
+        let mostRecentPosition = null;
+    
         // Parcourir les années triées
         sortedYears.forEach(year => {
             positionsData[year].slice().reverse().forEach(item => {
                 const positionElement = document.createElement('div');
                 positionElement.classList.add('position-card');
-
+    
                 // Format de la durée
                 const beginningDate = item.beginning || 'N/A';
                 const endingDate = item.ending || 'Present';
                 let duration = '';
-
+    
+                // Vérifier si c'est la position la plus récente
+                if (!mostRecentPosition) {
+                    mostRecentPosition = item; // Stocker la position la plus récente
+                }
+    
                 if (displayedCount < 3) {
                     // Carte complète pour les 3 entreprises les plus récentes
                     const technologies = Object.values(item.techno[0]).flatMap(techArray =>
@@ -168,7 +176,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             </div>
                         `)
                     ).join('');
-
+    
                     positionElement.innerHTML = `
                         <div class="card-content">
                             <div class="card-enterprise-asset row">
@@ -203,9 +211,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 } else {
                     // Carte simplifiée pour les autres entreprises sous forme de container individuel
                     duration = calculateDuration(beginningDate, endingDate); // Calculer la durée pour les anciennes positions
-
+    
                     positionElement.classList.add('position-container');
-
+    
                     positionElement.innerHTML = `
                         <div class="position-details">
                             <div class="position-info">
@@ -222,11 +230,23 @@ document.addEventListener('DOMContentLoaded', function () {
                         </div>
                     `;
                 }
-
+    
                 positionContainer.appendChild(positionElement);
             });
         });
+    
+        // Calculer la durée pour la position la plus récente
+        if (mostRecentPosition) {
+            const currentDuration = calculateDuration(mostRecentPosition.beginning, new Date());
+            const currentDiv = document.getElementById('CURRENT');
+            currentDiv.innerHTML = `
+                <strong>${mostRecentPosition.position[currentLanguage] || mostRecentPosition.position['en']}</strong> chez 
+                <strong>${mostRecentPosition.enterprise}</strong><br>
+                <strong>${currentDuration}</strong>
+            `;
+        }
     }
+    
 
 
     // Fonction pour mettre à jour tout le contenu
