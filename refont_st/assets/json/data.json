@@ -357,9 +357,9 @@
                     "client":"Spie batignolles",
                     "clientLogo":"ent_sb.png",
                     "position":{
-                        "en":"IT and Network Technician N2",
-                        "fr":"Technicien informatique et réseau N2",
-                        "sp":"Técnico Informática y Redes N2"
+                        "en":"IT and Network Technician",
+                        "fr":"Technicien informatique et réseau",
+                        "sp":"Técnico Informática y Redes"
                     },
                     "beginning":"01/08/2018",
                     "ending":"01/06/2022",
