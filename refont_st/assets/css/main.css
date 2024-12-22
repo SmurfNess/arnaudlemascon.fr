@@ -472,6 +472,7 @@ form {
 .first{
     height: 100px;
     padding: 10px 20px 10px 20px;
+    overflow: hidden;
 }
 
 .first img {
