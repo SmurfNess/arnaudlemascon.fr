@@ -53,31 +53,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    function findPositionWithoutEndDate(positions) {
-        for (const yearKey in positions) {
-            const yearlyPositions = positions[yearKey];
-    
-            for (const position of yearlyPositions) {
-                if (!position.ending) { // Vérifie si la date de fin est vide
-                    return position.beginning; // Retourne la date de début
-                }
-            }
-        }
-    
-        return null; // Si aucune position sans date de fin n'est trouvée
-    }
-    
-    function updateCurrent() {
-        const currentElement = document.getElementById("currentElement");
-        const lastPositionBeginning = findPositionWithoutEndDate(positionsData);
-    
-        if (lastPositionBeginning) {
-            currentElement.textContent = `Date de début : ${lastPositionBeginning}`;
-        } else {
-            currentElement.textContent = "Aucune position sans date de fin trouvée.";
-        }
-    }
-
     // Fonction pour générer les réalisations
     function updateAchievements(achievementsData) {
         achievementContainer.innerHTML = ''; // Réinitialiser le conteneur
@@ -267,6 +242,31 @@ document.addEventListener('DOMContentLoaded', function () {
         updateAchievements(achievementsData);
         updatePositions(positionsData);
         updateCurrent();
+    }
+
+    function findPositionWithoutEndDate(positions) {
+        for (const yearKey in positions) {
+            const yearlyPositions = positions[yearKey];
+    
+            for (const position of yearlyPositions) {
+                if (!position.ending) { // Vérifie si la date de fin est vide
+                    return position.beginning; // Retourne la date de début
+                }
+            }
+        }
+    
+        return null; // Si aucune position sans date de fin n'est trouvée
+    }
+    
+    function updateCurrent() {
+        const currentElement = document.getElementById("currentElement");
+        const lastPositionBeginning = findPositionWithoutEndDate(positionsData);
+    
+        if (lastPositionBeginning) {
+            currentElement.textContent = `Date de début : ${lastPositionBeginning}`;
+        } else {
+            currentElement.textContent = "Aucune position sans date de fin trouvée.";
+        }
     }
 
     // Gestion du changement de langue via les boutons radio
