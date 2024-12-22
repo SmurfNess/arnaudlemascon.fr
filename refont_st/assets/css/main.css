@@ -633,10 +633,12 @@ input:focus {
     text-align: right;
     margin-right: 10px;
     padding-top: 10px;
+    color: var(--color-ft-light);
 }
 
 .position-card .position-text strong {
     font-weight: bold;
+    color: var(--color-ft-white);
 }
 
 
