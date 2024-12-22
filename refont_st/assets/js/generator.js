@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let currentLanguage = 'en'; // Langue par défaut
     let originalProfilePictureSrc = profilePicture ? profilePicture.src : '';
-    
+
 
     // Fonction pour charger les données JSON
     function loadData() {
@@ -45,18 +45,38 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-        // Fonction pour mettre à jour l'introduction
-        function updateWorking(infoData) {
-            if (infoData['WORKING']) {
-                workingElement.textContent =
-                    infoData['WORKING'][currentLanguage] || infoData['WORKING']['en'];
+    // Fonction pour mettre à jour l'introduction
+    function updateWorking(infoData) {
+        if (infoData['WORKING']) {
+            workingElement.textContent =
+                infoData['WORKING'][currentLanguage] || infoData['WORKING']['en'];
+        }
+    }
+
+    function findPositionWithoutEndDate(positions) {
+        for (const yearKey in positions) {
+            const yearlyPositions = positions[yearKey];
+    
+            for (const position of yearlyPositions) {
+                if (!position.ending) { // Vérifie si la date de fin est vide
+                    return position.beginning; // Retourne la date de début
+                }
             }
         }
-            // Fonction pour mettre à jour l'introduction
-            function updateCurrent() {
-                currentElement.textContent = "noob";
-                
-            }
+    
+        return null; // Si aucune position sans date de fin n'est trouvée
+    }
+    
+    function updateCurrent() {
+        const currentElement = document.getElementById("currentElement");
+        const lastPositionBeginning = findPositionWithoutEndDate(positionsData);
+    
+        if (lastPositionBeginning) {
+            currentElement.textContent = `Date de début : ${lastPositionBeginning}`;
+        } else {
+            currentElement.textContent = "Aucune position sans date de fin trouvée.";
+        }
+    }
 
     // Fonction pour générer les réalisations
     function updateAchievements(achievementsData) {
@@ -120,46 +140,46 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function updatePositions(positionsData) {
         positionContainer.innerHTML = ''; // Réinitialiser le conteneur
-    
+
         // Trier les années dans l'ordre décroissant
         const sortedYears = Object.keys(positionsData).sort().reverse();
         let displayedCount = 0; // Compteur pour les cartes complètes
-    
+
         // Fonction pour calculer la durée en mois, et en années si nécessaire
         function calculateDuration(beginningDate, endingDate) {
             const start = new Date(beginningDate);
             const end = new Date(endingDate);
-    
+
             // Calcul de la différence en mois
             const monthsDifference = (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth());
-            
+
             // Si la différence de mois est négative (ce qui arrive si on compare une date de fin avant la date de début)
             const daysInStartMonth = new Date(start.getFullYear(), start.getMonth() + 1, 0).getDate();
             const extraMonths = end.getDate() >= start.getDate() ? 0 : -1;
-            
+
             const totalMonths = monthsDifference + extraMonths;
-    
+
             const years = Math.floor(totalMonths / 12); // Nombre d'années
             const months = totalMonths % 12; // Nombre de mois restants
-    
+
             if (years > 0) {
                 return `${years} an(s) ${months} mois`;
             } else {
                 return `${months} mois`;
             }
         }
-    
+
         // Parcourir les années triées
         sortedYears.forEach(year => {
             positionsData[year].slice().reverse().forEach(item => {
                 const positionElement = document.createElement('div');
                 positionElement.classList.add('position-card');
-    
+
                 // Format de la durée
                 const beginningDate = item.beginning || 'N/A';
                 const endingDate = item.ending || 'Present';
                 let duration = '';
-    
+
                 if (displayedCount < 3) {
                     // Carte complète pour les 3 entreprises les plus récentes
                     const technologies = Object.values(item.techno[0]).flatMap(techArray =>
@@ -173,7 +193,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             </div>
                         `)
                     ).join('');
-    
+
                     positionElement.innerHTML = `
                         <div class="card-content">
                             <div class="card-enterprise-asset row">
@@ -208,9 +228,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 } else {
                     // Carte simplifiée pour les autres entreprises sous forme de container individuel
                     duration = calculateDuration(beginningDate, endingDate); // Calculer la durée pour les anciennes positions
-    
+
                     positionElement.classList.add('position-container');
-    
+
                     positionElement.innerHTML = `
                         <div class="position-details">
                             <div class="position-info">
@@ -227,18 +247,12 @@ document.addEventListener('DOMContentLoaded', function () {
                         </div>
                     `;
                 }
-    
+
                 positionContainer.appendChild(positionElement);
             });
         });
     }
-    
-    
-    
-    
-    
-    
-    
+
 
     // Fonction pour mettre à jour tout le contenu
     function updateContent(data) {
@@ -246,14 +260,14 @@ document.addEventListener('DOMContentLoaded', function () {
         const infoData = data.INFO[0];
         const achievementsData = data.ACHIEVEMENTS[0];
         const positionsData = data.POSITIONS[0];
-        
+
         updateMenu(menuData);
         updateIntro(infoData);
         updateWorking(infoData);
         updateAchievements(achievementsData);
         updatePositions(positionsData);
         updateCurrent();
-        }
+    }
 
     // Gestion du changement de langue via les boutons radio
     const languageRadios = document.querySelectorAll('input[name="language"]');
