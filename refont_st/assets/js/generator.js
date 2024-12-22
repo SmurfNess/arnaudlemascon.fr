@@ -52,7 +52,11 @@ document.addEventListener('DOMContentLoaded', function () {
                     infoData['WORKING'][currentLanguage] || infoData['WORKING']['en'];
             }
         }
-    
+            // Fonction pour mettre à jour l'introduction
+            function updateCurrent() {
+                    workingElement.textContent ="noob";
+                }
+            }
 
     // Fonction pour générer les réalisations
     function updateAchievements(achievementsData) {
