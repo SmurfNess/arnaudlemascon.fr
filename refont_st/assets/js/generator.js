@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const positionContainer = document.getElementById('POSITIONS');
     const introElement = document.getElementById('INTRO');
     const workingElement = document.getElementById('WORKING');
-    
+    const currentElement = document.getElementById('CURRENT');
     const profilePicture = document.querySelector('.img-profile-picture');
     const jsonUrl = 'https://arnaudlemascon.fr/refont_st/assets/json/data.json';
 
