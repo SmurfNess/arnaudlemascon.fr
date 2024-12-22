@@ -120,27 +120,36 @@ document.addEventListener('DOMContentLoaded', function () {
         const sortedYears = Object.keys(positionsData).sort().reverse();
         let displayedCount = 0; // Compteur pour les cartes complètes
     
-        // Fonction pour calculer la durée en mois, et en années si nécessaire
-        function calculateDuration(beginningDate, endingDate = new Date()) {
+        // Fonction pour calculer la durée
+        function calculateDuration(beginningDate, endingDate = null) {
             const start = new Date(beginningDate);
-            const end = new Date(endingDate);
     
-            // Calcul de la différence en mois
-            const monthsDifference = (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth());
+            if (endingDate) {
+                // Si une date de fin est fournie, calcul standard
+                const end = new Date(endingDate);
     
-            // Si la différence de mois est négative (ce qui arrive si on compare une date de fin avant la date de début)
-            const daysInStartMonth = new Date(start.getFullYear(), start.getMonth() + 1, 0).getDate();
-            const extraMonths = end.getDate() >= start.getDate() ? 0 : -1;
+                const monthsDifference = (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth());
+                const daysInStartMonth = new Date(start.getFullYear(), start.getMonth() + 1, 0).getDate();
+                const extraMonths = end.getDate() >= start.getDate() ? 0 : -1;
     
-            const totalMonths = monthsDifference + extraMonths;
+                const totalMonths = monthsDifference + extraMonths;
     
-            const years = Math.floor(totalMonths / 12); // Nombre d'années
-            const months = totalMonths % 12; // Nombre de mois restants
+                const years = Math.floor(totalMonths / 12); // Nombre d'années complètes
+                const months = totalMonths % 12; // Nombre de mois restants
     
-            if (years > 0) {
-                return `${years} an(s) ${months} mois`;
+                if (years > 0) {
+                    return `${years} an(s) ${months} mois`;
+                } else {
+                    return `${months} mois`;
+                }
             } else {
-                return `${months} mois`;
+                // Si aucune date de fin n'est fournie, calcul avec années entamées
+                const now = new Date();
+                const monthsDifference = (now.getFullYear() - start.getFullYear()) * 12 + (now.getMonth() - start.getMonth());
+    
+                // Calcul des années entamées
+                const yearsEntamees = Math.ceil(monthsDifference / 12);
+                return `${yearsEntamees} an(s)`;
             }
         }
     
@@ -156,7 +165,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 // Format de la durée
                 const beginningDate = item.beginning || 'N/A';
                 const endingDate = item.ending || 'Present';
-                let duration = '';
+                let duration = calculateDuration(beginningDate, endingDate === 'Present' ? null : endingDate);
     
                 // Vérifier si c'est la position la plus récente
                 if (!mostRecentPosition) {
@@ -210,8 +219,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     displayedCount++;
                 } else {
                     // Carte simplifiée pour les autres entreprises sous forme de container individuel
-                    duration = calculateDuration(beginningDate, endingDate); // Calculer la durée pour les anciennes positions
-    
                     positionElement.classList.add('position-container');
     
                     positionElement.innerHTML = `
@@ -237,7 +244,10 @@ document.addEventListener('DOMContentLoaded', function () {
     
         // Calculer la durée pour la position la plus récente
         if (mostRecentPosition) {
-            const currentDuration = calculateDuration(mostRecentPosition.beginning, new Date());
+            const currentDuration = calculateDuration(
+                mostRecentPosition.beginning,
+                mostRecentPosition.ending || null
+            );
             const currentDiv = document.getElementById('CURRENT');
             currentDiv.innerHTML = `
                 ${currentDuration}
