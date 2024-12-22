@@ -447,6 +447,10 @@ form {
 
 /* -----------------------------------------------------------------------------------------------  enterprises */
 
+.card-enterprise{
+    background-color: yellow;
+}
+
 .card-enterprise-name {
     font-weight: bold;
     text-transform: uppercase;
