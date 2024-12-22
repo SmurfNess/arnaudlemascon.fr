@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
    
     function updateCurrent(positionsData) {
-        if (positionsData['CURRENT']) {
+        if (positionsData['POSITIONS']) {
             currentElement.textContent ="noob";
         }
     }
