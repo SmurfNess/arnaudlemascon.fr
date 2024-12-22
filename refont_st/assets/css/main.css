@@ -43,6 +43,10 @@ form {
     padding-left: 10px;
 }
 
+.col-6{
+    min-width: 75vw;
+}
+
 .background {
     position: absolute;
     top: 50%;
