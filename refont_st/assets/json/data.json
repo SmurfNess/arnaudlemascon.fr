@@ -24,6 +24,11 @@
                 "en": "English",
                 "fr": "Français",
                 "sp": "Colombiano"
+            },
+            "WORKING": {
+                "en": "Level (years worked)",
+                "fr": "Niveau (années travaillées)",
+                "sp": "Nivel (años trabajados)"
             }
         }
     ],

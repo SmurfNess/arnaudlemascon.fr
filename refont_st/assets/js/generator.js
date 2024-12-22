@@ -43,6 +43,15 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+        // Fonction pour mettre à jour l'introduction
+        function updateWorking(infoData) {
+            if (infoData['WORKING']) {
+                introElement.textContent =
+                    infoData['WORKING'][currentLanguage] || infoData['WORKING']['en'];
+            }
+        }
+    
+
     // Fonction pour générer les réalisations
     function updateAchievements(achievementsData) {
         achievementContainer.innerHTML = ''; // Réinitialiser le conteneur
@@ -234,6 +243,7 @@ document.addEventListener('DOMContentLoaded', function () {
         
         updateMenu(menuData);
         updateIntro(infoData);
+        updateWorking(infoData);
         updateAchievements(achievementsData);
         updatePositions(positionsData);
     }
