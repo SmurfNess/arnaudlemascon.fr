@@ -248,7 +248,6 @@ document.addEventListener('DOMContentLoaded', function () {
         updateWorking(infoData);
         updateAchievements(achievementsData);
         updatePositions(positionsData);
-        displayDuration();
     }
 
     // Gestion du changement de langue via les boutons radio
@@ -279,52 +278,4 @@ document.addEventListener('DOMContentLoaded', function () {
         .catch(error => {
             console.error('Erreur lors du chargement initial:', error);
         });
-        
-
-        // Fonction pour calculer la durée entre deux dates en mois
-function getDurationInMonths(startDate) {
-    const today = new Date();
-    const start = new Date(startDate);
-    const diffInTime = today - start; // Différence en millisecondes
-    const diffInMonths = diffInTime / (1000 * 3600 * 24 * 30); // Conversion en mois
-    return Math.floor(diffInMonths); // Retourne le nombre de mois entier
-}
-
-// Fonction pour rechercher la position sans date de fin (ending vide)
-function findPositionWithoutEndDate() {
-    // Parcours toutes les années dans les positions
-    for (let yearData of positionsData) {
-        for (let year in yearData) {
-            const positions = yearData[year];
-            
-            // Cherche la première position sans date de fin (ending vide)
-            const position = positions.find(item => item.ending === "");
-            
-            if (position) {
-                return position;
-            }
-        }
-    }
-    return null; // Si aucune position sans date de fin n'a été trouvée
-}
-
-// Fonction pour afficher la durée dans l'élément avec l'ID "CURRENT"
-function displayDuration() {
-    const position = findPositionWithoutEndDate();
-
-    if (position) {
-        const duration = getDurationInMonths(position.beginning);
-        const currentElement = document.getElementById("CURRENT");
-
-        if (currentElement) {
-            currentElement.textContent = `${duration} mois`;
-        } else {
-            console.error("Élément avec l'ID 'CURRENT' non trouvé.");
-        }
-    } else {
-        console.error("Aucune position sans date de fin trouvée.");
-    }
-}
-
 });
-
