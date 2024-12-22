@@ -149,7 +149,7 @@ document.addEventListener('DOMContentLoaded', function () {
     
                 // Calcul des années entamées
                 const yearsEntamees = Math.ceil(monthsDifference / 12);
-                return `${yearsEntamees} an(s)`;
+                return `${yearsEntamees}`;
             }
         }
     
