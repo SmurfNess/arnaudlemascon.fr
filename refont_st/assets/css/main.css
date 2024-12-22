@@ -601,7 +601,6 @@ input:focus {
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    background-color: var(--color-bkg-t2);
 }
 
 .position-card .position-details {
@@ -609,6 +608,7 @@ input:focus {
     justify-content: space-between;
     width: 100%;
     margin-bottom: 3px;
+    background-color: var(--color-bkg-t2);
 }
 
 .position-card .position-info {
