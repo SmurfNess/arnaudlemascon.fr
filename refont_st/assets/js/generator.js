@@ -255,7 +255,7 @@ document.addEventListener('DOMContentLoaded', function () {
         updateWorking(infoData);
         updateAchievements(achievementsData);
         updatePositions(positionsData);
-        updateCurrent();
+        displayDuration();
     }
 
     // Gestion du changement de langue via les boutons radio
@@ -287,3 +287,30 @@ document.addEventListener('DOMContentLoaded', function () {
             console.error('Erreur lors du chargement initial:', error);
         });
 });
+
+function calculateDuration(beginningDateStr) {
+    // Format de la date de début : dd/MM/yyyy
+    const dateFormat = "DD/MM/YYYY";
+    const beginningDate = moment(beginningDateStr, dateFormat); // Utilisation de la bibliothèque Moment.js pour parser la date
+    const currentDate = moment(); // Date actuelle
+    
+    // Calcul de la durée en jours
+    const duration = currentDate.diff(beginningDate, 'days');
+    
+    return duration;
+}
+
+// Fonction pour afficher la durée dans la div avec l'ID "CURRENT"
+function displayDuration() {
+    // Chercher la position sans date de fin
+    const position = data.POSITIONS[0]["202309"][0];
+    
+    if (position && position.beginning && position.ending === "") {
+        const beginningDateStr = position.beginning;
+        const duration = calculateDuration(beginningDateStr);
+        
+        // Afficher la durée dans la div "CURRENT"
+        const currentDiv = document.getElementById("CURRENT");
+        currentDiv.innerHTML = `Durée de la mission : ${duration} jours`;
+    }
+}
