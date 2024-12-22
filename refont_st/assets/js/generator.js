@@ -280,9 +280,8 @@ document.addEventListener('DOMContentLoaded', function () {
             console.error('Erreur lors du chargement initial:', error);
         });
         
-});
 
-// Fonction pour calculer la durée entre deux dates en mois
+        // Fonction pour calculer la durée entre deux dates en mois
 function getDurationInMonths(startDate) {
     const today = new Date();
     const start = new Date(startDate);
@@ -326,3 +325,6 @@ function displayDuration() {
         console.error("Aucune position sans date de fin trouvée.");
     }
 }
+
+});
+
