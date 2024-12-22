@@ -448,7 +448,7 @@ form {
 /* -----------------------------------------------------------------------------------------------  enterprises */
 
 .card-enterprise{
-    background-color: yellow;
+
 }
 
 .card-enterprise-name {
@@ -477,7 +477,7 @@ form {
 
 .first img {
     object-fit: cover;
-    height: 100%;
+    width: 100%;
     
 }
 
