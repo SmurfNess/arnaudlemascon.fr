@@ -132,7 +132,7 @@ form {
 
 .end{
     position: relative;
-    bottom: 50px;
+    bottom: 50vh;
     background: linear-gradient(0deg, rgb(211, 4, 4) 36%, rgba(158,158,158,0) 100%);
 }
 
