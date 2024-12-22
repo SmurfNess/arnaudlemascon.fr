@@ -43,10 +43,6 @@ form {
     padding-left: 10px;
 }
 
-.col-4{
-    border: 2px dotted red ;
-}
-
 .background {
     position: absolute;
     top: 50%;
