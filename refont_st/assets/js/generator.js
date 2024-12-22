@@ -294,7 +294,7 @@ function getDurationInMonths(startDate) {
 // Fonction pour rechercher la position sans date de fin (ending vide)
 function findPositionWithoutEndDate() {
     // Parcours toutes les années dans les positions
-    for (let yearData of data.POSITIONS) {
+    for (let yearData of positionsData) {
         for (let year in yearData) {
             const positions = yearData[year];
             
