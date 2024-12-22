@@ -171,11 +171,11 @@ document.addEventListener('DOMContentLoaded', function () {
                     positionElement.innerHTML = `
                         <div class="card-content">
                             <div class="card-enterprise-asset row">
-                            <div class="col-6">_</div>
+                            <div class="col-6"></div>
                                 <div class="col-3 card-enterprise second">
                                     <img src="./assets/picture/ent/${item.enterpriseLogo}" alt="${item.enterprise}">
                                 </div>
-                                <div class="col-6">
+                                <div class="col-3">
                                     <div class="card-enterprise-name">${item.enterprise}</div>
                                     <div class="card-enterprise-position">
                                         ${item.position[currentLanguage] || item.position['en']}
