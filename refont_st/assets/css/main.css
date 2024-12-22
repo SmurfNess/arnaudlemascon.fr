@@ -242,6 +242,7 @@ form {
     padding: 20px;
     text-transform: capitalize;
     font-weight: bolder;
+    color: var(--color-ft-light);
 }
 
 .carriere-number {
