@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
             // Fonction pour mettre à jour l'introduction
             function updateCurrent() {
                     workingElement.textContent ="noob";
-                }
+                
             }
 
     // Fonction pour générer les réalisations
