@@ -117,8 +117,15 @@ document.addEventListener('DOMContentLoaded', function () {
     
             // Calcul de la différence en mois
             const monthsDifference = (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth());
-            const years = Math.floor(monthsDifference / 12);
-            const months = monthsDifference % 12;
+            
+            // Si la différence de mois est négative (ce qui arrive si on compare une date de fin avant la date de début)
+            const daysInStartMonth = new Date(start.getFullYear(), start.getMonth() + 1, 0).getDate();
+            const extraMonths = end.getDate() >= start.getDate() ? 0 : -1;
+            
+            const totalMonths = monthsDifference + extraMonths;
+    
+            const years = Math.floor(totalMonths / 12); // Nombre d'années
+            const months = totalMonths % 12; // Nombre de mois restants
     
             if (years > 0) {
                 return `${years} an(s) ${months} mois`;
@@ -136,7 +143,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 // Format de la durée
                 const beginningDate = item.beginning || 'N/A';
                 const endingDate = item.ending || 'Present';
-                const duration = calculateDuration(beginningDate, endingDate);
+                let duration = '';
     
                 if (displayedCount < 3) {
                     // Carte complète pour les 3 entreprises les plus récentes
@@ -185,6 +192,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     displayedCount++;
                 } else {
                     // Carte simplifiée pour les autres entreprises sous forme de container individuel
+                    duration = calculateDuration(beginningDate, endingDate); // Calculer la durée pour les anciennes positions
+    
                     positionElement.classList.add('position-container');
     
                     positionElement.innerHTML = `
@@ -208,6 +217,7 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
     }
+    
     
     
     
