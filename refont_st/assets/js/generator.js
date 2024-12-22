@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const positionContainer = document.getElementById('POSITIONS');
     const introElement = document.getElementById('INTRO');
     const workingElement = document.getElementById('WORKING');
+    const currentElement = document.getElementById('CURRENT');
     const profilePicture = document.querySelector('.img-profile-picture');
     const jsonUrl = 'https://arnaudlemascon.fr/refont_st/assets/json/data.json';
 
@@ -44,13 +45,20 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-        // Fonction pour mettre à jour l'introduction
+        // Fonction pour mettre à jour la durée de la carrière
         function updateWorking(infoData) {
             if (infoData['WORKING']) {
                 workingElement.textContent =
                     infoData['WORKING'][currentLanguage] || infoData['WORKING']['en'];
             }
         }
+
+                // Fonction pour mettre à jour l'ancienneté dans l'entreprise actuelle
+                function updateCurrent() {
+                    duration = calculateDuration(beginningDate, endingDate);
+                     currentElement.textContent = duration;
+                }
+            
     
 
     // Fonction pour générer les réalisations
