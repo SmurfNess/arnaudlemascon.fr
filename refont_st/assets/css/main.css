@@ -610,7 +610,6 @@ input:focus {
     margin-bottom: 3px;
     background-color: var(--color-bkg-t2);
     border-radius: var(--rds-sm);
-    padding: 2px;
 }
 
 .position-card .position-info {
@@ -633,6 +632,7 @@ input:focus {
     line-height: 1.5;
     text-align: right;
     margin-right: 10px;
+    padding: 5px 0px;
 }
 
 .position-card .position-text strong {
