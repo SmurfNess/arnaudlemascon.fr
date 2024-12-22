@@ -130,13 +130,14 @@ form {
     }
 }
 
-.end{
-    position: relative;
-    bottom: 50vh;
-    height: 500px;
+.end {
+    position: absolute;
+    bottom: 0;
+    left: 0;
     width: 100%;
-    background: linear-gradient(0deg, rgba(211, 4, 4,1) 36%, rgba(158,158,158,0) 100%);
-    z-index: 10;
+    height: 20%; /* Ajuste cette hauteur */
+    background: linear-gradient(to bottom, transparent, rgba(255, 0, 0, 0.8));
+    pointer-events: none;
 }
 
 .blur-background {
