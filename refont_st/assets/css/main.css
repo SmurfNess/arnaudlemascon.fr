@@ -33,7 +33,7 @@
 }
 
 .body {
-    width: 100%;
+    width: auto;
     height: 100%;
     font-family: var(--font-1);
     background-color: var(--color-bkg-black);
