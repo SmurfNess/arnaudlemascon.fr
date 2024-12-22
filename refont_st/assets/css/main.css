@@ -620,7 +620,7 @@ input:focus {
 }
 
 .position-card .logos img {
-    max-width: 50px;
+    max-width: 100px;
     height: auto;
 }
 
