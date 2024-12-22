@@ -171,7 +171,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     positionElement.innerHTML = `
                         <div class="card-content">
                             <div class="card-enterprise-asset row">
-                                <div class="col-4 card-enterprise first">
+                                <div class="col-4 card-enterprise second">
                                     <img src="./assets/picture/ent/${item.enterpriseLogo}" alt="${item.enterprise}">
                                 </div>
                                 <div class="col-4">
