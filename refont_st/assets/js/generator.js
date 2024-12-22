@@ -110,23 +110,6 @@ document.addEventListener('DOMContentLoaded', function () {
         const sortedYears = Object.keys(positionsData).sort().reverse();
         let displayedCount = 0; // Compteur pour les cartes complètes
     
-        // Fonction pour calculer la durée en mois, et en années si nécessaire
-        function calculateDuration(beginningDate, endingDate) {
-            const start = new Date(beginningDate);
-            const end = new Date(endingDate);
-    
-            // Calcul de la différence en mois
-            const monthsDifference = (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth());
-            const years = Math.floor(monthsDifference / 12);
-            const months = monthsDifference % 12;
-    
-            if (years > 0) {
-                return `${years} an(s) ${months} mois`;
-            } else {
-                return `${months} mois`;
-            }
-        }
-    
         // Parcourir les années triées
         sortedYears.forEach(year => {
             positionsData[year].slice().reverse().forEach(item => {
@@ -136,7 +119,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 // Format de la durée
                 const beginningDate = item.beginning || 'N/A';
                 const endingDate = item.ending || 'Present';
-                const duration = calculateDuration(beginningDate, endingDate);
+                let duration = ''; 
     
                 if (displayedCount < 3) {
                     // Carte complète pour les 3 entreprises les plus récentes
@@ -185,6 +168,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     displayedCount++;
                 } else {
                     // Carte simplifiée pour les autres entreprises sous forme de container individuel
+                    duration = calculateDuration(beginningDate, endingDate); // Calculer la durée pour les anciennes positions
+    
                     positionElement.classList.add('position-container');
     
                     positionElement.innerHTML = `
@@ -208,6 +193,7 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
     }
+    
     
     
     
