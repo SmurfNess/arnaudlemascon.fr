@@ -167,21 +167,21 @@ document.addEventListener('DOMContentLoaded', function () {
                     `;
                     displayedCount++;
                 } else {
-                    // Carte simplifiée pour les autres entreprises
+                    // Carte simplifiée pour les autres entreprises sous forme de container individuel
+                    positionElement.classList.add('position-container');
+    
                     positionElement.innerHTML = `
-                        <div class="card-content">
-                            <div class="card-enterprise-asset grid">
-                                <div class="grid-item logos">
-                                    <img src="./assets/picture/ent/${item.enterpriseLogo}" alt="${item.enterprise}" class="logo">
-                                    <img src="./assets/picture/ent/${item.clientLogo}" alt="${item.client}" class="logo">
-                                </div>
-                                <div class="grid-item">
-                                    <div class="card-enterprise-name">${item.enterprise}</div>
-                                    <div class="card-enterprise-position">
-                                        ${item.position[currentLanguage] || item.position['en']}
-                                    </div>
-                                    <div class="card-enterprise-duration">${duration}</div>
-                                </div>
+                        <div class="position-details">
+                            <div class="position-info">
+                                <p class="position-text">
+                                    <strong>${item.position[currentLanguage] || item.position['en']}</strong> chez 
+                                    <strong>${item.enterprise}</strong> pour <strong>${item.client}</strong><br>
+                                    De <strong>${beginningDate}</strong> à <strong>${endingDate}</strong>
+                                </p>
+                            </div>
+                            <div class="logos">
+                                <img src="./assets/picture/ent/${item.enterpriseLogo}" alt="${item.enterprise}" class="logo">
+                                <img src="./assets/picture/ent/${item.clientLogo}" alt="${item.client}" class="logo">
                             </div>
                         </div>
                     `;
@@ -191,6 +191,7 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
     }
+    
     
     
     
