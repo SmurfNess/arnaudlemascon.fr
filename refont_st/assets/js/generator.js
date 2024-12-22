@@ -12,20 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let currentLanguage = 'en'; // Langue par défaut
     let originalProfilePictureSrc = profilePicture ? profilePicture.src : '';
-
-    fetch('https://www.duolingo.com/profile/KvotheAle?via=share_profile_qr')
-  .then(response => response.text())
-  .then(html => {
-    // Créer un DOMParser pour manipuler le HTML
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(html, 'text/html');
     
-    // Sélectionner l'élément souhaité
-    const element = doc.querySelector('h4.-TMd4');
-    console.log(element ? element.textContent : 'Élément non trouvé');
-  })
-  .catch(error => console.error('Erreur lors de la requête:', error));
-
 
     // Fonction pour charger les données JSON
     function loadData() {
