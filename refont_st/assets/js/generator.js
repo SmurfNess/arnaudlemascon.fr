@@ -282,7 +282,7 @@ document.addEventListener('DOMContentLoaded', function () {
         
 });
 
-// Fonction pour calculer la durée entre deux dates
+// Fonction pour calculer la durée entre deux dates en mois
 function getDurationInMonths(startDate) {
     const today = new Date();
     const start = new Date(startDate);
@@ -291,10 +291,27 @@ function getDurationInMonths(startDate) {
     return Math.floor(diffInMonths); // Retourne le nombre de mois entier
 }
 
+// Fonction pour rechercher la position sans date de fin (ending vide)
+function findPositionWithoutEndDate() {
+    // Parcours toutes les années dans les positions
+    for (let yearData of data.POSITIONS) {
+        for (let year in yearData) {
+            const positions = yearData[year];
+            
+            // Cherche la première position sans date de fin (ending vide)
+            const position = positions.find(item => item.ending === "");
+            
+            if (position) {
+                return position;
+            }
+        }
+    }
+    return null; // Si aucune position sans date de fin n'a été trouvée
+}
+
 // Fonction pour afficher la durée dans l'élément avec l'ID "CURRENT"
 function displayDuration() {
-    // Trouver la position sans date de fin (ending vide)
-    const position = data.POSITIONS[0]["202309"].find(item => item.ending === "");
+    const position = findPositionWithoutEndDate();
 
     if (position) {
         const duration = getDurationInMonths(position.beginning);
