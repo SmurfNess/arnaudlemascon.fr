@@ -600,7 +600,7 @@ input:focus {
     margin-bottom: 15px; /* Espacement entre les positions */
     padding: 10px;
     border: 1px solid #ddd;
-    border-radius: 5px;
+    border-radius: var(--rds-sm);
 }
 
 .position-card .position-details {
@@ -609,6 +609,8 @@ input:focus {
     width: 100%;
     margin-bottom: 3px;
     background-color: var(--color-bkg-t2);
+    border-radius: var(--rds-sm);
+    padding: 2px;
 }
 
 .position-card .position-info {
