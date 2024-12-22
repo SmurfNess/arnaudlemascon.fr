@@ -630,7 +630,7 @@ input:focus {
 .position-card .position-text {
     font-size: 14px;
     line-height: 1.5;
-    text-align: right;
+    text-align:  center right;
     margin-right: 10px;
     padding: 5px 0px;
 }
