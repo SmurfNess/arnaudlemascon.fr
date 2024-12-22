@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const achievementContainer = document.getElementById('ACHIEVEMENT');
     const positionContainer = document.getElementById('POSITIONS');
     const introElement = document.getElementById('INTRO');
+    const workingElement = document.getElementById('WORKING');
     const profilePicture = document.querySelector('.img-profile-picture');
     const jsonUrl = 'https://arnaudlemascon.fr/refont_st/assets/json/data.json';
 
@@ -46,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // Fonction pour mettre à jour l'introduction
         function updateWorking(infoData) {
             if (infoData['WORKING']) {
-                introElement.textContent =
+                workingElement.textContent =
                     infoData['WORKING'][currentLanguage] || infoData['WORKING']['en'];
             }
         }
