@@ -49,7 +49,7 @@ form {
     left: 50%;
     transform: translate(-50%, -50%);
     height: 140vh;
-    width: auto;
+    width: 100%;
     object-fit: cover;
     z-index: -1;
     background-color: blue;
