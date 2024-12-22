@@ -167,19 +167,25 @@ document.addEventListener('DOMContentLoaded', function () {
                     `;
                     displayedCount++;
                 } else {
-                    // Carte simplifiée pour les autres entreprises
+                    // Carte simplifiée pour les autres entreprises dans une grid
                     positionElement.innerHTML = `
                         <div class="card-content">
-                            <div class="card-enterprise-asset row">
-                            <div class="col-6"></div>
-                                <div class="col-3 card-enterprise second">
+                            <div class="card-enterprise-asset grid">
+                                <div class="grid-item">
                                     <img src="./assets/picture/ent/${item.enterpriseLogo}" alt="${item.enterprise}">
                                 </div>
-                                <div class="col-3">
+                                <div class="grid-item">
+                                    <img src="./assets/picture/ent/${item.clientLogo}" alt="${item.client}">
+                                </div>
+                                <div class="grid-item">
                                     <div class="card-enterprise-name">${item.enterprise}</div>
+                                </div>
+                                <div class="grid-item">
                                     <div class="card-enterprise-position">
                                         ${item.position[currentLanguage] || item.position['en']}
                                     </div>
+                                </div>
+                                <div class="grid-item">
                                     <div class="card-enterprise-duration">${duration}</div>
                                 </div>
                             </div>
@@ -191,6 +197,7 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
     }
+    
     
     
 
