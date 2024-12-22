@@ -200,7 +200,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                     </div>
                                     <div class="card-enterprise-duration">${item.beginning} - ${item.ending}</div>
                                 </div>
-                                <div class="col-4 custom-col card-enterprise second">
+                                <div class="col-4 card-enterprise second">
                                     <img src="./assets/picture/ent/${item.clientLogo}" alt="${item.client}">
                                 </div>
                                 <div class="col-6">
