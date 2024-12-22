@@ -130,6 +130,11 @@ form {
     }
 }
 
+.end{
+    position: relative;
+    bottom: 0px;
+    background: linear-gradient(0deg, rgb(0, 0, 0) 36%, rgba(158,158,158,0) 100%);
+}
 
 .blur-background {
     position: relative;
