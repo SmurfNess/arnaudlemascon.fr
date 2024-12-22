@@ -452,6 +452,14 @@ form {
     text-transform: uppercase;
 }
 
+.card-enterprise-filiale{
+
+}
+
+.card-enterprise-position{
+    text-transform: capitalize;
+}
+
 .card-enterprise-mission {
     padding: 10px;
     font-size: var(--ft-sm);
