@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const positionContainer = document.getElementById('POSITIONS');
     const introElement = document.getElementById('INTRO');
     const workingElement = document.getElementById('WORKING');
-    const currentElement = document.getElementById('CURRENT');
+    
     const profilePicture = document.querySelector('.img-profile-picture');
     const jsonUrl = 'https://arnaudlemascon.fr/refont_st/assets/json/data.json';
 
@@ -45,20 +45,13 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-        // Fonction pour mettre à jour la durée de la carrière
+        // Fonction pour mettre à jour l'introduction
         function updateWorking(infoData) {
             if (infoData['WORKING']) {
                 workingElement.textContent =
                     infoData['WORKING'][currentLanguage] || infoData['WORKING']['en'];
             }
         }
-
-                // Fonction pour mettre à jour l'ancienneté dans l'entreprise actuelle
-                function updateCurrent() {
-                    duration = calculateDuration(beginningDate, endingDate);
-                     currentElement.textContent = duration;
-                }
-            
     
 
     // Fonction pour générer les réalisations
@@ -255,7 +248,6 @@ document.addEventListener('DOMContentLoaded', function () {
         updateWorking(infoData);
         updateAchievements(achievementsData);
         updatePositions(positionsData);
-        displayDuration();
     }
 
     // Gestion du changement de langue via les boutons radio
@@ -287,30 +279,3 @@ document.addEventListener('DOMContentLoaded', function () {
             console.error('Erreur lors du chargement initial:', error);
         });
 });
-
-function calculateDuration(beginningDateStr) {
-    // Format de la date de début : dd/MM/yyyy
-    const dateFormat = "DD/MM/YYYY";
-    const beginningDate = moment(beginningDateStr, dateFormat); // Utilisation de la bibliothèque Moment.js pour parser la date
-    const currentDate = moment(); // Date actuelle
-    
-    // Calcul de la durée en jours
-    const duration = currentDate.diff(beginningDate, 'days');
-    
-    return duration;
-}
-
-// Fonction pour afficher la durée dans la div avec l'ID "CURRENT"
-function displayDuration() {
-    // Chercher la position sans date de fin
-    const position = data.POSITIONS[0]["202309"][0];
-    
-    if (position && position.beginning && position.ending === "") {
-        const beginningDateStr = position.beginning;
-        const duration = calculateDuration(beginningDateStr);
-        
-        // Afficher la durée dans la div "CURRENT"
-        const currentDiv = document.getElementById("CURRENT");
-        currentDiv.innerHTML = `Durée de la mission : ${duration} jours`;
-    }
-}
