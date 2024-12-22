@@ -202,7 +202,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                 <p class="position-text">
                                     <strong>${item.position[currentLanguage] || item.position['en']}</strong> chez 
                                     <strong>${item.enterprise}</strong> pour <strong>${item.client}</strong><br>
-                                    Durée : <strong>${duration}</strong>
+                                    <strong>${duration}</strong>
                                 </p>
                             </div>
                             <div class="logos">
