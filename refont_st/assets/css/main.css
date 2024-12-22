@@ -624,7 +624,7 @@ input:focus {
 }
 
 .position-card .logos img {
-    padding: 10px;
+    margin-top: 10px;
     max-width: 100px;
     height: auto;
     max-height: 40px;
