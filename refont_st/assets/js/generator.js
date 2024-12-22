@@ -53,13 +53,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-   
-    function updateCurrent(positionsData) {
-
-            currentElement.textContent ="noob";
-        
-    }
-
     // Fonction pour générer les réalisations
     function updateAchievements(achievementsData) {
         achievementContainer.innerHTML = ''; // Réinitialiser le conteneur
