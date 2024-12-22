@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const positionContainer = document.getElementById('POSITIONS');
     const introElement = document.getElementById('INTRO');
     const workingElement = document.getElementById('WORKING');
-    const currentElement = document.getElementById('CURRENT');
+    const currentElement = document.getElementById("CURRENT");
     const profilePicture = document.querySelector('.img-profile-picture');
     const jsonUrl = 'https://arnaudlemascon.fr/refont_st/assets/json/data.json';
 
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
             // Fonction pour mettre à jour l'introduction
             function updateCurrent() {
-                currentElement.innerHTML ='noob';
+                currentElement.textContent = "noob";
                 
             }
 
@@ -252,7 +252,8 @@ document.addEventListener('DOMContentLoaded', function () {
         updateWorking(infoData);
         updateAchievements(achievementsData);
         updatePositions(positionsData);
-    }
+        updateCurrent();
+        }
 
     // Gestion du changement de langue via les boutons radio
     const languageRadios = document.querySelectorAll('input[name="language"]');
