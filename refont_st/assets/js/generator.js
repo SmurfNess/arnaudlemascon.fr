@@ -172,10 +172,10 @@ document.addEventListener('DOMContentLoaded', function () {
                         <div class="card-content">
                             <div class="card-enterprise-asset row">
                             <div class="col-6"></div>
-                                <div class="col-3 card-enterprise second">
+                                <div class="col-2 card-enterprise second">
                                     <img src="./assets/picture/ent/${item.enterpriseLogo}" alt="${item.enterprise}">
                                 </div>
-                                <div class="col-3">
+                                <div class="col-4">
                                     <div class="card-enterprise-name">${item.enterprise}</div>
                                     <div class="card-enterprise-position">
                                         ${item.position[currentLanguage] || item.position['en']}
