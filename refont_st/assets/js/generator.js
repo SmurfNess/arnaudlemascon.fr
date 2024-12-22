@@ -167,25 +167,19 @@ document.addEventListener('DOMContentLoaded', function () {
                     `;
                     displayedCount++;
                 } else {
-                    // Carte simplifiée pour les autres entreprises dans une grid
+                    // Carte simplifiée pour les autres entreprises
                     positionElement.innerHTML = `
                         <div class="card-content">
                             <div class="card-enterprise-asset grid">
-                                <div class="grid-item">
-                                    <img src="./assets/picture/ent/${item.enterpriseLogo}" alt="${item.enterprise}">
-                                </div>
-                                <div class="grid-item">
-                                    <img src="./assets/picture/ent/${item.clientLogo}" alt="${item.client}">
+                                <div class="grid-item logos">
+                                    <img src="./assets/picture/ent/${item.enterpriseLogo}" alt="${item.enterprise}" class="logo">
+                                    <img src="./assets/picture/ent/${item.clientLogo}" alt="${item.client}" class="logo">
                                 </div>
                                 <div class="grid-item">
                                     <div class="card-enterprise-name">${item.enterprise}</div>
-                                </div>
-                                <div class="grid-item">
                                     <div class="card-enterprise-position">
                                         ${item.position[currentLanguage] || item.position['en']}
                                     </div>
-                                </div>
-                                <div class="grid-item">
                                     <div class="card-enterprise-duration">${duration}</div>
                                 </div>
                             </div>
@@ -197,6 +191,7 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
     }
+    
     
     
     
