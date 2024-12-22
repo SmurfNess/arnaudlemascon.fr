@@ -123,16 +123,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function updatePositions(positionsData) {
         positionContainer.innerHTML = ''; // Réinitialiser le conteneur
-    
+        
         // Trier les années dans l'ordre décroissant
         const sortedYears = Object.keys(positionsData).sort().reverse();
         let displayedCount = 0; // Compteur pour les cartes complètes
+        let lastPositionDuration = ''; // Variable pour stocker la durée de la dernière position sans date de fin
     
         // Fonction pour calculer la durée en mois, et en années si nécessaire
         function calculateDuration(beginningDate, endingDate) {
             const start = new Date(beginningDate);
-            const end = new Date(endingDate);
-    
+            const end = endingDate === "Present" || !endingDate ? new Date() : new Date(endingDate);
+        
             // Calcul de la différence en mois
             const monthsDifference = (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth());
             
@@ -141,28 +142,28 @@ document.addEventListener('DOMContentLoaded', function () {
             const extraMonths = end.getDate() >= start.getDate() ? 0 : -1;
             
             const totalMonths = monthsDifference + extraMonths;
-    
+        
             const years = Math.floor(totalMonths / 12); // Nombre d'années
             const months = totalMonths % 12; // Nombre de mois restants
-    
+        
             if (years > 0) {
                 return `${years} an(s) ${months} mois`;
             } else {
                 return `${months} mois`;
             }
         }
-    
+        
         // Parcourir les années triées
         sortedYears.forEach(year => {
             positionsData[year].slice().reverse().forEach(item => {
                 const positionElement = document.createElement('div');
                 positionElement.classList.add('position-card');
-    
+        
                 // Format de la durée
                 const beginningDate = item.beginning || 'N/A';
                 const endingDate = item.ending || 'Present';
                 let duration = '';
-    
+        
                 if (displayedCount < 3) {
                     // Carte complète pour les 3 entreprises les plus récentes
                     const technologies = Object.values(item.techno[0]).flatMap(techArray =>
@@ -176,7 +177,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             </div>
                         `)
                     ).join('');
-    
+        
                     positionElement.innerHTML = `
                         <div class="card-content">
                             <div class="card-enterprise-asset row">
@@ -211,9 +212,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 } else {
                     // Carte simplifiée pour les autres entreprises sous forme de container individuel
                     duration = calculateDuration(beginningDate, endingDate); // Calculer la durée pour les anciennes positions
-    
+        
                     positionElement.classList.add('position-container');
-    
+        
                     positionElement.innerHTML = `
                         <div class="position-details">
                             <div class="position-info">
@@ -230,10 +231,23 @@ document.addEventListener('DOMContentLoaded', function () {
                         </div>
                     `;
                 }
-    
+        
                 positionContainer.appendChild(positionElement);
+    
+                // Si c'est la dernière position sans date de fin
+                if (!item.ending || item.ending === "Present") {
+                    lastPositionDuration = duration; // Stocker la durée de la dernière position
+                }
             });
         });
+    
+        // Vérifier si une durée a été trouvée pour la dernière position sans date de fin
+        if (lastPositionDuration) {
+            const currentDiv = document.getElementById('CURRENT');
+            if (currentDiv) {
+                currentDiv.textContent = lastPositionDuration; // Mettre à jour le contenu de la div
+            }
+        }
     }
     
     
