@@ -240,9 +240,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const currentDuration = calculateDuration(mostRecentPosition.beginning, new Date());
             const currentDiv = document.getElementById('CURRENT');
             currentDiv.innerHTML = `
-                <strong>${mostRecentPosition.position[currentLanguage] || mostRecentPosition.position['en']}</strong> chez 
-                <strong>${mostRecentPosition.enterprise}</strong><br>
-                <strong>${currentDuration}</strong>
+                ${currentDuration}
             `;
         }
     }
