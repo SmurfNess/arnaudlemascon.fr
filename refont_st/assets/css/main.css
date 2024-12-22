@@ -43,9 +43,9 @@ form {
     padding-left: 10px;
 }
 
-.custom-col {
-    min-width: 400px; 
-  }
+.col-4{
+    border: 2px dotted red ;
+}
 
 .background {
     position: absolute;
