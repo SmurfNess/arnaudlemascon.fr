@@ -422,7 +422,9 @@ form {
 
 .card-content {
     padding: 10px;
+    overflow: hidden;
 }
+
 
 .card-grid {
     position: relative;
