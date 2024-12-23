@@ -44,7 +44,7 @@
   /************************************************* ness ****************************************/
   .containess{
     z-index: 52;
-    position: fixed;
+    position: relative;
     height: 120px;
     width: 100vw;
     top: 0px;
@@ -54,15 +54,10 @@
     
   
   .nessclass{
-    position: absolute;
+    position: relative;
     z-index: 50;
-    top: -70px;
-    animation: hidingness;
-    animation-iteration-count: infinite;
-    animation-duration: 30s;
-    animation-fill-mode: forwards;
-    animation-delay: 15s;
-    background-color: red;
+    top: 50px;
+    
   }
 
   .nessdrawed{
@@ -216,16 +211,5 @@
   }
   #L-eyelid{
   margin-left:5px;
-  }
-
-  @media only screen and (max-width: 990px) {
-    .navbar-toggler{
-      height: 60px;
-    }
-    .shake{
-      display: none;
-    }
-    
-
   }
 
