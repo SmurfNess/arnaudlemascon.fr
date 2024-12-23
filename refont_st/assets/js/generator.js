@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const introElement = document.getElementById('INTRO');
     const workingElement = document.getElementById('WORKING');
     const currentElement = document.getElementById("CURRENT");
-    const profilePicture = document.querySelector('.img-profile-picture');
+    const profilePicture = document.querySelector('.img-profile-pictures');
     const jsonUrl = 'https://arnaudlemascon.fr/refont_st/assets/json/data.json';
 
     let currentLanguage = 'en'; // Langue par défaut
@@ -64,11 +64,11 @@ document.addEventListener('DOMContentLoaded', function () {
                     achievementElement.classList.add('container-achievement');
                     achievementElement.setAttribute(
                         'data-image',
-                        `./assets/picture/gallery/${item.gallery}`
+                        `./assets/pictures/gallery/${item.gallery}`
                     );
 
                     achievementElement.innerHTML = `
-                        <img src="./assets/picture/achievement/${item.icon}" alt="${item.alt}" class="card-img-achievement">
+                        <img src="./assets/pictures/achievement/${item.icon}" alt="${item.alt}" class="card-img-achievement">
                         <div class="tooltip-text">
                             <div class="tooltip-title">${item.title[currentLanguage] || item.title['en']}</div>
                             <div class="tooltip-description">${item.description[currentLanguage] || item.description['en']}</div>
@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Fonction pour configurer les événements de survol sur les réalisations
     function setupAchievementHover() {
         if (!profilePicture) {
-            console.error('Image de profil introuvable. Vérifiez la classe .img-profile-picture');
+            console.error('Image de profil introuvable. Vérifiez la classe .img-profile-pictures');
             return;
         }
 
@@ -177,7 +177,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     const technologies = Object.values(item.techno[0]).flatMap(techArray =>
                         techArray.map(tech => `
                             <div class="container-tools">
-                                <img src="./assets/picture/techno/${tech.logo}" alt="${tech.title}" class="card-img-tools">
+                                <img src="./assets/pictures/techno/${tech.logo}" alt="${tech.title}" class="card-img-tools">
                                 <div class="tooltip-text">
                                     <div class="tooltip-title">${tech.title}</div>
                                     <div class="tooltip-description"></div>
@@ -190,7 +190,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         <div class="card-content">
                             <div class="card-enterprise-asset row">
                                 <div class="col-4 card-enterprise first">
-                                    <img src="./assets/picture/ent/${item.enterpriseLogo}" alt="${item.enterprise}">
+                                    <img src="./assets/pictures/ent/${item.enterpriseLogo}" alt="${item.enterprise}">
                                 </div>
                                 <div class="col-4">
                                     <div class="card-enterprise-name">${item.enterprise}</div>
@@ -201,7 +201,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                     <div class="card-enterprise-duration">${item.beginning} - ${item.ending}</div>
                                 </div>
                                 <div class="col-4 card-enterprise second">
-                                    <img src="./assets/picture/ent/${item.clientLogo}" alt="${item.client}">
+                                    <img src="./assets/pictures/ent/${item.clientLogo}" alt="${item.client}">
                                 </div>
                                 <div class="col-6">
                                     <div class="card-enterprise-grid">
@@ -231,8 +231,8 @@ document.addEventListener('DOMContentLoaded', function () {
                                 </p>
                             </div>
                             <div class="logos">
-                                <img src="./assets/picture/ent/${item.enterpriseLogo}" alt="${item.enterprise}" class="logo">
-                                <img src="./assets/picture/ent/${item.clientLogo}" alt="${item.client}" class="logo">
+                                <img src="./assets/pictures/ent/${item.enterpriseLogo}" alt="${item.enterprise}" class="logo">
+                                <img src="./assets/pictures/ent/${item.clientLogo}" alt="${item.client}" class="logo">
                             </div>
                         </div>
                     `;
