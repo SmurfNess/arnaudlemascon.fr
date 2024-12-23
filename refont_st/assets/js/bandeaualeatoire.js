@@ -10,7 +10,7 @@ function chargerImagesAleatoires() {
     for (var i = 0; i < images.length; i++) {
         var img = document.createElement('img');
         img.src = images[i];
-        img.setAttribute('alt', 'Description de l\'image ' + i); // Ajout de la propriété alt
+        img.setAttribute('alt', 'Description de l\'image ' + i);
         banner.appendChild(img);
     }
 }
