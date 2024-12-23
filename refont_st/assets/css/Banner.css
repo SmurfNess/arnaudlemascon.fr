@@ -23,15 +23,13 @@
 
 #BANNER{
     background-color:var(--color-other);
-    z-index: 40;
-    position: fixed;
     left: 0vw;
     top: 0px;
-    height: 120px;
+    height: 100%;
     cursor: none;
     overflow: hidden;
     display: flex;
-    width: 100vw;
+    width: 100%;
   }
 
   .container_banner{
