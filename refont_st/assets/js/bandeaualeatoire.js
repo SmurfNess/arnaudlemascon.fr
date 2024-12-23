@@ -1,4 +1,4 @@
-var images = ['./assets/pictures/banner/cat1.webp','./assets/pictures/banner/cat3.webp','./assets/pictures/banner/cat4.webp', './assets/pictures/banner/sofa.webp', './assets/pictures/banner/cat2.webp', './assets/pictures/banner/shelf1.webp', './assets/pictures/banner/shelf2.webp', './assets/pictures/banner/window1.webp', './assets/pictures/banner/window2.webp', './assets/pictures/banner/frames.webp', './assets/pictures/banner/frame.webp'];
+var images = ['./assets/pictures/banner/cat1.webp', './assets/pictures/banner/sofa.webp', './assets/pictures/banner/cat2.webp', './assets/pictures/banner/shelf1.webp', './assets/pictures/banner/shelf2.webp', './assets/pictures/banner/window1.webp', './assets/pictures/banner/frames.webp'];
 
 function chargerImagesAleatoires() {
     shuffle(images);
