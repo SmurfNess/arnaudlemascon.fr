@@ -33,7 +33,7 @@
   }
 
   #BANNER img{
-    transform: scale(0.9);
+    transform: scaleX(0.9);
   }
 
   .container_banner{
