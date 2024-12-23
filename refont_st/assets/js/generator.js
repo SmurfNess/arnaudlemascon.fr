@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const introElement = document.getElementById('INTRO');
     const workingElement = document.getElementById('WORKING');
     const currentElement = document.getElementById("CURRENT");
-    const profilePicture = document.querySelector('.img-profile-pictures');
+    const profilePicture = document.querySelector('.img-profile-picture');
     const jsonUrl = 'https://arnaudlemascon.fr/refont_st/assets/json/data.json';
 
     let currentLanguage = 'en'; // Langue par défaut
@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Fonction pour configurer les événements de survol sur les réalisations
     function setupAchievementHover() {
         if (!profilePicture) {
-            console.error('Image de profil introuvable. Vérifiez la classe .img-profile-pictures');
+            console.error('Image de profil introuvable. Vérifiez la classe .img-profile-picture');
             return;
         }
 
