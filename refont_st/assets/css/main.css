@@ -446,7 +446,7 @@ form {
 /* -----------------------------------------------------------------------------------------------  enterprises */
 
 .card-enterprise{
-
+position: relative;
 }
 
 .card-enterprise-name {
@@ -455,7 +455,7 @@ form {
 }
 
 .card-enterprise-filiale{
-
+    position: relative;
 }
 
 .card-enterprise-position{
