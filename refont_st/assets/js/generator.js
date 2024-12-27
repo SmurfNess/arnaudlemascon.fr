@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
         // Fonction pour mettre à jour l'introduction
         function updateCat(infoData) {
-            if (infoData['WORKING']) {
+            if (infoData['CAT']) {
                 catElementElement.textContent =
                     infoData['CAT'][currentLanguage] || infoData['CAT']['en'];
             }
