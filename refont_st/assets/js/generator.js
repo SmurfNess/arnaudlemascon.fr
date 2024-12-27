@@ -67,6 +67,38 @@ document.addEventListener('DOMContentLoaded', function () {
                 catElement.textContent =
                     infoData['CAT'][currentLanguage] || infoData['CAT']['en'];
             }
+            if (infoData['SUCCESS']) {
+                catElement.textContent =
+                    infoData['SUCCESS'][currentLanguage] || infoData['SUCCESS']['en'];
+            }
+            if (infoData['HISTORY']) {
+                catElement.textContent =
+                    infoData['HISTORY'][currentLanguage] || infoData['HISTORY']['en'];
+            }
+            if (infoData['WORK']) {
+                catElement.textContent =
+                    infoData['WORK'][currentLanguage] || infoData['WORK']['en'];
+            }
+            if (infoData['CONTACT']) {
+                catElement.textContent =
+                    infoData['CONTACT'][currentLanguage] || infoData['CONTACT']['en'];
+            }
+            if (infoData['STATUS']) {
+                catElement.textContent =
+                    infoData['STATUS'][currentLanguage] || infoData['STATUS']['en'];
+            }
+            if (infoData['CERTIFICATE']) {
+                catElement.textContent =
+                    infoData['CERTIFICATE'][currentLanguage] || infoData['CERTIFICATE']['en'];
+            }
+            if (infoData['LANGUAGES']) {
+                catElement.textContent =
+                    infoData['LANGUAGES'][currentLanguage] || infoData['LANGUAGES']['en'];
+            }
+            if (infoData['DIPLOMAS']) {
+                catElement.textContent =
+                    infoData['DIPLOMAS'][currentLanguage] || infoData['DIPLOMAS']['en'];
+            }
         }
 
     // Fonction pour générer les réalisations
