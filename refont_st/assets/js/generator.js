@@ -59,15 +59,14 @@ document.addEventListener('DOMContentLoaded', function () {
         if (infoData['WORKING']) {
             workingElement.textContent =
                 infoData['WORKING'][currentLanguage] || infoData['WORKING']['en'];
-                if (infoData['CAT']) {
-                    catElementElement.textContent =
-                        infoData['CAT'][currentLanguage] || infoData['CAT']['en'];
-                }
         }
     }
         // Fonction pour mettre à jour l'introduction
         function updateCat(infoData) {
-
+            if (infoData['CAT']) {
+                catElementElement.textContent =
+                    infoData['CAT'][currentLanguage] || infoData['CAT']['en'];
+            }
         }
 
     // Fonction pour générer les réalisations
@@ -294,6 +293,7 @@ document.addEventListener('DOMContentLoaded', function () {
         updateWorking(infoData);
         updateAchievements(achievementsData);
         updatePositions(positionsData);
+        updateCat(infoData);
     }
 
     // Gestion du changement de langue via les boutons radio
