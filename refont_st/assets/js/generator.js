@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
         // Fonction pour mettre à jour l'introduction
-        function updateCat(infoData) {
+        function updateCardTitle(infoData) {
             if (infoData['CAT']) {
                 catElement.textContent =
                     infoData['CAT'][currentLanguage] || infoData['CAT']['en'];
@@ -293,7 +293,7 @@ document.addEventListener('DOMContentLoaded', function () {
         updateWorking(infoData);
         updateAchievements(achievementsData);
         updatePositions(positionsData);
-        updateCat(infoData);
+        updateCardTitle(infoData);
         console.log(infoData);
     }
 
