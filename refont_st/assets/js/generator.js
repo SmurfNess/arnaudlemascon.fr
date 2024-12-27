@@ -267,7 +267,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     displayedCount++;
                 } else {
                     // Carte simplifiée pour les autres entreprises sous forme de container individuel
-                    positionElement.classList.add('position-container');
+                    positionElement.classList.add('position-container card-entreprise-sup');
     
                     positionElement.innerHTML = `
                         <div class="position-details">
