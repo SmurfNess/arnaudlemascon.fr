@@ -9,6 +9,15 @@ document.addEventListener('DOMContentLoaded', function () {
     const introElement = document.getElementById('INTRO');
     const workingElement = document.getElementById('WORKING');
     const currentElement = document.getElementById("CURRENT");
+    const catElement = document.getElementById("CAT");
+    const successElement = document.getElementById("SUCCESS");
+    const historyElement = document.getElementById("HISTORY");
+    const workElement = document.getElementById("WORK");
+    const contactElement = document.getElementById("CONTACT");
+    const certificateElement = document.getElementById("CERTIFICATE");
+    const statusElement = document.getElementById("STATUS");
+    const diplomasElement = document.getElementById("DIPLOMAS");
+    const languagesElement = document.getElementById("LANGUAGES");
     const profilePicture = document.querySelector('.img-profile-picture');
     const jsonUrl = 'https://arnaudlemascon.fr/refont_st/assets/json/data.json';
 
@@ -52,6 +61,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 infoData['WORKING'][currentLanguage] || infoData['WORKING']['en'];
         }
     }
+        // Fonction pour mettre à jour l'introduction
+        function updateCat(infoData) {
+            if (infoData['WORKING']) {
+                catElementElement.textContent =
+                    infoData['CAT'][currentLanguage] || infoData['CAT']['en'];
+            }
+        }
 
     // Fonction pour générer les réalisations
     function updateAchievements(achievementsData) {
