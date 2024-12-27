@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const historyElement = document.getElementById("HISTORY");
     const workElement = document.getElementById("WORK");
     const contactElement = document.getElementById("CONTACT");
-    const certificateElement = document.getElementById("CERTIFICATE");
+    const certificatElement = document.getElementById("CERTIFICATE");
     const statusElement = document.getElementById("STATUS");
     const diplomasElement = document.getElementById("DIPLOMAS");
     const languagesElement = document.getElementById("LANGUAGES");
