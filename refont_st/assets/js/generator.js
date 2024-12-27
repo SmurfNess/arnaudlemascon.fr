@@ -68,35 +68,35 @@ document.addEventListener('DOMContentLoaded', function () {
                     infoData['CAT'][currentLanguage] || infoData['CAT']['en'];
             }
             if (infoData['SUCCESS']) {
-                catElement.textContent =
+                successElement.textContent =
                     infoData['SUCCESS'][currentLanguage] || infoData['SUCCESS']['en'];
             }
             if (infoData['HISTORY']) {
-                catElement.textContent =
+                historyElement.textContent =
                     infoData['HISTORY'][currentLanguage] || infoData['HISTORY']['en'];
             }
             if (infoData['WORK']) {
-                catElement.textContent =
+                workElement.textContent =
                     infoData['WORK'][currentLanguage] || infoData['WORK']['en'];
             }
             if (infoData['CONTACT']) {
-                catElement.textContent =
+                contactElement.textContent =
                     infoData['CONTACT'][currentLanguage] || infoData['CONTACT']['en'];
             }
             if (infoData['STATUS']) {
-                catElement.textContent =
+                statusElement.textContent =
                     infoData['STATUS'][currentLanguage] || infoData['STATUS']['en'];
             }
             if (infoData['CERTIFICATE']) {
-                catElement.textContent =
+                certificatElement.textContent =
                     infoData['CERTIFICATE'][currentLanguage] || infoData['CERTIFICATE']['en'];
             }
             if (infoData['LANGUAGES']) {
-                catElement.textContent =
+                languagesElement.textContent =
                     infoData['LANGUAGES'][currentLanguage] || infoData['LANGUAGES']['en'];
             }
             if (infoData['DIPLOMAS']) {
-                catElement.textContent =
+                diplomasElement.textContent =
                     infoData['DIPLOMAS'][currentLanguage] || infoData['DIPLOMAS']['en'];
             }
         }
