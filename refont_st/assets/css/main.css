@@ -540,7 +540,7 @@ input:focus {
 
 .container-menu {
     background-color: var(--color-bkg-t2);
-    height: fit-content;
+    height: 50px;
     width: 100%;
     padding: 10px;
     display: flex;
