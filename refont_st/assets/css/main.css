@@ -585,6 +585,7 @@ input:focus {
 .menu-certification-number{
     font-size: var(--ft-xl);
     color: var(--color-ft-light);
+    border: red dotted 1px;
 }
 
 .menu-certification, .menu-certification-title{
