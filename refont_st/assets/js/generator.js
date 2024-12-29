@@ -19,31 +19,10 @@ document.addEventListener('DOMContentLoaded', function () {
     const diplomasElement = document.getElementById("DIPLOMAS");
     const languagesElement = document.getElementById("LANGUAGES");
     const profilePicture = document.querySelector('.img-profile-picture');
-    const bossElement = document.getElementById("BOSS"); 
-    const clientElement = document.getElementById("CLIENT");
     const jsonUrl = 'https://arnaudlemascon.fr/refont_st/assets/json/data.json';
 
     let currentLanguage = 'en'; // Langue par défaut
     let originalProfilePictureSrc = profilePicture ? profilePicture.src : '';
-
-    // Fonction pour mettre à jour les textes de BOSS et CLIENT
-function updateTextLanguage(data) {
-    // Récupérer les traductions pour 'boss' et 'client' en fonction de la langue
-    const bossText = data.TEXT[0].boss[currentLanguage] || data.TEXT[0].boss['en'];
-    const clientText = data.TEXT[0].client[currentLanguage] || data.TEXT[0].client['en'];
-
-    // Mettre à jour le contenu des éléments HTML
-    const bossElement = document.getElementById("BOSS");
-    const clientElement = document.getElementById("CLIENT");
-
-    if (bossElement) {
-        bossElement.textContent = bossText;
-    }
-    if (clientElement) {
-        clientElement.textContent = clientText;
-    }
-}
-
 
 
     // Fonction pour charger les données JSON
@@ -294,8 +273,8 @@ function updateTextLanguage(data) {
                         <div class="position-details">
                             <div class="position-info">
                                 <p class="position-text">
-                                    <strong>${item.position[currentLanguage] || item.position['en']}</strong> <span id="BOSS"></span> 
-                                    <strong>${item.enterprise}</strong> <span id="CLIENT"></span> <strong>${item.client}</strong><br>
+                                    <strong>${item.position[currentLanguage] || item.position['en']}</strong> chez 
+                                    <strong>${item.enterprise}</strong> pour <strong>${item.client}</strong><br>
                                     <strong>${duration}</strong>
                                 </p>
                             </div>
@@ -327,26 +306,28 @@ function updateTextLanguage(data) {
             currentEntDiv.innerHTML = `
                 ${CurrentEnt}
             `;
+            console.log('${CurrentEnt}');
+            console.log('${mostRecentPosition.enterprise}');
         }
     }
     
 
 
-        // Fonction pour mettre à jour tout le contenu
-        function updateContent(data) {
-            const menuData = data.MENU[0];
-            const infoData = data.INFO[0];
-            const achievementsData = data.ACHIEVEMENTS[0];
-            const positionsData = data.POSITIONS[0];
+    // Fonction pour mettre à jour tout le contenu
+    function updateContent(data) {
+        const menuData = data.MENU[0];
+        const infoData = data.INFO[0];
+        const achievementsData = data.ACHIEVEMENTS[0];
+        const positionsData = data.POSITIONS[0];
 
-            updateMenu(menuData);
-            updateIntro(infoData);
-            updateWorking(infoData);
-            updateAchievements(achievementsData);
-            updatePositions(positionsData);
-            updateCardTitle(infoData);
-            console.log(data);
-        }
+        updateMenu(menuData);
+        updateIntro(infoData);
+        updateWorking(infoData);
+        updateAchievements(achievementsData);
+        updatePositions(positionsData);
+        updateCardTitle(infoData);
+        console.log(infoData);
+    }
 
     // Gestion du changement de langue via les boutons radio
     const languageRadios = document.querySelectorAll('input[name="language"]');
