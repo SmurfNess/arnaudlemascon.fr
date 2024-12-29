@@ -546,7 +546,8 @@ input:focus {
 
 .menu-title {
     color: var(--color-ft-primary);
-    font-size: var();
+    font-size: var(--ft-md);
+    font-weight: lighter;
 }
 
 /* -----------------------------------------------------------------------------------------------  Certifications */
