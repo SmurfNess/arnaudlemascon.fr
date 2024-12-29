@@ -565,7 +565,6 @@ input:focus {
 .card-grid-cert {
     margin: 10px 0px;
     position: relative;
-    background-color: var(--color-bkg-t2-prim);
     padding: 10px;
     border-radius: var(--rds-sm);
     display: grid;
@@ -593,7 +592,6 @@ input:focus {
 .card-grid-lang {
     margin: 10px 0px;
     position: relative;
-    background-color: var(--color-bkg-t2-prim);
     padding: 10px;
     border-radius: var(--rds-sm);
     display: grid;
@@ -608,7 +606,6 @@ input:focus {
 .card-grid-dip {
     margin: 10px 0px;
     position: relative;
-    background-color: var(--color-bkg-t2-prim);
     padding: 10px;
     border-radius: var(--rds-sm);
     display: grid;
