@@ -61,19 +61,19 @@
                 "sp": "en una misión"
             },
             "CERTIFICATE": {
-                "en": "Level (years worked)",
-                "fr": "Niveau (années travaillées)",
-                "sp": "Nivel (años trabajados)"
+                "en": "Certifications",
+                "fr": "certifications",
+                "sp": "certificacións"
             },
             "LANGUAGES": {
-                "en": "Level (years worked)",
-                "fr": "Niveau (années travaillées)",
-                "sp": "Nivel (años trabajados)"
+                "en": "Languages",
+                "fr": "Langues",
+                "sp": "idiomas"
             },
             "DIPLOMAS": {
-                "en": "Level (years worked)",
-                "fr": "Niveau (années travaillées)",
-                "sp": "Nivel (años trabajados)"
+                "en": "diplomas",
+                "fr": "Diplômes",
+                "sp": "diplomas"
             }
         }
     ],
