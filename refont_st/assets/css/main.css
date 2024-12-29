@@ -412,7 +412,6 @@ form {
 .cards {
     background-color: var(--color-bkg-t2) !important;
     border-radius: var(--rds-sm);
-    overflow: hidden;
 }
 
 .card-title {
@@ -424,7 +423,6 @@ form {
 
 .card-content {
     padding: 10px;
-    overflow: hidden;
 }
 
 
