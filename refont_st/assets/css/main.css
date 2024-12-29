@@ -548,6 +548,7 @@ input:focus {
 .menu-title {
     color: var(--color-ft-primary);
     font-size: var(--ft-xl);
+    font-weight: 100;
 }
 
 .menu-title::first-letter{
