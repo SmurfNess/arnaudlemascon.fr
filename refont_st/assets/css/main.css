@@ -592,6 +592,7 @@ input:focus {
 .menu-certification-number{
     font-size: var(--ft-xl);
     color: var(--color-ft-light);
+    line-height: 1;
 }
 
 /* -----------------------------------------------------------------------------------------------  Languages */
