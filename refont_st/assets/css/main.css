@@ -413,6 +413,7 @@ form {
     background-color: var(--color-bkg-t1) !important;
     border-radius: var(--rds-sm);
     border: red 1px solid;
+    margin: 0px 20px;
 }
 
 .card-title {
@@ -430,11 +431,11 @@ form {
 .card-grid {
     position: relative;
     background-color: var(--color-bkg-t2);
-    padding: 20px;
+    padding: 10px;
     border-radius: var(--rds-sm);
     display: grid;
     grid-template-columns: repeat(8, 1fr);
-    gap: 5px;
+    gap: 10px;
 }
 
 /* ----------------------------------------------------------------------------------------------- achievements */
