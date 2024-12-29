@@ -24,16 +24,16 @@
     /*fonts*/
     --ft-xs: 10px;
     --ft-sm: 13px;
-    --ft-md: 20px;
-    --ft-lg: 25px;
-    --ft-xl: 30px;
+    --ft-md: 16px;
+    --ft-lg: 21px;
+    --ft-xl: 26px;
 
     --font-1:'Roboto', sans-serif;
     --font-2:'Montserrat', sans-serif;
 
-.body {
+body{
     font-family: var(--font-1);
-    font-weight: 100;
+    font-weight: 300;
     background-color: var(--color-bkg-black);
     color: var(--color-ft-white);
     overflow-x: hidden;
@@ -585,14 +585,12 @@ input:focus {
 .menu-certification-number{
     font-size: var(--ft-xl);
     color: var(--color-ft-light);
-    border: red dotted 1px;
 }
 
 .menu-certification, .menu-certification-title{
     padding: 5px;
     font-size: var(--ft-sm);
-    border: red dotted 1px;
-    margin-top: 20px;
+    margin-top: 11px;
 }
 
 .menu-certification-title::first-letter{
