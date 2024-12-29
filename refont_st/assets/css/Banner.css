@@ -21,6 +21,10 @@
   --arial-font: Arial, sans-serif;
 }
 
+.ness{
+  overflow: hidden;
+}
+
 #BANNER{
     background-color:var(--color-other);
     left: 0vw;
