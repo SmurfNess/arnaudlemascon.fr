@@ -410,12 +410,12 @@ form {
 }
 
 .cards {
-    background-color: var(--color-bkg-t2) !important;
+    background-color: var(--color-bkg-t1) !important;
     border-radius: var(--rds-sm);
 }
 
 .card-title {
-    background: linear-gradient(90deg, var(--color-bkg-primary) 0%, var(--color-bkg-t2) 100%);
+    background: linear-gradient(90deg, var(--color-bkg-primary) 0%, var(--color-bkg-t1) 100%);
     padding: 8px 15px;
     font-size: var(--ft-md);
     text-transform: capitalize;
