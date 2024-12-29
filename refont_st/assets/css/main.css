@@ -548,6 +548,10 @@ input:focus {
     color: var(--color-ft-primary);
 }
 
+.menu-title::first-letter{
+    text-transform: uppercase;
+}
+
 /* -----------------------------------------------------------------------------------------------  Certifications */
 
 .card-grid-cert {
