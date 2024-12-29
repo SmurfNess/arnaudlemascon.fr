@@ -588,7 +588,7 @@ input:focus {
 }
 
 .menu-certification-number{
-    font-size: var(--ft-md);
+    font-size: var(--ft-lg);
     color: var(--color-ft-light);
 }
 
