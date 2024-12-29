@@ -19,6 +19,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const diplomasElement = document.getElementById("DIPLOMAS");
     const languagesElement = document.getElementById("LANGUAGES");
     const profilePicture = document.querySelector('.img-profile-picture');
+    const bossElement = document.getElementById("BOSS"); // ID pour afficher "chez"
+    const clientElement = document.getElementById("CLIENT"); // ID pour afficher "pour"
     const jsonUrl = 'https://arnaudlemascon.fr/refont_st/assets/json/data.json';
 
     let currentLanguage = 'en'; // Langue par défaut
@@ -273,8 +275,8 @@ document.addEventListener('DOMContentLoaded', function () {
                         <div class="position-details">
                             <div class="position-info">
                                 <p class="position-text">
-                                    <strong>${item.position[currentLanguage] || item.position['en']}</strong> chez 
-                                    <strong>${item.enterprise}</strong> pour <strong>${item.client}</strong><br>
+                                    <strong>${item.position[currentLanguage] || item.position['en']}</strong> <span id="BOSS"></span> 
+                                    <strong>${item.enterprise}</strong> <span id="CLIENT"></span> <strong>${item.client}</strong><br>
                                     <strong>${duration}</strong>
                                 </p>
                             </div>
@@ -310,8 +312,22 @@ document.addEventListener('DOMContentLoaded', function () {
             console.log('${mostRecentPosition.enterprise}');
         }
     }
-    
 
+        // Fonction pour mettre à jour les mots "boss" et "client"
+        function updateText(textData) {
+            if (textData['TEXT'] && textData['TEXT'][0]) {
+                const bossText = textData['TEXT'][0].boss[currentLanguage] || textData['TEXT'][0].boss['en'];
+                const clientText = textData['TEXT'][0].client[currentLanguage] || textData['TEXT'][0].client['en'];
+    
+                if (bossElement) {
+                    bossElement.textContent = bossText;
+                }
+                if (clientElement) {
+                    clientElement.textContent = clientText;
+                }
+            }
+        }
+    
 
     // Fonction pour mettre à jour tout le contenu
     function updateContent(data) {
@@ -319,6 +335,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const infoData = data.INFO[0];
         const achievementsData = data.ACHIEVEMENTS[0];
         const positionsData = data.POSITIONS[0];
+        const textData = data.TEXT[0]; // Récupérer la partie TEXT
 
         updateMenu(menuData);
         updateIntro(infoData);
@@ -326,8 +343,9 @@ document.addEventListener('DOMContentLoaded', function () {
         updateAchievements(achievementsData);
         updatePositions(positionsData);
         updateCardTitle(infoData);
-        console.log(infoData);
+        updateText(data); // Mettre à jour les textes dynamiques
     }
+
 
     // Gestion du changement de langue via les boutons radio
     const languageRadios = document.querySelectorAll('input[name="language"]');
