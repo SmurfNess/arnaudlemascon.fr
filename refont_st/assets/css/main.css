@@ -643,7 +643,6 @@ input:focus {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    margin-bottom: 3px;
     background-color: var(--color-bkg-t2);
     border-radius: var(--rds-sm);
 }
