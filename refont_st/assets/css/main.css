@@ -472,7 +472,6 @@ position: relative;
     background-color: var(--color-bkg-t1);
     padding: 5px;
     font-size: var(--ft-sm);
-    border-top: var(--color-bkg-t3-white) 2px solid;
 }
 
 .first{
