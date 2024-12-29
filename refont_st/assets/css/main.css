@@ -412,7 +412,6 @@ form {
 .cards {
     background-color: var(--color-bkg-t1) !important;
     border-radius: var(--rds-sm);
-    border: red 1px solid;
 }
 
 .card-title {
