@@ -306,8 +306,6 @@ document.addEventListener('DOMContentLoaded', function () {
             currentEntDiv.innerHTML = `
                 ${CurrentEnt}
             `;
-            console.log('${CurrentEnt}');
-            console.log('${mostRecentPosition.enterprise}');
         }
     }
     
