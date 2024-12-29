@@ -587,11 +587,13 @@ input:focus {
     font-size: var(--ft-xl);
     color: var(--color-ft-light);
     border: red dotted 1px;
+    height: 40px;
 }
 
 .menu-certification, .menu-certification-title{
     padding: 5px;
     border: red dotted 1px;
+    height: 40px;
 }
 
 .menu-certification-title::first-letter{
