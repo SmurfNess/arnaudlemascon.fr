@@ -19,13 +19,10 @@ document.addEventListener('DOMContentLoaded', function () {
     const diplomasElement = document.getElementById("DIPLOMAS");
     const languagesElement = document.getElementById("LANGUAGES");
     const profilePicture = document.querySelector('.img-profile-picture');
-    const bossElement = document.getElementById("BOSS"); // ID pour afficher "chez"
-    const clientElement = document.getElementById("CLIENT"); // ID pour afficher "pour"
     const jsonUrl = 'https://arnaudlemascon.fr/refont_st/assets/json/data.json';
 
     let currentLanguage = 'en'; // Langue par défaut
     let originalProfilePictureSrc = profilePicture ? profilePicture.src : '';
-
 
     // Fonction pour charger les données JSON
     function loadData() {
@@ -56,52 +53,35 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Fonction pour mettre à jour l'introduction
+    // Fonction pour mettre à jour la section "WORKING"
     function updateWorking(infoData) {
         if (infoData['WORKING']) {
             workingElement.textContent =
                 infoData['WORKING'][currentLanguage] || infoData['WORKING']['en'];
         }
     }
-        // Fonction pour mettre à jour l'introduction
-        function updateCardTitle(infoData) {
-            if (infoData['CAT']) {
-                catElement.textContent =
-                    infoData['CAT'][currentLanguage] || infoData['CAT']['en'];
+
+    // Fonction pour mettre à jour les titres de carte
+    function updateCardTitle(infoData) {
+        const keysToUpdate = {
+            CAT: catElement,
+            SUCCESS: successElement,
+            HISTORY: historyElement,
+            WORK: workElement,
+            CONTACT: contactElement,
+            STATUS: statusElement,
+            CERTIFICATE: certificatElement,
+            LANGUAGES: languagesElement,
+            DIPLOMAS: diplomasElement,
+        };
+
+        Object.keys(keysToUpdate).forEach(key => {
+            if (infoData[key]) {
+                keysToUpdate[key].textContent =
+                    infoData[key][currentLanguage] || infoData[key]['en'];
             }
-            if (infoData['SUCCESS']) {
-                successElement.textContent =
-                    infoData['SUCCESS'][currentLanguage] || infoData['SUCCESS']['en'];
-            }
-            if (infoData['HISTORY']) {
-                historyElement.textContent =
-                    infoData['HISTORY'][currentLanguage] || infoData['HISTORY']['en'];
-            }
-            if (infoData['WORK']) {
-                workElement.textContent =
-                    infoData['WORK'][currentLanguage] || infoData['WORK']['en'];
-            }
-            if (infoData['CONTACT']) {
-                contactElement.textContent =
-                    infoData['CONTACT'][currentLanguage] || infoData['CONTACT']['en'];
-            }
-            if (infoData['STATUS']) {
-                statusElement.textContent =
-                    infoData['STATUS'][currentLanguage] || infoData['STATUS']['en'];
-            }
-            if (infoData['CERTIFICATE']) {
-                certificatElement.textContent =
-                    infoData['CERTIFICATE'][currentLanguage] || infoData['CERTIFICATE']['en'];
-            }
-            if (infoData['LANGUAGES']) {
-                languagesElement.textContent =
-                    infoData['LANGUAGES'][currentLanguage] || infoData['LANGUAGES']['en'];
-            }
-            if (infoData['DIPLOMAS']) {
-                diplomasElement.textContent =
-                    infoData['DIPLOMAS'][currentLanguage] || infoData['DIPLOMAS']['en'];
-            }
-        }
+        });
+    }
 
     // Fonction pour générer les réalisations
     function updateAchievements(achievementsData) {
@@ -142,11 +122,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const achievements = document.querySelectorAll('.container-achievement');
 
-        // Stockez la source originale si elle n'a pas encore été sauvegardée
-        if (!originalProfilePictureSrc) {
-            originalProfilePictureSrc = profilePicture.src;
-        }
-
         achievements.forEach((achievement) => {
             achievement.addEventListener('mouseover', () => {
                 const newSrc = achievement.getAttribute('data-image');
@@ -163,79 +138,61 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    // Fonction pour mettre à jour les positions
     function updatePositions(positionsData) {
         positionContainer.innerHTML = ''; // Réinitialiser le conteneur
-    
+
         // Trier les années dans l'ordre décroissant
         const sortedYears = Object.keys(positionsData).sort().reverse();
         let displayedCount = 0; // Compteur pour les cartes complètes
-    
+
         // Fonction pour calculer la durée
         function calculateDuration(beginningDate, endingDate = null) {
             const start = new Date(beginningDate);
-    
+
             if (endingDate) {
-                // Si une date de fin est fournie, calcul standard
                 const end = new Date(endingDate);
-    
                 const monthsDifference = (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth());
-                const daysInStartMonth = new Date(start.getFullYear(), start.getMonth() + 1, 0).getDate();
                 const extraMonths = end.getDate() >= start.getDate() ? 0 : -1;
-    
                 const totalMonths = monthsDifference + extraMonths;
-    
-                const years = Math.floor(totalMonths / 12); // Nombre d'années complètes
-                const months = totalMonths % 12; // Nombre de mois restants
-    
-                if (years > 0) {
-                    return `${years} an(s) ${months} mois`;
-                } else {
-                    return `${months} mois`;
-                }
+                const years = Math.floor(totalMonths / 12);
+                const months = totalMonths % 12;
+
+                return years > 0 ? `${years} an(s) ${months} mois` : `${months} mois`;
             } else {
-                // Si aucune date de fin n'est fournie, calcul avec années entamées
                 const now = new Date();
                 const monthsDifference = (now.getFullYear() - start.getFullYear()) * 12 + (now.getMonth() - start.getMonth());
-    
-                // Calcul des années entamées
-                const yearsEntamees = Math.ceil(monthsDifference / 12);
-                return `${yearsEntamees}`;
+                return `${Math.ceil(monthsDifference / 12)}`;
             }
         }
-    
-        // Variable pour stocker la position la plus récente
+
         let mostRecentPosition = null;
-    
-        // Parcourir les années triées
+
         sortedYears.forEach(year => {
             positionsData[year].slice().reverse().forEach(item => {
                 const positionElement = document.createElement('div');
                 positionElement.classList.add('position-card');
-    
-                // Format de la durée
+
                 const beginningDate = item.beginning || 'N/A';
                 const endingDate = item.ending || 'Present';
-                let duration = calculateDuration(beginningDate, endingDate === 'Present' ? null : endingDate);
-    
-                // Vérifier si c'est la position la plus récente
+                const duration = calculateDuration(beginningDate, endingDate === 'Present' ? null : endingDate);
+
                 if (!mostRecentPosition) {
-                    mostRecentPosition = item; // Stocker la position la plus récente
+                    mostRecentPosition = item;
                 }
-    
+
                 if (displayedCount < 3) {
-                    // Carte complète pour les 3 entreprises les plus récentes
                     const technologies = Object.values(item.techno[0]).flatMap(techArray =>
                         techArray.map(tech => `
                             <div class="container-tools">
                                 <img src="./assets/pictures/techno/${tech.logo}" alt="${tech.title}" class="card-img-tools">
                                 <div class="tooltip-text">
                                     <div class="tooltip-title">${tech.title}</div>
-                                    <div class="tooltip-description"></div>
                                 </div>
                             </div>
                         `)
                     ).join('');
-    
+
                     positionElement.innerHTML = `
                         <div class="card-content">
                             <div class="card-enterprise-asset row">
@@ -266,113 +223,30 @@ document.addEventListener('DOMContentLoaded', function () {
                             </div>
                         </div>
                     `;
+                    positionContainer.appendChild(positionElement);
                     displayedCount++;
-                } else {
-                    // Carte simplifiée pour les autres entreprises sous forme de container individuel
-                    positionElement.classList.add('position-container');
-                    positionElement.classList.add('card-entreprise-sup');
-                    positionElement.innerHTML = `
-                        <div class="position-details">
-                            <div class="position-info">
-                                <p class="position-text">
-                                    <strong>${item.position[currentLanguage] || item.position['en']}</strong> <span id="BOSS"></span> 
-                                    <strong>${item.enterprise}</strong> <span id="CLIENT"></span> <strong>${item.client}</strong><br>
-                                    <strong>${duration}</strong>
-                                </p>
-                            </div>
-                            <div class="logos">
-                                <img src="./assets/pictures/ent/${item.enterpriseLogo}" alt="${item.enterprise}" class="logo">
-                                <img src="./assets/pictures/ent/${item.clientLogo}" alt="${item.client}" class="logo">
-                            </div>
-                        </div>
-                    `;
                 }
-    
-                positionContainer.appendChild(positionElement);
             });
         });
-    
-        // Calculer la durée pour la position la plus récente
+
+        // Mise à jour des informations de la position actuelle
         if (mostRecentPosition) {
-            const currentDuration = calculateDuration(
-                mostRecentPosition.beginning,
-                mostRecentPosition.ending || null
-            );
-            const currentDiv = document.getElementById('CURRENT');
-            currentDiv.innerHTML = `
-                ${currentDuration}
-            `;
-
-            const currentEntDiv = document.getElementById('CURRENTENT');
-            const CurrentEnt = mostRecentPosition.enterprise
-            currentEntDiv.innerHTML = `
-                ${CurrentEnt}
-            `;
-            console.log('${CurrentEnt}');
-            console.log('${mostRecentPosition.enterprise}');
+            currentElement.textContent =
+                mostRecentPosition.position[currentLanguage] || mostRecentPosition.position['en'];
         }
     }
 
-        // Fonction pour mettre à jour les mots "boss" et "client"
-        function updateText(textData) {
-            if (textData['TEXT'] && textData['TEXT'][0]) {
-                const bossText = textData['TEXT'][0].boss[currentLanguage] || textData['TEXT'][0].boss['en'];
-                const clientText = textData['TEXT'][0].client[currentLanguage] || textData['TEXT'][0].client['en'];
-    
-                if (bossElement) {
-                    bossElement.textContent = bossText;
-                }
-                if (clientElement) {
-                    clientElement.textContent = clientText;
-                }
-            }
-        }
-    
-
-    // Fonction pour mettre à jour tout le contenu
-    function updateContent(data) {
-        const menuData = data.MENU[0];
-        const infoData = data.INFO[0];
-        const achievementsData = data.ACHIEVEMENTS[0];
-        const positionsData = data.POSITIONS[0];
-        const textData = data.TEXT[0]; // Récupérer la partie TEXT
-
-        updateMenu(menuData);
-        updateIntro(infoData);
-        updateWorking(infoData);
-        updateAchievements(achievementsData);
-        updatePositions(positionsData);
-        updateCardTitle(infoData);
-        updateText(data); // Mettre à jour les textes dynamiques
-    }
-
-
-    // Gestion du changement de langue via les boutons radio
-    const languageRadios = document.querySelectorAll('input[name="language"]');
-    languageRadios.forEach(radio => {
-        radio.addEventListener('change', function () {
-            switch (this.value) {
-                case 'fr':
-                    currentLanguage = 'fr';
-                    break;
-                case 'es':
-                    currentLanguage = 'sp';
-                    break;
-                case 'gb':
-                    currentLanguage = 'en';
-                    break;
-                default:
-                    currentLanguage = 'en';
-            }
-            // Recharger le contenu avec la nouvelle langue
-            loadData().then(updateContent).catch(console.error);
-        });
-    });
-
-    // Charger les données au chargement de la page
+    // Charger et appliquer les données
     loadData()
-        .then(updateContent)
+        .then(data => {
+            updateMenu(data.menu);
+            updateIntro(data.info);
+            updateWorking(data.info);
+            updateCardTitle(data.info);
+            updateAchievements(data.achievements);
+            updatePositions(data.positions);
+        })
         .catch(error => {
-            console.error('Erreur lors du chargement initial:', error);
+            console.error('Erreur lors de la mise à jour du contenu :', error);
         });
 });
