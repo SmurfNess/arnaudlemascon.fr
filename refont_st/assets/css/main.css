@@ -587,6 +587,11 @@ input:focus {
     width: 48px;
 }
 
+.menu-certification-number{
+    font-size: var(--ft-md);
+    color: var(--color-ft-light);
+}
+
 /* -----------------------------------------------------------------------------------------------  Languages */
 
 .card-grid-lang {
