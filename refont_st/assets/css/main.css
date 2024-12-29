@@ -419,7 +419,7 @@ form {
     padding: 8px 15px;
     font-size: var(--ft-md);
     text-transform: capitalize;
-    border-radius: var(--rds-md) 0px 0px 0px;
+    border-radius: var(--rds-sm) var(--rds-sm)  0px 0px;
 }
 
 .card-content {
@@ -474,6 +474,7 @@ position: relative;
     background-color: var(--color-bkg-t1);
     padding: 5px;
     font-size: var(--ft-sm);
+    border-radius: var(--rds-sm);
 }
 
 .first{
