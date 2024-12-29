@@ -552,7 +552,7 @@ input:focus {
     text-transform: uppercase;
 }
 
-.menu-certification-title{
+.menu-certification-title::first-letter{
     text-transform: uppercase; 
 }
 
