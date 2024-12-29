@@ -348,6 +348,7 @@ function updateTextLanguage(data) {
         }
 
     // Gestion du changement de langue via les boutons radio
+    const languageRadios = document.querySelectorAll('input[name="language"]');
     languageRadios.forEach(radio => {
         radio.addEventListener('change', function () {
             switch (this.value) {
