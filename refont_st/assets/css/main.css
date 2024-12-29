@@ -571,9 +571,9 @@ input:focus {
 .menu-certification {
     margin-top: 25px;
     height: 40px;
-    display: flex;                  /* Active Flexbox pour le conteneur */
-    flex-direction: column;         /* Organise les éléments en colonne */
-    justify-content: flex-end;      /* Aligne les éléments au bas du conteneur */}
+    display: flex; 
+    align-items: flex-end;
+}
 
 .container-information {
     margin-top: 20px;
@@ -589,9 +589,11 @@ input:focus {
     font-size: var(--ft-xl);
     color: var(--color-ft-light);
     border: red dotted 1px;
+    align-self: flex-end;
 }
 
 .menu-certification, .menu-certification-title{
+    align-self: flex-end;
     padding: 5px;
     border: red dotted 1px;
 }
