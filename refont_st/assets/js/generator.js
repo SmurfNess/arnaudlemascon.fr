@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function updateIntro(infoData) {
         if (infoData['INTRO']) {
             introElement.textContent =
-                infoData['INTRO'][currentLanguage] || infoData['INTRO']['en']; 
+                infoData['INTRO'][currentLanguage] || infoData['INTRO']['en'];
         }
     }
 
@@ -270,23 +270,19 @@ document.addEventListener('DOMContentLoaded', function () {
                     positionElement.classList.add('position-container');
                     positionElement.classList.add('card-entreprise-sup');
                     positionElement.innerHTML = `
-                            <div class="position-details">
-                                <div class="position-info">
-                                    <p class="position-text">
-                                        <strong>${item.position[currentLanguage] || item.position['en']}</strong> 
-                                        ${textData['client'][currentLanguage] || textData['client']['en']} 
-                                        <strong>${item.enterprise}</strong> 
-                                        ${textData['boss'][currentLanguage] || textData['boss']['en']} 
-                                        <strong>${item.client}</strong><br>
-                                        <strong>${duration}</strong>
-                                    </p>
-                                </div>
-                                <div class="logos">
-                                    <img src="./assets/pictures/ent/${item.enterpriseLogo}" alt="${item.enterprise}" class="logo">
-                                    <img src="./assets/pictures/ent/${item.clientLogo}" alt="${item.client}" class="logo">
-                                </div>
+                        <div class="position-details">
+                            <div class="position-info">
+                                <p class="position-text">
+                                    <strong>${item.position[currentLanguage] || item.position['en']}</strong> chez 
+                                    <strong>${item.enterprise}</strong> pour <strong>${item.client}</strong><br>
+                                    <strong>${duration}</strong>
+                                </p>
                             </div>
-
+                            <div class="logos">
+                                <img src="./assets/pictures/ent/${item.enterpriseLogo}" alt="${item.enterprise}" class="logo">
+                                <img src="./assets/pictures/ent/${item.clientLogo}" alt="${item.client}" class="logo">
+                            </div>
+                        </div>
                     `;
                 }
     
@@ -323,15 +319,14 @@ document.addEventListener('DOMContentLoaded', function () {
         const infoData = data.INFO[0];
         const achievementsData = data.ACHIEVEMENTS[0];
         const positionsData = data.POSITIONS[0];
-        const textData = data.TEXT[0];
 
         updateMenu(menuData);
         updateIntro(infoData);
         updateWorking(infoData);
         updateAchievements(achievementsData);
-        updatePositions(positionsData,textData);
+        updatePositions(positionsData);
         updateCardTitle(infoData);
-        console.log(textData);
+        console.log(infoData);
     }
 
     // Gestion du changement de langue via les boutons radio
