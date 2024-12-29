@@ -552,6 +552,9 @@ input:focus {
     text-transform: uppercase;
 }
 
+.menu-certification, .menu-certification-title{
+     padding: 5px;
+}
 .menu-certification-title::first-letter{
     text-transform: uppercase; 
 }
