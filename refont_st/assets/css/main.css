@@ -571,9 +571,9 @@ input:focus {
 .menu-certification {
     margin-top: 25px;
     height: 40px;
-    display: flex; 
-    align-items: flex-end;
-}
+    display: flex;                  /* Active Flexbox pour le conteneur */
+    flex-direction: column;         /* Organise les éléments en colonne */
+    justify-content: flex-end;      /* Aligne les éléments au bas du conteneur */}
 
 .container-information {
     margin-top: 20px;
