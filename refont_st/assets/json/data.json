@@ -285,20 +285,6 @@
             ]
         }
     ],
-    "TEXT":[
-        {
-            "boss":{
-                "en":"for",
-                "fr":"pour",
-                "sp":"por"
-            },
-            "client":{
-                "en":"at",
-                "fr":"chez",
-                "sp":"por"
-            }
-        }
-    ],
     "POSITIONS":[
         {
             "202309":[
@@ -346,6 +332,20 @@
                                 }
                             ]
                         }
+                    ],
+                    "text": [
+                        {
+                        "boss":{
+                            "en":"for",
+                            "fr":"pour",
+                            "sp":"por"
+                        },
+                        "client":{
+                            "en":"at",
+                            "fr":"chez",
+                            "sp":"por"
+                        }
+                    }
                     ]
                 }
             ],
@@ -406,6 +406,20 @@
                                 }
                             ]
                         }
+                    ],
+                    "text": [
+                        {
+                        "boss":{
+                            "en":"for",
+                            "fr":"pour",
+                            "sp":"por"
+                        },
+                        "client":{
+                            "en":"at",
+                            "fr":"chez",
+                            "sp":"por"
+                        }
+                    }
                     ]
                 }
             ],
@@ -460,6 +474,20 @@
                                 }
                             ]
                         }
+                    ],
+                    "text": [
+                        {
+                        "boss":{
+                            "en":"for",
+                            "fr":"pour",
+                            "sp":"por"
+                        },
+                        "client":{
+                            "en":"at",
+                            "fr":"chez",
+                            "sp":"por"
+                        }
+                    }
                     ]
                 }
             ],
@@ -508,6 +536,20 @@
                                 }
                             ]
                         }
+                    ],
+                    "text": [
+                        {
+                        "boss":{
+                            "en":"for",
+                            "fr":"pour",
+                            "sp":"por"
+                        },
+                        "client":{
+                            "en":"at",
+                            "fr":"chez",
+                            "sp":"por"
+                        }
+                    }
                     ]
                 }
             ],
@@ -550,6 +592,20 @@
                                 }
                             ]
                         }
+                    ],
+                    "text": [
+                        {
+                        "boss":{
+                            "en":"for",
+                            "fr":"pour",
+                            "sp":"por"
+                        },
+                        "client":{
+                            "en":"at",
+                            "fr":"chez",
+                            "sp":"por"
+                        }
+                    }
                     ]
                 }
             ],
@@ -580,6 +636,20 @@
                                 }
                             ]
                         }
+                    ],
+                    "text": [
+                        {
+                        "boss":{
+                            "en":"for",
+                            "fr":"pour",
+                            "sp":"por"
+                        },
+                        "client":{
+                            "en":"at",
+                            "fr":"chez",
+                            "sp":"por"
+                        }
+                    }
                     ]
                 }
             ]
