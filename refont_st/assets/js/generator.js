@@ -19,10 +19,31 @@ document.addEventListener('DOMContentLoaded', function () {
     const diplomasElement = document.getElementById("DIPLOMAS");
     const languagesElement = document.getElementById("LANGUAGES");
     const profilePicture = document.querySelector('.img-profile-picture');
+    const bossElement = document.getElementById("BOSS"); 
+    const clientElement = document.getElementById("CLIENT");
     const jsonUrl = 'https://arnaudlemascon.fr/refont_st/assets/json/data.json';
 
     let currentLanguage = 'en'; // Langue par défaut
     let originalProfilePictureSrc = profilePicture ? profilePicture.src : '';
+
+    // Fonction pour mettre à jour les textes de BOSS et CLIENT
+function updateTextLanguage(data) {
+    // Récupérer les traductions pour 'boss' et 'client' en fonction de la langue
+    const bossText = data.TEXT[0].boss[currentLanguage] || data.TEXT[0].boss['en'];
+    const clientText = data.TEXT[0].client[currentLanguage] || data.TEXT[0].client['en'];
+
+    // Mettre à jour le contenu des éléments HTML
+    const bossElement = document.getElementById("BOSS");
+    const clientElement = document.getElementById("CLIENT");
+
+    if (bossElement) {
+        bossElement.textContent = bossText;
+    }
+    if (clientElement) {
+        clientElement.textContent = clientText;
+    }
+}
+
 
 
     // Fonction pour charger les données JSON
@@ -163,7 +184,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function updatePositions(positionsData) {
         positionContainer.innerHTML = ''; // Réinitialiser le conteneur
-    
+        
         // Trier les années dans l'ordre décroissant
         const sortedYears = Object.keys(positionsData).sort().reverse();
         let displayedCount = 0; // Compteur pour les cartes complètes
@@ -175,13 +196,10 @@ document.addEventListener('DOMContentLoaded', function () {
             if (endingDate) {
                 // Si une date de fin est fournie, calcul standard
                 const end = new Date(endingDate);
-    
                 const monthsDifference = (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth());
                 const daysInStartMonth = new Date(start.getFullYear(), start.getMonth() + 1, 0).getDate();
                 const extraMonths = end.getDate() >= start.getDate() ? 0 : -1;
-    
                 const totalMonths = monthsDifference + extraMonths;
-    
                 const years = Math.floor(totalMonths / 12); // Nombre d'années complètes
                 const months = totalMonths % 12; // Nombre de mois restants
     
@@ -194,7 +212,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 // Si aucune date de fin n'est fournie, calcul avec années entamées
                 const now = new Date();
                 const monthsDifference = (now.getFullYear() - start.getFullYear()) * 12 + (now.getMonth() - start.getMonth());
-    
                 // Calcul des années entamées
                 const yearsEntamees = Math.ceil(monthsDifference / 12);
                 return `${yearsEntamees}`;
@@ -273,8 +290,8 @@ document.addEventListener('DOMContentLoaded', function () {
                         <div class="position-details">
                             <div class="position-info">
                                 <p class="position-text">
-                                    <strong>${item.position[currentLanguage] || item.position['en']}</strong> chez 
-                                    <strong>${item.enterprise}</strong> pour <strong>${item.client}</strong><br>
+                                    <strong>${item.position[currentLanguage] || item.position['en']}</strong> <span id="BOSS"></span> 
+                                    <strong>${item.enterprise}</strong> <span id="CLIENT"></span> <strong>${item.client}</strong><br>
                                     <strong>${duration}</strong>
                                 </p>
                             </div>
@@ -300,35 +317,37 @@ document.addEventListener('DOMContentLoaded', function () {
             currentDiv.innerHTML = `
                 ${currentDuration}
             `;
-
+    
             const currentEntDiv = document.getElementById('CURRENTENT');
-            const CurrentEnt = mostRecentPosition.enterprise
+            const CurrentEnt = mostRecentPosition.enterprise;
             currentEntDiv.innerHTML = `
                 ${CurrentEnt}
             `;
         }
+    
+        // Mettre à jour le texte BOSS et CLIENT après le changement de langue
+        updateTextLanguage(data);
     }
     
 
 
-    // Fonction pour mettre à jour tout le contenu
-    function updateContent(data) {
-        const menuData = data.MENU[0];
-        const infoData = data.INFO[0];
-        const achievementsData = data.ACHIEVEMENTS[0];
-        const positionsData = data.POSITIONS[0];
+        // Fonction pour mettre à jour tout le contenu
+        function updateContent(data) {
+            const menuData = data.MENU[0];
+            const infoData = data.INFO[0];
+            const achievementsData = data.ACHIEVEMENTS[0];
+            const positionsData = data.POSITIONS[0];
 
-        updateMenu(menuData);
-        updateIntro(infoData);
-        updateWorking(infoData);
-        updateAchievements(achievementsData);
-        updatePositions(positionsData);
-        updateCardTitle(infoData);
-        console.log(data);
-    }
+            updateMenu(menuData);
+            updateIntro(infoData);
+            updateWorking(infoData);
+            updateAchievements(achievementsData);
+            updatePositions(positionsData);
+            updateCardTitle(infoData);
+            console.log(data);
+        }
 
     // Gestion du changement de langue via les boutons radio
-    const languageRadios = document.querySelectorAll('input[name="language"]');
     languageRadios.forEach(radio => {
         radio.addEventListener('change', function () {
             switch (this.value) {
