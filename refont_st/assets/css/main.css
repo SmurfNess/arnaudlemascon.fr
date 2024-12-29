@@ -591,8 +591,9 @@ input:focus {
 
 .menu-certification, .menu-certification-title{
     padding: 5px;
+    font-size: var(--ft-md);
     border: red dotted 1px;
-    margin-top: 25px;
+    margin-top: 20px;
 }
 
 .menu-certification-title::first-letter{
