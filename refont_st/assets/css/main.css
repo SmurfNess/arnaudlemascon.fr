@@ -555,13 +555,6 @@ input:focus {
     text-transform: uppercase;
 }
 
-.menu-certification, .menu-certification-title{
-     padding: 5px;
-}
-.menu-certification-title::first-letter{
-    text-transform: uppercase; 
-}
-
 /* -----------------------------------------------------------------------------------------------  Certifications */
 
 .card-grid-cert {
@@ -592,7 +585,15 @@ input:focus {
 .menu-certification-number{
     font-size: var(--ft-xl);
     color: var(--color-ft-light);
+}
+
+.menu-certification, .menu-certification-title{
+    padding: 5px;
     line-height: 1;
+}
+
+.menu-certification-title::first-letter{
+   text-transform: uppercase; 
 }
 
 /* -----------------------------------------------------------------------------------------------  Languages */
