@@ -29,7 +29,7 @@
     --ft-xl: 30px;
 
     --font-1:'Arial', Helvetica, sans-serif;
-    --font-2:'Motiva Sans', Sans-serif;
+    --font-2:'Montserrat', sans-serif;
 }
 
 .body {
@@ -546,7 +546,7 @@ input:focus {
 
 .menu-title {
     color: var(--color-ft-primary);
-    font-size: var(--ft-md);
+    font-size: var();
 }
 
 /* -----------------------------------------------------------------------------------------------  Certifications */
