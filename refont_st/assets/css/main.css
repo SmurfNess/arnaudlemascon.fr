@@ -552,6 +552,10 @@ input:focus {
     text-transform: uppercase;
 }
 
+.menu-certification-title{
+    text-transform: uppercase; 
+}
+
 /* -----------------------------------------------------------------------------------------------  Certifications */
 
 .card-grid-cert {
