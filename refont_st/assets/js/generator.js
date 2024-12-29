@@ -326,7 +326,7 @@ document.addEventListener('DOMContentLoaded', function () {
         updateAchievements(achievementsData);
         updatePositions(positionsData);
         updateCardTitle(infoData);
-        console.log(infoData);
+        console.log(data);
     }
 
     // Gestion du changement de langue via les boutons radio
