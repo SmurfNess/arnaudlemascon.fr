@@ -306,8 +306,6 @@ document.addEventListener('DOMContentLoaded', function () {
             currentEntDiv.innerHTML = `
                 ${CurrentEnt}
             `;
-            console.log('${CurrentEnt}');
-            console.log('${mostRecentPosition.enterprise}');
         }
     }
     
@@ -326,7 +324,7 @@ document.addEventListener('DOMContentLoaded', function () {
         updateAchievements(achievementsData);
         updatePositions(positionsData);
         updateCardTitle(infoData);
-        console.log(infoData);
+        console.log(data);
     }
 
     // Gestion du changement de langue via les boutons radio
