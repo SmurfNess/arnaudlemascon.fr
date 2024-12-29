@@ -274,7 +274,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             <div class="position-info">
                                 <p class="position-text">
                                     <strong>${item.position[currentLanguage] || item.position['en']}</strong> ${item.text[0].boss[currentLanguage]}
-                                    <strong>${item.enterprise}</strong> pour <strong>${item.client}</strong><br>
+                                    <strong>${item.enterprise}</strong> ${item.text[0].client[currentLanguage]} <strong>${item.client}</strong><br>
                                     <strong>${duration}</strong>
                                 </p>
                             </div>
