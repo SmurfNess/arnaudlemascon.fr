@@ -418,6 +418,7 @@ form {
     background: linear-gradient(90deg, var(--color-bkg-primary) 0%, var(--color-bkg-t2) 100%);
     padding: 8px 15px;
     font-size: var(--ft-md);
+    text-transform: capitalize;
 }
 
 .card-content {
