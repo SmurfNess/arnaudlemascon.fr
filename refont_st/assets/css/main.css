@@ -419,11 +419,13 @@ form {
     padding: 8px 15px;
     font-size: var(--ft-md);
     text-transform: capitalize;
+    border-radius: var(--rds-md) 0px 0px 0px;
 }
 
 .card-content {
     padding: 10px;
     margin: 0px 10px;
+    border-radius: var(--rds-sm);
 }
 
 
