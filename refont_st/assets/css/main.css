@@ -152,10 +152,10 @@ form {
     background-color: var(--color-bkg-t1);
 }
 
-/*.case {
-    border: var(--color-bkg-t3-white) dashed 1px;
+.case {
+    /*border: var(--color-bkg-t3-white) dashed 1px;*/
     padding: 10px;
-}*/
+}
 
 /* -----------------------------------------------------------------------------------------------  menu */
 .menu {
