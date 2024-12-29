@@ -571,8 +571,6 @@ input:focus {
 .menu-certification {
     margin-top: 25px;
     height: 40px;
-    display: flex; 
-    align-items: flex-end;
 }
 
 .container-information {
@@ -589,13 +587,12 @@ input:focus {
     font-size: var(--ft-xl);
     color: var(--color-ft-light);
     border: red dotted 1px;
-    align-self: flex-end;
 }
 
 .menu-certification, .menu-certification-title{
-    align-self: flex-end;
     padding: 5px;
     border: red dotted 1px;
+    margin-top: 25px;
 }
 
 .menu-certification-title::first-letter{
