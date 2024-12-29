@@ -589,7 +589,7 @@ input:focus {
 
 .menu-certification, .menu-certification-title{
     padding: 5px;
-    line-height: 1;
+    line-height: 2;
 }
 
 .menu-certification-title::first-letter{
