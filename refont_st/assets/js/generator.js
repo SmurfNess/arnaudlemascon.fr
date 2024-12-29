@@ -313,20 +313,29 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-        // Fonction pour mettre à jour les mots "boss" et "client"
-        function updateText(textData) {
-            if (textData['TEXT'] && textData['TEXT'][0]) {
-                const bossText = textData['TEXT'][0].boss[currentLanguage] || textData['TEXT'][0].boss['en'];
-                const clientText = textData['TEXT'][0].client[currentLanguage] || textData['TEXT'][0].client['en'];
+    function updateText(textData) {
+        if (textData['TEXT'] && textData['TEXT'][0]) {
+            const bossText = textData['TEXT'][0].boss[currentLanguage] || textData['TEXT'][0].boss['en'];
+            const clientText = textData['TEXT'][0].client[currentLanguage] || textData['TEXT'][0].client['en'];
     
-                if (bossElement) {
-                    bossElement.textContent = bossText;
-                }
-                if (clientElement) {
-                    clientElement.textContent = clientText;
-                }
+            if (bossElement) {
+                console.log('Boss text:', bossText); // Débogage
+                bossElement.textContent = bossText;
+            } else {
+                console.error('bossElement introuvable');
             }
+    
+            if (clientElement) {
+                console.log('Client text:', clientText); // Débogage
+                clientElement.textContent = clientText;
+            } else {
+                console.error('clientElement introuvable');
+            }
+        } else {
+            console.error('Les données TEXT ne sont pas disponibles ou mal formatées.');
         }
+    }
+    
     
 
     // Fonction pour mettre à jour tout le contenu
