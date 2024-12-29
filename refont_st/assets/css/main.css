@@ -471,6 +471,7 @@ position: relative;
 .card-enterprise-asset, .card-entreprise-sup {
     background-color: var(--color-bkg-t1);
     padding: 5px;
+    margin: 0px 5px;
     font-size: var(--ft-sm);
     border-top: var(--color-bkg-t3-white) 2px solid;
 }
