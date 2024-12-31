@@ -332,6 +332,15 @@ form {
     object-position: center;
 }
 
+@keyframes img-profile-inv-rot {
+    0%		{ 
+            transform: rotate(0deg);
+            }
+    100%	{ 
+            transform: rotate(-360deg);
+            }
+  }  
+
 .name,
 .age-container {
     font-size: var(--ft-md);
