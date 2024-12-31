@@ -313,14 +313,14 @@ form {
 @keyframes profile {
     0%		{ 
             border-radius: 50% 50% 50% 50%;
+            transform: rotate(0deg);
             }
-    25%		{ border-radius: 20% 40% 30% 50%;}
-    50%		{   
-            border-radius: 45% 30% 50% 25%;
-            }
+    25%		{ border-radius: 20% 40% 30% 50%; }
+    50%		{ border-radius: 45% 30% 50% 25%; }
     75%		{ border-radius: 30% 50% 25% 45%; }
     100%	{ 
             border-radius: 50% 50% 50% 50%;
+            transform: rotate(360deg);
             }
   }  
 
