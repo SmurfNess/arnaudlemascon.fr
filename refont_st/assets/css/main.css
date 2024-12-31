@@ -311,7 +311,7 @@ form {
 }
 
 @keyframes profile {
-    00%		{ border-radius: 50% 25% 45% 30%; }
+    0%		{ border-radius: 50% 25% 45% 30%; }
     25%		{ border-radius: 25% 45% 30% 50%; }
     50%		{ border-radius: 45% 30% 50% 25%; }
     75%		{ border-radius: 30% 50% 25% 45%; }
