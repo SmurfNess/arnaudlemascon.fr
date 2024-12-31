@@ -308,14 +308,21 @@ form {
     justify-content: center;
     align-items: center;
     animation: profile 10s infinite;
+    border: red dotted 2px;
 }
 
 @keyframes profile {
-    0%		{ border-radius: 00% 25% 45% 30%; }
+    0%		{ 
+            border-radius: 00% 25% 45% 30%;
+            transform: rotate(0deg);
+            }
     25%		{ border-radius: 0% 45% 30% 50%; }
     50%		{ border-radius: 45% 30% 50% 25%; }
     75%		{ border-radius: 30% 50% 25% 45%; }
-    100%	{ border-radius: 50% 25% 45% 30%; }
+    100%	{ 
+            border-radius: 50% 25% 45% 30%;
+            transform: rotate(360deg);
+            }
   }  
 
 .img-profile-picture {
