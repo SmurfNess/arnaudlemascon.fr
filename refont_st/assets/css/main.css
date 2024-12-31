@@ -303,13 +303,12 @@ form {
     position: relative;
     height: 184px;
     width: 184px;
+    border-radius: 50%;
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
-
 
 .img-profile-picture {
     width: auto;
@@ -317,7 +316,6 @@ form {
     object-fit: cover;
     object-position: center;
 }
-
 
 .name,
 .age-container {
