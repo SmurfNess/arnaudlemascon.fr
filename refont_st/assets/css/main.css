@@ -330,6 +330,7 @@ form {
     height: 184px;
     object-fit: cover;
     object-position: center;
+    animation: img-profile-inv-rot 10s infinite;
 }
 
 @keyframes img-profile-inv-rot {
