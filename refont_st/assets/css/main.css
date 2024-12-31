@@ -308,7 +308,7 @@ form {
     justify-content: center;
     align-items: center;
     animation: profile 10s infinite;
-    border: red dotted 2px;
+    border: red dotted 5px;
 }
 
 @keyframes profile {
