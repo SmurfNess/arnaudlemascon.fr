@@ -313,8 +313,7 @@ form {
 @keyframes profile {
     0%		{ 
             border-radius: 50% 50% 50% 50%;
-            transform: rotate(0deg);
-            transform: scale(1);
+            transform: rotate(0deg) scale(1);
             }
     25%		{ border-radius: 20% 40% 30% 50%;}
     50%		{   
@@ -324,8 +323,7 @@ form {
     75%		{ border-radius: 30% 50% 25% 45%; }
     100%	{ 
             border-radius: 50% 50% 50% 50%;
-            transform: rotate(360deg);
-            transform: scale(1);
+            transform: rotate(360deg)scale(1);
             }
   }  
 
