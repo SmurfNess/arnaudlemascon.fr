@@ -154,7 +154,7 @@ form {
 }
 
 .case {
-    border: var(--color-bkg-t3-white) dashed 1px;
+    /*border: var(--color-bkg-t3-white) dashed 1px;*/
     padding: 10px;
 }
 .case2 {
