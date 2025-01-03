@@ -294,17 +294,17 @@
                         <div class="cards">
                             <div class="card-title" id="CONTACT">Contact</div>
                             <div class="container-contact">
-                                <input type="text" placeholder="Envoyer un message">
+                                <input type="text" id="message-input" placeholder="Envoyer un message">
                             </div>
-                            <div class="row">
+                            <div class="row" id="conditional-row" style="display: none;">
                                 <div class="col-4 case">
-                                    <input type="name">
+                                    <input type="name" placeholder="Nom">
                                 </div>
                                 <div class="col-4 case">
-                                    <input type="pronoun">
+                                    <input type="text" placeholder="Prénom">
                                 </div>
                                 <div class="col-4 case">
-                                    <button>send</button>
+                                    <button>Envoyer</button>
                                 </div>
                             </div>
                         </div>
@@ -469,6 +469,7 @@
     <script src="assets/js/bandeaualeatoire.js"></script>
     <script src="assets/js/animationNess.js"></script>
     <script src="assets/js/cursor.js"></script>
+    <script src="assets/js/contact.js"></script>
 
 </body>
 
