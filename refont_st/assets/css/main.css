@@ -530,7 +530,6 @@ position: relative;
 
 .container-contact {
     padding: 10px;
-    margin-bottom: 50px;
 }
 
 .container-contact input {
@@ -564,6 +563,10 @@ input:focus {
 
 .menu-title::first-letter{
     text-transform: uppercase;
+}
+
+.card-contact{
+    margin-bottom: 30px;
 }
 
 /* -----------------------------------------------------------------------------------------------  Certifications */
@@ -644,7 +647,7 @@ input:focus {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin-bottom: 15px; /* Espacement entre les positions */
+    margin-bottom: 15px; 
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: var(--rds-sm);
