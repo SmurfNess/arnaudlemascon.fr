@@ -157,6 +157,11 @@ form {
     border: var(--color-bkg-t3-white) dashed 1px;
     padding: 10px;
 }
+.case2 {
+    border: red dashed 2px;
+    padding: 5px;
+    background: linear-gradient(145deg, rgba(255,15,15,0) 0%, rgba(255,255,255,0.4654236694677871) 100%);
+}
 
 /* -----------------------------------------------------------------------------------------------  menu */
 .menu {
