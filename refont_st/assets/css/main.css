@@ -539,7 +539,7 @@ position: relative;
     border-radius: var(--rds-sm);
     border: 0.5px var(--color-bkg-primary) solid;
     width: 95%;
-    padding: 5px 10px;
+    padding: 10px 10px;
 }
 
 input:focus {
