@@ -538,8 +538,9 @@ position: relative;
     color: var(--color-ft-white);
     border-radius: var(--rds-sm);
     border: 0.5px var(--color-bkg-primary) solid;
-    width: 95%;
-    padding: 10px 10px;
+    width: 98%;
+    left: 1%;
+    padding: 0px 10px;
 }
 
 input:focus {
