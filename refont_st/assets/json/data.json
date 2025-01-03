@@ -130,6 +130,23 @@
                     }
                 }
             ],
+            "Climate": [
+                {
+                    "title": {
+                        "en": "Climate Dividends",
+                        "fr": "Climate Dividends",
+                        "sp": "Climate Dividends"
+                    },
+                    "gallery": "climate.png",
+                    "icon": "climate.png",
+                    "alt": "Team Planet",
+                    "description": {
+                        "en": "0,102 Climate Dividends - 102,93 kg of CO2 avoided by participating to Team Planet",
+                        "fr": "0,102 Dividendes climatiques - 102,93 kg de CO2 évités grâce à la participation à Team Planet",
+                        "sp": "0,102 Dividendos Climáticos - 102,93 kg de CO2 evitados por participar en el Equipo Planeta"
+                    }
+                }
+            ],
             "italie": [
                 {
                     "title": {
