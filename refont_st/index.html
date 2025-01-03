@@ -293,23 +293,48 @@
                     <div class="col-12 case">
                         <div class="cards card-contact">
                             <div class="card-title" id="CONTACT">Contact</div>
-                            <div class="container-contact row">
-                                <input type="text" id="message-input" placeholder="Envoyer un message" class="col-10">
-                            </div>
-                            <div class="row" id="conditional-row" style="display: none;">
-                                <div class="col-4 case">
-                                    <input type="name" placeholder="Nom">
+                            <form action="https://formspree.io/f/xdovyzdp" method="POST"></form>
+                                <div class="container-contact row">
+                                    <input type="text" name="message" id="message-input" placeholder="Envoyer un message" class="col-10">
                                 </div>
-                                <div class="col-4 case">
-                                    <input type="text" placeholder="Pronoms">
+                                <div class="row" id="conditional-row" style="display: none;">
+                                    <div class="col-2 case">
+                                        <input type="text" name="name" placeholder="Nom" required>
+                                    </div>
+                                    <div class="col-2 case">
+                                        <input type="text" name="pronouns" placeholder="Pronoms" required>
+                                    </div>
+                                    <div class="col-2 case">
+                                        <input type="email" name="email" placeholder="mail" required>
+                                    </div>
+                                    <div class="col-2 case">
+                                        <button class="steam-button">Envoyer</button>
+                                    </div>
                                 </div>
-                                <div class="col-2 case">
-                                    <button class="steam-button">Envoyer</button>
-                                </div>
-                            </div>
+                            </form>
                         </div>
                     </div>
                     
+
+<!--
+                              
+            <div class="row">
+            <label class="col-12 name">Ton nom et tes pronoms :<br>
+              <input type="name" name="name" style="width: 100%;" required>
+            </label>
+            <label class="col-12 mail">Ton email :<br>
+              <input type="email" name="email" style="width: 100%;" required>
+            </label>
+            <label class="col-10 message">Ton message :<br>
+              <textarea name="message" rows="8" cols="0"></textarea required>
+            </label>
+            <div class="col-2">
+              <button type="submit" class="btn-message">SEND</button>
+            </div>
+          </div>
+          </form>
+          -->
+
                 </div>
             </div>
             <div class="col-4 case">
