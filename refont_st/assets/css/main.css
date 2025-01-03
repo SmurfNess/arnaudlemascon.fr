@@ -525,7 +525,9 @@ position: relative;
 .card-project-asset img{
     max-width: 500px;
 }
-
+.card-project-name{
+    font-weight: bold;
+}
 /* -----------------------------------------------------------------------------------------------  contact */
 
 .container-contact {
