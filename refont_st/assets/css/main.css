@@ -575,6 +575,58 @@ input:focus {
     margin-bottom: 30px;
 }
 
+.steam-button {
+    display: inline-block;
+    font-family: Arial, sans-serif;
+    color: #d5e99d; /* Couleur du texte */
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    border: none; /* Supprime la bordure */
+    border-radius: 8px; /* Coins arrondis */
+    background: linear-gradient(0deg, rgba(105,142,18,1) 0%, rgba(130,167,25,1) 100%);
+
+; /* Couleur intérieure */
+    position: relative;
+    cursor: pointer;
+    z-index: 1; /* Garde le contenu au-dessus */
+}
+
+.steam-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: inherit; /* Suivre les coins arrondis */
+    padding: 2px; /* Épaisseur de la "bordure" */
+    background: linear-gradient(0deg, rgba(105, 142, 18, 1) 0%, rgba(163, 221, 0, 1) 100%);
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0); /* Masque pour simuler une bordure */
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+    z-index: -1; /* Envoyer derrière */
+}
+
+.steam-button:hover {
+    color: #ffffff; /* Texte blanc au survol */
+    background: linear-gradient(0deg, rgba(163,221,0,1) 0%, rgba(151,201,8,1) 75%);
+}
+
+.steam-button:hover::before {
+background: rgba(163,221,0,1) ;
+
+
+}
+
+.steam-button:active {
+    transform: scale(0.98); /* Réduction au clic */
+}
+
 /* -----------------------------------------------------------------------------------------------  Certifications */
 
 .card-grid-cert {
