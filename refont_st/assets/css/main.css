@@ -533,6 +533,7 @@ position: relative;
 }
 
 .container-contact input {
+    position: relative;
     background-color: var(--color-bkg-t3-white);
     color: var(--color-ft-white);
     border-radius: var(--rds-sm);
