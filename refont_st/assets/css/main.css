@@ -537,7 +537,7 @@ position: relative;
     color: var(--color-ft-white);
     border-radius: var(--rds-sm);
     border: 0.5px var(--color-bkg-primary) solid;
-    width: 100%;
+    width: 90%;
     padding: 2px 10px;
 }
 
