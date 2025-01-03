@@ -601,7 +601,7 @@ input:focus {
     left: 0;
     right: 0;
     bottom: 0;
-    border-radius: inherit; /* Suivre les coins arrondis */
+    border-radius: var(--rds-sm); /* Suivre les coins arrondis */
     padding: 2px; /* Épaisseur de la "bordure" */
     background: linear-gradient(0deg, rgba(105, 142, 18, 1) 0%, rgba(163, 221, 0, 1) 100%);
     -webkit-mask: 
