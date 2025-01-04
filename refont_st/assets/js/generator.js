@@ -309,12 +309,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     const projectsElement = document.createElement('div');
                     projectsElement.classList.add('card-content');
                     projectsElement.innerHTML = `
-                        <img src="./assets/pictures/achievement/${item.icon}" alt="${item.alt}" class="card-img-achievement">
-                        <div class="tooltip-text">
-                            <div class="tooltip-title">${item.title[currentLanguage] || item.title['en']}</div>
-                            <div class="tooltip-description">${item.description[currentLanguage] || item.description['en']}</div>
-                        </div>
-
                             <div class="row">
                                 <div class="card-project-asset col-4">
                                     <a href="${item.link}" target="_blank">                                  
