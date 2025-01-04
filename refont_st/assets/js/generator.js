@@ -299,7 +299,39 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
     
-
+    function updateProjects(){
+        const container = document.getElementById('PROJECTS'); // Assurez-vous que cet ID existe dans votre HTML
+        let htmlContent = '';
+    
+        data.PROJECTS.forEach(category => {
+            Object.values(category).forEach(projects => {
+                projects.forEach(project => {
+                    htmlContent += `
+                        <div class="card-content">
+                            <div class="row">
+                                <div class="card-project-asset col-4">
+                                    <a href="${project.link}" target="_blank">                                  
+                                        <img src="./assets/pictures/project/${project.picture}" alt="${project.title}">
+                                    </a>
+                                </div>
+                                <div class="col-4">
+                                    <div class="card-project-name">${project.title}</div>
+                                    <div class="container-techno">
+                                        ${project.techno.map(tech => `<div class="techno-label" id="${tech.toUpperCase()}"> ${tech.toUpperCase()} </div>`).join('')}
+                                    </div>
+                                </div>
+                                <div class="card-project-desc col-4">
+                                    ${project.description}
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+            });
+        });
+    
+        container.innerHTML = htmlContent;
+    }
 
     // Fonction pour mettre à jour tout le contenu
     function updateContent(data) {
@@ -312,6 +344,7 @@ document.addEventListener('DOMContentLoaded', function () {
         updateWorking(infoData);
         updateAchievements(achievementsData);
         updatePositions(positionsData);
+        updateProjects(projectsData);
         updateCardTitle(infoData);
         console.log(data);
     }
