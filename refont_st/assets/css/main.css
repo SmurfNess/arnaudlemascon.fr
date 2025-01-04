@@ -528,6 +528,10 @@ position: relative;
     font-weight: 500;
 }
 
+.card-project-desc{
+    font-weight: 300;
+}
+
 .container-techno{
     display: flex;
     gap: 5px;
