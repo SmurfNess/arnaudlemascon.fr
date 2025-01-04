@@ -301,12 +301,13 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     
     function updateProjects(projectsData){
-        projectsElement.innerHTML = ''; // Réinitialiser le conteneur
+        projectsElement.innerHTML = ''; // Réinitialiser le conteneur  ${item.text[0].client[currentLanguage]}
 
         for (const key in projectsData) {
             console.log(key);
             if (projectsData.hasOwnProperty(key)) {
                 projectsData[key].forEach(item => {
+                    console.log(key.item)
                     const projectsElement = document.createElement('div');
                     projectsElement.classList.add('card-content');
                     projectsElement.innerHTML = `
