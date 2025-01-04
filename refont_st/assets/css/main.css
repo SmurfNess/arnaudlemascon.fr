@@ -378,8 +378,7 @@ form {
 
 /* CONTENT */
 
-.container-achievement:hover .tooltip-text,
-.container-techno:hover .tooltip-text, .container-tools:hover .tooltip-text {
+.container-achievement:hover .tooltip-text, .container-tools:hover .tooltip-text {
     visibility: visible;
     opacity: 1;
 }
@@ -527,6 +526,10 @@ position: relative;
 }
 .card-project-name{
     font-weight: 500;
+}
+
+.container-techno{
+    display: flex;
 }
 
 .techno-label {
