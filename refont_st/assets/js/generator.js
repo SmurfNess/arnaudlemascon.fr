@@ -36,16 +36,6 @@ document.addEventListener('DOMContentLoaded', function () {
             });
     }
 
-    // Fonction pour mettre à jour le menu
-    function updateMenu(menuData) {
-        Object.keys(menuElements).forEach(key => {
-            if (menuData[key]) {
-                menuElements[key].textContent =
-                    menuData[key][currentLanguage] || menuData[key]['en'];
-            }
-        });
-    }
-
     // Fonction pour mettre à jour l'introduction
     function updateIntro(infoData) {
         if (infoData['INTRO']) {
@@ -313,12 +303,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Fonction pour mettre à jour tout le contenu
     function updateContent(data) {
-        const menuData = data.MENU[0];
         const infoData = data.INFO[0];
         const achievementsData = data.ACHIEVEMENTS[0];
         const positionsData = data.POSITIONS[0];
+        const
 
-        updateMenu(menuData);
         updateIntro(infoData);
         updateWorking(infoData);
         updateAchievements(achievementsData);
