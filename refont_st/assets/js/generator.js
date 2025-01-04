@@ -323,7 +323,8 @@ document.addEventListener('DOMContentLoaded', function () {
                                     </div>
                                 </div>
                                 <div class="card-project-desc col-4">
-                                    ${item.description}
+                                    ${item.description[currentLanguage] || item.description['en']
+                                    }
                                 </div>
                             </div>
                         </div>
