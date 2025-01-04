@@ -306,7 +306,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const infoData = data.INFO[0];
         const achievementsData = data.ACHIEVEMENTS[0];
         const positionsData = data.POSITIONS[0];
-        const
+        const projectsData =data.PROJECTS[0];
 
         updateIntro(infoData);
         updateWorking(infoData);
