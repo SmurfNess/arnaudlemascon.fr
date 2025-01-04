@@ -528,6 +528,9 @@ position: relative;
     font-weight: 500;
 }
 
+.card-project-name::first-letter{
+    text-transform: uppercase;
+}
 .card-project-desc{
     font-size: var(--ft-sm);
     font-weight: 300;
