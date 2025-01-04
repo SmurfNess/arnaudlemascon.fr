@@ -529,6 +529,7 @@ position: relative;
 }
 
 .card-project-desc{
+    font-size: var(--ft-sm);
     font-weight: 300;
 }
 
