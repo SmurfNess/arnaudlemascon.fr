@@ -304,6 +304,7 @@ document.addEventListener('DOMContentLoaded', function () {
         projectsElement.innerHTML = ''; // Réinitialiser le conteneur
 
         for (const key in projectsData) {
+            console.log(key);
             if (projectsData.hasOwnProperty(key)) {
                 projectsData[key].forEach(item => {
                     const projectsElement = document.createElement('div');
