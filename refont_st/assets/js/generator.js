@@ -307,7 +307,7 @@ document.addEventListener('DOMContentLoaded', function () {
             console.log(key);
             if (projectsData.hasOwnProperty(key)) {
                 projectsData[key].forEach(item => {
-                    console.log(key.item)
+                    console.log(item)
                     const projectsElement = document.createElement('div');
                     projectsElement.classList.add('card-content');
                     projectsElement.innerHTML = `
