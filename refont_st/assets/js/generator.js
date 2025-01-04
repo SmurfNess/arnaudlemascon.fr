@@ -308,8 +308,6 @@ document.addEventListener('DOMContentLoaded', function () {
             if (projectsData.hasOwnProperty(key)) {
                 projectsData[key].forEach(item => {
                     console.log(item.link)
-                    const projectsElement = document.createElement('div');
-                    projectsElement.classList.add('card-content');
                     projectsElement.innerHTML = `
                             <div class="row">
                                 <div class="card-project-asset col-4">
