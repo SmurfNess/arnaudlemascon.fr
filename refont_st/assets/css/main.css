@@ -530,6 +530,7 @@ position: relative;
 }
 
 .techno-label {
+    text-align: center;
     height: 25px;
     width: 50px;
     border-radius: 5px;
