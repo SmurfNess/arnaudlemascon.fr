@@ -680,6 +680,15 @@
                     "link":"https://arnaudlemascon.fr/projects/hoomanbenchmark/hoomanbenchmark.html",
                     "picture":"hooman.png",
                     "techno":["JavaScript","HTML","CSS"],
+                    "description":"Remake du Chimptest de HumanBenchmark"
+                }
+            ],
+            "NORKSIEGE":[
+                {
+                    "title":"norksiege",
+                    "link":"https://norksiege.fr",
+                    "picture":"norksiege.png",
+                    "techno":["JavaScript","HTML","CSS"],
                     "description":"Jeu textuel librement inspiré de Zork faisant référence à d'autres jeu tels que Fable et Dungeon Siege."
                 }
             ]
