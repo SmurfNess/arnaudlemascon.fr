@@ -300,7 +300,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     
     function updateProjects(){
-        const container = document.getElementById('PROJECTS'); // Assurez-vous que cet ID existe dans votre HTML
+        const container = document.getElementById('PROJECTS');
         let htmlContent = '';
     
         data.PROJECTS.forEach(category => {
