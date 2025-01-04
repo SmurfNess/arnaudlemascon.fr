@@ -300,15 +300,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
     
-    function updateProjects(projectsData){
-        projectsElement.innerHTML = ''; // Réinitialiser le conteneur  ${item.text[0].client[currentLanguage]}
-
+    function updateProjects(projectsData) {
+        projectsElement.innerHTML = ''; // Réinitialiser le conteneur
+    
         for (const key in projectsData) {
             console.log(key);
             if (projectsData.hasOwnProperty(key)) {
                 projectsData[key].forEach(item => {
-                    projectsElement.innerHTML =+ `
-                         <div class="card-content">
+                    // Ajouter le contenu sans remplacer ce qui existe déjà
+                    projectsElement.innerHTML += `
+                        <div class="card-content">
                             <div class="row">
                                 <div class="card-project-asset col-4">
                                     <a href="${item.link}" target="_blank">                                  
@@ -326,13 +327,12 @@ document.addEventListener('DOMContentLoaded', function () {
                                 </div>
                             </div>
                         </div>
-
                     `;
                 });
             }
         }
     }
-
+    
     // Fonction pour mettre à jour tout le contenu
     function updateContent(data) {
         const infoData = data.INFO[0];
