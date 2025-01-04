@@ -299,7 +299,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
     
-    function updateProjects(){
+    function updateProjects(projectsData){
         const container = document.getElementById('PROJECTS');
         let htmlContent = '';
     
