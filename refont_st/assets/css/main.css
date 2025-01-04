@@ -530,6 +530,7 @@ position: relative;
 
 .container-techno{
     display: flex;
+    gap: 5px;
 }
 
 .techno-label {
