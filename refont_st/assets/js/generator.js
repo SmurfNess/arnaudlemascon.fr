@@ -301,35 +301,42 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     
     function updateProjects(projectsData){
-    
-        data.PROJECTS.forEach(category => {
-            Object.values(category).forEach(projects => {
-                projects.forEach(project => {
-                    htmlContent += `
-                        <div class="card-content">
+        projectsElement.innerHTML = ''; // Réinitialiser le conteneur
+
+        for (const key in projectsData) {
+            if (projectsData.hasOwnProperty(key)) {
+                projectsData[key].forEach(item => {
+                    const projectsElement = document.createElement('div');
+                    projectsElement.classList.add('card-content');
+                    projectsElement.innerHTML = `
+                        <img src="./assets/pictures/achievement/${item.icon}" alt="${item.alt}" class="card-img-achievement">
+                        <div class="tooltip-text">
+                            <div class="tooltip-title">${item.title[currentLanguage] || item.title['en']}</div>
+                            <div class="tooltip-description">${item.description[currentLanguage] || item.description['en']}</div>
+                        </div>
+
                             <div class="row">
                                 <div class="card-project-asset col-4">
-                                    <a href="${project.link}" target="_blank">                                  
-                                        <img src="./assets/pictures/project/${project.picture}" alt="${project.title}">
+                                    <a href="${item.link}" target="_blank">                                  
+                                        <img src="./assets/pictures/project/${item.picture}" alt="${item.title}">
                                     </a>
                                 </div>
                                 <div class="col-4">
-                                    <div class="card-project-name">${project.title}</div>
+                                    <div class="card-project-name">${item.title}</div>
                                     <div class="container-techno">
-                                        ${project.techno.map(tech => `<div class="techno-label" id="${tech.toUpperCase()}"> ${tech.toUpperCase()} </div>`).join('')}
+                                        ${item.techno.map(tech => `<div class="techno-label" id="${tech.toUpperCase()}"> ${tech.toUpperCase()} </div>`).join('')}
                                     </div>
                                 </div>
                                 <div class="card-project-desc col-4">
-                                    ${project.description}
+                                    ${item.description}
                                 </div>
                             </div>
-                        </div>
+
+
                     `;
                 });
-            });
-        });
-    
-        container.innerHTML = htmlContent;
+            }
+        }
     }
 
     // Fonction pour mettre à jour tout le contenu
