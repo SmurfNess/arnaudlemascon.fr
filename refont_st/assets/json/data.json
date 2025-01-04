@@ -680,7 +680,11 @@
                     "link":"https://arnaudlemascon.fr/projects/hoomanbenchmark/hoomanbenchmark.html",
                     "picture":"hooman.png",
                     "techno":["JS","HTML","CSS"],
-                    "description":"Remake du Chimptest de HumanBenchmark"
+                    "description":{
+                        "en":"Remake of Chimptest by HumanBenchmark",
+                        "fr":"Remake du Chimptest de HumanBenchmark",
+                        "sp":"Remake del Chimptest de HumanBenchmark"
+                    }
                 }
             ],
             "NORKSIEGE":[
@@ -689,7 +693,11 @@
                     "link":"https://norksiege.fr",
                     "picture":"norksiege.png",
                     "techno":["JS","HTML","CSS"],
-                    "description":"Jeu textuel inspiré de Zork faisant référence à d'autres jeu tels que Fable et Dungeon Siege."
+                    "description":{
+                        "en":"Zork-inspired text game referencing other games such as Fable and Dungeon Siege.",
+                        "fr":"Jeu textuel inspiré de Zork faisant référence à d'autres jeu tels que Fable et Dungeon Siege.",
+                        "sp":"Juego basado en texto inspirado en Zork que hace referencia a otros juegos como Fable y Dungeon Siege."
+                    }
                 }
             ]
         }
