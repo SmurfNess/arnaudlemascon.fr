@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const workingElement = document.getElementById('WORKING');
     const currentElement = document.getElementById("CURRENT");
     const catElement = document.getElementById("CAT");
+    const projectsElement = document.getElementById('PROJECTS');
     const successElement = document.getElementById("SUCCESS");
     const historyElement = document.getElementById("HISTORY");
     const workElement = document.getElementById("WORK");
@@ -300,8 +301,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     
     function updateProjects(projectsData){
-        const container = document.getElementById('PROJECTS');
-        let htmlContent = '';
     
         data.PROJECTS.forEach(category => {
             Object.values(category).forEach(projects => {
