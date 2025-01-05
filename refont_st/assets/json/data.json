@@ -1,10 +1,10 @@
 {
     "MENU": [
         {
-            "VALUES": {
-                "en": "Values",
-                "fr": "Valeurs",
-                "sp": "Valores"
+            "AMBIANCE": {
+                "en": "Ambiance",
+                "fr": "Ambiance",
+                "sp": "Ambiante"
             },
             "STORY": {
                 "en": "About",
