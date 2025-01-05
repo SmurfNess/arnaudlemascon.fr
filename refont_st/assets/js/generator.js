@@ -299,7 +299,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 mostRecentPosition.ending || null
             );
             const currentDiv = document.getElementById('CURRENT');
-            currentDiv.innerHTML = `
+            currentElement.innerHTML = `
                 ${currentDuration}
             `;
 
