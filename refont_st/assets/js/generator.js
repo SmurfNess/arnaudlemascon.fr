@@ -45,12 +45,12 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Fonction pour mettre à jour le menu
     function updateMenu(menuData) {
-        Object.keys(menuElements).forEach(key => {
-            if (menuData[key]) {
-                menuElements[key].textContent =
-                    menuData[key][currentLanguage] || menuData[key]['en'];
+        menuData.MENU[0] && Object.keys(menuData.MENU[0]).forEach(id => {
+            const element = document.getElementById(id); // Sélectionner l'élément HTML correspondant
+            if (element) {
+                element.textContent = menuData.MENU[0][id][currentLanguage] 
+                                      || menuData.MENU[0][id]['en']; // Mise à jour du texte
             }
         });
     }
