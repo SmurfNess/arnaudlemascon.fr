@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     const menuElements = {
-        VALUES: document.getElementById('AMBIANCE'),
+        AMBIANCE: document.getElementById('AMBIANCE'),
         STORY: document.getElementById('STORY'),
         CV: document.getElementById('CV'),
     };
