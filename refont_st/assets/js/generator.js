@@ -55,7 +55,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-
     // Fonction pour mettre à jour l'introduction
     function updateWorking(infoData) {
         if (infoData['WORKING']) {
@@ -298,7 +297,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 mostRecentPosition.beginning,
                 mostRecentPosition.ending || null
             );
-            const currentDiv = document.getElementById('CURRENT');
             currentElement.innerHTML = `
                 ${currentDuration}
             `;
@@ -315,7 +313,6 @@ document.addEventListener('DOMContentLoaded', function () {
         projectsElement.innerHTML = ''; // Réinitialiser le conteneur
 
         for (const key in projectsData) {
-            console.log(key);
             if (projectsData.hasOwnProperty(key)) {
                 projectsData[key].forEach(item => {
                     // Ajouter le contenu sans remplacer ce qui existe déjà
