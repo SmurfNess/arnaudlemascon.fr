@@ -352,7 +352,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 certifData[key].forEach(item => {
                     // Ajouter le contenu sans remplacer ce qui existe déjà
                     projectsElement.innerHTML += `
-                            <div class="container-achievement ${item.status}">
+                            <div class="container-certif ${item.status}">
                                 <img src="./assets/pictures/cert/${item.picture}" alt="${item.name}"
                                     class="card-img-skill-cert">
                                 <div class="tooltip-text">

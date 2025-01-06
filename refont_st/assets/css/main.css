@@ -378,7 +378,7 @@ form {
 
 /* CONTENT */
 
-.container-achievement:hover .tooltip-text, .container-tools:hover .tooltip-text {
+.container-achievement:hover .tooltip-text, .container-tools:hover .tooltip-text, .container-certif:hover .tooltip-text {
     visibility: visible;
     opacity: 1;
 }
