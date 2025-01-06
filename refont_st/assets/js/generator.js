@@ -19,8 +19,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const certifNumberElement = document.getElementById("CERTIFNUMBER");
     const certifListElement = document.getElementById("CERTIFLIST");
     const statusElement = document.getElementById("STATUS");
-    const diplomasElement = document.getElementById("DIPLOMAS");
-    const diplomasListElement = document.getElementById("DIPLOMALIST");
+    const diplomasElement = document.getElementById("DIPLOMAs");
+    const diplomasListElement = document.getElementById("DIPLOMAsLIST");
     const languagesElement = document.getElementById("LANGUAGES");
     const profilePicture = document.querySelector('.img-profile-picture');
     const jsonUrl = 'https://arnaudlemascon.fr/refont_st/assets/json/data.json';
@@ -99,9 +99,9 @@ document.addEventListener('DOMContentLoaded', function () {
             languagesElement.textContent =
                 infoData['LANGUAGES'][currentLanguage] || infoData['LANGUAGES']['en'];
         }
-        if (infoData['DIPLOMAS']) {
+        if (infoData['DIPLOMAs']) {
             diplomasElement.textContent =
-                infoData['DIPLOMAS'][currentLanguage] || infoData['DIPLOMAS']['en'];
+                infoData['DIPLOMAs'][currentLanguage] || infoData['DIPLOMAs']['en'];
         }
     }
 
@@ -369,16 +369,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    function updateDiploma(diplomaData) {
-        diplomaListElement.innerHTML = ''; // Réinitialiser le conteneur
+    function updateDiplomas(diplomasData) {
+        diplomasListElement.innerHTML = ''; // Réinitialiser le conteneur
 
-        for (const key in diplomaData) {
-            if (diplomaData.hasOwnProperty(key)) {
-                diplomaData[key].forEach(item => {
+        for (const key in diplomasData) {
+            if (diplomasData.hasOwnProperty(key)) {
+                diplomasData[key].forEach(item => {
                     // Ajouter le contenu sans remplacer ce qui existe déjà
                     diplomasListElement.innerHTML += `
-                            <div class="container-diploma">
-                                <img src="./assets/pictures/cert/diploma.png" alt="diploma"
+                            <div class="container-diplomas">
+                                <img src="./assets/pictures/cert/diplomas.png" alt="diplomas"
                                     class="card-img-skill-cert">${item.name}
                                 <div class="tooltip-text">
                                     <div class="tooltip-title">IPI école informatique</div>
@@ -400,7 +400,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const projectsData = data.PROJECTS[0];
         const menuData = data.MENU[0];
         const certifData = data.CERTIF[0];
-        const diplomaData = data.CERTIF[0];
+        const diplomasData = data.CERTIF[0];
 
         updateIntro(infoData);
         updateMenu(menuData);
@@ -408,7 +408,7 @@ document.addEventListener('DOMContentLoaded', function () {
         updateAchievements(achievementsData);
         updatePositions(positionsData);
         updateProjects(projectsData);
-        updateDiploma(projectsData);
+        updateDiplomas(projectsData);
         updateCertif(certifData);
         updateCardTitle(infoData);
         console.log(data);
