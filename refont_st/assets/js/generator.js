@@ -372,7 +372,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function updateDiploma(diplomaData) {
         diplomaListElement.innerHTML = ''; // Réinitialiser le conteneur
 
-        for (const key in diplomaDataData) {
+        for (const key in diplomaData) {
             if (diplomaData.hasOwnProperty(key)) {
                 diplomaData[key].forEach(item => {
                     // Ajouter le contenu sans remplacer ce qui existe déjà
