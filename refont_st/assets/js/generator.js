@@ -16,8 +16,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const workElement = document.getElementById("WORK");
     const contactElement = document.getElementById("CONTACT");
     const certificatElement = document.getElementById("CERTIFICATE");
-    const certifNumberElement = document.getElementById("CERTIFNUMBER");
-    const certifListElement = document.getElementById("CERTIFLIST");
     const statusElement = document.getElementById("STATUS");
     const diplomasElement = document.getElementById("DIPLOMAS");
     const languagesElement = document.getElementById("LANGUAGES");
@@ -344,30 +342,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    function updateCertif(certifData) {
-        projectsElement.innerHTML = ''; // Réinitialiser le conteneur
-
-        for (const key in certifData) {
-            if (certifData.hasOwnProperty(key)) {
-                certifData[key].forEach(item => {
-                    // Ajouter le contenu sans remplacer ce qui existe déjà
-                    projectsElement.innerHTML += `
-                            <div class="container-achievement ${item.status}">
-                                <img src="./assets/pictures/cert/${item.picture}" alt="${item.name}"
-                                    class="card-img-skill-cert">
-                                <div class="tooltip-text">
-                                    <div class="tooltip-title">${item.name}</div>
-                                    <div class="tooltip-grade">${item.grade}</div>
-                                    <div class="tooltip-year">${item.year}</div>
-                                </div>
-                            </div>
-                    `;
-                });
-            }
-        }
-    }
-
-
     // Fonction pour mettre à jour tout le contenu
     function updateContent(data) {
         const infoData = data.INFO[0];
@@ -375,7 +349,6 @@ document.addEventListener('DOMContentLoaded', function () {
         const positionsData = data.POSITIONS[0];
         const projectsData = data.PROJECTS[0];
         const menuData = data.MENU[0];
-        const certifData = data.CERTIF[0];
 
         updateIntro(infoData);
         updateMenu(menuData);
@@ -383,7 +356,6 @@ document.addEventListener('DOMContentLoaded', function () {
         updateAchievements(achievementsData);
         updatePositions(positionsData);
         updateProjects(projectsData);
-        updateCertif(certifData);
         updateCardTitle(infoData);
         console.log(data);
     }
