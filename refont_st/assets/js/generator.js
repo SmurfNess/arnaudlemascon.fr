@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const certifListElement = document.getElementById("CERTIFLIST");
     const statusElement = document.getElementById("STATUS");
     const diplomasElement = document.getElementById("DIPLOMAs");
-    const diplomasListElement = document.getElementById("DIPLOMAsLIST");
+    const diplomasListElement = document.getElementById("DIPLOMASLIST");
     const languagesElement = document.getElementById("LANGUAGES");
     const profilePicture = document.querySelector('.img-profile-picture');
     const jsonUrl = 'https://arnaudlemascon.fr/refont_st/assets/json/data.json';
