@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const certifListElement = document.getElementById("CERTIFLIST");
     const statusElement = document.getElementById("STATUS");
     const diplomasElement = document.getElementById("DIPLOMAS");
+    const diplomasListElement = document.getElementById("DIPLOMALIST");
     const languagesElement = document.getElementById("LANGUAGES");
     const profilePicture = document.querySelector('.img-profile-picture');
     const jsonUrl = 'https://arnaudlemascon.fr/refont_st/assets/json/data.json';
@@ -375,7 +376,7 @@ document.addEventListener('DOMContentLoaded', function () {
             if (diplomaData.hasOwnProperty(key)) {
                 diplomaData[key].forEach(item => {
                     // Ajouter le contenu sans remplacer ce qui existe déjà
-                    certifListElement.innerHTML += `
+                    diplomasListElementListElement.innerHTML += `
                             <div class="container-diploma">
                                 <img src="./assets/pictures/cert/diploma.png" alt="diploma"
                                     class="card-img-skill-cert">${item.name}
