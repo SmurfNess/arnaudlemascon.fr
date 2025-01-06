@@ -408,7 +408,7 @@ document.addEventListener('DOMContentLoaded', function () {
         updateAchievements(achievementsData);
         updatePositions(positionsData);
         updateProjects(projectsData);
-        updateDiplomas(diplomasDatasData);
+        updateDiplomas(diplomasData);
         updateCertif(certifData);
         updateCardTitle(infoData);
         console.log(data);
