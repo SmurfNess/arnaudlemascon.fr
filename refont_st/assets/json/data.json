@@ -701,5 +701,86 @@
                 }
             ]
         }
+    ],
+    "CERTIF":[
+        {
+            "CUCP":[
+                {
+                    "status":"earn",
+                    "name":"Conduire un changement professionnel",
+                    "description":"",
+                    "link":"",
+                    "picture":"cert-CUCP.png",
+                    "year":"2020",
+                    "grade":""
+                }
+            ],
+            "PSM1":[
+                {
+                    "status":"earn",
+                    "name":"PSM1",
+                    "description":"Professional SCRUM Master 1",
+                    "link":"https://www.scrum.org/certificates/1158481",
+                    "picture":"cert-CUCP.png",
+                    "year":"2020",
+                    "grade":"90%"
+                }
+            ],
+            "PSC":[
+                {
+                    "status":"earn",
+                    "name":"PSC",
+                    "description":"Professional SCRUM Certifié",
+                    "link":"https://eu.badgr.com/public/assertions/RgfKwvxmSkSXFOS_GJ477g",
+                    "picture":"cert-CUCP.png",
+                    "year":"2020",
+                    "grade":"86%"
+                }
+            ],
+            "EFSET":[
+                {
+                    "status":"earn",
+                    "name":"EF SET Certificate",
+                    "description":"English comprehension : C2 Profiscient",
+                    "link":"https://cert.efset.org/89EDrE",
+                    "picture":"cert-CUCP.png",
+                    "year":"2020",
+                    "grade":"71/100"
+                }
+            ],
+            "PSPO":[
+                {
+                    "status":"earn",
+                    "name":"PSPO1",
+                    "description":"Professional SCRUM Product Owner 1",
+                    "link":"",
+                    "picture":"cert-CUCP.png",
+                    "year":"2020",
+                    "grade":"97.5%"
+                }
+            ],
+            "ITIL":[
+                {
+                    "status":"in progress",
+                    "name":"ITIL 4",
+                    "description":"",
+                    "link":"",
+                    "picture":"cert-CUCP.png",
+                    "year":"2020",
+                    "grade":""
+                }
+            ],
+            "AWS":[
+                {
+                    "status":"in progress",
+                    "name":"AWS Cloud Practionner",
+                    "description":"",
+                    "link":"",
+                    "picture":"cert-CUCP.png",
+                    "year":"2020",
+                    "grade":""
+                }
+            ]
+        }
     ]
 }
