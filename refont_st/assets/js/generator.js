@@ -379,11 +379,10 @@ document.addEventListener('DOMContentLoaded', function () {
                     diplomasListElement.innerHTML += `
                             <div class="container-diplomas">
                                 <img src="./assets/pictures/cert/diplomas.png" alt="diplomas"
-                                    class="card-img-skill-cert">${item.name}
+                                    class="card-img-skill-cert">${item.name} - ${item.year}
                                 <div class="tooltip-text">
-                                    <div class="tooltip-title">IPI école informatique</div>
-                                    <div class="tooltip-description">${item.description[currentLanguage] || item.description['en']}</div>
-                                    <div class="tooltip-year">${item.year}</div>
+                                    <div class="tooltip-title">${item.description[currentLanguage] || item.description['en']}</div>
+                                    <div class="tooltip-scholl">${item.school}</div>
                                 </div>
                             </div>
                         `;

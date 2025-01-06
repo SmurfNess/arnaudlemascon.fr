@@ -793,7 +793,8 @@
                         "fr":"Technicien Supérieur en Maintenance Informatique et Réseau",
                         "sp":"Técnico de mantenimiento informático y de redes"
                     },
-                    "year":"2016"
+                    "year":"2016",
+                    "school":"IPI école informatique"
                 }
             ],
             "TMMI":[
@@ -804,7 +805,8 @@
                         "fr":"Technicien Maintenicien Informatique et Réseau",
                         "sp":"Técnico de mantenimiento Informático y de Redes"
                     },
-                    "year":"2014"
+                    "year":"2014",
+                    "school":"IPI école informatique"
                 }
             ],
             "DNSEP":[
@@ -815,7 +817,8 @@
                         "fr":"Diplôme National d'Expression Plastique",
                         "sp":"Diploma nacional de Expresión Plástica"
                     },
-                    "year":"2013"
+                    "year":"2013",
+                    "school":"Esä : École Supérieure d'Arts de Dunkerque"
                 }
             ],
             "DNAP":[
@@ -826,7 +829,8 @@
                         "fr":"Diplome National d'Arts Plastiques",
                         "sp":"Diploma Nacional de Artes Plásticas"
                     },
-                    "year":"2011"
+                    "year":"2011",
+                    "school":"Esä : École Supérieure d'Arts de Dunkerque"
                 }
             ]
         }
