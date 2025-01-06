@@ -721,7 +721,7 @@
                     "name":"PSM1",
                     "description":"Professional SCRUM Master 1",
                     "link":"https://www.scrum.org/certificates/1158481",
-                    "picture":"cert-CUCP.png",
+                    "picture":"cert-psm1.png",
                     "year":"2020",
                     "grade":"90%"
                 }
@@ -732,7 +732,7 @@
                     "name":"PSC",
                     "description":"Professional SCRUM Certifié",
                     "link":"https://eu.badgr.com/public/assertions/RgfKwvxmSkSXFOS_GJ477g",
-                    "picture":"cert-CUCP.png",
+                    "picture":"cert-PSC.png",
                     "year":"2020",
                     "grade":"86%"
                 }
@@ -743,7 +743,7 @@
                     "name":"EF SET Certificate",
                     "description":"English comprehension : C2 Profiscient",
                     "link":"https://cert.efset.org/89EDrE",
-                    "picture":"cert-CUCP.png",
+                    "picture":"cert-EF2.png",
                     "year":"2020",
                     "grade":"71/100"
                 }
@@ -754,29 +754,29 @@
                     "name":"PSPO1",
                     "description":"Professional SCRUM Product Owner 1",
                     "link":"",
-                    "picture":"cert-CUCP.png",
+                    "picture":"cert-pspo1.png",
                     "year":"2020",
                     "grade":"97.5%"
                 }
             ],
             "ITIL":[
                 {
-                    "status":"in progress",
+                    "status":"in-progress",
                     "name":"ITIL 4",
                     "description":"",
                     "link":"",
-                    "picture":"cert-CUCP.png",
+                    "picture":"cert-ITIL4.png",
                     "year":"2020",
                     "grade":""
                 }
             ],
             "AWS":[
                 {
-                    "status":"in progress",
+                    "status":"in-progress",
                     "name":"AWS Cloud Practionner",
                     "description":"",
                     "link":"",
-                    "picture":"cert-CUCP.png",
+                    "picture":"cert-AWSCP.png",
                     "year":"2020",
                     "grade":""
                 }
