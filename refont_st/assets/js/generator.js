@@ -357,7 +357,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                     class="card-img-skill-cert">
                                 <div class="tooltip-text">
                                     <div class="tooltip-title">${item.name}</div>
-                                    <div class="tooltip-title">${item.description}</div>
+                                    <div class="tooltip-description">${item.description}</div>
                                     <div class="tooltip-grade">${item.grade}</div>
                                     <div class="tooltip-year">${item.year}</div>
                                 </div>
