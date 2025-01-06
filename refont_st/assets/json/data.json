@@ -741,7 +741,7 @@
                 {
                     "status":"earn",
                     "name":"EF SET Certificate",
-                    "description":"English comprehension : C2 Profiscient",
+                    "description":"English comprehension : C2 Proficient",
                     "link":"https://cert.efset.org/89EDrE",
                     "picture":"cert-EF2.png",
                     "year":"2020",
@@ -779,6 +779,54 @@
                     "picture":"cert-AWSCP.png",
                     "year":"2020",
                     "grade":""
+                }
+            ]
+        }
+    ],
+    "DIPLOMAS":[
+        {
+            "TSMIR":[
+                {
+                    "name":"TSMIR",
+                    "description":{
+                        "en":"IT and Network Maintenance Technician",
+                        "fr":"Technicien Supérieur en Maintenance Informatique et Réseau",
+                        "sp":"Técnico de mantenimiento informático y de redes"
+                    },
+                    "year":"2016"
+                }
+            ],
+            "TMMI":[
+                {
+                    "name":"TMMI",
+                    "description":{
+                        "en":"IT and Network Maintenance Technician",
+                        "fr":"Technicien Maintenicien Informatique et Réseau",
+                        "sp":"Técnico de mantenimiento Informático y de Redes"
+                    },
+                    "year":"2014"
+                }
+            ],
+            "DNSEP":[
+                {
+                    "name":"DNSEP",
+                    "description":{
+                        "en":"National Diploma of Plastic Expression",
+                        "fr":"Diplôme National d'Expression Plastique",
+                        "sp":"Diploma nacional de Expresión Plástica"
+                    },
+                    "year":"2013"
+                }
+            ],
+            "DNAP":[
+                {
+                    "name":"DNAP",
+                    "description":{
+                        "en":"National Diploma of Plastic Arts",
+                        "fr":"Diplome National d'Arts Plastiques",
+                        "sp":"Diploma Nacional de Artes Plásticas"
+                    },
+                    "year":"2011"
                 }
             ]
         }

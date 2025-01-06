@@ -368,6 +368,28 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    function updateDiploma(diplomaData) {
+        diplomaListElement.innerHTML = ''; // Réinitialiser le conteneur
+
+        for (const key in diplomaDataData) {
+            if (diplomaData.hasOwnProperty(key)) {
+                diplomaData[key].forEach(item => {
+                    // Ajouter le contenu sans remplacer ce qui existe déjà
+                    certifListElement.innerHTML += `
+                            <div class="container-diploma">
+                                <img src="./assets/pictures/cert/diploma.png" alt="diploma"
+                                    class="card-img-skill-cert">${item.name}
+                                <div class="tooltip-text">
+                                    <div class="tooltip-title">IPI école informatique</div>
+                                    <div class="tooltip-description">${item.description[currentLanguage] || item.description['en']}</div>
+                                    <div class="tooltip-year">${item.year}</div>
+                                </div>
+                            </div>
+                        `;
+                });
+            }
+        }
+    }
 
     // Fonction pour mettre à jour tout le contenu
     function updateContent(data) {
@@ -377,6 +399,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const projectsData = data.PROJECTS[0];
         const menuData = data.MENU[0];
         const certifData = data.CERTIF[0];
+        const diplomaData = data.CERTIF[0];
 
         updateIntro(infoData);
         updateMenu(menuData);
@@ -384,6 +407,7 @@ document.addEventListener('DOMContentLoaded', function () {
         updateAchievements(achievementsData);
         updatePositions(positionsData);
         updateProjects(projectsData);
+        updateDiploma(projectsData);
         updateCertif(certifData);
         updateCardTitle(infoData);
         console.log(data);
