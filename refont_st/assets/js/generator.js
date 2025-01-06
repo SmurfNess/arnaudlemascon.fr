@@ -376,7 +376,7 @@ document.addEventListener('DOMContentLoaded', function () {
             if (diplomaData.hasOwnProperty(key)) {
                 diplomaData[key].forEach(item => {
                     // Ajouter le contenu sans remplacer ce qui existe déjà
-                    diplomasListElementListElement.innerHTML += `
+                    diplomasListElement.innerHTML += `
                             <div class="container-diploma">
                                 <img src="./assets/pictures/cert/diploma.png" alt="diploma"
                                     class="card-img-skill-cert">${item.name}
