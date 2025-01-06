@@ -400,7 +400,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const projectsData = data.PROJECTS[0];
         const menuData = data.MENU[0];
         const certifData = data.CERTIF[0];
-        const diplomasData = data.CERTIF[0];
+        const diplomasData = data.DIPLOMAS[0];
 
         updateIntro(infoData);
         updateMenu(menuData);
