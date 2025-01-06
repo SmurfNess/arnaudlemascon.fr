@@ -345,13 +345,13 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function updateCertif(certifData) {
-        certifListElementElement.innerHTML = ''; // Réinitialiser le conteneur
+        certifListElement.innerHTML = ''; // Réinitialiser le conteneur
 
         for (const key in certifData) {
             if (certifData.hasOwnProperty(key)) {
                 certifData[key].forEach(item => {
                     // Ajouter le contenu sans remplacer ce qui existe déjà
-                    certifListElementElement.innerHTML += `
+                    certifListElement.innerHTML += `
                             <div class="container-certif ${item.status}">
                                 <img src="./assets/pictures/cert/${item.picture}" alt="${item.name}"
                                     class="card-img-skill-cert">
