@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const diplomasListElement = document.getElementById("DIPLOMASLIST");
     const languagesElement = document.getElementById("LANGUAGES");
     const profilePicture = document.querySelector('.img-profile-picture');
-    const jsonUrl = 'https://arnaudlemascon.frf/assets/json/data.json';
+    const jsonUrl = 'https://arnaudlemascon.fr/assets/json/data.json';
 
     let currentLanguage = 'en'; // Langue par défaut
     let originalProfilePictureSrc = profilePicture ? profilePicture.src : '';
