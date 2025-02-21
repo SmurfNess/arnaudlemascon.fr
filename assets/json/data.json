@@ -1,342 +1,838 @@
 {
-  "Navbar": [
-    {
-      "HOME": {
-        "en": "Home",
-        "fr": "Accueil",
-        "sp": "Accueillo"
-      },
-      "PROJECT": {
-        "en": "Project",
-        "fr": "Projet",
-        "sp": "Proyecto"
-      },
-      "VALUES": {
-        "en": "Values",
-        "fr": "Valeurs",
-        "sp": "Valores"
-      },
-      "SKILLS": {
-        "en": "Skills",
-        "fr": "Compétences",
-        "sp": "Competencia"
-      },
-      "CONTACT": {
-        "en": "Contact",
-        "fr": "Contact",
-        "sp": "Contacto"
-      }
-    }
-  ],
-  "Article": [
-    {
-      "section": "HOME",
-      "name": {
-        "en": "Hey, I'm Arnaud, welcome here",
-        "fr": "Hey, je suis Arnaud, bienvenue ici",
-        "sp": "Hola, soy Arnaud, bienvenido aquí."
-      },
-      "description": {
-        "en": "A former art student, I love to create, both with my hands and with a computer. I created this site to challenge myself.",
-        "fr": "Ancien étudiant en art, j'aime créer, autant avec mes mains qu'avec un ordinateur. J'ai créé ce site pour me challenger.",
-        "sp": "Ex estudiante de arte, me encanta crear, tanto con las manos como con el ordenador. Creé este sitio para desafiarme a mí mismo."
-      }
-    },
-    {
-      "section": "PROJECTS",
-      "name": {
-        "en": "Some projects",
-        "fr": "Quelques projets",
-        "sp": "Algunos proyectos"
-      }
-    },
-    {
-      "section": "VALUES",
-      "name": {
-        "en": "Values",
-        "fr": "Valeurs",
-        "sp": "Valores"
-      },
-      "description": {
-        "en": "What drives me",
-        "fr": "Ce qui m'anime",
-        "sp": "Lo que me impulsa"
-      }
-    },
-    {
-      "section": "SKILLS",
-      "name": {
-        "en": "Skills",
-        "fr": "Compétences",
-        "sp": "Competencia"
-      },
-      "description": {
-        "en": "Some of my skills",
-        "fr": "Certaines de mes compétences",
-        "sp": "Algunas de mis habilidades"
-      }
-    },
-    {
-      "section": "CONTACT",
-      "name": {
-        "en": "Contact",
-        "fr": "Contact",
-        "sp": "Contacto"
-      },
-      "description": {
-        "en": "Contact me",
-        "fr": "Contacte moi",
-        "sp": "Contáctame"
-      },
-      "identity": {
-        "en": "Your name and pronouns",
-        "fr": "Votre nom et vos pronoms",
-        "sp": "Tu nombre y tu pronombres"
-      },
-      "expeditor": {
-        "en": "Your Email",
-        "fr": "Votre Email",
-        "sp": "Tu Correo Electrónico"
-      },
-      "message": {
-        "en": "Your Message",
-        "fr": "Votre Message",
-        "sp": "Tu Mensaje"
-      },
-      "btn": {
-        "en": "Send",
-        "fr": "Envoyer",
-        "sp": "Enviar"
-      }
-    }
-  ],
-  "projects": [
-    {
-      "name": {
-        "en": "Norksiege",
-        "fr": "Norksiege",
-        "sp": "Norksiege"
-      },
-      "description": {
-        "en": "[ongoing project] Creation of a zork-type game using gameplay elements from dungeon siege and making reference to other games",
-        "fr": "[projet en cours] Création d'un jeu type zork reprenant des élément de gameplay de dungeon siege et faisant référence à d'autres jeux",
-        "sp": "[proyecto en curso] Creación de un juego tipo zork usando elementos de juego de dungeon siege y haciendo referencias a otros juegos"
-      },
-      "image": "https://arnaudlemascon.fr/assets/pictures/norksiege.webp",
-      "techno": ["JS", "HTML"],
-      "spotlight": "yes",
-      "link": "https://norksiege.fr"
-    },
-    {
-      "name": {
-        "en": "C.H.B.",
-        "fr": "C.H.B.",
-        "sp": "C.H.B."
-      },
-      "description": {
-        "en": "Chimptest Human Benchmark<br>A project to remake one of the Human Benchmark site tests: the chimptest.<br>I added the possibility to play it from a smartphone.",
-        "fr": "Chimptest Human Benchmark<br>Un projet pour refaire un des tests du site Human Benchmark : le chimptest.<br> J'ai ajouté la possibilité d'y jouer depuis un smartphone.",
-        "sp": "Chimptest Human Benchmark<br>Un proyecto para rehacer una de las pruebas del sitio Human Benchmark: el chimptest.<br> Agregué la posibilidad de jugarlo desde un teléfono inteligente."
-      },
-      "image": "https://arnaudlemascon.fr/assets/pictures/p_hooman.webp",
-      "techno": ["CSS", "JS"],
-      "spotlight": "yes",
-      "link": "https://arnaudlemascon.fr/projects/hoomanbenchmark/hoomanbenchmark.html"
-    },
-    {
-      "name": {
-        "en": "Team Up",
-        "fr": "Team Up",
-        "sp": "Team Up"
-      },
-      "description": {
-        "en": "Random team generation application with class management.",
-        "fr": "Application de génération aléatoire d'équipe avec gestion de classe.",
-        "sp": "Aplicación de generación aleatoria de equipos con gestión de clases."
-      },
-      "image": "https://arnaudlemascon.fr/assets/pictures/teamup.webp",
-      "techno": ["CSS", "JS"],
-      "spotlight": "no",
-      "link": "https://arnaudlemascon.fr/projects/TeamUp/teamup.html"
-    },
-    {
-      "name": {
-        "en": "Quiz",
-        "fr": "Quiz",
-        "sp": "Prueba"
-      },
-      "description": {
-        "en": "Another small project for generating questionnaires with information storage in a mysql database.",
-        "fr": "Un autre petit projet de génération de questionnaire avec stockage d'informations dans une base de données mysql.",
-        "sp": "Otro pequeño proyecto de generación de cuestionarios con almacenamiento de información en una base de datos mysql."
-      },
-      "image": "https://arnaudlemascon.fr/assets/pictures/quiz.webp",
-      "techno": ["CSS", "JS"],
-      "spotlight": "yes",
-      "link": "https://arnaudlemascon.fr/projects/quiz/acces.html"
-    }
-  ],
-  "values": [
-    {
-      "name": {
-        "en": "Curiosity",
-        "fr": "Curiosité",
-        "sp": "Curiosidad"
-      },
-      "image": "https://arnaudlemascon.fr/assets/pictures/IMG_1841.webp",
-      "description": {
-        "en": "From artist to consultant, from organizing outings to beginner developer",
-        "fr": "D'artiste à consultant, d'organisateurs de sorties à développeur débutant",
-        "sp": "De artista a consultor, de organizar salidas a desarrollador principiante"
-      }
-    },
-    {
-      "name": {
-        "en": "Creativity",
-        "fr": "Créativité",
-        "sp": "Creatividad"
-      },
-      "image": "https://arnaudlemascon.fr/assets/pictures/creativity_pic.webp",
-      "description": {
-        "en": "Making a table, a board game, a website, automating my repetitive actions, making spiced rum",
-        "fr": "Faire une table, un jeu de société, un site web, automatiser mes actions redondantes, faire du rhum arrangé.",
-        "sp": "Hacer una mesa, un juego de mesa, un sitio web, automatizar mis acciones repetitivas, hacer ron especiado."
-      }
-    },
-    {
-      "name": {
-        "en": "Commitment",
-        "fr": "Engagement",
-        "sp": "Compromiso"
-      },
-      "image": "https://arnaudlemascon.fr/assets/pictures/commitment.webp",
-      "description": {
-        "en": "Donor and former volunteer (animal, feminist, LGBTQUIA+)",
-        "fr": "Donateur et ancien bénévole (cause animale, féministe, LGBTQUIA+)",
-        "sp": "Donante y ex voluntario (causa animal, feminista, LGBTQIA+)"
-      }
-    },
-    {
-      "name": {
-        "en": "Camaraderie",
-        "fr": "Camaraderie",
-        "sp": "Camaradería"
-      },
-      "image": "https://arnaudlemascon.fr/assets/pictures/camaraderie.webp",
-      "description": {
-        "en": "I like to find good humor and mutual aid between people and at work",
-        "fr": "J'aime retrouver de la bonne humeur et de l'entraide entre les personnes et au travail",
-        "sp": "Me gusta encontrar buen humor y ayuda mutua entre las personas y en el trabajo"
-      }
-    },
-    {
-      "name": {
-        "en": "Performance",
-        "fr": "Performance",
-        "sp": "Actuación"
-      },
-      "image": "https://arnaudlemascon.fr/assets/pictures/performance.webp",
-      "description": {
-        "en": "A proponent of continuous evolution and a form of positive laziness (doing as much with less action)",
-        "fr": "Partisan de l'évolution continue et d'une forme de fainéantise positive (faire autant avec moins d'action)",
-        "sp": "Partidario de la evolución continua y de una forma de pereza positiva (lograr lo mismo con menos acción)"
-      }
-    },
-    {
-      "name": {
-        "en": "Evolution",
-        "fr": "Évolution",
-        "sp": "Evolución"
-      },
-      "image": "https://arnaudlemascon.fr/assets/pictures/evolution.webp",
-      "description": {
-        "en": "Always keen to learn, discover and improve",
-        "fr": "Toujours envie d'apprendre, de découvrir et de m'améliorer",
-        "sp": "Siempre con ganas de aprender, descubrir y mejorar"
-      }
-    }
-  ],
-  "skills": {
-    "js": {
-      "type": "development",
-      "level": 45,
-      "name": {
-        "en": "JavaScript",
-        "fr": "JavaScript",
-        "sp": "JavaScript"
-      }
-    },
-    "html": {
-      "type": "development",
-      "level": 80,
-      "name": {
-        "en": "HTML 5",
-        "fr": "HTML 5",
-        "sp": "HTML 5"
-      }
-    },
-    "css": {
-      "type": "development",
-      "level": 75,
-      "name": {
-        "en": "CSS",
-        "fr": "CSS",
-        "sp": "CSS"
-      }
-    },
-    "english": {
-      "type": "language",
-      "level": 75,
-      "name": {
-        "en": "English",
-        "fr": "Anglais",
-        "sp": "Inglés"
-      }
-    },
-    "french": {
-      "type": "language",
-      "level": 100,
-      "name": {
-        "en": "French",
-        "fr": "Français",
-        "sp": "Francés"
-      }
-    },
-    "español": {
-      "type": "language",
-      "level": 40,
-      "name": {
-        "en": "Spanish",
-        "fr": "Espagnol",
-        "sp": "Español"
-      }
-    },
-    "Windows": {
-      "type": "IT",
-      "level": 75,
-      "name": {
-        "en": "Windows",
-        "fr": "Windows",
-        "sp": "Windows"
-      }
-    },
-    "AWS": {
-      "type": "IT",
-      "level": 25,
-      "name": {
-        "en": "AWS",
-        "fr": "AWS",
-        "sp": "AWS"
-      }
-    },
-    "Linux": {
-      "type": "IT",
-      "level": 55,
-      "name": {
-        "en": "Linux",
-        "fr": "Linux",
-        "sp": "Linux"
-      }
-    }
-  }
+    "MENU": [
+        {
+            "AMBIANCE": {
+                "en": "Ambiance",
+                "fr": "Ambiance",
+                "sp": "Ambiencia"
+            },
+            "STORY": {
+                "en": "About",
+                "fr": "À propos de",
+                "sp": "Acerca de"
+            },
+            "CV": {
+                "en": "Resume",
+                "fr": "curriculum vitae",
+                "sp": "curriculum vitae"
+            }
+        }
+    ],
+    "INFO": [
+        {
+            "INTRO": {
+                "en": "English",
+                "fr": "Après plusieurs années dans le support informatique, j'ai choisi de m'orienter dans la gestion de projet et développer un intérêt pour la culture agile. D'un caractère curieux, j'aime apprendre et découvrir.",
+                "sp": "Colombiano"
+            },
+            "WORKING": {
+                "en": "Level (years worked)",
+                "fr": "Niveau (années travaillées)",
+                "sp": "Nivel (años trabajados)"
+            },
+            "CAT": {
+                "en": "Ness the cat",
+                "fr": "Ness le chat",
+                "sp": "Ness el gato"
+            },
+            "SUCCESS": {
+                "en": "success showcase",
+                "fr": "vitrine des succes",
+                "sp": "escaparate del éxito"
+            },
+            "HISTORY": {
+                "en": "Professional experience",
+                "fr": "Expériences professionnelles",
+                "sp": "Experiencia profesional"
+            },
+            "WORK": {
+                "en": "Projects",
+                "fr": "projets",
+                "sp": "proyectos"
+            },
+            "CONTACT": {
+                "en": "Contact",
+                "fr": "Contact",
+                "sp": "Contacto"
+            },
+            "STATUS": {
+                "en": "on a mission",
+                "fr": "en mission",
+                "sp": "en una misión"
+            },
+            "CERTIFICATE": {
+                "en": "Certifications",
+                "fr": "certifications",
+                "sp": "certificacións"
+            },
+            "LANGUAGES": {
+                "en": "Languages",
+                "fr": "Langues",
+                "sp": "idiomas"
+            },
+            "DIPLOMAS": {
+                "en": "diplomas",
+                "fr": "Diplômes",
+                "sp": "diplomas"
+            }
+        }
+    ],
+    "ACHIEVEMENTS": [
+        {
+            "mariage": [
+                {
+                    "title": {
+                        "en": "just married",
+                        "fr": "just married",
+                        "sp": "just married"
+                    },
+                    "gallery": "mariage.png",
+                    "icon": "mariage.png",
+                    "alt": "mariage",
+                    "description": {
+                        "en": "married in 2024",
+                        "fr": "marié en 2024",
+                        "sp": "casado en 2024"
+                    }
+                }
+            ],
+            "colombie": [
+                {
+                    "title": {
+                        "en": "Colombia",
+                        "fr": "Colombie",
+                        "sp": "Colombia"
+                    },
+                    "gallery": "travel-co.png",
+                    "icon": "travel-co.png",
+                    "alt": "colombie",
+                    "description": {
+                        "en": "travel to colombia in 2024",
+                        "fr": "voyage en colombie en 2024",
+                        "sp": "viaje a colombia en 2024"
+                    }
+                }
+            ],
+            "Duolingo": [
+                {
+                    "title": {
+                        "en": "Duolingo",
+                        "fr": "Duolingo",
+                        "sp": "Duolingo"
+                    },
+                    "gallery": "duo.png",
+                    "icon": "duo.png",
+                    "alt": "Duolingo",
+                    "description": {
+                        "en": "learning spanish since 2024",
+                        "fr": "apprentissage de l'espagnol depuis 2024",
+                        "sp": "aprender español despuè 2024"
+                    }
+                }
+            ],
+            "Climate": [
+                {
+                    "title": {
+                        "en": "Climate Dividends",
+                        "fr": "Climate Dividends",
+                        "sp": "Climate Dividends"
+                    },
+                    "gallery": "climate.png",
+                    "icon": "climate.png",
+                    "alt": "Team Planet",
+                    "description": {
+                        "en": "102,93 kg of CO2 avoided by participating to Team Planet",
+                        "fr": "102,93 kg de CO2 évités grâce à la participation à Team Planet",
+                        "sp": "102,93 kg de CO2 evitados por participar en el Equipo Planeta"
+                    }
+                }
+            ],
+            "italie": [
+                {
+                    "title": {
+                        "en": "Italia",
+                        "fr": "Italie",
+                        "sp": "Italia"
+                    },
+                    "gallery": "travel-it.png",
+                    "icon": "travel-it.png",
+                    "alt": "colombie",
+                    "description": {
+                        "en": "Roadtrip in Italia in 2022 (Sicilia, Roma, Florencia, Pisa and Venice)",
+                        "fr": "Roadtrip en Italie en 2022 (Sicile, Rome Florence, Pise et Venise",
+                        "sp": "Roadtrip en Italia en 2022 (Sicilia, Roma, Florencia, Pisa y Venezia"
+                    }
+                }
+            ],
+            "Guildmaster": [
+                {
+                    "title": {
+                        "en": "Guildmaster",
+                        "fr": "Guildmaster",
+                        "sp": "Guildmaster"
+                    },
+                    "gallery": "linkness.png",
+                    "icon": "linkness.png",
+                    "alt": "Linkness",
+                    "description": {
+                        "en": "Founder and former animator of meetup's group between 2018 and 2023",
+                        "fr": "Fondateur et ancien animateur de groupe Meetup entre 2018 et 2023",
+                        "sp": "Fondator et ancien animateur de groupe Meetup entre 2018 et 2023"
+                    }
+                }
+            ],
+            "Commit": [
+                {
+                    "title": {
+                        "en": "Commited",
+                        "fr": "Engagé",
+                        "sp": "Cometido"
+                    },
+                    "gallery": "commit.png",
+                    "icon": "commit.png",
+                    "alt": "colombie",
+                    "description": {
+                        "en": "Committed to gender equality and animal rights",
+                        "fr": "Engagé pour l'égalité homme-femme et les droits des animaux",
+                        "sp": "Comprometidos con la igualdad de género y los derechos de los animales"
+                    }
+                }
+            ],
+            "Tattoo": [
+                {
+                    "title": {
+                        "en": "tattooed",
+                        "fr": "Tatoué",
+                        "sp": "tatuado"
+                    },
+                    "gallery": "tattoo.png",
+                    "icon": "tattoo.png",
+                    "alt": "tattoo",
+                    "description": {
+                        "en": "10 tattoos",
+                        "fr": "10 tatouages",
+                        "sp": "10 tatuajes"
+                    }
+                }
+            ],
+            "Dadcat": [
+                {
+                    "title": {
+                        "en": "Dad cat",
+                        "fr": "Dad cat",
+                        "sp": "Dad cat"
+                    },
+                    "gallery": "ness.png",
+                    "icon": "ness.png",
+                    "alt": "ness",
+                    "description": {
+                        "en": "Cat owner",
+                        "fr": "Détenteur d'un chat",
+                        "sp": "Dueño de un gato"
+                    }
+                }
+            ],
+            "Nerd": [
+                {
+                    "title": {
+                        "en": "Nerd",
+                        "fr": "Nerd",
+                        "sp": "Nerd"
+                    },
+                    "gallery": "nerd.png",
+                    "icon": "nerd.png",
+                    "alt": "nerd",
+                    "description": {
+                        "en": "10 years in IT",
+                        "fr": "10 ans dans l'IT",
+                        "sp": "10 años en TI"
+                    }
+                }
+            ],
+            "art": [
+                {
+                    "title": {
+                        "en": "The Artist",
+                        "fr": "L'Artiste",
+                        "sp": "El Artisto"
+                    },
+                    "gallery": "artist.png",
+                    "icon": "artist.png",
+                    "alt": "art",
+                    "description": {
+                        "en": "Fine Arts graduate",
+                        "fr": "Diplômé des Beaux Arts",
+                        "sp": "Diplomado en Bellas Artes"
+                    }
+                }
+            ],
+            "Gamer": [
+                {
+                    "title": {
+                        "en": "Gamer",
+                        "fr": "Joueur",
+                        "sp": "Jugador"
+                    },
+                    "gallery": "game.png",
+                    "icon": "game.png",
+                    "alt": "gamer",
+                    "description": {
+                        "en": "Inveterate gamer, whether video games, board games or quizzes",
+                        "fr": "Joueur invétéré que ce soit jeux vidéo, jeux de société ou quizz",
+                        "sp": ""
+                    }
+                }
+            ],
+            "tinkerer": [
+                {
+                    "title": {
+                        "en": "tinkerer",
+                        "fr": "Bricoleur",
+                        "sp": "calderero"
+                    },
+                    "gallery": "tinkerer.png",
+                    "icon": "tinkerer.png",
+                    "alt": "tinkerer",
+                    "description": {
+                        "en": "Creative: web, board games, wood, CAD",
+                        "fr": "Créatif : web, jeux de société, bois, CAO",
+                        "sp": "Creatividad: web, juegos de mesa, madera, CAD"
+                    }
+                }
+            ]
+        }
+    ],
+    "POSITIONS":[
+        {
+            "202309":[
+                {
+                    "enterprise":"sogeti - capgemini",
+                    "enterpriseLogo":"ent_sogeti.png",
+                    "client":"e.SNCF",
+                    "clientLogo":"ent_sncf.png",
+                    "position":{
+                        "en":"application driver",
+                        "fr":"pilote de la demande",
+                        "sp":"controlador de aplicación"
+                    },
+                    "beginning":"11/09/2024",
+                    "ending":"",
+                    "description":{
+                        "en":"",
+                        "fr":"",
+                        "sp":""
+                    },
+                    "techno":[
+                        {
+                            "1":[
+                                {
+                                    "title":"Excel",
+                                    "logo":"excel.png"
+                                }
+                            ],
+                            "2":[
+                                {
+                                    "title":"Service Now",
+                                    "logo":"snow.png"
+                                }
+                            ],
+                            "3":[
+                                {
+                                    "title":"ITIL4",
+                                    "logo":"itil.png"
+                                }
+                            ],
+                            "4":[
+                                {
+                                    "title":"Microsoft 365",
+                                    "logo":"365.png"
+                                }
+                            ]
+                        }
+                    ],
+                    "text": [
+                        {
+                        "boss":{
+                            "en":"for",
+                            "fr":"pour",
+                            "sp":"para"
+                        },
+                        "client":{
+                            "en":"at",
+                            "fr":"chez",
+                            "sp":"en"
+                        }
+                    }
+                    ]
+                }
+            ],
+            "202204":[
+                {
+                    "enterprise":"Spie batignolles amitec",
+                    "enterpriseLogo":"ent_sb.png",
+                    "client":"Spie batignolles",
+                    "clientLogo":"ent_sb.png",
+                    "position":{
+                        "en":"Project manager",
+                        "fr":"Chargé de projet",
+                        "sp":"Gerente de proyecto"
+                    },
+                    "beginning":"01/04/2022",
+                    "ending":"31/08/2023",
+                    "description":{
+                        "en":"anglais",
+                        "fr":"francais",
+                        "sp":"espanol"
+                    },
+                    "techno":[
+                        {
+                            "1":[
+                                {
+                                    "title":"Excel",
+                                    "logo":"excel.png"
+                                }
+                            ],
+                            "2":[
+                                {
+                                    "title":"Service Now",
+                                    "logo":"snow.png"
+                                }
+                            ],
+                            "3":[
+                                {
+                                    "title":"ITIL4",
+                                    "logo":"itil.png"
+                                }
+                            ],
+                            "4":[
+                                {
+                                    "title":"Microsoft 365",
+                                    "logo":"365.png"
+                                }
+                            ],
+                            "5":[
+                                {
+                                    "title":"Power automate",
+                                    "logo":"pa.png"
+                                }
+                            ],
+                            "6":[
+                                {
+                                    "title":"Easy Vista",
+                                    "logo":"ev.png"
+                                }
+                            ]
+                        }
+                    ],
+                    "text": [
+                        {
+                        "boss":{
+                            "en":"for",
+                            "fr":"pour",
+                            "sp":"para"
+                        },
+                        "client":{
+                            "en":"at",
+                            "fr":"chez",
+                            "sp":"en"
+                        }
+                    }
+                    ]
+                }
+            ],
+            "201808":[
+                {
+                    "enterprise":"Spie batignolles amitec",
+                    "enterpriseLogo":"ent_sb.png",
+                    "client":"Spie batignolles",
+                    "clientLogo":"ent_sb.png",
+                    "position":{
+                        "en":"IT and Network Technician",
+                        "fr":"Technicien informatique et réseau",
+                        "sp":"Técnico Informática y Redes"
+                    },
+                    "beginning":"01/08/2018",
+                    "ending":"01/06/2022",
+                    "description":{
+                        "en":"",
+                        "fr":"",
+                        "sp":""
+                    },
+                    "techno":[
+                        {
+                            "1":[
+                                {
+                                    "title":"Excel",
+                                    "logo":"excel.png"
+                                }
+                            ],
+                            "2":[
+                                {
+                                    "title":"Easy Vista",
+                                    "logo":"ev.png"
+                                }
+                            ],
+                            "3":[
+                                {
+                                    "title":"Powershell",
+                                    "logo":"powershell.png"
+                                }
+                            ],
+                            "4":[
+                                {
+                                    "title":"Microsoft 365",
+                                    "logo":"365.png"
+                                }
+                            ],
+                            "5":[
+                                {
+                                    "title":"Power automate",
+                                    "logo":"pa.png"
+                                }
+                            ]
+                        }
+                    ],
+                    "text": [
+                        {
+                        "boss":{
+                            "en":"for",
+                            "fr":"pour",
+                            "sp":"para"
+                        },
+                        "client":{
+                            "en":"at",
+                            "fr":"chez",
+                            "sp":"en"
+                        }
+                    }
+                    ]
+                }
+            ],
+            "201608":[
+                {
+                    "enterprise":"Spie batignolles amitec",
+                    "enterpriseLogo":"ent_sb.png",
+                    "client":"Spie batignolles",
+                    "clientLogo":"ent_sb.png",
+                    "position":{
+                        "en":"Computer and Network Technician",
+                        "fr":"Technicien informatique et Réseau",
+                        "sp":"Técnico en Computación y Redes"
+                    },
+                    "beginning":"01/08/2016",
+                    "ending":"01/08/2018",
+                    "description":{
+                        "en":"",
+                        "fr":"",
+                        "sp":""
+                    },
+                    "techno":[
+                        {
+                            "1":[
+                                {
+                                    "title":"Excel",
+                                    "logo":"excel.png"
+                                }
+                            ],
+                            "2":[
+                                {
+                                    "title":"Easy Vista",
+                                    "logo":"ev.png"
+                                }
+                            ],
+                            "3":[
+                                {
+                                    "title":"ITIL4",
+                                    "logo":"itil.png"
+                                }
+                            ],
+                            "4":[
+                                {
+                                    "title":"Microsoft 365",
+                                    "logo":"365.png"
+                                }
+                            ]
+                        }
+                    ],
+                    "text": [
+                        {
+                        "boss":{
+                            "en":"for",
+                            "fr":"pour",
+                            "sp":"para"
+                        },
+                        "client":{
+                            "en":"at",
+                            "fr":"chez",
+                            "sp":"en"
+                        }
+                    }
+                    ]
+                }
+            ],
+            "201408":[
+                {
+                    "enterprise":"Spie batignolles amitec",
+                    "enterpriseLogo":"ent_sb.png",
+                    "client":"Spie batignolles",
+                    "clientLogo":"ent_sb.png",
+                    "position":{
+                        "en":"Apprentice computer technician",
+                        "fr":"Apprenti technicien informatique",
+                        "sp":"Aprendiz de técnico informático"
+                    },
+                    "beginning":"01/08/2014",
+                    "ending":"01/08/2016",
+                    "description":{
+                        "en":"",
+                        "fr":"",
+                        "sp":""
+                    },
+                    "techno":[
+                        {
+                            "1":[
+                                {
+                                    "title":"Excel",
+                                    "logo":"excel.png"
+                                }
+                            ],
+                            "2":[
+                                {
+                                    "title":"Active Directory",
+                                    "logo":"ad.png"
+                                }
+                            ],
+                            "3":[
+                                {
+                                    "title":"Powershell",
+                                    "logo":"powershell.png"
+                                }
+                            ]
+                        }
+                    ],
+                    "text": [
+                        {
+                        "boss":{
+                            "en":"for",
+                            "fr":"pour",
+                            "sp":"para"
+                        },
+                        "client":{
+                            "en":"at",
+                            "fr":"chez",
+                            "sp":"en"
+                        }
+                    }
+                    ]
+                }
+            ],
+            "201311":[
+                {
+                    "enterprise":"Helpline",
+                    "enterpriseLogo":"ent_helpline.png",
+                    "client":"assystem",
+                    "clientLogo":"ent_assystem.png",
+                    "position":{
+                        "en":"Apprentice Helpdesk Agent",
+                        "fr":"Apprenti Helpdesk Agent",
+                        "sp":"Aprendiz de agente de soporte técnico"
+                    },
+                    "beginning":"01/11/2013",
+                    "ending":"01/07/2014",
+                    "description":{
+                        "en":"",
+                        "fr":"",
+                        "sp":""
+                    },
+                    "techno":[
+                        {
+                            "1":[
+                                {
+                                    "title":"Excel",
+                                    "logo":"excel.png"
+                                }
+                            ]
+                        }
+                    ],
+                    "text": [
+                        {
+                        "boss":{
+                            "en":"for",
+                            "fr":"pour",
+                            "sp":"para"
+                        },
+                        "client":{
+                            "en":"at",
+                            "fr":"chez",
+                            "sp":"en"
+                        }
+                    }
+                    ]
+                }
+            ]
+        }
+    ],
+    "PROJECTS":[
+        {
+            "HOOMAN":[
+                {
+                    "title":"hooman",
+                    "link":"https://arnaudlemascon.fr/projects/hoomanbenchmark/hoomanbenchmark.html",
+                    "picture":"hooman.png",
+                    "techno":["JS","HTML","CSS"],
+                    "description":{
+                        "en":"Remake of Chimptest by HumanBenchmark",
+                        "fr":"Remake du Chimptest de HumanBenchmark",
+                        "sp":"Remake del Chimptest de HumanBenchmark"
+                    }
+                }
+            ],
+            "NORKSIEGE":[
+                {
+                    "title":"norksiege",
+                    "link":"https://norksiege.fr",
+                    "picture":"norksiege.png",
+                    "techno":["JS","HTML","CSS"],
+                    "description":{
+                        "en":"Zork-inspired text game referencing other games such as Fable and Dungeon Siege.",
+                        "fr":"Jeu textuel inspiré de Zork faisant référence à d'autres jeu tels que Fable et Dungeon Siege.",
+                        "sp":"Juego basado en texto inspirado en Zork que hace referencia a otros juegos como Fable y Dungeon Siege."
+                    }
+                }
+            ]
+        }
+    ],
+    "CERTIF":[
+        {
+            "CUCP":[
+                {
+                    "status":"earn",
+                    "name":"Conduire un changement professionnel",
+                    "description":"",
+                    "link":"",
+                    "picture":"cert-CUCP.png",
+                    "year":"2020",
+                    "grade":""
+                }
+            ],
+            "PSM1":[
+                {
+                    "status":"earn",
+                    "name":"PSM1",
+                    "description":"Professional SCRUM Master 1",
+                    "link":"https://www.scrum.org/certificates/1158481",
+                    "picture":"cert-psm1.png",
+                    "year":"2020",
+                    "grade":"90%"
+                }
+            ],
+            "PSC":[
+                {
+                    "status":"earn",
+                    "name":"PSC",
+                    "description":"Professional SCRUM Certifié",
+                    "link":"https://eu.badgr.com/public/assertions/RgfKwvxmSkSXFOS_GJ477g",
+                    "picture":"cert-PSC.png",
+                    "year":"2020",
+                    "grade":"86%"
+                }
+            ],
+            "EFSET":[
+                {
+                    "status":"earn",
+                    "name":"EF SET Certificate",
+                    "description":"English comprehension : C2 Proficient",
+                    "link":"https://cert.efset.org/89EDrE",
+                    "picture":"cert-EF2.png",
+                    "year":"2020",
+                    "grade":"71/100"
+                }
+            ],
+            "PSPO":[
+                {
+                    "status":"earn",
+                    "name":"PSPO1",
+                    "description":"Professional SCRUM Product Owner 1",
+                    "link":"",
+                    "picture":"cert-pspo1.png",
+                    "year":"2020",
+                    "grade":"97.5%"
+                }
+            ],
+            "ITIL":[
+                {
+                    "status":"in-progress",
+                    "name":"ITIL 4",
+                    "description":"",
+                    "link":"",
+                    "picture":"cert-ITIL4.png",
+                    "year":"2020",
+                    "grade":""
+                }
+            ],
+            "AWS":[
+                {
+                    "status":"in-progress",
+                    "name":"AWS Cloud Practionner",
+                    "description":"",
+                    "link":"",
+                    "picture":"cert-AWSCP.png",
+                    "year":"2020",
+                    "grade":""
+                }
+            ]
+        }
+    ],
+    "DIPLOMAS":[
+        {
+            "TSMIR":[
+                {
+                    "name":"TSMIR",
+                    "description":{
+                        "en":"IT and Network Maintenance Technician",
+                        "fr":"Technicien Supérieur en Maintenance Informatique et Réseau",
+                        "sp":"Técnico de mantenimiento informático y de redes"
+                    },
+                    "year":"2016",
+                    "school":"IPI école informatique"
+                }
+            ],
+            "TMMI":[
+                {
+                    "name":"TMMI",
+                    "description":{
+                        "en":"IT and Network Maintenance Technician",
+                        "fr":"Technicien Maintenicien Informatique et Réseau",
+                        "sp":"Técnico de mantenimiento Informático y de Redes"
+                    },
+                    "year":"2014",
+                    "school":"IPI école informatique"
+                }
+            ],
+            "DNSEP":[
+                {
+                    "name":"DNSEP",
+                    "description":{
+                        "en":"National Diploma of Plastic Expression",
+                        "fr":"Diplôme National d'Expression Plastique",
+                        "sp":"Diploma nacional de Expresión Plástica"
+                    },
+                    "year":"2013",
+                    "school":"Esä : École Supérieure d'Arts de Dunkerque"
+                }
+            ],
+            "DNAP":[
+                {
+                    "name":"DNAP",
+                    "description":{
+                        "en":"National Diploma of Plastic Arts",
+                        "fr":"Diplome National d'Arts Plastiques",
+                        "sp":"Diploma Nacional de Artes Plásticas"
+                    },
+                    "year":"2011",
+                    "school":"Esä : École Supérieure d'Arts de Dunkerque"
+                }
+            ]
+        }
+    ]
 }

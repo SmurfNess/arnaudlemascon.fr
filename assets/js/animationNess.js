@@ -22,7 +22,7 @@ const rootStyles = getComputedStyle(document.documentElement);
   setTimeout(function() {
     // Mettre ici le code à exécuter après 15 secondes
     function updateRandomLeft() {
-      const randomLeft = Math.floor(Math.random() * (80 - 20 + 1)) + 20;
+      const randomLeft = Math.floor(Math.random() * (80 - 20 + 1));
       document.documentElement.style.setProperty('--random-left', `${randomLeft}%`);
       document.documentElement.style.setProperty('--random-left-left', `${randomLeft - 10}%`);
       document.documentElement.style.setProperty('--random-left-right', `${randomLeft + 10}%`);

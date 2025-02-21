@@ -1,691 +1,287 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
-  <meta property="og:image" content="https://arnaudlemascon.fr/assets/pictures/ness.webp" />
-  <title>Arnaud Lemasçon</title>
-  <meta name="description" content="Site personnel à objectif de portfolio">
-  <!-- Utilisation de la balise link pour spécifier le logo de l'onglet -->
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cpath d='M 50 200 A 40 40 0 1 1 350 200 Z' fill='black' /%3E%3Cpath d='M 50 200 A 40 40 0 1 0 350 200 Z' fill='white'/%3E%3Cpath d='M 50 200 A 40 40 0 1 0 150 200 Z' fill='black' /%3E%3Cpath d='M 250 200 A 40 40 0 1 0 350 200 Z' fill='black' /%3E%3Cpath d='M 150 200 A 40 40 0 1 1 250 200 Z' fill='white' /%3E%3C/svg%3E" type="image/svg+xml">
-  <!-- Bootstrap -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <!-- Vis -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css" type="text/css" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
-  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-  <!-- Style -->
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="assets/css/style_lg.css">
-  <link rel="stylesheet" href="assets/css/style_md.css">
-  <link rel="stylesheet" href="assets/css/style_sm.css">
-  <link rel="stylesheet" href="assets/css/style_xs.css">
-  <link rel="stylesheet" href="assets/css/Banner.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arnaud Lemasçon</title>
 </head>
 
-<body>
+<link href="./assets/css/main.css" rel="stylesheet" type="text/css">
+<link href="./assets/css/Banner.css " rel="stylesheet" type="text/css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="./assets/svg/logo.svg">
 
-  
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg fixed-top">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon">
-          <img src="assets/pictures/toggler.webp">
-        </span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-
-          <a href="test.html"><img src="assets/pictures/logo.webp" class="shake" onclick="chargerImagesAleatoires();"></a>
-        
-          <ul class="navbar-nav mx-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="#PROJECTS" onclick="closeNavbar()">Projets</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#VALUES" onclick="closeNavbar()">Valeurs</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#SKILLS" onclick="closeNavbar()">Compétences</a>
-            </li>                
-            <li class="nav-item">
-                <a class="nav-link" href="#CONTACT" onclick="closeNavbar()">Contact</a>
-            </li>
-        </ul>
-  
-        <a href="index-en.html"><img src="assets/pictures/uk.webp" class="flag" style="margin-right: 20px;"></a>
-        <a href="index-es.html"><img src="assets/pictures/es.webp"class="flag"></a>
-        <div class="underline"></div>
-    </div>
-  </nav>
-  
-      <!-- Banner -->
-      <div class="container_banner">
-          <div class="containess">
-            <div class="nessclass">
-              <svg width="400" height="500" xmlns="http://www.w3.org/2000/svg" class="nessrightear">
-                <path d="M 325 125 C 350 10, 320 10, 250 70" stroke="black" fill="pink" stroke-width="12"/>
-                <path d="M 320 27 C 250 60, 320 130, 250 70" stroke="black" fill="black" stroke-width="5"/>
-                <path d="M 75 125 C 50 10, 80 10, 150 70" stroke="black" fill="pink" stroke-width="12"/>
-                <path d="M 80 27 C 150 60, 80 130, 150 70" stroke="black" fill="black" stroke-width="5"/>
-            </svg>
-  
-              <svg width="400" height="500" xmlns="http://www.w3.org/2000/svg" class="nessdrawed">
-                <path d="M 0 500 C 0 100, 400 100, 400 500 Z" fill="black"/>
-                <path d="M 100 500 C 100 200, 300 200, 300 500 Z" fill="white"/>
-                 <circle cx="200" cy="200" r="150" fill="black"/>
-                <path d="M 300 312 A 150 150 0 0 1 88 300 L 205 200 Z" fill="white" stroke="black" stroke-width="3"/>
-                <circle cx="200" cy="290" r="30" fill="pink"/>
-               
-                 <circle cx="220" cy="272" r="35" fill="white"/>
-                <circle cx="180" cy="272" r="35" fill="white"/>
-               
-                <circle cx="130" cy="272" r="50" fill="white"/>
-                <circle cx="270" cy="272" r="50" fill="white"/>
-               
-                <circle cx="200" cy="200" r="30" fill="white"/>
-                <rect x="170" y="200" width="60" height="100" fill="white"/>
-                <ellipse cx="200" cy="250" rx="25" ry="10" fill="pink"/>
-                <path d="M 190 250 C 200 280, 200 280, 210 250" fill="pink" />
-             
-                <line x1="120" y1="260" x2="40" y2="240" stroke="white" stroke-width="15"/>
-                <line x1="120" y1="280" x2="40" y2="280" stroke="white" stroke-width="15"/>
-                <line x1="120" y1="300" x2="50" y2="330" stroke="white" stroke-width="15"/>
-                  <line x1="280" y1="260" x2="360" y2="240" stroke="white" stroke-width="15"/>
-                <line x1="280" y1="280" x2="360" y2="280" stroke="white" stroke-width="15"/>
-                <line x1="280" y1="300" x2="350" y2="330" stroke="white" stroke-width="15"/>          
-             </svg>
-  
-              <div class="eyes">
-                <div class="eye"></div>
-                <div class="eye"></div>
-                <div id="R-eyelid" class="eyelid"></div>
-                <div id="L-eyelid" class="eyelid"></div>
-              </div>
-              <div id="eyebrows"></div>
-            </div>        
-          </div>
-          <div class="banner" id="BANNER"></div>
-          <div class="links-container">
-            <a href="https://github.com/SmurfNess" class="link" target="_blank">
-              <img src="assets/pictures/github.webp" alt="Github" class="link-img"><span></span>
-            </a>
-            <a href="https://codepen.io/Greatness-GreatSmurf" class="link" target="_blank">
-              <img src="assets/pictures/codepen.webp" class="link-img" alt="Codepen"><span></span>
-            </a>
-            <a href="https://www.linkedin.com/in/arnaud-lemas%C3%A7on-ness" class="link" target="_blank">
-              <img src="assets/pictures/linkedin.webp" class="link-img" alt="LinkiedIn"><span></span>
-            </a>
-            <a href="https://arnaudlemascon.fr/projects/cv/index.php" class="link" target="_blank">
-              <div class="link-img iconcv" alt="cv">CV</div><span></span>
-            </a>
-          </div>
-      </div>
-  
-      <section id="HOME" class="light-section">
-        <svg viewBox="0 0 100 100" preserveAspectRatio="none" class="background-svg">
-          <path d="M100 0 100 31C55 41 21 15 0 40L0 0"></path>
-        </svg>
-
-        <div class="container-fluid">
-          <div class="row home">
-            <div class="col-md-1 col-xs-0"></div>
-            <div class="col-md-4 col-xs-12 d-flex text-center justify-content-center align-items-center">
-              <div class="portrait-container">
-                <div id="shirt"></div>
-                <div id="neck"></div>
-              </div>
-              <div class="face-container">
-                <div id="face">
-                  <div id="ears"></div> 
-                  <div id="reyebrow"></div>
-                  <div id="leyebrow"></div>
-                  <div id="beard"></div>
-                  <div id="spot"></div>
-                  <div id="nose"></div>
-                  <div id="mouth">
-                    <div id="tsmile"></div>
-                    <div id="bsmile"></div>
-                  </div>
-                  <div class="glasses" id="paws"></div>
-                  <div class="glasses mount" id="rmount">
-                    <div class="glasses glass" id="rglass"></div>
-                  </div>
-                  <div class="glasses mount" id="lmount">
-                    <div class="glasses glass" id="lglass"></div>
-                  </div>
-                  <div class="glasses" id="cyrano"></div>
-                </div>
-            </div>
-            </div>
-            
-            <div class="col-md-6 col-xs-12 home-description">
-              <article>
-                <p class="title">Hey, je suis Arnaud, bienvenue ici</p>
-                <p class="home-desc">Ancien étudiant en art, j'aime créer, autant avec mes mains qu'avec un ordinateur. J'ai créé ce site pour me challenger.</p>
-              </article>
-              <div class="trivia-container">
-
-                <div class="picture-goey trivia-ness">
-                  <img src="assets/pictures/carousel-ness.webp" alt="cat Ness">
-                </div>
-                <div class="picture-goey trivia-game">
-                  <img src="assets/pictures/carousel-game.webp" alt="game">
-                </div>
-                <div class="picture-goey trivia-linkness">
-                  <img src="assets/pictures/carousel-linkness.webp" alt="sociability" style="left:0px;">
-                </div>
-                <div class="picture-goey trivia-tinkerer">
-                  <img src="assets/pictures/carousel-tinkerer.webp" alt="tinkerer">
-                </div>
-
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-    <section  id="PROJECTS">
-      
-      <div class="row row-projects">
-        <div class="col-12 mx-auto m-2 project-container">
-
-          <div class="cards">
-            <div class="img-box">
-              <img src="https://arnaudlemascon.fr/assets/pictures/p_hooman.webp" alt="humanbenchmark hoomanbenchmark">
-            </div>
-            <div class="text-box">
-              <a href="https://arnaudlemascon.fr/projects/hoomanbenchmark/hoomanbenchmark.html" target="_blank" class="title-box">
-              hooman</a>
-              <p>appli web d'exercice mémoriel
-              </p>
-              <div class="desc-box"></div>
-              <div class="techno-box">
-                <div class="techno-label" id="JS">JS</div>
-                <div class="techno-label" id="HTML">HTML</div>
-                <div class="techno-label" id="CSS">CSS</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="cards">
-            <div class="img-box">
-              <img src="https://arnaudlemascon.fr/assets/pictures/norksiege.webp" alt="norksiege dungeon siege zork">
-            </div>
-            <div class="text-box">
-              <a href="https://norksiege.fr" target="_blank" class="title-box">
-              norksiege</a>
-              <p>[projet en cours] Création d'un jeu type zork reprenant des élément de gameplay de dungeon siege et faisant référence à d'autres jeux</p>
-              <div class="desc-box"></div>
-              <div class="techno-box">
-                <div class="techno-label" id="JS"> JS </div>
-                <div class="techno-label" id="HTML"> HTML </div>
-                <div class="techno-label" id="CSS"> CSS </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="cards">
-            <div class="img-box">
-              <img src="https://arnaudlemascon.fr/assets/pictures/teamup.webp" alt="teamup">
-            </div>
-            <div class="text-box">
-              <a href="https://arnaudlemascon.fr/projects/TeamUp/teamup.html" target="_blank" class="title-box">
-              Team Up</a>
-              <p>application de généréation d'équipe</p>
-              <div class="desc-box"></div>
-              <div class="techno-box">
-                <div class="techno-label" id="JS"> JS </div>
-                <div class="techno-label" id="HTML"> HTML </div>
-                <div class="techno-label" id="CSS"> CSS </div>
-                <div class="techno-label" id="PHP"> PHP </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="cards">
-            <div class="img-box">
-              <img src="https://arnaudlemascon.fr/assets/pictures/quiz.webp" alt="quizz">
-            </div>
-            <div class="text-box">
-              <a href="https://arnaudlemascon.fr/projects/quiz/acces.html" target="_blank" class="title-box">
-              Quizz</a>
-              <p>appli web de création de quizz avec acces créateur et accès joueurs</p>
-              <div class="desc-box"></div>
-              <div class="techno-box">
-                <div class="techno-label" id="JS"> JS </div>
-                <div class="techno-label" id="HTML"> HTML </div>
-                <div class="techno-label" id="CSS"> CSS </div>
-                <div class="techno-label" id="PHP"> PHP </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-        <div class="col-12 mx-auto m-2 project-container">
-        </div>
-
-
+<body class="body">
+    <div class="background animated-background">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="end"></div>
     </div>
 
-  </section>
-   
-  <section id="VALUES" class="dark-section1"> 
-                
-    <div class="container-fluid container-values" style="background-color: goldenrod;">
-        <div class="row">
-            <div class="col-lg-2 col-md-1"></div>
-            <div class="col-lg-8 col-md-10 col-xs-12 mx-3">
-                <div class="row">
-                    <!-- Carte 1 -->
-                    <div class="col-6 col-md-4 mb-4">
-                      <div class="carte">
-                        <div class="carte-inner">
-                          <div class="face face-avant">
-                            <img src="https://arnaudlemascon.fr/assets/pictures/IMG_1841.webp" alt="Image">
-                            <div class="value">Curiosité</div>
-                          </div>
-                          <div class="face face-arriere">
-                            <p>D'artiste à consultant, d'organisateurs de sorties à développeur débutant</p>
-                          </div>
+    <div class="menu row">
+        <div class="col-6 mx-auto row">
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand menulogo" href="#">
+                        <svg width="100" height="100" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M25 0C-8 0-8 50 25 50 58 50 58 0 25 0L25 1C56 1 56 49 25 49-6 49-6 1 25 1L25 17C16 17 16 30 23 33L22 33C17 29 8 31 9 39 10 48 20 46 25 39 24 44 15 45 21 48 24 49 26 49 29 48 36 45 26 44 25 39 30 46 40 48 41 39 42 31 34 29 28 33L27 33C35 30 35 17 25 17L25 33C36 33 26 35 25 39 24 35 15 33 25 33"
+                                stroke="none" stroke-width="1" />
+                        </svg>
+                        <div class="textlogo">NESS</div>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-between" id="navbarContent">
+                        <ul class="navbar-nav w-100 d-flex justify-content-around">
+                            <li class="nav-item">
+                                <a class="nav-link text-center" id="AMBIANCE"><!--AMBIANCE--></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-center" id="STORY"><!--STORY--></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-center" id="CV"><!--CV--></a>
+                            </li>
+                        </ul>
+                        <div class="d-flex gap-2 justify-content-center">
+                            <label class="image-radio">
+                                <input type="radio" name="language" value="fr">
+                                <img src="assets/pictures/icons/fr.gif" alt="Français">
+                            </label>
+                            <label class="image-radio">
+                                <input type="radio" name="language" value="es">
+                                <img src="assets/pictures/icons/es.gif" alt="Espagnol">
+                            </label>
+                            <label class="image-radio">
+                                <input type="radio" name="language" value="gb">
+                                <img src="assets/pictures/icons/gb.gif" alt="Anglais">
+                            </label>
                         </div>
-                      </div>
                     </div>
-
-                    <!-- Carte 2 -->
-                    <div class="col-6 col-md-4 mb-4">
-                      <div class="carte">
-                        <div class="carte-inner">
-                          <div class="face face-avant">
-                            <img src="https://arnaudlemascon.fr/assets/pictures/IMG_1873.webp" alt="Image">
-                            <div class="value">Créativité</div>
-                          </div>
-                          <div class="face face-arriere">
-                            <p>Faire une table, un jeu de société, un site web, automatiser mes action redondante, faire du rhum arrangé</p>
-                          </div>
-                        </div>
-                      </div>                        
-                    </div>
-
-                    <!-- Carte 3 -->
-                    <div class="col-6 col-md-4 mb-4">
-                      <div class="carte">
-                        <div class="carte-inner">
-                          <div class="face face-avant">
-                            <img src="https://arnaudlemascon.fr/assets/pictures/engagement.webp" alt="Image">
-                            <div class="value">Engagement</div>
-                          </div>
-                          <div class="face face-arriere">
-                            <p>Donateur et ancien bénévole (cause animale, féministe, LGBTQUIA+) </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- Carte 4 -->
-                    <div class="col-6 col-md-4 mb-4">
-                      <div class="carte">
-                        <div class="carte-inner">
-                          <div class="face face-avant">
-                            <img src="https://arnaudlemascon.fr/assets/pictures/IMG_1808.webp" alt="Image">
-                            <div class="value">Camaraderie</div>
-                          </div>
-                          <div class="face face-arriere">
-                            <p>J'aime retrouver de la bonne humeur et de l'entraide entre les personnes et au travail</p>
-                          </div>
-                        </div>
-                      </div>
-                  </div>
-
-                  <!-- Carte 5 -->
-                  <div class="col-6 col-md-4 mb-4">
-                    <div class="carte">
-                      <div class="carte-inner">
-                        <div class="face face-avant">
-                          <img src="https://arnaudlemascon.fr/assets/pictures/IMG_2179.webp" alt="Image">
-                          <div class="value">Performance</div>
-                        </div>
-                        <div class="face face-arriere">
-                          <p>Partisan de l'évolution continue et d'une forme de fainéantise positive (faire autant avec moins d'action) </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Carte 6 -->
-                  <div class="col-6 col-md-4 mb-4">
-                    <div class="carte">
-                      <div class="carte-inner">
-                        <div class="face face-avant">
-                          <img src="https://arnaudlemascon.fr/assets/pictures/IMG_1834.webp" alt="Image">
-                          <div class="value">Évolution</div>
-                        </div>
-                        <div class="face face-arriere">
-                          <p>Toujours envie d'apprendre, de découvrir et de m'améliorer</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
                 </div>
-            </div>
-            <div class="col-lg-2 col-md-1">
-              
-          </div>
-
+            </nav>
         </div>
     </div>
-</section>
-
-
-<section id="SKILLS" class="dark-section2">            
-  <div class="container-fluid">
-      <div class="row">
-          <div class="col-md-2"></div>
-          <div class="col-md-2"></div>
-      </div>
 
     <div class="row">
-      <div class="col-lg-2 col-md-2"></div>
-        <div class="col-lg-8 col-md-8 col-xs-6">
-            <div class="row ">
-                <!-- Carte 1 -->
-                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 mb-2 mx-auto">
-                  <div class="card_skills S1">
-                        <div class="card-body">
-                              <div class="row">
-                                <div class="col-12 card-title">Développement</div>
-                                <div class="col-5 card-text-skill">Github</div>
-                                <div class="col-7 col-sm-0">
-                                  <div class="gauge-wrapper col-12">
-                                    <div class="gauge">
-                                      <div class="gauge-level" style="width:50%"></div>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="col-5 card-text-skill">HTML 5</div>
-                                <div class="col-7">
-                                  <div class="gauge-wrapper col-12">
-                                    <div class="gauge">
-                                    <div class="gauge-level" style="width:50%"></div>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="col-5 card-text-skill">CSS</div>
-                                <div class="col-7">
-                                  <div class="gauge-wrapper col-12">
-                                    <div class="gauge">
-                                    <div class="gauge-level" style="width:50%"></div>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="col-5 card-text-skill">JavaScript</div>
-                                <div class="col-7">
-                                  <div class="gauge-wrapper col-12">
-                                    <div class="gauge">
-                                    <div class="gauge-level" style="width:40%"></div>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="col-5 card-text-skill">PHP</div>
-                                <div class="col-7">
-                                  <div class="gauge-wrapper col-12">
-                                    <div class="gauge">
-                                    <div class="gauge-level" style="width:25%"></div>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="col-5 card-text-skill">SQL</div>
-                                <div class="col-7 col-sm-0">
-                                  <div class="gauge-wrapper col-12">
-                                    <div class="gauge">
-                                      <div class="gauge-level" style="width:40%"></div>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="col-5 card-text-skill">Rust</div>
-                                <div class="col-7 col-sm-0">
-                                  <div class="gauge-wrapper col-12">
-                                    <div class="gauge">
-                                      <div class="gauge-level" style="width:5%"></div>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="col-5 card-text-skill">NodeJS</div>
-                                <div class="col-7 col-sm-0">
-                                  <div class="gauge-wrapper col-12">
-                                    <div class="gauge">
-                                      <div class="gauge-level" style="width:5%"></div>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="separator"></div>
-
-                                <div class="col-12 card-title">Informatique</div>
-                                <div class="col-5 card-text-skill">Active Directory</div>
-                                <div class="col-7">
-                                  <div class="gauge-wrapper col-12">
-                                    <div class="gauge">
-                                    <div class="gauge-level" style="width:70%"></div>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="col-5 card-text-skill">PowerShell</div>
-                                <div class="col-7">
-                                  <div class="gauge-wrapper col-12">
-                                    <div class="gauge">
-                                    <div class="gauge-level" style="width:75%"></div>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="col-5 card-text-skill">Office 365</div>
-                                <div class="col-7">
-                                  <div class="gauge-wrapper col-12">
-                                    <div class="gauge">
-                                    <div class="gauge-level" style="width:75%"></div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-
-                <!-- Carte 2 -->
-                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 mb-2 mx-auto">
-                  <div class="card_skills S2">
-                    <div class="card-body">
-                      <div class="row">
-                        <div class="col-12 card-title">OS</div>
-                        <div class="col-5 card-text-skill">Windows</div>
-                        <div class="col-7">
-                          <div class="gauge-wrapper col-md-12">
-                            <div class="gauge">
-                            <div class="gauge-level" style="width:80%"></div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-5 card-text-skill">Linux</div>
-                                <div class="col-7">
-                                  <div class="gauge-wrapper col-12">
-                                    <div class="gauge">
-                                    <div class="gauge-level" style="width:50%"></div>
-                                    </div>
-                                  </div>
-                                </div>
-                        <div class="separator"></div>
-                        <div class="col-12 card-title">Compétences projets</div>
-                        <div class="col-5 card-text-skill">ITIL</div>
-                        <div class="col-7">
-                          <div class="gauge-wrapper col-md-12">
-                            <div class="gauge">
-                            <div class="gauge-level" style="width:40%"></div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-5 card-text-skill">SCRUM</div>
-                        <div class="col-7">
-                          <div class="gauge-wrapper col-md-12">
-                            <div class="gauge">
-                            <div class="gauge-level" style="width:88%"></div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-5 card-text-skill">Mener le changement</div>
-                        <div class="col-7">
-                          <div class="gauge-wrapper col-md-12">
-                            <div class="gauge">
-                            <div class="gauge-level" style="width:86%"></div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="separator"></div>
-                        <div class="col-12 card-title">Langues</div>
-                        <div class="col-5 card-text-skill">Français</div>
-                        <div class="col-7">
-                          <div class="gauge-wrapper col-md-12">
-                            <div class="gauge">
-                            <div class="gauge-level" style="width:100%;">natif</div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-5 card-text-skill">Anglais</div>
-                        <div class="col-7">
-                          <div class="gauge-wrapper col-md-12">
-                            <div class="gauge">
-                            <div class="gauge-level" style="width:75%"></div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-5 card-text-skill">Espagnol</div>
-                        <div class="col-7">
-                          <div class="gauge-wrapper col-md-12">
-                            <div class="gauge">
-                            <div class="gauge-level" style="width:30%"></div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+        <div class="col-6 mx-auto">
+            <div class="blur-background row">
+                <div class="col-3 case">
+                    <div class="profile-picture">
+                        <img src="./assets/pictures/gallery/cv.png" alt="portrait" class="img-profile-picture">
                     </div>
                 </div>
-              </div>
-
-              
-
-                <!-- Carte 3 -->
-                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 mb-2">
-                  <div class="card_skills S3">
-                        <div class="card-body">
-                            <div class="card-title">Soft Skills</div>
-                            <div class="row skillunit" id="skillunit_softskills">
-                              <div class="softskillunit col-lg-6 col-sm-4 col-6">
-                                <img src="assets/pictures/creativity.webp" class="img-card-softskill" alt="">
-                                <div class="title-softskill">Créativité</div>
-                              </div>
-                              <div class="softskillunit col-lg-6 col-sm-4 col-6">
-                                <img src="assets/pictures/question.webp" class="img-card-softskill" alt="">
-                                <div class="title-softskill">Curiosité</div>
-                              </div>
-                              <div class="softskillunit col-lg-6 col-sm-4 col-6">
-                                <img src="assets/pictures/autonomy.webp" class="img-card-softskill" alt="">
-                                <div class="title-softskill">Autonomie</div>
-                              </div>
-                              <div class="softskillunit col-lg-6 col-sm-4 col-6">
-                                <img src="assets/pictures/learning.webp" class="img-card-softskill" alt="">
-                                <div class="title-softskill">Auto-<br>apprentissage</div>
-                              </div>
-                              <div class="softskillunit col-lg-6 col-sm-4 col-6">
-                                <img src="assets/pictures/resilience.webp" class="img-card-softskill" alt="">
-                                <div class="title-softskill">Résilience</div>
-                              </div>
-                              <div class="softskillunit col-lg-6 col-sm-4 col-6">
-                                <img src="assets/pictures/team.webp" class="img-card-softskill" alt="">
-                                <div class="title-softskill">travail<br>en équipe</div>
-                              </div>
-                              <div class="softskillunit col-lg-6 col-sm-4 col-6">
-                                <img src="assets/pictures/communication.webp" class="img-card-softskill" alt="">
-                                <div class="title-softskill">Communication</div>
-                              </div>
-                              <div class="softskillunit col-lg-6 col-sm-4 col-6">
-                                <img src="assets/pictures/listening.webp" class="img-card-softskill" alt="">
-                                <div class="title-softskill">Écoute</div>
-                              </div>
-                         </div>
+                <div class="col-5 case">
+                    <div class="container-character">
+                        <div class="name">arnaud lemasçon</div>
+                        <div class="container-location">
+                            <img src="./assets/pictures/icons/fr.gif" alt="france">
+                            <div class="location">lyon,rhone-alpes,france</div>
+                        </div>
+                        <div class="container-information" id="INTRO">no information available</div>
+                    </div>
+                </div>
+                <div class="col-4 case">
+                    <div class="container-carriere">
+                        <div class="carriere-text" id="WORKING">Année travaillée</div>
+                        <div class="carriere-number">11</div>
+                    </div>
+                    <div class="container-carriere-img">
+                        <div class="carriere-img">
+                            <div class="carriere-number-ent" id="CURRENT">none</div>
+                            <img src="./assets/pictures/ent/LOGO_CAP.webp" alt="Entreprise">
+                        </div>
+                        <div class="carriere-text" id="CURRENTENT">Entreprise actuelle</div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="col-3 col-lg-2 col-md-2"></div>
-  </div>
-</section>
-  
-  <section id="CONTACT">
-    <div class="container-fluid background-polygon">
-      <div class="row">
-        <div class="col-2"></div>
-        <div class="col-8">
-          <div class="contact-text">Contacte-moi</div>
-          <form action="https://formspree.io/f/xdovyzdp" method="POST">
-            <div class="row">
-            <label class="col-12 name">Ton nom et tes pronoms :<br>
-              <input type="name" name="name" style="width: 100%;" required>
-            </label>
-            <label class="col-12 mail">Ton email :<br>
-              <input type="email" name="email" style="width: 100%;" required>
-            </label>
-            <label class="col-10 message">Ton message :<br>
-              <textarea name="message" rows="8" cols="0"></textarea required>
-            </label>
-            <div class="col-2">
-              <button type="submit" class="btn-message">SEND</button>
+
+    <div class="row">
+        <div class="col-6 mx-auto">
+            <div class="blur-background row">
+                <div class="col-8 case2">
+                    <div class="row">
+                    <div class="col-12 case">
+                        <div class="cards">
+                            <div class="card-title" id="SUCCESS">Vitrine des succès</div>
+                            <div class="card-content">
+                                <div class="card-grid" id="ACHIEVEMENT">
+                                    <!-- ACHIEVEMENTS-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 case">
+                        <div class="cards">
+                            <div class="card-title" id="HISTORY">Activités professionnelles</div>
+                            <div id="POSITIONS">
+                                <!--POSITIONS -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 case">
+                        <div class="cards">
+                            <div class="card-title" id="WORK">Vitrine Projets</div>
+                            <div id="PROJECTS">
+
+                            </div>    
+                        </div>
+                    </div>
+                    <div class="col-12 case">
+                        <div class="cards ness">
+                            <div class="card-title" id="CAT">Look at my cat</div>
+                            <div class="card-content-banner">
+                                <div class="containess">
+                                    <div class="nessclass">
+                                        <svg width="300" height="500" xmlns="http://www.w3.org/2000/svg"
+                                            class="nessrightear">
+                                            <path d="M 245 295 C 245 175 245 175 175 250" stroke="black" fill="pink" stroke-width="10" />
+                                            <path d="M 220 250 C 210 247 201 226 229 200 C 222 204 225 187 175 250" stroke="black" fill="black" />
+                                            <path d="M 55 295 C 55 175 55 175 125 250" stroke="black" fill="pink" stroke-width="10" />
+                                            <path d="M 80 250 C 85 247 100 224 70 200 C 80 205 75 191 125 250" stroke="black" fill="black" />
+                                        </svg>
+
+                                        <svg width="300" height="500" xmlns="http://www.w3.org/2000/svg"
+                                            class="nessdrawed">
+                                            <path d="M50 500C50 400 68 301 150 300 230 301 250 400 250 500" fill="black" />
+                                            <path d="M 60 500 C 60 400 135 345 135 300 L 165 300 C 165 345 240 400 240 500" fill="white" />
+                                            <path d="M 80 230 C 150 213 150 213 220 230 C 223 231 224 229 226 227 C 225 230 225 232 225 232 C 226 231 228 232 230 229 C 230 234 228 235 232 238 C 236 241 310 340 150 340 C -10 340 67 237 70 235 C 73 233 74 230 73 227 C 76 230 75 230 75 232 C 76 231 77 231 76 227 C 78 229 77 231 80 230" fill="#000"/>
+                                            <path d="M 140 296 C 140 251 160 251 160 296 C 235 271 235 336 165 341 L 135 341 C 65 336 65 271 140 296" fill="#ffffff"/>
+                                            <path d="M 135 299 C 135 297 165 297 165 299 C 165 302 156 299 154.5 302 C 153 305 151 310 150 310 C 149 310 147 305 145.5 302 C 144 299 135 302 135 299" fill="#ffa4a4"/>
+                                            <path d="M 150 310 C 150 310 150 310 150 310 C 155 325 164 324 175 315 C 165 325 154 325 150 311 C 146 325 135 325 125 315 C 136 324 145 325 150 310" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+
+                                        <div class="eyes">
+                                            <div class="eye"></div>
+                                            <div class="eye"></div>
+                                            <div id="R-eyelid" class="eyelid"></div>
+                                            <div id="L-eyelid" class="eyelid"></div>
+                                        </div>
+                                        <svg width="300" height="500" xmlns="http://www.w3.org/2000/svg"
+                                        class="nessdrawed2">
+                                        <path d="M 197 265 C 191 265 191 256 197 256 C 203 256 203 265 197 265" fill="rgba(255,255,255,0.8)"  />
+                                        <path d="M 117 265 C 111 265 111 256 117 256 C 123 256 123 265 117 265" fill="rgba(255,255,255,0.8)" />
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="banner" id="BANNER"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 case">
+                        <div class="cards card-contact">
+                            <div class="card-title" id="CONTACT">Contact</div>
+                            <form action="https://formspree.io/f/xdovyzdp" method="POST">
+                                <div class="container-contact row">
+                                    <input type="text" name="message" id="message-input" placeholder="Envoyer un message" class="col-10">
+                                </div>
+                                <div class="row" id="conditional-row" style="display: none; left:5px;">
+                                    <div class="col-3 case">
+                                        <input type="text" name="name" placeholder="Nom" required>
+                                    </div>
+                                    <div class="col-3 case">
+                                        <input type="text" name="pronouns" placeholder="Pronoms" required>
+                                    </div>
+                                    <div class="col-3 case">
+                                        <input type="email" name="email" placeholder="mail" required>
+                                    </div>
+                                    <div class="col-3 case">
+                                        <button type="submit" class="steam-button">Envoyer</button>
+                                    </div>
+                                </div>
+                            </form>                            
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-          </form>
+            <div class="col-4 case">
+                <div class="container-menu">
+                    <div class="menu-title" id="STATUS">En ligne</div>
+                        <div class="menu-certification">
+                            <div class="menu-certification-title" id="CERTIFICATE">Certification</div>
+                            <div class="menu-certification-number" id="CERTIFNUMBER">5</div>
+                        </div>
+                        <div class="card-grid-cert" id="CERTIFLIST">
+                            
+                        </div>
+                        <div class="menu-certification">
+                            <div class="menu-certification-title" id="LANGUAGES">Langues</div>
+                            <div class="menu-certification-number">3</div>
+                        </div>
+                        <div class="card-grid-lang">
+                            <div class="container-achievement">
+                                <img src="./assets/pictures/lang/fr.png" alt="achievement" class="card-img-skill-cert">
+                                <div class="tooltip-text">
+                                    <div class="tooltip-title">Français</div>
+                                    <div class="tooltip-description">natif</div>
+                                    <div class="tooltip-year"></div>
+                                </div>
+                            </div>
+                            <div class="container-achievement">
+                                <img src="./assets/pictures/lang/en.png" alt="achievement" class="card-img-skill-cert">
+                                <div class="tooltip-text">
+                                    <div class="tooltip-title">Anglais</div>
+                                    <div class="tooltip-description">compréhension : C2<br>expression : B1</div>
+                                    <div class="tooltip-year"></div>
+                                </div>
+                            </div>
+                            <div class="container-achievement">
+                                <img src="./assets/pictures/lang/sp.png" alt="achievement" class="card-img-skill-cert">
+                                <div class="tooltip-text">
+                                    <div class="tooltip-title">Espagnol</div>
+                                    <div class="tooltip-description">A2</div>
+                                    <div class="tooltip-year"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="menu-certification">
+                            <div class="menu-certification-title" id="DIPLOMAS">Diplome</div>
+                            <div class="menu-certification-number">4</div>
+                        </div>
+                        <div class="card-grid-dip" id="DIPLOMASLIST">
+
+                        </div>
+                </div>
+            </div>
         </div>
-        <div class="col-2"></div>
-      </div>
     </div>
-  </section>
-  <footer>
-    Imaginé &amp; construit par Arnaud Lemasçon © 2024 - <a href="#FOOTER" onclick="popup();">crédits et références</a>    
-  </footer>
 
-  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-  <script src="assets\js\polyground.js"></script>
-  <script src="assets\js\cursor.js"></script>
-  <script src="assets/js/bandeaualeatoire.js"></script>
-  <script src="assets/js/animationNess.js"></script>
-  <script src="assets\js\popup.js"></script>
-  <script src="assets/js/cards.js"></script>
-  <script src="assets/js/activeItem.js"></script>
-
-  <script>
-    function closeNavbar() {
-         if ($('.navbar-toggler').is(':visible')) {
-           $('.navbar-toggler').click();
-         }
-       }
-   </script>
-   <script>
-    document.addEventListener("DOMContentLoaded", function() {
-    const navLinks = document.querySelectorAll('.nav-link');
-
-    function setActiveLink(event) {
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-        });
-        event.target.classList.add('active');
-    }
-
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(event) {
-            setActiveLink(event);
-            closeNavbar(); // Appeler la fonction pour fermer la barre de navigation
-        });
-    });
-});
-   </script>
+    <!-- Lien Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/generator.js"></script>
+    <script src="assets/js/bandeaualeatoire.js"></script>
+    <script src="assets/js/animationNess.js"></script>
+    <script src="assets/js/cursor.js"></script>
+    <script src="assets/js/contact.js"></script>
 
 </body>
+
 </html>
