@@ -1,27 +1,25 @@
-name: 🚀 Déploiement automatique sur Raspberry Pi
+name: Deploy to Server
 
 on:
   push:
     branches:
-      - main  # Déclenche l'action lors d'un push sur la branche main
+      - main  # Déclenchement automatique sur les commits vers la branche 'main'
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 🔄 Récupération du dépôt
-        uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-      - name: 📡 Connexion SSH et déploiement
-        uses: appleboy/ssh-action@v0.1.10
-        with:
-          host: ${{ secrets.RPI_HOST }}
-          username: ${{ secrets.RPI_USER }}
-          key: ${{ secrets.RPI_SSH_KEY }}
-          port: 22
-          script: |
-            cd /var/www/arnaudlemascon.fr
-            git pull origin main
-            sudo systemctl reload apache2
-            echo "✅ Déploiement réussi depuis GitHub Actions"
+      - name: Set up SSH key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/github_deploy_key
+          chmod 600 ~/.ssh/github_deploy_key
+          ssh-keyscan -H 192.168.1.235 >> ~/.ssh/known_hosts  # Remplace l'IP de ton serveur
+
+      - name: Deploy to server
+        run: |
+          ssh -i ~/.ssh/github_deploy_key kvothe@192.168.1.235 "cd /var/www/arnaudlemascon.fr && git pull origin main && sudo chown -R www-data:www-data /var/www/arnaudlemascon.fr"
