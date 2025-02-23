@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <title>Hooman Benchmark</title>
+</head>
+
+<style>
+  .score, .compteur, .attempt{
+    color:seagreen;
+  }
+
+  body{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  #sound{
+    position: relative;
+    filter: invert(1);
+    width: 30%; bottom: 10%;
+    left: 25%;
+  }
+
+  #cache-start{
+    z-index: 10;
+    position: absolute;
+    width: 50vw;
+    height: 95vh;
+    padding: 25px;
+    text-align: center;
+    background-color: seagreen;
+  }
+
+  .rules{
+    position: relative;
+    color:white;
+    font-weight: bold;
+    text-align: center;
+    display: inline-block;
+    left: -10%;
+    font-size: 15px;
+
+  }
+
+  #gameOverCache{
+    z-index: 10;
+    position: absolute;
+    width: 100vw;
+    height: 95vh;
+    background-color: seagreen;
+    text-align: center;
+    left: -30%;
+  }
+
+  #finalScore{
+    font-size: 50px;
+    font-weight: bold;
+  }
+
+  #cache-fail{
+    z-index: 10;
+    position: absolute;
+    width: 100vw;
+    height: 95vh;
+    padding: 25px;
+    text-align: center;
+    background-color: seagreen;
+    left: -30%;
+  }
+
+#cache-succes{
+  z-index: 10;
+  position: absolute;
+  width: 100vw;
+  height: 95vh;
+  padding: 25px;
+  left: -30%;
+  text-align: center;
+  background-color: seagreen;
+}
+
+.taller{
+    margin : 2vh 0 2vh 0;
+    background-color: seagreen;
+    height:96vh;
+    width:100vw;
+  }
+
+  .logo {
+    position: relative;
+    display:inline-block;
+    width: 200px;
+    height: 200px;
+    background-color: transparent;
+    transform: scale(0.5); 
+}
+
+.white-square {
+    width: 80px;
+    height: 80px;
+    background-color: #ffffff;
+    position: absolute;
+    margin:10px;
+    border-radius:12px;
+}
+
+.top-left {
+    top: 0;
+    left: 0;
+}
+
+.top-right {
+    top: 0;
+    right: 0;
+}
+
+.bottom-left {
+    bottom: 0;
+    left: 0;
+}
+
+.bottom-right {
+    bottom: 0;
+    right: 0;
+}
+
+.white-square.bottom-right:after {
+  content: "";
+  width: 55px;
+  height: 55px; 
+  background-color: seagreen;
+  position: absolute;
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%);
+}
+
+
+  #sound{
+    opacity:0.5;
+  }
+
+  #sound:hover{
+    opacity:1;
+  }
+  
+  #cache-succes{
+    display:none;
+  }
+
+  #cache-fail{
+    display:none;
+  }
+
+
+  button:hover{
+    border: solid 5px rgba(255, 255, 255, 0.5);
+  }
+
+.boutons{
+  padding: 5px 20px 5px 20px;
+  background-color:gold;
+  border: 5px gold solid;
+  border-radius: 3px;
+  color: black;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+#tryAgainButton{
+  background-color:rgba(255, 255, 255, 0.5);
+  border: none;
+  padding: 10px 25px 10px 25px;
+}
+
+  .boutons:hover{
+    background-color:white;
+  }
+
+
+  #gameOverCache{
+    display:none;
+    }
+
+  #grille-container {
+    position: absolute;
+    left: -25%;
+    padding:15px;
+    display: grid;
+    grid-template-columns: repeat(6, 50px);
+    grid-template-rows: repeat(11, 50px);
+    gap: 5px;
+  }
+
+  .case {
+    width: 50px;
+    height: 50px;
+    background-color:transparent;
+    border: 1px transparent gray;
+    position: relative;
+  }
+
+  .numero-bouton {
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    color: white;
+    border-radius :5px;
+    border: solid 5px rgba(255, 255, 255, 0.25);
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+     user-select: none;
+  }
+
+  .bouton-1-clique {
+    background-color: white;
+    border: solid 5px white; 
+  }
+
+  .bouton-inutilisable {
+    background-color: #cccccc;
+    color: #666666;
+    cursor: not-allowed;
+  }
+
+  #compteur {
+display: none;
+  }
+
+  #attempt{
+display: none;
+  }
+  .attempt-inside{
+display: none;
+  }
+
+</style>
+
+<body>
+  <div class="row taller">
+    <div class="col-0">
+      <div class="row">
+        <div class="col-0" style="background-color: transparent; height: 48vh;">
+          <div class="score">Votre score est :</div>      
+          <div id="compteur">0</div>
+          <div id="attempt">
+            <div class="attempt-inside"> 0</div>
+          </div>
+        </div>
+      </div>
+<div class="col-0" style="display: none;">
+    <img src="volume.webp" id="sound" onclick="toggleSound()">
+</div>
+
+    
+    </div>
+    <div class="col-8">
+      <div id="cache-start">
+          <div class="logo">
+            <div class="white-square top-left"></div>
+            <div class="white-square top-right"></div>
+            <div class="white-square bottom-left"></div>
+            <div class="white-square bottom-right"></div>
+          </div>
+        <div class="rules">
+            <p>This page is freely inspired by the site: <a href="https://humanbenchmark.com/" style="color:gold">https://humanbenchmark.com</a></p>
+            <p style="font-size: 20px; text-transform: capitalize;">are you smarter than a chimpanzee</p>
+            <p style="font-weight: normal;">Click the squares in order according to their numbers. The test will get progressively harder.</p>
+            <br>
+        </div>
+        <button class="boutons" onclick="hiddenCacheStart(),reset(),genererGrille()">Start Test</button>
+      </div>
+      <div id="cache-succes">
+        <p style="font-size: 30px;text-transform:uppercase;">numbers</p>
+        <p id="numbersSuccess" style="font-size: 70px;">compteur</p>
+        <p style="font-size: 30px; text-transform: uppercase;">strikes</p>
+        <p id="attemptDisplaySuccess" style="font-size: 50px;"></p>
+        <button class="boutons" onclick="hiddenCacheStart(),tryAgain(),genererGrille()" >Continue</button>
+        <br>
+      </div>
+      <div id="cache-fail">
+        <p style="font-size: 30px;text-transform:uppercase;">numbers</p>
+        <p id="numbersFail" style="font-size: 70px;">compteur</p>
+        <p style="font-size: 30px; text-transform: uppercase;">strikes</p>
+          <p id="attemptDisplayFail" style="font-size: 50px;"></p>
+          <button class="boutons" onclick="hiddenCacheStart(),tryAgain(),genererGrille()" >Continue</button>
+          <br>
+      </div>
+      <div id="gameOverCache">
+        <div class="logo" style="transform: scale(0.6);">
+          <div class="white-square top-left"></div>
+          <div class="white-square top-right"></div>
+          <div class="white-square bottom-left"></div>
+          <div class="white-square bottom-right"></div>
+        </div>
+        <p style="font-size: 30px;">Score</p>
+        <div id="finalScore">0</div>
+        <br>
+        <button class="boutons" id="tryAgainButton" onclick="hiddenCacheStart(),reset(),genererGrille()">Try again</button>
+      </div>
+      <div id="grille-container"></div>
+    </div>
+
+    <div class="col-2">
+      <div class="text"></div>
+    </div>
+  </div>
+  <script src="script-mobile.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

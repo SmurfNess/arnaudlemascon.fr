@@ -1,8 +1,8 @@
 // Création du curseur personnalisé
 const cursor = document.createElement("div");
 cursor.style.position = "fixed";
-cursor.style.top = "0";
-cursor.style.left = "0";
+cursor.style.top = "-100";
+cursor.style.left = "-100";
 cursor.style.width = "2px"; // Taille du curseur
 cursor.style.height = "2px"; // Taille du curseur
 cursor.style.borderRadius = "50%"; // Forme du curseur (rond)

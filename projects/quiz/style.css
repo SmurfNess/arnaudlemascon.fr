@@ -1,0 +1,17 @@
+body{
+    background-color:darkslategray;
+    font-family:'Poppins', sans-serif;
+}
+
+
+.col-4{
+    position: absolute;
+    margin-top: 250px;
+    background-color:teal !important;
+    border-radius: 15px;
+    color: white;
+}
+
+input, button{
+    border-radius: 15px;
+}

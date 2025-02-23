@@ -21,9 +21,9 @@
     "INFO": [
         {
             "INTRO": {
-                "en": "English",
+                "en": "After several years in IT support, I decided to move into project management and develop an interest in agile culture. Curious by nature, I love to learn and discover.",
                 "fr": "Après plusieurs années dans le support informatique, j'ai choisi de m'orienter dans la gestion de projet et développer un intérêt pour la culture agile. D'un caractère curieux, j'aime apprendre et découvrir.",
-                "sp": "Colombiano"
+                "sp": "Tras varios años en soporte informático, decidí pasarme a la gestión de proyectos y desarrollar un interés por la cultura ágil. Soy una persona curiosa a la que le gusta aprender y descubrir."
             },
             "WORKING": {
                 "en": "Level (years worked)",
@@ -37,7 +37,7 @@
             },
             "SUCCESS": {
                 "en": "success showcase",
-                "fr": "vitrine des succes",
+                "fr": "vitrine des succès",
                 "sp": "escaparate del éxito"
             },
             "HISTORY": {
@@ -74,11 +74,33 @@
                 "en": "diplomas",
                 "fr": "Diplômes",
                 "sp": "diplomas"
+            },
+            "FOOTER": {
+                "en": "&copy; 2024 arnaudlemascon.fr All rights reserved.<br>Designed by palimpsest and coded in <a href='https://code.visualstudio.com/'>Visual Studio Code</a> by yours truly. Built with Js and CSS using <a href='https://getbootstrap.com/'>Bootstrap</a>.",
+                "fr": "&copy ; 2024 arnaudlemascon.fr Tous droits réservés.<br>Conçu par palimpseste et codé en <a href='https://code.visualstudio.com/'>Visual Studio Code</a> par votre serviteur. Construit avec Js et CSS en utilisat <a href='https://getbootstrap.com/'>Bootstrap</a>.",
+                "sp": "&copy; 2024 arnaudlemascon.fr Todos los derechos reservados.<br>Diseñado por palimpsest y codificado en <a href='https://code.visualstudio.com/'>Visual Studio Code</a> por su servidor. Construido con Js y CSS utilisando <a href='https://getbootstrap.com/'>Bootstrap</a>."
             }
         }
     ],
     "ACHIEVEMENTS": [
         {
+            "LandLord": [
+                {
+                    "title": {
+                        "en": "First to the key",
+                        "fr": "Premier à la clé",
+                        "sp": "primero a la llave"
+                    },
+                    "gallery": "key.png",
+                    "icon": "key.png",
+                    "alt": "owner",
+                    "description": {
+                        "en": "Owner since 2024",
+                        "fr": "Propriétaire depuis 2024",
+                        "sp": "propietario desde 2024"
+                    }
+                }
+            ],
             "mariage": [
                 {
                     "title": {
@@ -299,6 +321,23 @@
                         "sp": "Creatividad: web, juegos de mesa, madera, CAD"
                     }
                 }
+            ],
+            "Picard": [
+                {
+                    "title": {
+                        "en": "Picardy potato",
+                        "fr": "Patate picarde",
+                        "sp": "Patata Picardía"
+                    },
+                    "gallery": "picard.png",
+                    "icon": "papita.png",
+                    "alt": "Picard",
+                    "description": {
+                        "en": "Born in Picardie",
+                        "fr": "Né en Picardy",
+                        "sp": "Nacido en Picardía"
+                    }
+                }
             ]
         }
     ],
@@ -306,7 +345,7 @@
         {
             "202309":[
                 {
-                    "enterprise":"sogeti - capgemini",
+                    "enterprise":"Sogeti - Capgemini",
                     "enterpriseLogo":"ent_sogeti.png",
                     "client":"e.SNCF",
                     "clientLogo":"ent_sncf.png",
@@ -318,9 +357,9 @@
                     "beginning":"11/09/2024",
                     "ending":"",
                     "description":{
-                        "en":"",
-                        "fr":"",
-                        "sp":""
+                        "en":"Managing a portfolio of around 10 applications. I support customers in the deployment of new applications and functionalities, incident management, MCO, migration and decommissioning, in compliance with current processes.",
+                        "fr":"Pilotage d'un portefeuille d'environs 10 applications. J'accompagne les clients sur le déploiement de nouvelles applications et fonctionnalités, la gestion d'incident, le MCO, la migration et le décomissionnement en respectant les process en vigueur.",
+                        "sp":"Gestiono una cartera de unas 10 aplicaciones. Asisto a los clientes en el despliegue de nuevas aplicaciones y funcionalidades, gestión de incidencias, MCO, migración y desmantelamiento de acuerdo con los procesos vigentes."
                     },
                     "techno":[
                         {
@@ -361,6 +400,11 @@
                             "en":"at",
                             "fr":"chez",
                             "sp":"en"
+                        },
+                        "current":{
+                            "en":"year(s) in ",
+                            "fr":"année(s) chez",
+                            "sp":"año(s) en"
                         }
                     }
                     ]
@@ -380,9 +424,9 @@
                     "beginning":"01/04/2022",
                     "ending":"31/08/2023",
                     "description":{
-                        "en":"anglais",
-                        "fr":"francais",
-                        "sp":"espanol"
+                        "en":"After demonstrating an appetite for project management and starting to train, I was able to obtain a position as project manager for a portfolio of 2 applications, including monitoring requests for changes, their deployment, the implementation of applications in new subsidiaries and incident management with technical support for these applications.",
+                        "fr":"Après avoir démontré une appétence pour la gestion de projet et avoir commencé à me former, j'ai pu obtenir un poste de chargé de projet sur un portefeuille de 2 applications, comprenant le suivi des souhaits d'évolutions, leur déploiement, la mise en place d'application sur de nouvelles filiales et la gestion des incidents avec le support technique de ces applications.",
+                        "sp":"Tras demostrar mi interés por la gestión de proyectos y empezar a formarme, conseguí un puesto como gestor de proyectos para una cartera de 2 aplicaciones, que incluía el seguimiento de las solicitudes de cambios, su despliegue, la implantación de aplicaciones en nuevas filiales y la gestión de incidencias con el soporte técnico de estas aplicaciones."
                     },
                     "techno":[
                         {
@@ -435,6 +479,11 @@
                             "en":"at",
                             "fr":"chez",
                             "sp":"en"
+                        },
+                        "current":{
+                            "en":"year(s) in ",
+                             "fr":"année(s) chez",
+                            "sp":"año(s) en"
                         }
                     }
                     ]
@@ -454,9 +503,9 @@
                     "beginning":"01/08/2018",
                     "ending":"01/06/2022",
                     "description":{
-                        "en":"",
-                        "fr":"",
-                        "sp":""
+                        "en":"I was given the opportunity to join the technical division, where I worked on the AD specialization. My main tasks were to create AD accounts for users, manage NTFS rights groups for all the group's subsidiaries, and update the ITSM tool's incident and request catalogs.",
+                        "fr":"J'ai eu l'opportunité de rejoindre le pôle technique où j'ai rejoins la spécialisation AD, mes tâches principales étant principalement la création de comptes AD pour les utilisateurs, la gestion des groupes de droits NTFS sur l'ensemble des filiales du groupe ainsi qu'un travail de mise à jour des catalogues des incidents et demande de  l'outils ITSM.",
+                        "sp":"Me dieron la oportunidad de incorporarme a la división técnica, donde trabajé en la especialización AD, siendo mis principales tareas crear cuentas AD para usuarios, gestionar grupos de derechos NTFS para todas las filiales del grupo y actualizar catálogos de incidencias y solicitudes de herramientas ITSM."
                     },
                     "techno":[
                         {
@@ -503,6 +552,11 @@
                             "en":"at",
                             "fr":"chez",
                             "sp":"en"
+                        },
+                        "current":{
+                            "en":"year(s) in ",
+                             "fr":"année(s) chez",
+                            "sp":"año(s) en"
                         }
                     }
                     ]
@@ -522,9 +576,9 @@
                     "beginning":"01/08/2016",
                     "ending":"01/08/2018",
                     "description":{
-                        "en":"",
-                        "fr":"",
-                        "sp":""
+                        "en":"I was hired after my internship and placed in another subsidiary, where I continued to perform most of my duties, while deploying ADF in this new subsidiary and managing its mobile fleet (4g terminal, GPRS phone and full range smartphone).",
+                        "fr":"J'ai été embauché après mon stage et placé sur une autre filiale, j'ai poursuivi l'essentiel de mes fonctions, tout en déployant l'ADF dans cette nouvelle filiale et en gérant sa flotte mobile (terminal 4g, téléphone GPRS et smartphone full range).",
+                        "sp":"Después de mis prácticas, me contrataron y me destinaron a otra filial, donde seguí desempeñando la mayor parte de mis funciones, al tiempo que desplegaba el ADF en esta nueva filial y gestionaba su parque móvil (terminal 4g, teléfono GPRS y smartphone de gama completa)."
                     },
                     "techno":[
                         {
@@ -565,6 +619,11 @@
                             "en":"at",
                             "fr":"chez",
                             "sp":"en"
+                        },
+                        "current":{
+                            "en":"year(s) in ",
+                             "fr":"année(s) chez",
+                            "sp":"año(s) en"
                         }
                     }
                     ]
@@ -584,9 +643,9 @@
                     "beginning":"01/08/2014",
                     "ending":"01/08/2016",
                     "description":{
-                        "en":"",
-                        "fr":"",
-                        "sp":""
+                        "en":"As part of a second sandwich course, I worked as an IT technician in a 200-person center (center and head office), providing IT support, workstation preparation and some on-site installation work (local area network + photocopiers) and a project to roll out DFS to several subsidiaries.",
+                        "fr":"Dans le cadre d'une seconde alternance, j'ai été en mission en tant que technicien informatique sur un site de 200 personnes (chantier et siège), comprenant le support IT, la préparation de poste et quelques missions d'installation de chantier (réseau local + copieurs) ainsi qu'un projet de déploiement de DFS sur plusieurs filiales. ",
+                        "sp":"Como parte de un segundo curso en alternancia, trabajé como técnico informático en un centro de 200 personas (centro y oficina central), proporcionando soporte informático, preparando estaciones de trabajo y realizando algunos trabajos de instalación in situ (red local + fotocopiadoras) y un proyecto de implantación del DFS en varias filiales."
                     },
                     "techno":[
                         {
@@ -621,6 +680,11 @@
                             "en":"at",
                             "fr":"chez",
                             "sp":"en"
+                        },
+                        "current":{
+                            "en":"year(s) in ",
+                             "fr":"année(s) chez",
+                            "sp":"año(s) en"
                         }
                     }
                     ]
@@ -640,9 +704,9 @@
                     "beginning":"01/11/2013",
                     "ending":"01/07/2014",
                     "description":{
-                        "en":"",
-                        "fr":"",
-                        "sp":""
+                        "en":"First assignment as part of an apprenticeship, as a Helpdesk agent for Level 0 support.",
+                        "fr":"Première mission dans le cadre d'un apprentissage, en tant qu'agent Helpdesk pour du support de Niveau 0.",
+                        "sp":"Primera misión en el marco de un aprendizaje, como agente de Helpdesk para el soporte Nivel 0."
                     },
                     "techno":[
                         {
@@ -665,6 +729,11 @@
                             "en":"at",
                             "fr":"chez",
                             "sp":"en"
+                        },
+                        "current":{
+                            "en":"year(s) in ",
+                             "fr":"année(s) chez",
+                            "sp":"año(s) en"
                         }
                     }
                     ]
@@ -722,7 +791,7 @@
                     "description":"Professional SCRUM Master 1",
                     "link":"https://www.scrum.org/certificates/1158481",
                     "picture":"cert-psm1.png",
-                    "year":"2020",
+                    "year":"2021",
                     "grade":"90%"
                 }
             ],
@@ -733,7 +802,7 @@
                     "description":"Professional SCRUM Certifié",
                     "link":"https://eu.badgr.com/public/assertions/RgfKwvxmSkSXFOS_GJ477g",
                     "picture":"cert-PSC.png",
-                    "year":"2020",
+                    "year":"2021",
                     "grade":"86%"
                 }
             ],
@@ -744,8 +813,8 @@
                     "description":"English comprehension : C2 Proficient",
                     "link":"https://cert.efset.org/89EDrE",
                     "picture":"cert-EF2.png",
-                    "year":"2020",
-                    "grade":"71/100"
+                    "year":"2023",
+                    "grade":"71%"
                 }
             ],
             "PSPO":[
@@ -755,7 +824,7 @@
                     "description":"Professional SCRUM Product Owner 1",
                     "link":"",
                     "picture":"cert-pspo1.png",
-                    "year":"2020",
+                    "year":"2024",
                     "grade":"97.5%"
                 }
             ],
@@ -766,7 +835,7 @@
                     "description":"",
                     "link":"",
                     "picture":"cert-ITIL4.png",
-                    "year":"2020",
+                    "year":"",
                     "grade":""
                 }
             ],
@@ -777,7 +846,7 @@
                     "description":"",
                     "link":"",
                     "picture":"cert-AWSCP.png",
-                    "year":"2020",
+                    "year":"",
                     "grade":""
                 }
             ]

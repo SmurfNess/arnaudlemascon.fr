@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculateur de salaire net</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="salaire.css">
+  <style>
+    /* Ajoutez un peu de style pour les boutons toggle */
+    .btn-toggle {
+      margin-right: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Calculateur de salaire net</h1>
+  <div class="row">
+    <div class="col-10 containerQ">
+      <label for="brutInput">Salaire annuel brut (en euros) :</label> 
+      <input type="number" id="brutInput" placeholder="Entrez le salaire brut"><br>
+      <label for="nbMonth">Sur combien de mois :</label> 
+      <input type="number" id="nbMonth" placeholder="Nombre de mois"><br>
+      <!-- Utilisation de boutons toggle -->
+      <div class="btn-group" role="group" aria-label="Options">
+        <button type="button" class="btn btn-secondary btn-toggle" id="cadre" value="oui">Cadre</button>
+        <button type="button" class="btn btn-secondary btn-toggle" id="non-cadre" value="non">Non-cadre</button>
+      </div>
+      <br><br>
+      <button id="calculateButton">Calculer</button>
+    </div>
+    <div class="col-10 containerA">
+      <div id="cadreR"></div>
+      <div id="truc"></div>
+      <div id="result"></div>
+      <div id="resultCSG"></div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

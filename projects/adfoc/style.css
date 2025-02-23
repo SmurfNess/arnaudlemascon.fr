@@ -1,0 +1,105 @@
+body{
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background:black;
+}
+
+.clickable {
+    position:absolute;
+      cursor: auto;
+    filter: grayscale(100%) contrast(10000%);
+      transition: filter 0.2s ease; /* Ajoute une transition pour la propriété 'filter' */
+  }
+  
+  #counter{
+    background:dodgerblue;
+    position:fixed;
+    height:fit-content;
+    width:fit-content;
+    padding:25px;
+    color:white;
+    font-size:20px;
+    border-radius:5px;
+  }
+  
+  #images {
+    position:absolute;
+      top:-1vh;
+      left: -1vw;
+      width: 101vw; /* Définir la largeur de l'élément pour correspondre à celle de l'image de fond */
+      height: 101vh; /* Définir la hauteur de l'élément pour correspondre à celle de l'image de fond */
+      background-image: url('https://arnaudlemascon.fr/projects/adfoc/fond.webp');
+      background-repeat: no-repeat; /* Empêcher la répétition de l'image de fond */
+      cursor: auto; /* Définir le curseur pour indiquer qu'il est possible de déplacer l'image */
+      overflow:hidden;
+      transform: scale(1);
+  }
+  
+  
+  img{
+    position:absolute;
+  }
+  
+  #c1{
+    top:675px;
+    left:2530px;
+  }
+  #c2{
+    top:255px;
+    left:1985px;
+  }
+  
+  #c3{
+    top:312px;
+    left:3800px;
+  }
+  #c4{
+    left: 920px;
+    top:1788px;
+  }
+  
+  #c5{
+    left: 1390px;
+    top:1325px;  
+  }
+  
+  #c6{
+    left: 3752px;
+    top:1065px;
+  }
+  
+  #c7{
+    left: 993px;
+    top:1690px;
+  }
+  
+  #c8{
+    left: 1600px;
+    top:1028px;  
+  }
+  
+  #c9{
+    left: 4252px;
+    top:1990px;
+  }
+  
+  #c10{
+    left: 3650px;
+    top:1625px;
+  }
+  
+  @media screen and (max-width: 400px) {
+  body{
+    overflow: visible;
+  }
+
+#images{
+  top:-50vh;
+  left: -50vw;
+  width: 200vw;
+  height: 200vh;
+  transform: scale(0.5);
+}
+  }
