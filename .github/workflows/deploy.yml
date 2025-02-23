@@ -15,21 +15,21 @@ jobs:
 
       - name: Set up SSH key
         run: |
-          echo "Creating SSH key directory"
-          mkdir -p /tmp/.ssh
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > /tmp/.ssh/github_deploy_key
-          chmod 600 /tmp/.ssh/github_deploy_key
+          echo "Creating SSH key directory in GitHub workspace"
+          mkdir -p $GITHUB_WORKSPACE/.ssh  # Créer le répertoire SSH dans le répertoire de travail de GitHub
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > $GITHUB_WORKSPACE/.ssh/github_deploy_key
+          chmod 600 $GITHUB_WORKSPACE/.ssh/github_deploy_key
           echo "Adding GitHub to known hosts"
-          ssh-keyscan -H 192.168.1.235 >> /tmp/.ssh/known_hosts
+          ssh-keyscan -H 192.168.1.235 >> $GITHUB_WORKSPACE/.ssh/known_hosts
           # Vérifier les fichiers SSH créés
-          ls -la /tmp/.ssh
-          cat /tmp/.ssh/github_deploy_key
-          cat /tmp/.ssh/known_hosts
+          ls -la $GITHUB_WORKSPACE/.ssh
+          cat $GITHUB_WORKSPACE/.ssh/github_deploy_key
+          cat $GITHUB_WORKSPACE/.ssh/known_hosts
 
       - name: Deploy to server
         run: |
           echo "Running deploy script"
           # Tester la connexion SSH avec le serveur avant de procéder
-          ssh -i /tmp/.ssh/github_deploy_key -o StrictHostKeyChecking=no kvothe@192.168.1.235 "echo 'SSH connection successful!'"
+          ssh -i $GITHUB_WORKSPACE/.ssh/github_deploy_key -o StrictHostKeyChecking=no kvothe@192.168.1.235 "echo 'SSH connection successful!'"
           # Si la connexion SSH fonctionne, déployer le code
-          ssh -i /tmp/.ssh/github_deploy_key -o StrictHostKeyChecking=no kvothe@192.168.1.235 "cd /var/www/arnaudlemascon.fr && git pull origin main && sudo chown -R www-data:www-data /var/www/arnaudlemascon.fr"
+          ssh -i $GITHUB_WORKSPACE/.ssh/github_deploy_key -o StrictHostKeyChecking=no kvothe@192.168.1.235 "cd /var/www/arnaudlemascon.fr && git pull origin main && sudo chown -R www-data:www-data /var/www/arnaudlemascon.fr"
